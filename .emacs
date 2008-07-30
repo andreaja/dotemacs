@@ -145,8 +145,9 @@
 
 (setq load-path (cons "~/emacs/site-lisp/scala" load-path))
 (require 'scala-mode)
-(setq auto-mode-alist (append '(("\\.scala\\'" . scala-mode))
-			      auto-mode-alist))
+
+(require 'scala-mode-auto)
+;(require 'inferior-scala-mode)
 
 
 (custom-set-variables
