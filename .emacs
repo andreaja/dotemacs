@@ -37,7 +37,7 @@
 				 (or (lookup-key ,mode-map "\C-j")
 				     (lookup-key global-map "\C-j")))))))
  '(ada-mode c-mode c++-mode cperl-mode emacs-lisp-mode java-mode html-mode
-	    lisp-mode php-mode ruby-mode sh-mode sgml-mode))
+	    lisp-mode php-mode ruby-mode sh-mode sgml-mode python-mode))
 
 
 
@@ -89,7 +89,7 @@
   (let* ((list (buffer-list))
 	 (buffer (car list)))
     (while buffer
-      (if (string-match "\\*" (buffer-name buffer)) 
+      (if (string-match "\\*" (buffer-name buffer))
 	  (progn
 	    (setq list (cdr list))
 	    (setq buffer (car list)))
@@ -120,3 +120,48 @@
      (lambda (x)
        (buffer-file-name x))
      (buffer-list)))))
+
+
+;; this no worky
+;; (defun my-js-mode-hook ()
+;;   (require 'cperl-mode)
+;;   (setq tab-width 2
+;;         indent-tabs-mode nil
+;;         c-basic-offset 2))
+
+;; (add-hook 'js-mode-hook 'my-js-mode-hook)
+
+
+ (setq load-path (cons (expand-file-name "/usr/share/doc/git-core/contrib/emacs") load-path))
+ (require 'vc-git)
+ (when (featurep 'vc-git) (add-to-list 'vc-handled-backends 'git))
+ (require 'git)
+ (autoload 'git-blame-mode "git-blame"
+           "Minor mode for incremental blame for Git." t)
+
+
+(require 'anything)
+
+
+(setq load-path (cons "~/emacs/site-lisp/scala" load-path))
+(require 'scala-mode)
+
+
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ecb-options-version "2.32")
+ '(ecb-tip-of-the-day nil)
+ )
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+
+
+(add-hook 'write-file-hooks 'nuke-trailing-whitespace)
