@@ -171,7 +171,6 @@
 
 (setq exec-path (cons "/home/aja/var/scala/bin/" exec-path))
 
-
 (require 'scala-mode)
 (require 'compile)
 (require 'flymake)
@@ -201,29 +200,29 @@
 
 (set (make-local-variable 'indent-line-function) 'scala-indent-line)
 
-(defun scala-indent-line ()
-  "Indent current line of Scala code."
-  (interactive)
-  (indent-line-to (max 0 (scala-calculate-indentation))))
+;; (defun scala-indent-line ()
+;;   "Indent current line of Scala code."
+;;   (interactive)
+;;   (indent-line-to (max 0 (scala-calculate-indentation))))
 
-(defun scala-calculate-indentation ()
-  "Return the column to which the current line should be indented."
-  (save-excursion
-    (scala-maybe-skip-leading-close-delim)
-    (let ((pos (point)))
-      (beginning-of-line)
-      (if (not (search-backward-regexp "[^\n\t\r ]" 1 0))
-	  0
-	(progn
-	  (scala-maybe-skip-leading-close-delim)
-	  (+ (current-indentation) (* 2 (scala-count-scope-depth (point) pos))))))))
+;; (defun scala-calculate-indentation ()
+;;   "Return the column to which the current line should be indented."
+;;   (save-excursion
+;;     (scala-maybe-skip-leading-close-delim)
+;;     (let ((pos (point)))
+;;       (beginning-of-line)
+;;       (if (not (search-backward-regexp "[^\n\t\r ]" 1 0))
+;; 	  0
+;; 	(progn
+;; 	  (scala-maybe-skip-leading-close-delim)
+;; 	  (+ (current-indentation) (* 2 (scala-count-scope-depth (point) pos))))))))
 
-(defun scala-maybe-skip-leading-close-delim ()
-  (beginning-of-line)
-  (forward-to-indentation 0)
-  (if (looking-at "\\s)")
-      (forward-char)
-    (beginning-of-line)))
+;; (defun scala-maybe-skip-leading-close-delim ()
+;;   (beginning-of-line)
+;;   (forward-to-indentation 0)
+;;   (if (looking-at "\\s)")
+;;       (forward-char)
+;;     (beginning-of-line)))
 
 (defun scala-face-at-point (pos)
   "Return face descriptor for char at point."
@@ -243,7 +242,7 @@
 	    (forward-char 1)
 	  (cond
 
-            ;; Use font-lock-mode to ignore strings and comments
+	   ;; Use font-lock-mode to ignore strings and comments
 	   ((scala-face-at-point (- (point) 1))) 
 
 	   ((looking-back "\\s)")
