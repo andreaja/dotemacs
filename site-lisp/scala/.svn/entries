@@ -1,16 +1,16 @@
 8
 
 dir
-15617
+15779
 http://lampsvn.epfl.ch/svn-repos/scala/scala-tool-support/trunk/src/emacs
 http://lampsvn.epfl.ch/svn-repos/scala
 
 
 
-2007-09-04T11:07:23.680427Z
-12783
-michelou
-
+2008-08-06T13:15:13.435806Z
+15715
+nielsen
+has-props
 
 svn:special svn:externals svn:needs-lock
 
@@ -45,11 +45,11 @@ file
 
 
 
-2008-07-28T20:52:12.000000Z
-eb82656b9a7c88d5523f5004d11e3085
-2007-08-31T15:41:19.997518Z
-12749
-michelou
+2008-08-13T14:22:49.000000Z
+7a328d82cc10c8d3f6dfc0c609a4e867
+2008-08-06T13:15:13.435806Z
+15715
+nielsen
 has-props
 
 scala-mode-auto.el
@@ -58,11 +58,11 @@ file
 
 
 
-2008-07-28T20:52:12.000000Z
-cdc8e5804f3cab664c8a2d2725d28138
-2005-12-16T15:33:49.709855Z
-5359
-dubochet
+2008-08-13T14:22:49.000000Z
+6249e7720cd4a2ceba1b9b2a7ce76259
+2008-08-06T13:15:13.435806Z
+15715
+nielsen
 has-props
 
 Makefile
@@ -84,10 +84,10 @@ file
 
 
 
-2008-07-28T20:52:12.000000Z
-6354885d8296f4c21fb3b304b97caf7a
-2005-12-16T15:33:49.709855Z
-5359
-dubochet
+2008-08-13T14:22:49.000000Z
+c30bf34a542fea6d6409a9d59e1a8c81
+2008-08-06T13:15:13.435806Z
+15715
+nielsen
 has-props
 
