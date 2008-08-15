@@ -255,3 +255,5 @@
 
 (provide 'scala-extensions)
 
+(require 'scala-electric)
+(add-hook 'scala-mode-hook '(lambda() (scala-electric-mode)))
