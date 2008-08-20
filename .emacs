@@ -125,22 +125,16 @@
      (buffer-list)))))
 
 
-;; this no worky
-;; (defun my-js-mode-hook ()
-;;   (require 'cperl-mode)
-;;   (setq tab-width 2
-;;         indent-tabs-mode nil
-;;         c-basic-offset 2))
+;; Let's remove this for now and try magit
+; (setq load-path (cons (expand-file-name "/usr/share/doc/git-core/contrib/emacs") load-path))
+; (require 'vc-git)
+; (when (featurep 'vc-git) (add-to-list 'vc-handled-backends 'git))
+; (require 'git)
+; (autoload 'git-blame-mode "git-blame"
+;           "Minor mode for incremental blame for Git." t)
+(setq load-path (cons "~/emacs/site-lisp/magit" load-path))
+(require 'magit)
 
-;; (add-hook 'js-mode-hook 'my-js-mode-hook)
-
-
- (setq load-path (cons (expand-file-name "/usr/share/doc/git-core/contrib/emacs") load-path))
- (require 'vc-git)
- (when (featurep 'vc-git) (add-to-list 'vc-handled-backends 'git))
- (require 'git)
- (autoload 'git-blame-mode "git-blame"
-           "Minor mode for incremental blame for Git." t)
 
 
 (require 'anything)
