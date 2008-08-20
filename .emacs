@@ -12,6 +12,9 @@
 
 (shell)
 
+;; disable splash 
+(setq inhibit-startup-message t)
+
 
 ;; emacs-rails
 ;; http://dima-exe.ru/rails-on-emacs
@@ -142,6 +145,9 @@
 
 (require 'anything)
 
+(setq load-path (cons "~/emacs/site-lisp/distel" load-path))
+(require 'distel)
+(distel-setup)
 
 (setq load-path (cons "~/emacs/site-lisp/scala" load-path))
 ;(require 'scala-mode)
