@@ -135,11 +135,15 @@
 (setq load-path (cons "~/emacs/site-lisp/magit" load-path))
 (require 'magit)
 
+(setq load-path (cons "~/emacs/site-lisp/yasnippet" load-path))
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/emacs/site-lisp/yasnippet/snippets")
 
 
 (require 'anything)
 
-(setq load-path (cons "~/emacs/site-lisp/distel" load-path))
+(setq load-path (cons "~/emacs/site-lisp/distel/elisp" load-path))
 (require 'distel)
 (distel-setup)
 
