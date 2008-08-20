@@ -171,34 +171,32 @@
 
 (setq exec-path (cons "/home/aja/var/scala/bin/" exec-path))
 
-(require 'scala-mode)
-(require 'compile)
-(require 'flymake)
-(require 'font-lock)
+(require 'scala-mode-auto)
 
-(defvar scala-build-commad nil)
-(make-variable-buffer-local 'scala-build-command)
 
-(add-hook 'scala-mode-hook
-          (lambda ()
-	    (flymake-mode-on)
-	    ))
+;; (defvar scala-build-commad nil)
+;; (make-variable-buffer-local 'scala-build-command)
 
-(defun flymake-scala-init ()
-  (let* ((text-of-first-line (buffer-substring-no-properties (point-min) (min 20 (point-max)))))
-    (progn
-      (remove-hook 'after-save-hook 'flymake-after-save-hook t)
-      (save-buffer)
-      (add-hook 'after-save-hook 'flymake-after-save-hook nil t)
-      (if (string-match "^//script" text-of-first-line)
-	  (list "fsc" (list "-Xscript" "MainScript" "-d" "/tmp" buffer-file-name))
-	(or scala-build-command (list "fsc" (list "-d" "/tmp" buffer-file-name))))
-      )))
+;; (add-hook 'scala-mode-hook
+;;           (lambda ()
+;; 	    (flymake-mode-on)
+;; 	    ))
 
-(push '(".+\\.scala$" flymake-scala-init) flymake-allowed-file-name-masks)
-(push '("^\\(.*\\):\\([0-9]+\\): error: \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
+;; (defun flymake-scala-init ()
+;;   (let* ((text-of-first-line (buffer-substring-no-properties (point-min) (min 20 (point-max)))))
+;;     (progn
+;;       (remove-hook 'after-save-hook 'flymake-after-save-hook t)
+;;       (save-buffer)
+;;       (add-hook 'after-save-hook 'flymake-after-save-hook nil t)
+;;       (if (string-match "^//script" text-of-first-line)
+;; 	  (list "fsc" (list "-Xscript" "MainScript" "-d" "/tmp" buffer-file-name))
+;; 	(or scala-build-command (list "fsc" (list "-d" "/tmp" buffer-file-name))))
+;;       )))
 
-(set (make-local-variable 'indent-line-function) 'scala-indent-line)
+;; (push '(".+\\.scala$" flymake-scala-init) flymake-allowed-file-name-masks)
+;; (push '("^\\(.*\\):\\([0-9]+\\): error: \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
+
+;; (set (make-local-variable 'indent-line-function) 'scala-indent-line)
 
 ;; (defun scala-indent-line ()
 ;;   "Indent current line of Scala code."
@@ -224,36 +222,36 @@
 ;;       (forward-char)
 ;;     (beginning-of-line)))
 
-(defun scala-face-at-point (pos)
-  "Return face descriptor for char at point."
-  (plist-get (text-properties-at pos) 'face))
+;; (defun scala-face-at-point (pos)
+;;   "Return face descriptor for char at point."
+;;   (plist-get (text-properties-at pos) 'face))
 
-(defun scala-count-scope-depth (rstart rend)
-  "Return difference between open and close scope delimeters."
-  (save-excursion
-    (goto-char rstart)
-    (let ((open-count 0)
-	  (close-count 0)
-	  opoint)
-      (while (and (< (point) rend)
-		  (progn (setq opoint (point))
-			 (re-search-forward "\\s)\\|\\s(" rend t)))
-	(if (= opoint (point))
-	    (forward-char 1)
-	  (cond
+;; (defun scala-count-scope-depth (rstart rend)
+;;   "Return difference between open and close scope delimeters."
+;;   (save-excursion
+;;     (goto-char rstart)
+;;     (let ((open-count 0)
+;; 	  (close-count 0)
+;; 	  opoint)
+;;       (while (and (< (point) rend)
+;; 		  (progn (setq opoint (point))
+;; 			 (re-search-forward "\\s)\\|\\s(" rend t)))
+;; 	(if (= opoint (point))
+;; 	    (forward-char 1)
+;; 	  (cond
 
-	   ;; Use font-lock-mode to ignore strings and comments
-	   ((scala-face-at-point (- (point) 1))) 
+;; 	   ;; Use font-lock-mode to ignore strings and comments
+;; 	   ((scala-face-at-point (- (point) 1))) 
 
-	   ((looking-back "\\s)")
-	    (incf close-count))
-	   ((looking-back "\\s(")
-	    (incf open-count))
-	   )))
-      (- open-count close-count))))
+;; 	   ((looking-back "\\s)")
+;; 	    (incf close-count))
+;; 	   ((looking-back "\\s(")
+;; 	    (incf open-count))
+;; 	   )))
+;;       (- open-count close-count))))
 
+ 
+;;(provide 'scala-extensions)
 
-(provide 'scala-extensions)
-
-(require 'scala-electric)
-(add-hook 'scala-mode-hook '(lambda() (scala-electric-mode)))
+;;(require 'scala-electric)
+;;(add-hook 'scala-mode-hook '(lambda() (scala-electric-mode)))

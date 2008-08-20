@@ -1,7 +1,7 @@
 ############################################################-*-Makefile-*-####
 # Makefile for compiling the major mode of Emacs
 ##############################################################################
-# $Id: Makefile 15791 2008-08-14 10:00:00Z nielsen $
+# $Id: Makefile 15859 2008-08-20 11:01:13Z nielsen $
 
 ##############################################################################
 # Configuration
@@ -16,13 +16,26 @@ SOURCE_DIR		 = $(ROOT)
 # Emacs Lisp
 ELISP_COMMAND		?= emacs
 ELISP_OPTIONS		+= -batch -no-site-file
-ELISP_OPTIONS		+= -eval '(setq byte-compile-emacs19-compatibility t)'
+ELISP_OPTIONS           += -L $(ROOT) 
 ELISP_OPTIONS		+= -f batch-byte-compile
 
-ELISP_FILES		+= inferior-scala-mode
-ELISP_FILES		+= scala-mode-auto
+
 ELISP_FILES		+= scala-mode
-ELISP_FILES		+= scala-electric
+ELISP_FILES		+= scala-mode-auto
+ELISP_FILES		+= scala-mode-inf
+ELISP_FILES		+= scala-mode-indent
+ELISP_FILES		+= scala-mode-navigation
+ELISP_FILES		+= scala-mode-lib
+ELISP_FILES		+= scala-mode-ui
+ELISP_FILES		+= scala-mode-fontlock
+ELISP_FILES		+= scala-mode-constants
+ELISP_FILES		+= scala-mode-feature
+ELISP_FILES		+= scala-mode-feature-templates
+ELISP_FILES		+= scala-mode-feature-electric
+ELISP_FILES		+= scala-mode-feature-speedbar
+ELISP_FILES		+= scala-mode-feature-tags
+ELISP_FILES		+= scala-mode-feature-scaladoc
+
 ELISP_SOURCES		+= $(ELISP_FILES:%=$(SOURCE_DIR)/%.el)
 
 ##############################################################################
