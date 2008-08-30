@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/php-mode/!svn/ver/71/trunk/php-mode-src
+END
+php-mode.texi
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/php-mode/!svn/ver/71/trunk/php-mode-src/php-mode.texi
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/php-mode/!svn/ver/71/trunk/php-mode-src/ChangeLog
+END
+php-mode.el
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/php-mode/!svn/ver/70/trunk/php-mode-src/php-mode.el
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/php-mode/!svn/ver/43/trunk/php-mode-src/Makefile
+END
+fdl.texi
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/php-mode/!svn/ver/25/trunk/php-mode-src/fdl.texi
+END

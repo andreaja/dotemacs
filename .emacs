@@ -43,6 +43,21 @@
 	    lisp-mode php-mode ruby-mode sh-mode sgml-mode python-mode))
 
 
+;; Add some ruby mode hooks
+;; from this guy: http://github.com/nkpart/dotfiles/tree/master/.emacs
+
+(dolist (mode-cons '(("\\.rake$" . ruby-mode)
+                     ("rakefile$" . ruby-mode)
+     ("buildfile$" . ruby-mode)
+     ("Buildfile$" . ruby-mode)
+                     ("Rakefile$" . ruby-mode)))
+  (add-to-list ' auto-mode-alist mode-cons))
+
+
+;; Use ssh on tramp
+;; http://ubuntuforums.org/showthread.php?t=760038
+
+(setq tramp-default-method "ssh")
 
 ;; Sudo shell for tramp, use C-x C-r to sudo find-file
 ;; refactor this out obivously
@@ -260,3 +275,7 @@
 ;;(require 'scala-electric)
 ;;(add-hook 'scala-mode-hook '(lambda() (scala-electric-mode)))
 
+
+
+(add-to-list 'load-path "~/emacs/site-lisp/php-mode/php-mode-src")
+(require 'php-mode)

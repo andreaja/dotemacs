@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/strict.dtd">
+<html>
+<head>
+<title>PHP mode for Emacs</title>
+<link rel="stylesheet" type="text/css" href="php-mode.css" title="default" media="screen" />
+<body>
+
+<h1>PHP mode for Emacs</h1>
+
+<p><a href="http://sourceforge.net/projects/php-mode/">Project page</a></p>
+
+<p><a href="php-mode.el.html"><tt>php-mode.el</tt></a> (<a href="http://php-mode.svn.sourceforge.net/svnroot/php-mode/tags/php-mode-1.4.0/php-mode.el">Download</a>) -- As of <span class="date">2 January, 2008</span>.</p>
+
+<h2>Latest release:</h2>
+
+<p>Release 1.4.0 -- <span class="date">25 January, 2008</span>.  Supports <a href="http://www.gnu.org/software/emacs/">Emacs</a> 22 with <a href="http://cc-mode.sourceforge.net/">CC Mode</a> 5.31.</p>
+
+<ul>
+<li><a href="http://downloads.sourceforge.net/php-mode/php-mode-1.4.0.tar.gz">php-mode-1.4.0.tar.gz</a> (<a href="http://downloads.sourceforge.net/php-mode/php-mode-1.4.0.tar.gz.sig">GPG signature</a>)</li>
+<li><a href="http://downloads.sourceforge.net/php-mode/php-mode-1.4.0.zip">php-mode-1.4.0.zip</a> (<a href="http://downloads.sourceforge.net/php-mode/php-mode-1.4.0.zip.sig">GPG signature</a>)</li>
+<li><a href="http://sourceforge.net/project/shownotes.php?release_id=571339&group_id=18584">Release notes</a></li>
+<li><a href="ashawley-sf-pubkey.asc">Maintainer GPG public key</a></li>
+</ul>
+
+<h2>Legacy release:</h2>
+
+<p>Release 1.2.0 -- <span class="date">2 August, 2005</span>.  Supports <a href="http://www.gnu.org/software/emacs/">Emacs</a> 21 with <a href="http://cc-mode.sourceforge.net/">CC Mode</a> 5.28.</p>
+
+<ul>
+<li><a href="http://downloads.sourceforge.net/php-mode/php-mode-1.2.0.tgz">php-mode-1.2.0.tgz</a></li>
+<li><a href="http://downloads.sourceforge.net/php-mode/php-mode-1.2.0.zip">php-mode-1.2.0.zip</a></li>
+</ul>
+
+<h2>Manual:</h2>
+
+<ul>
+<li><a href="html-manual/">Multiple HTML pages</a></li>
+<li><a href="php-mode.html">Single HTML page</a></li>
+<li><a href="php-mode.pdf">PDF file</a></li>
+</ul>
+
+<h2>Related links:</h2>
+
+<ul>
+<li><a href="http://www.emacswiki.org/cgi-bin/wiki/HtmlModeDeluxe">HtmlModeDeluxe</a> to integrate php-mode with HTML</li>
+<li><a href="http://prdownloads.sourceforge.net/php-mode/cvscheckphp.sh?download">cvscheckphp.sh</a> script for CVS commitinfo to do sanity check on commit</li>
+<li><a href="http://prdownloads.sourceforge.net/php-mode/svncheckphp.sh?download">svncheckphp.sh</a> Subversion hook to do sanity check on commit</li>
+</ul>
+
+<p><a href="http://sourceforge.net"> 
+<img src="http://sourceforge.net/sflogo.php?group_id=18584&amp;type=1"
+width="88" height="31" border="0" alt="SourceForge Logo" id="sflogo"/></a> </p>
+
+<hr />
+
+<address class="author"><a href="http://www.gnu.org/copyleft/copyleft.html">CopyLeft</a> <span class="year">2005</span>, <span class="year">2008</span> PHP Mode project</address>
+
+<p id="lastmodified">Last modified on <span class="date">$Date$</span> by <span class="author">$Author$</a> as <span class="revision">$Revision$</span></p>
+
+</body>
+</html>

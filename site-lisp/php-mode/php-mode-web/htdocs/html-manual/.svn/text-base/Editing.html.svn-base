@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+<title>Editing - PHP Mode Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="PHP Mode Manual">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Indentation.html#Indentation" title="Indentation">
+<link rel="next" href="Completion.html#Completion" title="Completion">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual documents PHP mode version 1.4.0 for
+use with GNU Emacs.
+
+Copyright (C) 2008  Aaron S. Hawley
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, and no Cover Texts.  A
+     copy of the license is included in the section entitled ``Copying
+     This Manual.''
+
+     A copy of the license is also available from the Free Software
+     Foundation Web site at `http://www.gnu.org/licenses/fdl.html'.
+
+
+The document was typeset with
+GNU Texinfo (http://www.texinfo.org/).
+
+$Date: 2008-01-03 20:50:20 -0500 (Thu, 03 Jan 2008) $
+
+$Revision: 30 $-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Editing"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Completion.html#Completion">Completion</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Indentation.html#Indentation">Indentation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">5 Editing</h2>
+
+     
+<a name="index-paragraph_002c-fill-97"></a>
+<a name="index-filling-98"></a>
+<a name="index-indentation_002c-filling-99"></a>
+<a name="index-filling-indentation-100"></a>
+<a name="index-filling-comment-101"></a>
+<a name="index-comment_002c-filling-102"></a>
+<a name="index-Docblock-comment-103"></a>
+<a name="index-comment_002c-Docblock-104"></a>
+<a name="index-c_002dfill_002dparagraph-105"></a>
+<a name="index-M_002dq-106"></a>
+<dl><dt><kbd>M-q</kbd><dd>Fill the paragraph to current value of <code>fill-column</code>. 
+The command does the right thing for indented code and PHP
+comments including Docblock comments. 
+<a name="index-column_002c-fill-107"></a><a name="index-fill-column-108"></a><a name="index-fill_002dcolumn-109"></a><a name="index-set_002dfill_002dcolumn-110"></a><a name="index-fill_002dparagraph-111"></a><a name="index-C_002dx-f-112"></a><br><dt><kbd>C-u </kbd><var>n</var><kbd> C-x f</kbd><dd>Set the <code>fill-column</code> to <var>n</var> when using the <kbd>M-q</kbd>
+command (<code>fill-paragraph</code>). 
+<a name="index-function_002c-mark-113"></a><a name="index-kill_002dregion-114"></a><a name="index-kill_002dring_002dsave-115"></a><a name="index-indent_002dregion-116"></a><a name="index-indent_002drigidly-117"></a><a name="index-c_002dmark_002dfunction-118"></a><a name="index-C_002dM_002dh-119"></a><a name="index-C_002dw-120"></a><a name="index-M_002dw-121"></a><a name="index-C_002dM_002d_005c-122"></a><br><dt><kbd>C-M-h</kbd><dd>Mark the current function (<code>c-mark-function</code>).  Puts
+the mark at the end and of the function and the point at the
+beginning.  Useful if you want to kill the region with
+<kbd>C-w</kbd> or <kbd>M-w</kbd>, or indent the region with
+<kbd>C-M-\</kbd> or <kbd>C-x TAB</kbd> (See <a href="Indentation.html#Indentation">Indentation</a>.).
+
+</dl>
+
+   </body></html>
+

@@ -1,0 +1,162 @@
+<html lang="en">
+<head>
+<title>Completion - PHP Mode Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="PHP Mode Manual">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Editing.html#Editing" title="Editing">
+<link rel="next" href="PHP-Comments.html#PHP-Comments" title="PHP Comments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual documents PHP mode version 1.4.0 for
+use with GNU Emacs.
+
+Copyright (C) 2008  Aaron S. Hawley
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, and no Cover Texts.  A
+     copy of the license is included in the section entitled ``Copying
+     This Manual.''
+
+     A copy of the license is also available from the Free Software
+     Foundation Web site at `http://www.gnu.org/licenses/fdl.html'.
+
+
+The document was typeset with
+GNU Texinfo (http://www.texinfo.org/).
+
+$Date: 2008-01-03 20:50:20 -0500 (Thu, 03 Jan 2008) $
+
+$Revision: 30 $-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Completion"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="PHP-Comments.html#PHP-Comments">PHP Comments</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Editing.html#Editing">Editing</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">6 Completion</h2>
+
+<p><a name="index-completion-123"></a>Completing function names, identifiers and keywords in PHP
+is possible in PHP mode.  In PHP mode, it is possible to
+complete identifiers defined by PHP programming language,
+and functions defined by you.
+
+   <p><a name="index-customization_002c-PHP-manual-path-124"></a><a name="index-PHP-manual-path-125"></a><a name="index-php_002dmanual_002dpath-126"></a><a name="index-g_t_002eemacs_002c-php_002dmanual_002dpath-127"></a><a name="index-customize_002dvariable-128"></a>For PHP mode to know the functions of keywords of PHP, it
+must have access to the PHP manual.  Download the HTML
+archive of the manual made of separate files for each
+function.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
+Unpack the files to a directory, and define the variable
+<var>php-manual-path</var> to the location of these files. 
+Configure this setting with either <kbd>M-x
+customize-variable RET php-manual-path RET</kbd>, or by setting
+the value in your Emacs initialization file
+(<samp><span class="file">~/.emacs</span></samp>).  The PHP function names
+
+   <p><a name="index-etags-129"></a><a name="index-tag-file-130"></a><a name="index-Makefile-131"></a>For functions and classes you define, you'll need to provide
+them to Emacs as a <dfn>tag file</dfn>.<a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a> Creating a
+tag file (<samp><span class="file">TAGS</span></samp>) from a PHP source code file is done
+by running the <samp><span class="command">etags</span></samp> command on the
+file.<a rel="footnote" href="#fn-3" name="fnd-3"><sup>3</sup></a> The
+<samp><span class="command">etags</span></samp> command can even generate tag files for
+providing completion across multiple files.  For larger
+projects and PHP coded libraries, use a system like a
+Makefile to generate and maintain the tag tables.
+
+   <p><a name="index-etags_002c-running-132"></a>Run,
+
+<pre class="example">     etags <var>file</var>
+</pre>
+   <p>to create a tags file for <var>file</var>.
+
+   <p>To generate a tag file for all the PHP files in the current
+directory, run
+
+<pre class="example">     etags *.php
+</pre>
+   <p>To enable a tags file you need to use the following command.
+
+     
+<a name="index-tag-133"></a>
+<a name="index-visit_002dtags_002dtable-134"></a>
+<dl><dt><kbd>C-u M-x visit-tags-table</kbd><dd>Specify the <samp><span class="file">TAGS</span></samp> file that PHP mode should use to
+find completion candidates for the current buffer.
+
+     <br><dt><kbd>M-x visit-tags-table</kbd><dd>Specify the <samp><span class="file">TAGS</span></samp> file that PHP mode should use to
+find completion candidates for all buffers, and even other
+modes other than PHP mode.
+
+   </dl>
+
+   <p><a name="index-customization_002c-PHP-completion-file-135"></a><a name="index-PHP-completion-file-136"></a><a name="index-php_002dcompletion_002dfile-137"></a><a name="index-g_t_002eemacs_002c-php_002dcompletion_002dfile-138"></a><a name="index-customize_002dvariable-139"></a>To avoid either
+
+     <ol type=1 start=1>
+<li>avoid regenerating the completion table from the PHP manual
+every Emacs session,
+<li>to generate a completion file from a facility external to
+Emacs tags,
+<li>or to provide more granular control over the completion
+rules for files;
+
+        </ol>
+
+   <p>consider using the variable <code>php-completion-file</code>.
+
+   <p>Configure this setting with either <kbd>M-x
+customize-variable RET php-completion-file RET</kbd>, or by
+setting the value in your Emacs initialization file
+(<samp><span class="file">~/.emacs</span></samp>).
+
+   <p>For larger projects or because of other specific needs,
+conventional ways of setting these and other variables may
+be inadequate.  As of 2008, third-party packages do exist
+for Emacs to configure Emacs settings on groups of files or
+for directory trees, including <samp><span class="file">dirvars.el</span></samp>.
+
+     
+<a name="index-complete-function-140"></a>
+<a name="index-function_002c-complete-141"></a>
+<a name="index-php_002dcomplete_002dfunction-142"></a>
+<a name="index-M_002dTAB-143"></a>
+<a name="index-ESC-TAB-144"></a>
+<a name="index-C_002d_005b-TAB-145"></a>
+<dl><dt><kbd>M-TAB</kbd><br><dt><kbd>ESC TAB</kbd><br><dt><kbd>C-[ TAB</kbd><dd>Complete function name at point (<code>php-complete-function</code>). 
+<a name="index-argument-list_002c-function-146"></a><a name="index-function-argument-list-147"></a><a name="index-minibuffer-148"></a><a name="index-php_002dshow_002darglist-149"></a><a name="index-C_002d_002e-150"></a><br><dt><kbd>C-.</kbd><dd>Show in the minibuffer the argument list for the current
+function at point (<code>php-show-arglist</code>).  The argument
+list is generated by finding and jumping to the respective
+function's location specified in the tag file (see above). 
+The argument list is then read and printed to the
+minibuffer. 
+</dl>
+
+   <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> <a href="http://www.php.net/download-docs.php">http://www.php.net/download-docs.php</a></p>
+
+   <p class="footnote"><small>[<a name="fn-2" href="#fnd-2">2</a>]</small> See <a href="http://emacswiki.org/cgi-bin/info-ref?find=Tags.html#Tags">Tags Tables</a>.</p>
+
+   <p class="footnote"><small>[<a name="fn-3" href="#fnd-3">3</a>]</small> See <a href="http://emacswiki.org/cgi-bin/info-ref?find=Create-Tags-Table.html#Create-Tags-Table">Creating Tags Tables</a>.</p>
+
+   <p><hr></div>
+
+   </body></html>
+
