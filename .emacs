@@ -16,6 +16,9 @@
 (setq inhibit-startup-message t)
 
 
+;; disable toolbar (should be mac only, linux uses .Xresources)
+(tool-bar-mode 0)
+
 ;; emacs-rails
 ;; http://dima-exe.ru/rails-on-emacs
 
@@ -142,6 +145,10 @@
 (add-to-list 'yas/extra-mode-hooks 'erlang-mode-hook)
 
 (require 'anything)
+
+(add-to-list 'load-path "/opt/local/lib/erlang/lib/tools-2.6.1/emacs/")
+(require 'erlang-start)
+
 
 (setq load-path (cons "~/emacs/site-lisp/distel/elisp" load-path))
 (require 'distel)
