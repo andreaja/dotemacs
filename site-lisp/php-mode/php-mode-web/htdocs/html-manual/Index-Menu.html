@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+<title>Index Menu - PHP Mode Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="PHP Mode Manual">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="PHP-Documentation.html#PHP-Documentation" title="PHP Documentation">
+<link rel="next" href="Change-Logs.html#Change-Logs" title="Change Logs">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual documents PHP mode version 1.4.0 for
+use with GNU Emacs.
+
+Copyright (C) 2008  Aaron S. Hawley
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, and no Cover Texts.  A
+     copy of the license is included in the section entitled ``Copying
+     This Manual.''
+
+     A copy of the license is also available from the Free Software
+     Foundation Web site at `http://www.gnu.org/licenses/fdl.html'.
+
+
+The document was typeset with
+GNU Texinfo (http://www.texinfo.org/).
+
+$Date: 2008-01-03 20:50:20 -0500 (Thu, 03 Jan 2008) $
+
+$Revision: 30 $-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Index-Menu"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Change-Logs.html#Change-Logs">Change Logs</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="PHP-Documentation.html#PHP-Documentation">PHP Documentation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">9 Index Menu</h2>
+
+<p><a name="index-index-menu-195"></a><a name="index-menu_002c-index-196"></a><a name="index-index_002c-class-197"></a><a name="index-index_002c-function-198"></a><a name="index-class-index-199"></a><a name="index-function-index-200"></a>PHP mode provides a menu of the functions and classes
+defined in the current buffer.  The menu is pretty simple,
+but is helpful when navigating large files.  The contents of
+the menu also provide a good overview to the user about the
+file's contents.
+
+   <p>To enable this menu, run the following command.
+
+     
+<a name="index-menu-bar-201"></a>
+<a name="index-imenu_002dadd_002dmenubar_002dindex-202"></a>
+<dl><dt><kbd>M-x imenu-add-menubar-index</kbd><dd>Scan the file for functions and class declarations, then add
+a menu item called &ldquo;Index&rdquo; to the menu bar.
+
+   </dl>
+
+   <p>In the menu are any one or more of the following menu items.
+
+     
+<a name="index-imenu-203"></a>
+<dl><dt>`<samp><span class="samp">Functions</span></samp>'<dd>A sub-menu containing the names of functions defined in the
+current buffer.  Clicking on a function name will visit the
+location of the function's definition. 
+<a name="index-imenu-204"></a><br><dt>`<samp><span class="samp">Classes</span></samp>'<dd>A sub-menu containing the names of classes defined in the
+current buffer.  Clicking on a class name will visit the
+location of the class's definition. 
+<a name="index-imenu_002dupdate_002dmenubar-205"></a><a name="index-rescan-206"></a><br><dt>`<samp><span class="samp">*Rescan*</span></samp>'<dd>Rescan the contents of the current buffer, and update both
+the indexes the entries in the menu.
+
+   </dl>
+
+   <p><a name="index-customization_002c-Imenu-auto-rescan-207"></a><a name="index-rescan_002c-automatically-208"></a><a name="index-g_t_002eemacs_002c-imenu_002dauto_002drescan-209"></a><a name="index-imenu_002dauto_002drescan-210"></a><a name="index-customize_002dvariable-211"></a>To have Emacs automatically rescan the current buffer,
+change the setting for <code>imenu-auto-rescan</code> to non-nil
+with either <kbd>M-x customize-variable RET
+php-completion-file RET</kbd>, or by setting the value in your
+Emacs initialization file (<samp><span class="file">~/.emacs</span></samp>).
+
+   </body></html>
+

@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+<title>Motion - PHP Mode Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="PHP Mode Manual">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Electricity.html#Electricity" title="Electricity">
+<link rel="next" href="Indentation.html#Indentation" title="Indentation">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual documents PHP mode version 1.4.0 for
+use with GNU Emacs.
+
+Copyright (C) 2008  Aaron S. Hawley
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, and no Cover Texts.  A
+     copy of the license is included in the section entitled ``Copying
+     This Manual.''
+
+     A copy of the license is also available from the Free Software
+     Foundation Web site at `http://www.gnu.org/licenses/fdl.html'.
+
+
+The document was typeset with
+GNU Texinfo (http://www.texinfo.org/).
+
+$Date: 2008-01-03 20:50:20 -0500 (Thu, 03 Jan 2008) $
+
+$Revision: 30 $-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Motion"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Indentation.html#Indentation">Indentation</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Electricity.html#Electricity">Electricity</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">3 Motion</h2>
+
+<p><a name="index-motion-22"></a><a name="index-movement-23"></a><a name="index-point-24"></a>The traditional commands for Emacs<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a> and Emacs's C
+mode<a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a> are supported in
+PHP mode.  The following commands are notable to mention for
+working with PHP or are extensions expressly provided PHP
+mode.
+
+     
+<a name="index-block-25"></a>
+<a name="index-braces-26"></a>
+<a name="index-parentheses-27"></a>
+<a name="index-string-28"></a>
+<a name="index-statements-29"></a>
+<a name="index-syntax_002c-forward-30"></a>
+<a name="index-forward_002dsexp-31"></a>
+<a name="index-C_002dM_002df-32"></a>
+<dl><dt><kbd>C-M-f</kbd><dd>Move forward past the current syntax (<code>forward-sexp</code>). 
+If point is in a string literal, move to the end of the
+string.  If point is at the beginning of a parenthetical
+expression, move to the end of it.  If at the beginning of
+statement block that is surrounded by braces, move to the
+end of the block.  If point is at an identifier, skip to the
+end of it. 
+<a name="index-syntax_002c-backward-33"></a><a name="index-backward_002dsexp-34"></a><a name="index-C_002dM_002db-35"></a><br><dt><kbd>C-M-b</kbd><dd>Same as <kbd>C-M-f</kbd>, except a syntactic element move to its
+beginning (<code>backward-sexp</code>). 
+<a name="index-beginning-of-function-36"></a><a name="index-function_002c-beginning-of-37"></a><a name="index-c_002dbeginning_002dof_002ddefun-38"></a><a name="index-C_002dM_002da-39"></a><br><dt><kbd>C-M-a</kbd><dd>Move point to the beginning of the top-level function
+definition (<code>c-beginning-of-defun</code>). 
+<a name="index-end-of-function-40"></a><a name="index-function_002c-end-of-41"></a><a name="index-c_002dend_002dof_002ddefun-42"></a><a name="index-C_002dM_002de-43"></a><br><dt><kbd>C-M-e</kbd><dd>Move point to the end of the top-level function definition
+(<code>c-end-of-defun</code>). 
+<a name="index-end-of-function-44"></a><a name="index-function_002c-end-of-45"></a><a name="index-beginning_002dof_002ddefun-46"></a><a name="index-C_002dM_002d_003cHOME_003e-47"></a><br><dt><kbd>C-M-&lt;HOME&gt;</kbd><dd>Move point to the beginning of the current function
+(<code>beginning-of-defun</code>). 
+<a name="index-end-of-function-48"></a><a name="index-function_002c-end-of-49"></a><a name="index-end_002dof_002ddefun-50"></a><a name="index-C_002dM_002d_003cEND_003e-51"></a><br><dt><kbd>C-M-&lt;END&gt;</kbd><dd>Move point to the end of the current function
+(<code>end-of-defun</code>). 
+<a name="index-indentation_002c-move-to-52"></a><a name="index-back_002dto_002dindentation-53"></a><a name="index-M_002dm-54"></a><br><dt><kbd>M-m</kbd><dd>Move to the indentation at the beginning of the line
+(<code>back-to-indentation</code>). 
+<a name="index-bumpy-case-55"></a><a name="index-camel-case-56"></a><a name="index-mixed-case-57"></a><a name="index-case_002c-mixed-58"></a><a name="index-function_002c-end-of-59"></a><a name="index-backward_002dword-60"></a><a name="index-forward_002dword-61"></a><a name="index-c_002dsubword_002dmode-62"></a><a name="index-C_002dc-C_002dw-63"></a><br><dt><kbd>C-c C-w</kbd><dd>Enable word motion across mixed case identifiers with
+<code>forward-word</code> and <code>backward-word</code> commands
+(<code>c-subword-mode</code>). 
+</dl>
+   <a name="index-universal-argument-64"></a><a name="index-numeric-argument-65"></a><a name="index-universal_002dargument-66"></a><a name="index-C_002du-67"></a>Most movement commands support prefixing the command with a
+<dfn>numeric argument</dfn> by using Emacs's <dfn>universal
+argument</dfn> command.  Type <kbd>C-u </kbd><var>n</var>, where <var>n</var> is
+the number of times to repeat a command.  If no number
+<var>n</var> is provided, Emacs will repeat the command 4 times
+by default.  See <a href="http://emacswiki.org/cgi-bin/info-ref?find=Arguments.html#Arguments">Numeric Arguments</a>.
+
+   <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> See <a href="http://emacswiki.org/cgi-bin/info-ref?find=Moving-Point.html#Moving-Point">Changing the Location of Point</a>.</p>
+
+   <p class="footnote"><small>[<a name="fn-2" href="#fnd-2">2</a>]</small> See <a href="http://cc-mode.sourceforge.net/html-manual/Movement-Commands.html#Movement-Commands">Movement Commands</a>.</p>
+
+   <p><hr></div>
+
+   </body></html>
+

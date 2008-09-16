@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+<title>Concept Index - PHP Mode Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="PHP Mode Manual">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Copying-This-Manual.html#Copying-This-Manual" title="Copying This Manual">
+<link rel="next" href="Function-Index.html#Function-Index" title="Function Index">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual documents PHP mode version 1.4.0 for
+use with GNU Emacs.
+
+Copyright (C) 2008  Aaron S. Hawley
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, and no Cover Texts.  A
+     copy of the license is included in the section entitled ``Copying
+     This Manual.''
+
+     A copy of the license is also available from the Free Software
+     Foundation Web site at `http://www.gnu.org/licenses/fdl.html'.
+
+
+The document was typeset with
+GNU Texinfo (http://www.texinfo.org/).
+
+$Date: 2008-01-03 20:50:20 -0500 (Thu, 03 Jan 2008) $
+
+$Revision: 30 $-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Concept-Index"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Function-Index.html#Function-Index">Function Index</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Copying-This-Manual.html#Copying-This-Manual">Copying This Manual</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="unnumbered">Concept Index</h2>
+
+<ul class="index-cp" compact>
+<li><a href="Customization.html#index-g_t_002eemacs-213">.emacs</a>: <a href="Customization.html#Customization">Customization</a></li>
+<li><a href="Index-Menu.html#index-g_t_002eemacs_002c-imenu_002dauto_002drescan-209">.emacs, imenu-auto-rescan</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Completion.html#index-g_t_002eemacs_002c-php_002dcompletion_002dfile-138">.emacs, php-completion-file</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Completion.html#index-g_t_002eemacs_002c-php_002dmanual_002dpath-127">.emacs, php-manual-path</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Completion.html#index-argument-list_002c-function-146">argument list, function</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Motion.html#index-beginning-of-function-36">beginning of function</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Motion.html#index-block-25">block</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Motion.html#index-braces-26">braces</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Electricity.html#index-braces-15">braces</a>: <a href="Electricity.html#Electricity">Electricity</a></li>
+<li><a href="PHP-Documentation.html#index-browse-PHP-manual-188">browse PHP manual</a>: <a href="PHP-Documentation.html#PHP-Documentation">PHP Documentation</a></li>
+<li><a href="Motion.html#index-bumpy-case-55">bumpy case</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Introduction.html#index-C-mode-1">C mode</a>: <a href="Introduction.html#Introduction">Introduction</a></li>
+<li><a href="Motion.html#index-camel-case-56">camel case</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Motion.html#index-case_002c-mixed-58">case, mixed</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Index-Menu.html#index-class-index-199">class index</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Indentation.html#index-class_002c-indent-93">class, indent</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="PHP-Comments.html#index-column_002c-comment-164">column, comment</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="Editing.html#index-column_002c-fill-107">column, fill</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="PHP-Comments.html#index-comment-151">comment</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="PHP-Comments.html#index-comment-box-180">comment box</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="PHP-Comments.html#index-comment-column-165">comment column</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="PHP-Comments.html#index-comment-newline-161">comment newline</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="PHP-Comments.html#index-comment-region-169">comment region</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="Editing.html#index-comment_002c-Docblock-104">comment, Docblock</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Editing.html#index-comment_002c-filling-102">comment, filling</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="PHP-Comments.html#index-comment_002c-indent-155">comment, indent</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="PHP-Comments.html#index-comment_002c-insert-152">comment, insert</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="PHP-Comments.html#index-comment_002c-kill-173">comment, kill</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="Electricity.html#index-comments-16">comments</a>: <a href="Electricity.html#Electricity">Electricity</a></li>
+<li><a href="Completion.html#index-complete-function-140">complete function</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Completion.html#index-completion-123">completion</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Electricity.html#index-conditional-statements-14">conditional statements</a>: <a href="Electricity.html#Electricity">Electricity</a></li>
+<li><a href="Customization.html#index-customization-212">customization</a>: <a href="Customization.html#Customization">Customization</a></li>
+<li><a href="PHP-Documentation.html#index-customization_002c-browse_002durl-183">customization, browse-url</a>: <a href="PHP-Documentation.html#PHP-Documentation">PHP Documentation</a></li>
+<li><a href="Index-Menu.html#index-customization_002c-Imenu-auto-rescan-207">customization, Imenu auto rescan</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Completion.html#index-customization_002c-PHP-completion-file-135">customization, PHP completion file</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Completion.html#index-customization_002c-PHP-manual-path-124">customization, PHP manual path</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Electricity.html#index-declaration-blocks-13">declaration blocks</a>: <a href="Electricity.html#Electricity">Electricity</a></li>
+<li><a href="Editing.html#index-Docblock-comment-103">Docblock comment</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="PHP-Documentation.html#index-documentation_002c-PHP-184">documentation, PHP</a>: <a href="PHP-Documentation.html#PHP-Documentation">PHP Documentation</a></li>
+<li><a href="Electricity.html#index-electric-indentation-12">electric indentation</a>: <a href="Electricity.html#Electricity">Electricity</a></li>
+<li><a href="Electricity.html#index-electricity-9">electricity</a>: <a href="Electricity.html#Electricity">Electricity</a></li>
+<li><a href="Embedded-HTML.html#index-embedded-code-219">embedded code</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Motion.html#index-end-of-function-40">end of function</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Completion.html#index-etags-129">etags</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Completion.html#index-etags_002c-running-132">etags, running</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Introduction.html#index-features-2">features</a>: <a href="Introduction.html#Introduction">Introduction</a></li>
+<li><a href="Editing.html#index-fill-column-108">fill column</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Editing.html#index-fill_002dcolumn-109">fill-column</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Editing.html#index-filling-98">filling</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Editing.html#index-filling-comment-101">filling comment</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Editing.html#index-filling-indentation-100">filling indentation</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Completion.html#index-function-argument-list-147">function argument list</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Index-Menu.html#index-function-index-200">function index</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Motion.html#index-function_002c-beginning-of-37">function, beginning of</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Completion.html#index-function_002c-complete-141">function, complete</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Motion.html#index-function_002c-end-of-41">function, end of</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Indentation.html#index-function_002c-indent-91">function, indent</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Editing.html#index-function_002c-mark-113">function, mark</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Embedded-HTML.html#index-HTML-221">HTML</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Indentation.html#index-HTML-72">HTML</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Indentation.html#index-indent-class-94">indent class</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="PHP-Comments.html#index-indent-comment-153">indent comment</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="Indentation.html#index-indent-function-92">indent function</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Indentation.html#index-indent-line-78">indent line</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Indentation.html#index-indent-newline-83">indent newline</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Indentation.html#index-indent-region-87">indent region</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Embedded-HTML.html#index-indentation-220">indentation</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Indentation.html#index-indentation-68">indentation</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Indentation.html#index-indentation-level-73">indentation level</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Electricity.html#index-indentation_002c-electric-11">indentation, electric</a>: <a href="Electricity.html#Electricity">Electricity</a></li>
+<li><a href="Editing.html#index-indentation_002c-filling-99">indentation, filling</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Motion.html#index-indentation_002c-move-to-52">indentation, move to</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Index-Menu.html#index-index-menu-195">index menu</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Index-Menu.html#index-index_002c-class-197">index, class</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Index-Menu.html#index-index_002c-function-198">index, function</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Customization.html#index-initialization-file-214">initialization file</a>: <a href="Customization.html#Customization">Customization</a></li>
+<li><a href="PHP-Comments.html#index-insert-comment-154">insert comment</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="PHP-Comments.html#index-kill-comment-174">kill comment</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="Indentation.html#index-line_002c-indent-79">line, indent</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Completion.html#index-Makefile-131">Makefile</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Embedded-HTML.html#index-markup-formats-216">markup formats</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Index-Menu.html#index-menu-bar-201">menu bar</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Index-Menu.html#index-menu_002c-index-196">menu, index</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Completion.html#index-minibuffer-148">minibuffer</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Motion.html#index-mixed-case-57">mixed case</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Embedded-HTML.html#index-mmm_002dmode-228">mmm-mode</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Motion.html#index-motion-22">motion</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Motion.html#index-movement-23">movement</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Embedded-HTML.html#index-multi_002dmode-229">multi-mode</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Embedded-HTML.html#index-multiple-major-mode-226">multiple major mode</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Embedded-HTML.html#index-mumamo-227">mumamo</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Indentation.html#index-newline-82">newline</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="PHP-Comments.html#index-newline_002c-comment-160">newline, comment</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="Motion.html#index-numeric-argument-65">numeric argument</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Editing.html#index-paragraph_002c-fill-97">paragraph, fill</a>: <a href="Editing.html#Editing">Editing</a></li>
+<li><a href="Motion.html#index-parentheses-27">parentheses</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Indentation.html#index-PEAR-69">PEAR</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Introduction.html#index-PEAR-3">PEAR</a>: <a href="Introduction.html#Introduction">Introduction</a></li>
+<li><a href="Completion.html#index-PHP-completion-file-136">PHP completion file</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="PHP-Documentation.html#index-PHP-documentation-185">PHP documentation</a>: <a href="PHP-Documentation.html#PHP-Documentation">PHP Documentation</a></li>
+<li><a href="Completion.html#index-PHP-manual-path-125">PHP manual path</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Introduction.html#index-PHP-versions-4">PHP versions</a>: <a href="Introduction.html#Introduction">Introduction</a></li>
+<li><a href="Motion.html#index-point-24">point</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="PHP-Comments.html#index-region_002c-comment-170">region, comment</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="PHP-Comments.html#index-region_002c-comment-box-179">region, comment box</a>: <a href="PHP-Comments.html#PHP-Comments">PHP Comments</a></li>
+<li><a href="Indentation.html#index-region_002c-indent-88">region, indent</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Index-Menu.html#index-rescan-206">rescan</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="Index-Menu.html#index-rescan_002c-automatically-208">rescan, automatically</a>: <a href="Index-Menu.html#Index-Menu">Index Menu</a></li>
+<li><a href="PHP-Documentation.html#index-search-PHP-manual-192">search PHP manual</a>: <a href="PHP-Documentation.html#PHP-Documentation">PHP Documentation</a></li>
+<li><a href="Embedded-HTML.html#index-SGML-218">SGML</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+<li><a href="Indentation.html#index-spaces-70">spaces</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Motion.html#index-statements-29">statements</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Motion.html#index-string-28">string</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Introduction.html#index-syntax-highlighting-5">syntax highlighting</a>: <a href="Introduction.html#Introduction">Introduction</a></li>
+<li><a href="Motion.html#index-syntax_002c-backward-33">syntax, backward</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Motion.html#index-syntax_002c-forward-30">syntax, forward</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Indentation.html#index-tab-77">tab</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Indentation.html#index-tabs-71">tabs</a>: <a href="Indentation.html#Indentation">Indentation</a></li>
+<li><a href="Completion.html#index-tag-133">tag</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Completion.html#index-tag-file-130">tag file</a>: <a href="Completion.html#Completion">Completion</a></li>
+<li><a href="Motion.html#index-universal-argument-64">universal argument</a>: <a href="Motion.html#Motion">Motion</a></li>
+<li><a href="Introduction.html#index-version_002c-PHP-6">version, PHP</a>: <a href="Introduction.html#Introduction">Introduction</a></li>
+<li><a href="Introduction.html#index-version_002c-PHP-mode-7">version, PHP mode</a>: <a href="Introduction.html#Introduction">Introduction</a></li>
+<li><a href="Embedded-HTML.html#index-XML-217">XML</a>: <a href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a></li>
+   </ul></body></html>
+

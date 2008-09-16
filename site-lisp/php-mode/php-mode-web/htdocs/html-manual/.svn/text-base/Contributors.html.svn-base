@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+<title>Contributors - PHP Mode Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="PHP Mode Manual">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Embedded-HTML.html#Embedded-HTML" title="Embedded HTML">
+<link rel="next" href="Copying-This-Manual.html#Copying-This-Manual" title="Copying This Manual">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual documents PHP mode version 1.4.0 for
+use with GNU Emacs.
+
+Copyright (C) 2008  Aaron S. Hawley
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, and no Cover Texts.  A
+     copy of the license is included in the section entitled ``Copying
+     This Manual.''
+
+     A copy of the license is also available from the Free Software
+     Foundation Web site at `http://www.gnu.org/licenses/fdl.html'.
+
+
+The document was typeset with
+GNU Texinfo (http://www.texinfo.org/).
+
+$Date: 2008-01-03 20:50:20 -0500 (Thu, 03 Jan 2008) $
+
+$Revision: 30 $-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Contributors"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Copying-This-Manual.html#Copying-This-Manual">Copying This Manual</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Embedded-HTML.html#Embedded-HTML">Embedded HTML</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="appendix">Appendix B Contributors</h2>
+
+     <ul>
+<li>Juanjo
+<li>Torsten Martinsen
+<li>Vinai Kopp
+<li>Sean Champ
+<li>Doug Marcey
+<li>Kevin Blake
+<li>Rex McMaster
+<li>Mathias Meyer
+<li>Boris Folgmann
+<li>Roland Rosenfeld
+<li>Fred Yankowski
+<li>Craig Andrews
+<li>John Keller
+<li>Ryan Sammartino
+<li>ppercot
+<li>Valentin Funk
+<li>Stig Bakken
+<li>Gregory Stark
+<li>Chris Morris
+<li>Nils Rennebarth
+<li>Gerrit Riessen
+<li>Eric Mc Sween
+<li>Ville Skytta
+<li>Giacomo Tesio
+<li>Lennart Borgman
+<li>Stefan Monnier
+<li>Aaron S. Hawley
+</ul>
+
+   </body></html>
+

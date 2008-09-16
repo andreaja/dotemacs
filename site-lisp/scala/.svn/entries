@@ -1,14 +1,14 @@
-8
+9
 
 dir
-15869
+16090
 http://lampsvn.epfl.ch/svn-repos/scala/scala-tool-support/trunk/src/emacs
 http://lampsvn.epfl.ch/svn-repos/scala
 
 
 
-2008-08-20T11:01:13.643412Z
-15859
+2008-09-10T10:16:46.114398Z
+16086
 nielsen
 has-props
 
@@ -32,12 +32,33 @@ file
 
 
 
-2008-08-20T13:46:52.000000Z
-6fede5c14c6a26190c53d3aea0c7178f
-2008-08-20T11:01:13.643412Z
-15859
+2008-09-11T14:13:00.000000Z
+b4b2d795bccaf2d5291d68a5af04ebb5
+2008-09-10T10:16:46.114398Z
+16086
 nielsen
 has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10705
 
 scala-mode-feature-speedbar.el
 file
@@ -78,19 +99,6 @@ d7bde8171093378b32f6874829a5681d
 nielsen
 has-props
 
-AUTHORS
-file
-
-
-
-
-2008-08-20T13:46:52.000000Z
-1ba84f52925d412bd22938ca8b5749e5
-2008-08-20T11:01:13.643412Z
-15859
-nielsen
-has-props
-
 scala-mode-feature-electric.el
 file
 
@@ -104,14 +112,14 @@ file
 nielsen
 has-props
 
-scala-mode-feature-tags.el
+AUTHORS
 file
 
 
 
 
 2008-08-20T13:46:52.000000Z
-e18d15c5a4bb9942a87ff23c70892682
+1ba84f52925d412bd22938ca8b5749e5
 2008-08-20T11:01:13.643412Z
 15859
 nielsen
@@ -130,18 +138,39 @@ dd325090a1b989c442e951bd82facbc8
 nielsen
 has-props
 
-scala-mode-feature.el
+scala-mode-feature-tags.el
 file
 
 
 
 
-2008-08-20T13:46:52.000000Z
-cfe327365feacd13d1439133bfe4bfcb
-2008-08-20T11:01:13.643412Z
-15859
+2008-09-11T14:13:00.000000Z
+5bb0d5f7a822f5eb4254730888ee4c50
+2008-09-10T10:16:46.114398Z
+16086
 nielsen
 has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6150
 
 README
 file
@@ -151,6 +180,19 @@ file
 
 2008-08-20T13:46:52.000000Z
 bb1e71a409eebcc312bf1a0b7b9021d3
+2008-08-20T11:01:13.643412Z
+15859
+nielsen
+has-props
+
+scala-mode-feature.el
+file
+
+
+
+
+2008-08-20T13:46:52.000000Z
+cfe327365feacd13d1439133bfe4bfcb
 2008-08-20T11:01:13.643412Z
 15859
 nielsen
@@ -172,19 +214,6 @@ c6277f5a1177f4ed0e7ab4b9227d7cc5
 nielsen
 has-props
 
-scala-mode.el
-file
-
-
-
-
-2008-08-20T13:46:52.000000Z
-0fbd3469d3dfe32a4913fda753e64ca1
-2008-08-20T11:01:13.643412Z
-15859
-nielsen
-has-props
-
 scala-mode-feature-scaladoc.el
 file
 
@@ -197,6 +226,40 @@ c8e93f3cf5c92aa75df3bd713ae1814b
 15859
 nielsen
 has-props
+
+scala-mode.el
+file
+
+
+
+
+2008-09-11T14:13:00.000000Z
+bf74d1755fc7525f7c4045e36596cf4e
+2008-08-21T08:29:50.952464Z
+15871
+nielsen
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6502
 
 scala-mode-lib.el
 file
