@@ -4,7 +4,7 @@
 ;; Copyright (C) 2008 Scala Dev Team at EPFL
 ;; Authors: See AUTHORS file
 ;; Keywords: scala languages oop
-;; $Id: scala-mode.el 15859 2008-08-20 11:01:13Z nielsen $
+;; $Id: scala-mode.el 15871 2008-08-21 08:29:50Z nielsen $
 
 ;;; License
 
@@ -68,13 +68,13 @@
   "Mode for editing Scala code."
   :group 'languages)
 
-(defcustom scala-mode:api-url "http://www.scala-lang.org/sites/default/files/linuxsoft_archives/docu/files/api/index.html"
+(defcustom scala-mode:api-url "http://www.scala-lang.org/docu/files/api/"
   "URL to the online Scala documentation"
   :type 'string
   :group 'scala)
 
-(defconst scala-mode-version "0.5.99.1")
-(defconst scala-mode-svn-revision "$Revision: 15859 $")
+(defconst scala-mode-version "0.5.99.2")
+(defconst scala-mode-svn-revision "$Revision: 15871 $")
 (defconst scala-bug-e-mail "scala@listes.epfl.ch")
 (defconst scala-web-url "http://scala-lang.org/")
 
