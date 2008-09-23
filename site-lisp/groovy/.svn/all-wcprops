@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/groovy/!svn/ver/12256/trunk/groovy/ide/groovy-emacs
+END
+README.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/groovy/!svn/ver/1458/trunk/groovy/ide/groovy-emacs/README.html
+END
+.emacs
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/groovy/!svn/ver/1458/trunk/groovy/ide/groovy-emacs/.emacs
+END
+groovy-mode.el
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/groovy/!svn/ver/12256/trunk/groovy/ide/groovy-emacs/groovy-mode.el
+END
