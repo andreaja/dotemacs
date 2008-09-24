@@ -12,6 +12,8 @@
 ;; disable toolbar (should be mac only, linux uses .Xresources)
 (tool-bar-mode 0)
 
+
+;; get rid of this by setting custom-file
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
