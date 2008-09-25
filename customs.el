@@ -5,6 +5,7 @@
 ;; disable splash 
 (setq inhibit-startup-message t)
 
+
 ;; rebind return to whatever C-j is
 (mapcar
  (lambda (mode)
