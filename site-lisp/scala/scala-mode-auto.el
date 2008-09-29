@@ -4,7 +4,7 @@
 ;; Copyright (C) 2008 Scala Dev Team at EPFL
 ;; Authors: See AUTHORS file
 ;; Keywords: scala languages oop
-;; $Id: scala-mode-auto.el 15859 2008-08-20 11:01:13Z nielsen $
+;; $Id: scala-mode-auto.el 16153 2008-09-19 22:26:07Z nielsen $
 
 ;;; License
 
@@ -47,10 +47,10 @@
 ;;; Code
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; TODO is this nessesary ??
-;;(unless (<= 22 emacs-major-version)
-;;  (error
-;;   (format "The Scala mode require Emacs version 22.x (and not your Emacs version %s.%s)"  emacs-major-version  emacs-minor-version)))
+;; We now depend on font-locking features only in emacs 21.x and newer
+(unless (<= 21 emacs-major-version)
+  (error
+   (format "The Scala mode require Emacs version 21.x (and not your Emacs version %s.%s)"  emacs-major-version  emacs-minor-version)))
 
 ;; TODO insert check for correct version of speedbar
 

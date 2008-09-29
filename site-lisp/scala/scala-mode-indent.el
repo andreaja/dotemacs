@@ -4,7 +4,7 @@
 ;; Copyright (C) 2008 Scala Dev Team at EPFL
 ;; Authors: See AUTHORS file
 ;; Keywords: scala languages oop
-;; $Id$
+;; $Id: scala-mode-indent.el 16153 2008-09-19 22:26:07Z nielsen $
 
 ;;; License
 
@@ -62,9 +62,31 @@
   "Return t iff the point is inside a comment."
   ;; The two branches of the "if" below do not have the same behaviour
   ;; when the point is on the comment beginning/ending character(s).
+  (or (scala-in-multi-line-comment-p)
+      (scala-in-single-line-comment-p)))
+
+(defun scala-in-single-line-comment-p ()
+  "Return t iff the point is inside a single line comment."
+  (let
+      (begin
+       end
+       subst
+       match)
+    (save-excursion
+      (setq end (point))
+      (beginning-of-line)
+      (setq begin (point))
+      (setq subst (buffer-substring begin end))
+      (setq match (string-match "//" subst))
+      (if match t nil))))
+
+(defun scala-in-multi-line-comment-p ()
+  "Return t iff the point is inside a multi line comment."
   (if font-lock-mode
-      (eq (get-text-property (point) 'face) 'font-lock-comment-face)
-    (save-excursion (comment-beginning))))
+      (and (not (scala-in-single-line-comment-p))
+	   (eq (get-text-property (point) 'face) 'font-lock-comment-face))
+    nil))
+
 
 (defun scala-in-string-p ()
   "Return t iff the point is inside a string."
@@ -193,7 +215,7 @@ When called repeatedly, indent each time one stop further on the right."
 
 (defun scala-newline ()
   (interactive)
-  (if (scala-in-comment-p)
+  (if (scala-in-multi-line-comment-p)
       (progn 
 	(newline-and-indent)
 	(insert "* "))
