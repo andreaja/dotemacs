@@ -31,14 +31,3 @@
 
 
 ;;(add-hook 'write-file-hooks 'nuke-trailing-whitespace)
-
-
-
- 
-
-
-
-
-
-
-
