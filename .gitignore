@@ -3,3 +3,4 @@
 .latest-build
 
 \.#.*
+.DS_Store
