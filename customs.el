@@ -5,6 +5,8 @@
 ;; disable splash 
 (setq inhibit-startup-message t)
 
+;;(setq xml-based-modes (cons 'nxml-mode xml-based-modes))
+(fset 'xml-mode 'nxml-mode)
 
 ;; rebind return to whatever C-j is
 (mapcar
