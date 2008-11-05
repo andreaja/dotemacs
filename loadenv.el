@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/emacs/site-lisp/emacs-rails")
 (add-to-list 'load-path "~/emacs/site-lisp/php-mode/php-mode-src")
 (add-to-list 'load-path "~/emacs/site-lisp/magit")
+(add-to-list 'load-path "~/emacs/site-lisp/maxframe")
 (add-to-list 'load-path "~/emacs/site-lisp/yasnippet")
 (add-to-list 'load-path "~/emacs/site-lisp/distel/elisp")
 (add-to-list 'load-path "~/emacs/site-lisp/scala")

@@ -8,6 +8,10 @@
 ;;(setq xml-based-modes (cons 'nxml-mode xml-based-modes))
 (fset 'xml-mode 'nxml-mode)
 
+;; maxframe
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
+
 ;; rebind return to whatever C-j is
 (mapcar
  (lambda (mode)

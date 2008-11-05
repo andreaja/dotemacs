@@ -1,3 +1,6 @@
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = git://github.com/jwiegley/magit.git
+[submodule "site-lisp/maxframe"]
+	path = site-lisp/maxframe
+	url = git://github.com/rmm5t/maxframe-el.git
