@@ -12,6 +12,9 @@
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
 
+;; iswitchb mode 
+(iswitchb-default-keybindings)
+
 ;; rebind return to whatever C-j is
 (mapcar
  (lambda (mode)
