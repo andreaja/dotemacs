@@ -15,6 +15,12 @@
 ;; iswitchb mode 
 (iswitchb-default-keybindings)
 
+;; stop leaving backup~ turds scattered everywhere
+(setq backup-directory-alist '(("." . "~/.emacs-backups")))
+
+;; stop forcing me to spell out "yes"
+(fset 'yes-or-no-p 'y-or-n-p) 
+
 ;; rebind return to whatever C-j is
 (mapcar
  (lambda (mode)
