@@ -13,7 +13,7 @@
 (add-hook 'window-setup-hook 'maximize-frame t)
 
 ;; iswitchb mode 
-(iswitchb-default-keybindings)
+(iswitchb-mode 1)
 
 ;; stop leaving backup~ turds scattered everywhere
 (setq backup-directory-alist '(("." . "~/.emacs-backups")))
