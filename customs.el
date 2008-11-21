@@ -21,6 +21,10 @@
 ;; stop forcing me to spell out "yes"
 (fset 'yes-or-no-p 'y-or-n-p) 
 
+;; 
+(setq-default indent-tabs-mode nil)
+
+
 ;; rebind return to whatever C-j is
 (mapcar
  (lambda (mode)
