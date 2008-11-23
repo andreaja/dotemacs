@@ -7,6 +7,7 @@
 (add-to-list 'load-path "~/emacs/site-lisp/distel/elisp")
 (add-to-list 'load-path "~/emacs/site-lisp/scala")
 (add-to-list 'load-path "~/emacs/site-lisp/groovy")
+(add-to-list 'load-path "~/emacs/site-lisp/gist")
 (add-to-list 'load-path "~/emacs/customs")
 
 (load "customs")

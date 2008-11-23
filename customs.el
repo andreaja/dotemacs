@@ -15,6 +15,10 @@
 ;; iswitchb mode 
 (iswitchb-mode 1)
 
+;; gist
+
+(require 'gist)
+
 ;; stop leaving backup~ turds scattered everywhere
 (setq backup-directory-alist '(("." . "~/.emacs-backups")))
 
