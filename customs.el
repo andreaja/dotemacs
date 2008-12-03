@@ -15,8 +15,10 @@
 ;; iswitchb mode 
 (iswitchb-mode 1)
 
-;; gist
+;; display column numbers 
+(setq column-number-mode t)
 
+;; gist
 (require 'gist)
 
 ;; stop leaving backup~ turds scattered everywhere
