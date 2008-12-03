@@ -1,5 +1,5 @@
 -*- Outline -*-
-$Id: FUTURE 16153 2008-09-19 22:26:07Z nielsen $
+$Id: FUTURE 16681 2008-12-01 22:17:46Z nielsen $
 
 * Here is a list of future improvements to the scala mode
 
@@ -36,8 +36,6 @@ in many situations, including:
 ** Scaladoc font-lock mode
 
 ** Support for XEmacs
-
-** Extend and make the scala-newline function better
 
 ** Add support for Flymode
 

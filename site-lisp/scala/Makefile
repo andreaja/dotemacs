@@ -1,7 +1,7 @@
 ############################################################-*-Makefile-*-####
 # Makefile for compiling the major mode of Emacs
 ##############################################################################
-# $Id: Makefile 16153 2008-09-19 22:26:07Z nielsen $
+# $Id: Makefile 16681 2008-12-01 22:17:46Z nielsen $
 
 ##############################################################################
 # Configuration
@@ -30,11 +30,9 @@ ELISP_FILES		+= scala-mode-ui
 ELISP_FILES		+= scala-mode-fontlock
 ELISP_FILES		+= scala-mode-constants
 ELISP_FILES		+= scala-mode-feature
-ELISP_FILES		+= scala-mode-feature-templates
 ELISP_FILES		+= scala-mode-feature-electric
 ELISP_FILES		+= scala-mode-feature-speedbar
 ELISP_FILES		+= scala-mode-feature-tags
-ELISP_FILES		+= scala-mode-feature-scaladoc
 
 ELISP_SOURCES		+= $(ELISP_FILES:%=$(SOURCE_DIR)/%.el)
 

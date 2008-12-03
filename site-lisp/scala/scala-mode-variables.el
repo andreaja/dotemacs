@@ -4,7 +4,7 @@
 ;; Copyright (C) 2008 Scala Dev Team at EPFL
 ;; Authors: See AUTHORS file
 ;; Keywords: scala languages oop
-;; $Id: scala-mode-variables.el 16153 2008-09-19 22:26:07Z nielsen $
+;; $Id: scala-mode-variables.el 16681 2008-12-01 22:17:46Z nielsen $
 
 ;;; License
 
@@ -50,10 +50,6 @@
 (provide 'scala-mode-variables)
 
 ;; Feature specific variables that need to be shared!
-
-(defvar scala-mode-feature-tempo-tags nil 
-  "Tempo tags for Scala mode")
-
 
 ; define scala-mode-hook
 (defvar scala-mode-hook nil

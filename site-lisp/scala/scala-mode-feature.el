@@ -4,7 +4,7 @@
 ;; Copyright (C) 2008 Scala Dev Team at EPFL
 ;; Authors: See AUTHORS file
 ;; Keywords: scala languages oop
-;; $Id: scala-mode-feature.el 16153 2008-09-19 22:26:07Z nielsen $
+;; $Id: scala-mode-feature.el 16681 2008-12-01 22:17:46Z nielsen $
 
 ;;; License
 
@@ -52,9 +52,7 @@
 ;; Feature loading
 
 (defvar scala-mode-feature-list
-  '(scala-mode-feature-templates
-    scala-mode-feature-scaladoc
-    scala-mode-feature-tags
+  '(scala-mode-feature-tags
     scala-mode-feature-speedbar
     scala-mode-feature-electric
     )

@@ -1,14 +1,14 @@
 9
 
 dir
-16173
+16696
 http://lampsvn.epfl.ch/svn-repos/scala/scala-tool-support/trunk/src/emacs
 http://lampsvn.epfl.ch/svn-repos/scala
 
 
 
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T10:23:53.278374Z
+16687
 nielsen
 has-props
 
@@ -32,10 +32,10 @@ file
 
 
 
-2008-09-29T11:36:09.000000Z
-b4b2d795bccaf2d5291d68a5af04ebb5
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T15:32:11.000000Z
+3c786c9f1792348ea2d876bc0bc9c831
+2008-12-01T22:17:46.119793Z
+16681
 nielsen
 has-props
 
@@ -58,7 +58,7 @@ has-props
 
 
 
-10759
+6710
 
 scala-mode-feature-speedbar.el
 file
@@ -162,6 +162,19 @@ has-props
 
 8249
 
+scala-mode-feature-electric.el
+file
+
+
+
+
+2008-08-20T13:46:52.000000Z
+74698ba376439a782ad01703c01bb230
+2008-08-20T11:01:13.643412Z
+15859
+nielsen
+has-props
+
 AUTHORS
 file
 
@@ -195,19 +208,6 @@ has-props
 
 
 537
-
-scala-mode-feature-electric.el
-file
-
-
-
-
-2008-08-20T13:46:52.000000Z
-74698ba376439a782ad01703c01bb230
-2008-08-20T11:01:13.643412Z
-15859
-nielsen
-has-props
 
 scala-mode-feature-tags.el
 file
@@ -243,16 +243,16 @@ has-props
 
 6214
 
-scala-mode-feature-templates.el
+README
 file
 
 
 
 
-2008-09-29T11:36:09.000000Z
-dd325090a1b989c442e951bd82facbc8
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T15:32:11.000000Z
+9a90bafeb92c4a55c67559da24ce46f8
+2008-12-01T22:17:46.119793Z
+16681
 nielsen
 has-props
 
@@ -275,7 +275,7 @@ has-props
 
 
 
-9064
+2831
 
 scala-mode-feature.el
 file
@@ -283,10 +283,10 @@ file
 
 
 
-2008-09-29T11:36:09.000000Z
-cfe327365feacd13d1439133bfe4bfcb
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T15:32:11.000000Z
+553e2830d499ff7e63d6a4894d9257a0
+2008-12-01T22:17:46.119793Z
+16681
 nielsen
 has-props
 
@@ -309,41 +309,7 @@ has-props
 
 
 
-2781
-
-README
-file
-
-
-
-
-2008-09-29T11:36:09.000000Z
-bb1e71a409eebcc312bf1a0b7b9021d3
-2008-09-19T22:26:07.932832Z
-16153
-nielsen
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2685
+2716
 
 contrib
 dir
@@ -388,10 +354,10 @@ file
 
 
 
-2008-09-29T11:36:09.000000Z
-6937306fe7c9d4da0d6edc027df40f9a
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T15:32:11.000000Z
+2a4958db38fa4577052819d84d6bcbf8
+2008-12-01T22:17:46.119793Z
+16681
 nielsen
 has-props
 
@@ -414,41 +380,7 @@ has-props
 
 
 
-7344
-
-scala-mode-feature-scaladoc.el
-file
-
-
-
-
-2008-09-29T11:36:09.000000Z
-c8e93f3cf5c92aa75df3bd713ae1814b
-2008-09-19T22:26:07.932832Z
-16153
-nielsen
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7354
+7281
 
 scala-mode-lib.el
 file
@@ -456,10 +388,10 @@ file
 
 
 
-2008-09-29T11:36:09.000000Z
-f12dcf5ea1b378ec18643afda98cfecf
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T15:32:11.000000Z
+1a57d8ca0446f6554097c15c569178ec
+2008-12-03T10:23:53.278374Z
+16687
 nielsen
 has-props
 
@@ -482,7 +414,7 @@ has-props
 
 
 
-3247
+4103
 
 scala-mode-auto.el
 file
@@ -524,10 +456,10 @@ file
 
 
 
-2008-09-29T11:36:09.000000Z
-148ed72dd5a7fc5e2ecb7198106fef76
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T15:32:11.000000Z
+cc28418221d5bcb93232d1442f9d017c
+2008-12-01T22:17:46.119793Z
+16681
 nielsen
 has-props
 
@@ -550,7 +482,7 @@ has-props
 
 
 
-3548
+3494
 
 scala-mode-variables.el
 file
@@ -558,10 +490,10 @@ file
 
 
 
-2008-09-29T11:36:09.000000Z
-f0d43c2c2ca6cd08e5473151a4831d54
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T15:32:11.000000Z
+87bf015325538b17b8e3f275a638f221
+2008-12-01T22:17:46.119793Z
+16681
 nielsen
 has-props
 
@@ -584,7 +516,7 @@ has-props
 
 
 
-2431
+2355
 
 Makefile
 file
@@ -592,10 +524,10 @@ file
 
 
 
-2008-09-29T11:36:09.000000Z
-59561158395a1381bb6a88237415139b
-2008-09-19T22:26:07.932832Z
-16153
+2008-12-03T15:32:11.000000Z
+8bb2f785c46c7493878524d9c75c5200
+2008-12-01T22:17:46.119793Z
+16681
 nielsen
 has-props
 
@@ -618,7 +550,7 @@ has-props
 
 
 
-2013
+1924
 
 scala-mode-inf.el
 file

@@ -4,7 +4,7 @@
 ;; Copyright (C) 2008 Scala Dev Team at EPFL
 ;; Authors: See AUTHORS file
 ;; Keywords: scala languages oop
-;; $Id: scala-mode.el 16153 2008-09-19 22:26:07Z nielsen $
+;; $Id: scala-mode.el 16681 2008-12-01 22:17:46Z nielsen $
 
 ;;; License
 
@@ -50,7 +50,6 @@
 (provide 'scala-mode)
 
 (require 'cl)
-(require 'tempo)
 
 (require 'scala-mode-constants)
 (require 'scala-mode-variables)
@@ -68,13 +67,13 @@
   "Mode for editing Scala code."
   :group 'languages)
 
-(defcustom scala-mode:api-url "http://www.scala-lang.org/docu/files/api/"
+(defcustom scala-mode:api-url "http://www.scala-lang.org/docu/files/api/index.html"
   "URL to the online Scala documentation"
   :type 'string
   :group 'scala)
 
-(defconst scala-mode-version "0.5.99.4")
-(defconst scala-mode-svn-revision "$Revision: 16153 $")
+(defconst scala-mode-version "0.5.99.5")
+(defconst scala-mode-svn-revision "$Revision: 16681 $")
 (defconst scala-bug-e-mail "scala@listes.epfl.ch")
 (defconst scala-web-url "http://scala-lang.org/")
 
@@ -202,8 +201,7 @@ When started, run `scala-mode-hook'.
   (turn-on-font-lock)
   (scala-mode-feature-install)
   (if scala-mode-hook
-      (run-hooks 'scala-mode-hook))  
-  (tempo-use-tag-list 'scala-mode-feature-tempo-tags))
+      (run-hooks 'scala-mode-hook)))
 
 
 

@@ -1,14 +1,14 @@
 9
 
 dir
-16173
+16696
 http://lampsvn.epfl.ch/svn-repos/scala/scala-tool-support/trunk/src/emacs/contrib
 http://lampsvn.epfl.ch/svn-repos/scala
 
 
 
-2008-08-20T11:01:13.643412Z
-15859
+2008-12-01T22:17:46.119793Z
+16681
 nielsen
 
 
@@ -38,6 +38,9 @@ e030aa9c44197c9ad1e4e8dd1e3acc47
 15859
 nielsen
 has-props
+
+yasnippet
+dir
 
 README
 file
