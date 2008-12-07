@@ -18,6 +18,8 @@
 ;; display column numbers 
 (setq column-number-mode t)
 
+(mouse-avoidance-mode 'animate)
+
 ;; gist
 (require 'gist)
 
