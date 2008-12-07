@@ -2,6 +2,9 @@
 
 (load "load-tramp")
 
+(setq custom-file "~/emacs/settings.el")
+(load custom-file 'noerror)
+
 ;; disable splash 
 (setq inhibit-startup-message t)
 
