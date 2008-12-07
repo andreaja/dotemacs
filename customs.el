@@ -11,6 +11,9 @@
 ;;(setq xml-based-modes (cons 'nxml-mode xml-based-modes))
 (fset 'xml-mode 'nxml-mode)
 
+;; only needed on mac (default otherwise?)
+(setq-default transient-mark-mode t)
+
 ;; maxframe
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
