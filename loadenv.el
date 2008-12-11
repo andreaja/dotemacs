@@ -15,6 +15,7 @@
 (load "local-gist")
 (load "local-groovy")
 (load "local-ido")
+(load "local-key-bindings")
 (load "local-maxframe")
 (load "local-minor-modes")
 (load "local-php")
