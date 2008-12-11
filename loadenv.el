@@ -8,18 +8,26 @@
 (add-to-list 'load-path "~/emacs/site-lisp/scala")
 (add-to-list 'load-path "~/emacs/site-lisp/groovy")
 (add-to-list 'load-path "~/emacs/site-lisp/gist")
-(add-to-list 'load-path "~/emacs/customs")
+(add-to-list 'load-path "~/emacs/local")
 
-(load "customs")
-(load "rails-on-emacs")
-(load "snippets")
-(load "scala")
-(load "groovy")
-(load "load-ido")
-(load "php")
-(load "snippets")
+(load "local-find-recursive")
+(load "local-functions")
+(load "local-gist")
+(load "local-groovy")
+(load "local-ido")
+(load "local-maxframe")
+(load "local-minor-modes")
+(load "local-php")
+(load "local-rails")
+(load "local-scala")
+(load "local-settings")
+(load "local-snippets")
+(load "local-tramp")
 
-(setq exec-path (cons "/home/aja/var/scala/bin/" exec-path))
+
+(setq custom-file "~/emacs/settings.el")
+(load custom-file 'noerror)
+
 
 ;; something wrong here, fix it later
 ;(labels ((add-path (p)

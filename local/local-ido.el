@@ -1,4 +1,3 @@
-
 (require 'ido)
 
 (ido-mode t)
@@ -25,3 +24,14 @@
 	  (lambda ()
 	    (setq ido-enable-flex-matching t)
 	    (global-set-key "\M-x" 'ido-execute-command)))
+
+
+;; TODO make this work
+;; (defun aja-ido-find-file-in-tag-files ()
+;;   (interactive)
+;;   (save-excursion
+;;     (let ((enable-recursive-minibuffers t))
+;;       (visit-tags-table-buffer))
+;;       (ido-completing-read "Project files: "
+;; 			   (tags-table-files)
+;; 			   nil t)))
