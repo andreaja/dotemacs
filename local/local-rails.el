@@ -2,7 +2,6 @@
 ;; http://dima-exe.ru/rails-on-emacs
 (require 'inf-ruby)
 (require 'snippet)
-(require 'find-recursive)
 (require 'rails)
 
 ;; Add some ruby mode hooks
