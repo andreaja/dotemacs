@@ -1,7 +1,5 @@
 (require 'ido)
 
-(ido-mode t)
-
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
 
 (setq ido-execute-command-cache nil)
@@ -24,6 +22,8 @@
 	  (lambda ()
 	    (setq ido-enable-flex-matching t)
 	    (global-set-key "\M-x" 'ido-execute-command)))
+
+(ido-mode t)
 
 
 ;; TODO make this work
