@@ -54,3 +54,10 @@
           '(lambda ()
              (or (file-exists-p (file-name-directory buffer-file-name))
                  (make-directory (file-name-directory buffer-file-name) t))))
+
+;; http://amitp.blogspot.com/2008/05/emacs-full-screen-on-mac-os-x.html
+(defun mac-toggle-max-window ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
+                                           nil
+                                           'fullboth)))
