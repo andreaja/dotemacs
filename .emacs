@@ -10,6 +10,5 @@
 ;; disable toolbar (should be mac only, linux uses .Xresources)
 (tool-bar-mode 0)
 
-
-;; giss a shell dear
-(shell)
+;; giss an eshell dear
+(eshell)
