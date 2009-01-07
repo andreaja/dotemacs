@@ -3,6 +3,7 @@
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
 
 (setq ido-execute-command-cache nil)
+(ido-mode t)
 
 (defun ido-execute-command ()
   (interactive)
@@ -23,7 +24,7 @@
 	    (setq ido-enable-flex-matching t)
 	    (global-set-key "\M-x" 'ido-execute-command)))
 
-(ido-mode t)
+
 
 
 ;; TODO make this work
