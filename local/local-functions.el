@@ -61,3 +61,13 @@
   (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
                                            nil
                                            'fullboth)))
+
+;; http://www.emacswiki.org/emacs/FullScreen
+;; works on linux, not on mac?
+;; todo: refactor this and mac-toggle-max-window to bind to fullscreen depending on system
+(defun fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen
+                       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
+
+;;(global-set-key [f11] 'fullscreen)
