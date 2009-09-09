@@ -8,6 +8,7 @@
 (add-to-list 'load-path "~/emacs/site-lisp/scala")
 (add-to-list 'load-path "~/emacs/site-lisp/groovy")
 (add-to-list 'load-path "~/emacs/site-lisp/gist")
+(add-to-list 'load-path "~/emacs/site-lisp/ioke")
 (add-to-list 'load-path "~/emacs/local")
 
 (load "andreaja-modules")
@@ -16,7 +17,7 @@
 (load "local-rails")
 (load "local-settings")
 (load "local-tramp")
-
+(load "ioke-mode")
 (load "local-functions")
 (load "local-key-bindings")
 
