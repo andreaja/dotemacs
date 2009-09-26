@@ -7,3 +7,7 @@
 (mouse-avoidance-mode 'animate)
 
 (setq-default indent-tabs-mode nil)
+
+(global-hl-line-mode t)
+
+(scroll-bar-mode nil)
