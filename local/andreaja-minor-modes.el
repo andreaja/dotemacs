@@ -7,3 +7,9 @@
 (mouse-avoidance-mode 'animate)
 
 (setq-default indent-tabs-mode nil)
+
+;; perl stuff
+
+(setq-default perl-tab-always-indent 1)
+(setq-default perl-indent-level 8)
+(add-to-list 'auto-mode-alist '("\.t$" . perl-mode)) ;; perl test files

@@ -16,6 +16,7 @@
 (load "local-rails")
 (load "local-settings")
 (load "local-tramp")
+(load "visual-basic-mode")
 
 (load "local-functions")
 (load "local-key-bindings")
