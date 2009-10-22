@@ -8,6 +8,8 @@
 (add-to-list 'load-path "~/emacs/site-lisp/scala")
 (add-to-list 'load-path "~/emacs/site-lisp/groovy")
 (add-to-list 'load-path "~/emacs/site-lisp/gist")
+(add-to-list 'load-path "~/emacs/site-lisp/ioke")
+(add-to-list 'load-path "~/emacs/site-lisp/cucumber")
 (add-to-list 'load-path "~/emacs/local")
 
 (load "andreaja-modules")
@@ -17,9 +19,11 @@
 (load "local-settings")
 (load "local-tramp")
 (load "visual-basic-mode")
+(load "ioke-mode")
 
 (load "local-functions")
 (load "local-key-bindings")
+(load "feature-mode")
 
 (setq custom-file "~/emacs/settings.el")
 (load custom-file 'noerror)

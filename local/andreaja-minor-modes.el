@@ -8,6 +8,10 @@
 
 (setq-default indent-tabs-mode nil)
 
+(global-hl-line-mode t)
+
+(scroll-bar-mode nil)
+
 ;; perl stuff
 
 (setq-default perl-tab-always-indent 1)
