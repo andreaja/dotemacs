@@ -12,6 +12,8 @@
 
 (scroll-bar-mode nil)
 
+(show-paren-mode t)
+
 ;; perl stuff
 
 (setq-default perl-tab-always-indent 1)
