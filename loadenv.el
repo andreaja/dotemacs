@@ -20,6 +20,7 @@
 (load "local-tramp")
 (load "visual-basic-mode")
 (load "ioke-mode")
+(load "puppet-mode")
 
 (load "local-functions")
 (load "local-key-bindings")
