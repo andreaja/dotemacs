@@ -22,7 +22,10 @@
 (load "local-rails")
 (load "local-settings")
 (load "local-tramp")
+(load "visual-basic-mode")
 (load "ioke-mode")
+(load "puppet-mode")
+
 (load "local-functions")
 (load "local-key-bindings")
 (load "feature-mode")

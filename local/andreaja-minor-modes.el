@@ -11,3 +11,11 @@
 (global-hl-line-mode t)
 
 (scroll-bar-mode nil)
+
+(show-paren-mode t)
+
+;; perl stuff
+
+(setq-default perl-tab-always-indent 1)
+(setq-default perl-indent-level 8)
+(add-to-list 'auto-mode-alist '("\.t$" . perl-mode)) ;; perl test files

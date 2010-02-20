@@ -12,4 +12,5 @@
  '(jde-mvn-pom-visible t)
  '(jde-mvn-use-server nil)
  '(nxml-child-indent 4)
+ '(safe-local-variable-values (quote ((encoding . iso-8859-1) (encoding . us-ascii))))
  '(vc-follow-symlinks nil))
