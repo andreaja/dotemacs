@@ -10,6 +10,7 @@
 (add-to-list 'load-path "~/emacs/site-lisp/gist")
 (add-to-list 'load-path "~/emacs/site-lisp/ioke")
 (add-to-list 'load-path "~/emacs/site-lisp/cucumber")
+(add-to-list 'load-path "~/emacs/site-lisp/elpa")
 (add-to-list 'load-path "~/emacs/local")
 
 (if (eq system-type 'darwin)
