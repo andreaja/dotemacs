@@ -1,6 +1,6 @@
 (defvar emacs-root "/home/aja/")
 
-(add-to-list 'load-path "~/emacs")
+(add-to-list 'load-path "~/.emacs.d")
 
 (load "loadenv")
 
