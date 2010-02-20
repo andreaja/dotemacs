@@ -39,6 +39,6 @@
     (load "package.el")
   (package-initialize))
 
-(setq custom-file "~/emacs/settings.el")
+(setq custom-file "~/.emacs.d/settings.el")
 (load custom-file 'noerror)
 
