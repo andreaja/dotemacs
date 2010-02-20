@@ -12,6 +12,9 @@
 (add-to-list 'load-path "~/emacs/site-lisp/cucumber")
 (add-to-list 'load-path "~/emacs/local")
 
+(if (eq system-type 'darwin)
+    (load "local-mac-mode"))
+
 (load "andreaja-modules")
 (load "andreaja-minor-modes")
 (load "local-ido")
@@ -23,15 +26,15 @@
 (load "local-key-bindings")
 (load "feature-mode")
 
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load "package.el")
+  (package-initialize))
+
 (setq custom-file "~/emacs/settings.el")
 (load custom-file 'noerror)
-
-
-;; something wrong here, fix it later
-;(labels ((add-path (p)
-;	 (add-to-list 'load-path
-;			(concat emacs-root p))))
-;   (add-path "emacs/site-lisp/") ;; elisp stuff I find on the 'net
-;)
-
 
