@@ -14,6 +14,8 @@
 
 (show-paren-mode t)
 
+(require 'snippet)
+
 ;; perl stuff
 
 (setq-default perl-tab-always-indent 1)
