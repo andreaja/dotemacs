@@ -25,6 +25,10 @@
 (load "visual-basic-mode")
 (load "ioke-mode")
 (load "puppet-mode")
+(load "sql-indent")
+(eval-after-load "sql"
+  (load-library "sql-indent"))
+(load "plsql")
 
 (load "local-functions")
 (load "local-key-bindings")
