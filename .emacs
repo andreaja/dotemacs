@@ -6,6 +6,6 @@
 
 ;(add-to-list 'load-path "/opt/local/lib/erlang/lib/tools-2.6.1/emacs/")
 ;(require 'erlang-start)
-(load-library "autostart")
+
 ;; giss an eshell dear
 (eshell)
