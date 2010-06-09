@@ -21,6 +21,7 @@
 (load "local-ido")
 ;; (load "local-rails")
 (load "local-settings")
+(load "local-auto-modes")
 (load "local-tramp")
 (load "visual-basic-mode")
 (load "ioke-mode")
