@@ -13,6 +13,7 @@
 (scroll-bar-mode nil)
 
 (show-paren-mode t)
+(setq-default show-trailing-whitespace t)
 (when (fboundp 'winner-mode)
   (winner-mode 1))
 
