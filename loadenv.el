@@ -30,10 +30,11 @@
 (eval-after-load "sql"
   (load-library "sql-indent"))
 (load "plsql")
-
+(load "magit")
 (load "local-functions")
 (load "local-key-bindings")
 (load "feature-mode")
+(load "ldap-mode")
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
