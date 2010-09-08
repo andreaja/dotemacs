@@ -13,6 +13,12 @@
 (scroll-bar-mode nil)
 
 (show-paren-mode t)
+(when (fboundp 'winner-mode)
+  (winner-mode 1))
+
+(global-set-key [C-tab] 'other-window)
+
+
 
 (require 'snippet)
 
