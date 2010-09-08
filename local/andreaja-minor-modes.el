@@ -25,6 +25,6 @@
 
 ;; perl stuff
 
-(setq-default perl-tab-always-indent 1)
-(setq-default perl-indent-level 8)
+;(setq-default perl-tab-always-indent 1)
+;(setq-default perl-indent-level 8)
 
