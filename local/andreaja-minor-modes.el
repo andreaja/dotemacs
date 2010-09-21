@@ -14,12 +14,12 @@
 
 (show-paren-mode t)
 (setq-default show-trailing-whitespace t)
+(set-face-background 'trailing-whitespace "red4")
+
 (when (fboundp 'winner-mode)
   (winner-mode 1))
 
 (global-set-key [C-tab] 'other-window)
-
-
 
 (require 'snippet)
 
