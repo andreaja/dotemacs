@@ -9,6 +9,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/groovy")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/gist")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/ioke")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/cucumber")
 (add-to-list 'load-path "~/.emacs.d/elpa")
 (add-to-list 'load-path "~/.emacs.d/local")
@@ -35,6 +36,7 @@
 (load "local-key-bindings")
 (load "feature-mode")
 (load "ldap-mode")
+(load "yaml-mode")
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
