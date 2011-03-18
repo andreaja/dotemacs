@@ -12,6 +12,8 @@
 
 (scroll-bar-mode nil)
 
+(prefer-coding-system 'utf-8)
+
 (show-paren-mode t)
 (setq-default show-trailing-whitespace t)
 (set-face-background 'trailing-whitespace "red4")
@@ -20,6 +22,8 @@
   (winner-mode 1))
 
 (global-set-key [C-tab] 'other-window)
+
+(setq ruby-insert-encoding-magic-comment nil)
 
 (require 'snippet)
 
