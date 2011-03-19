@@ -1,4 +1,4 @@
-(defvar emacs-root "/home/aja/")
+(defvar emacs-root (expand-file-name "~"))
 
 (add-to-list 'load-path "~/.emacs.d")
 
@@ -9,3 +9,4 @@
 
 ;; giss an eshell dear
 (eshell)
+
