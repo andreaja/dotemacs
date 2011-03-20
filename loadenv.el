@@ -11,6 +11,7 @@
 (load "local-settings")
 (load "local-auto-modes")
 (load "local-minor-modes")
+(load "local-key-bindings")
 (load "local-modes")
 (load "local-ido")
 
