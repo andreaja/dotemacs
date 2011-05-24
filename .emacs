@@ -9,3 +9,4 @@
 
 ;; giss an eshell dear
 (eshell)
+(put 'upcase-region 'disabled nil)
