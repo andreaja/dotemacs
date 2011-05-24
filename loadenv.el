@@ -4,16 +4,15 @@
 (add-to-list 'load-path "~/.emacs.d/local")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/other")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/io-mode")
 
-(load "plsql")
-(load "rainbow-mode")
-(load "js2-mode")
 (load "local-settings")
 (load "local-auto-modes")
 (load "local-minor-modes")
 (load "local-key-bindings")
 (load "local-modes")
 (load "local-ido")
+(load "local-functions")
 
 (if (eq system-type 'darwin)
     (load "local-mac-mode"))
