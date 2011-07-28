@@ -18,8 +18,5 @@
 (set-cursor-color 'red)
 (setq-default truncate-lines nil)
 
-(setq indent-tabs-mode nil)
-
-
 
 ;(global-set-key "\M-/" 'hippie-expand)
