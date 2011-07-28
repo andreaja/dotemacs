@@ -38,3 +38,10 @@
       (run-hooks 'find-file-root-hook))))
 
 (global-set-key [(control x) (control r)] 'find-file-root)
+
+
+;; http://atomized.org/2008/12/emacs-create-directory-before-saving/
+(add-hook 'before-save-hook
+          '(lambda ()
+             (or (file-exists-p (file-name-directory buffer-file-name))
+                 (make-directory (file-name-directory buffer-file-name) t))))
