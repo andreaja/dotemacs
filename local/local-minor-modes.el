@@ -18,5 +18,6 @@
 (set-cursor-color 'red)
 (setq-default truncate-lines nil)
 
+(global-hl-line-mode t)
 
 ;(global-set-key "\M-/" 'hippie-expand)
