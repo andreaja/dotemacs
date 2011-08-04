@@ -39,4 +39,107 @@
 
 (global-set-key [(control x) (control r)] 'find-file-root)
 
+(defun spotify-player-state ()
+  "DOCSTRING"
+  (do-applescript
+   "tell application \"Spotify\"
+        get player state as string
+    end tell"
+    ))
+
+(defun spotify-playpause ()
+  "plays or pauses Spotify (if running)"
+  (interactive)
+  (message (do-applescript "
+tell application \"System Events\"
+	set MyList to (name of every process)
+end tell
+if (MyList contains \"Spotify\") is false then
+  open location \"spotify:user:andreaja:playlist:1bLf5DCoItO8RfXD1pxaWi\"
+end if
+tell application \"Spotify\" 
+    playpause
+    get player state as string
+end tell
+")
+))
+
+(defun spotify-next-track ()
+  "Tells spotify to advance play to the next track"
+  (interactive)
+  (do-applescript "
+tell application \"System Events\"
+	set MyList to (name of every process)
+end tell
+if (MyList contains \"Spotify\") is true then
+	tell application \"Spotify\" to next track
+end if
+"))
+
+(defun spotify-previous-track ()
+  "Tells spotify to revert play to the previous track"
+  (interactive)
+  (do-applescript "
+tell application \"System Events\"
+	set MyList to (name of every process)
+end tell
+if (MyList contains \"Spotify\") is true then
+	tell application \"Spotify\" to previous track
+end if
+"))
+
+(defun spotify-current-track ()
+  "DOCSTRING"
+  (do-applescript "
+    tell application \"Spotify\"
+	get properties
+	set MyPos to player position as integer
+	tell current track
+		artist & \" - \" & name
+        end tell
+    end tell"))
+
+(defun spotify-current-position ()
+  "DOCSTRING"
+  (do-applescript "
+    tell application \"Spotify\"
+        get player position as integer
+    end tell"))
+
+(defun spotify-current-track-length ()
+  "DOCSTRING"
+  (do-applescript "
+    tell application \"Spotify\"
+	tell current track
+            duration
+        end tell
+    end tell"))
+
+(defun spotify-now-playing ()
+  "DOCSTRING"
+  (interactive)
+  (let ((pos (spotify-current-position))
+        (len (spotify-current-track-length)))
+    (message (format "Now playing: %s (%02d:%02d/%02d:%02d)" 
+                     (spotify-current-track) 
+                     (/ pos 60)
+                     (% pos 60)
+                     (/ len 60)
+                     (% len 60)))))
+
+(defun spotify-current-position ()
+  "DOCSTRING"
+  (do-applescript "
+    tell application \"Spotify\"
+        get player position as integer
+    end tell"))
+
+(global-set-key [(control .) (<)] 'spotify-previous-track)
+(global-set-key [(control .) "C-,"] 'spotify-previous-track)
+(global-set-key [(control .) (>)] 'spotify-next-track)
+(global-set-key [(control .) (control .)] 'spotify-next-track)
+(global-set-key [(control .) (p)] 'spotify-playpause)
+(global-set-key [(control .) (control p)] 'spotify-playpause)
+(global-set-key [(control .) (control c)] 'spotify-now-playing)
+(global-set-key [(control .) (c)] 'spotify-now-playing)
 
