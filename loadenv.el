@@ -16,6 +16,7 @@
 (load "local-modes")
 (load "local-ido")
 (load "local-functions")
+(load "local-hooks")
 
 (if (eq system-type 'darwin)
     (load "local-mac-mode"))
