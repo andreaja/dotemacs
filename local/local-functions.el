@@ -37,7 +37,6 @@
       ;; allow some user customization
       (run-hooks 'find-file-root-hook))))
 
-(global-set-key [(control x) (control r)] 'find-file-root)
 
 (defun spotify-player-state ()
   "DOCSTRING"
@@ -133,13 +132,3 @@ end if
     tell application \"Spotify\"
         get player position as integer
     end tell"))
-
-(global-set-key [(control .) (<)] 'spotify-previous-track)
-(global-set-key [(control .) "C-,"] 'spotify-previous-track)
-(global-set-key [(control .) (>)] 'spotify-next-track)
-(global-set-key [(control .) (control .)] 'spotify-next-track)
-(global-set-key [(control .) (p)] 'spotify-playpause)
-(global-set-key [(control .) (control p)] 'spotify-playpause)
-(global-set-key [(control .) (control c)] 'spotify-now-playing)
-(global-set-key [(control .) (c)] 'spotify-now-playing)
-
