@@ -1,7 +1,7 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/ruby-mode/collections
 http://yasnippet.googlecode.com/svn
 
@@ -60,14 +60,14 @@ has-props
 
 63
 
-collect
+ea
 file
 
 
 
 
 2011-03-20T07:14:31.000000Z
-94d253cd39feed16972da86c20cd9b32
+0e5fbe6c40bc04aa8c864638db4ebe3b
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -92,7 +92,7 @@ has-props
 
 
 
-57
+51
 
 eawi
 file
@@ -128,14 +128,14 @@ has-props
 
 80
 
-ea
+collect
 file
 
 
 
 
 2011-03-20T07:14:31.000000Z
-0e5fbe6c40bc04aa8c864638db4ebe3b
+94d253cd39feed16972da86c20cd9b32
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -160,7 +160,7 @@ has-props
 
 
 
-51
+57
 
 any
 file
@@ -366,14 +366,14 @@ has-props
 
 65
 
-reject
+det
 file
 
 
 
 
 2011-03-20T07:14:31.000000Z
-448e7a861b9de5d9c3cdae4094fcac98
+03c552bdc08df8240088a4d24b0ae051
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -398,7 +398,7 @@ has-props
 
 
 
-63
+55
 
 inject
 file
@@ -434,14 +434,14 @@ has-props
 
 92
 
-det
+reject
 file
 
 
 
 
 2011-03-20T07:14:31.000000Z
-03c552bdc08df8240088a4d24b0ae051
+448e7a861b9de5d9c3cdae4094fcac98
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -466,41 +466,7 @@ has-props
 
 
 
-55
-
-deli
-file
-
-
-
-
-2011-03-20T07:14:31.000000Z
-edb9eca5c854a68c1f473dd29cbd81d8
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-60
+63
 
 classify
 file
@@ -535,4 +501,38 @@ has-props
 
 
 59
+
+deli
+file
+
+
+
+
+2011-03-20T07:14:31.000000Z
+edb9eca5c854a68c1f473dd29cbd81d8
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+60
 

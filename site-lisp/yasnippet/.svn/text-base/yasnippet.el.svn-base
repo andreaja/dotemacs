@@ -556,7 +556,7 @@ snippet itself contains a condition that returns the symbol
   "A list of mode which is well known but not part of emacs.")
 
 (defvar yas/escaped-characters
-  '(?\\ ?` ?' ?$ ?} ?\( ?\))
+  '(?\\ ?` ?' ?$ ?} ?{ ?\( ?\))
   "List of characters which *might* need to be escaped.")
 
 (defconst yas/field-regexp
@@ -826,7 +826,7 @@ Key bindings:
 
 `yas/minor-mode-on' is usually called by `yas/global-mode' so
 this effectively lets you define exceptions to the \"global\"
-behaviour.")
+behaviour. Can also be a function of zero arguments.")
 (make-variable-buffer-local 'yas/dont-activate)
 
 (defun yas/minor-mode-on ()
@@ -837,7 +837,7 @@ Do this unless `yas/dont-activate' is t "
   (unless (or (minibufferp)
               (and (functionp yas/dont-activate)
                    (funcall yas/dont-activate))
-              (and (not (functionp yas/dont-activate))
+              (and (boundp yas/dont-activate)
                    yas/dont-activate))
     ;; Load all snippets definitions unless we still don't have a
     ;; root-directory or some snippets have already been loaded.
@@ -1086,6 +1086,13 @@ Also takes care of adding and updaring to the associated menu."
       (let ((menu-binding-pair (yas/snippet-menu-binding-pair-get-create template)))
         (define-key keymap (vector (make-symbol (yas/template-uuid template))) (car menu-binding-pair))))))
 
+(defun yas/namehash-templates-alist (namehash)
+  (let (alist)
+    (maphash #'(lambda (k v)
+                 (push (cons k v) alist))
+             namehash)
+    alist))
+
 (defun yas/fetch (table key)
   "Fetch templates in TABLE by KEY.
 
@@ -1094,12 +1101,7 @@ string and TEMPLATE is a `yas/template' structure."
   (let* ((keyhash (yas/table-hash table))
          (namehash (and keyhash (gethash key keyhash))))
     (when namehash
-      (yas/filter-templates-by-condition
-       (let (alist)
-         (maphash #'(lambda (k v)
-                      (push (cons k v) alist))
-                  namehash)
-         alist)))))
+      (yas/filter-templates-by-condition (yas/namehash-templates-alist namehash)))))
 
 
 ;;; Filtering/condition logic
@@ -1204,8 +1206,8 @@ the template of a snippet in the current snippet-table."
 (defun yas/table-all-keys (table)
   (when table
     (let ((acc))
-      (maphash #'(lambda (key templates)
-                   (when (yas/filter-templates-by-condition templates)
+      (maphash #'(lambda (key namehash)
+                   (when (yas/filter-templates-by-condition (yas/namehash-templates-alist namehash))
                      (push key acc)))
                (yas/table-hash table))
       acc)))
@@ -3053,9 +3055,7 @@ Also create some protection overlays"
 snippet as ordinary text.
 
 Return a buffer position where the point should be placed if
-exiting the snippet.
-
-NO-HOOKS means don't run the `yas/after-exit-snippet-hook' hooks."
+exiting the snippet."
 
   (let ((control-overlay (yas/snippet-control-overlay snippet))
         yas/snippet-beg
@@ -3099,6 +3099,13 @@ NO-HOOKS means don't run the `yas/after-exit-snippet-hook' hooks."
 
   (message "[yas] snippet %s exited." (yas/snippet-id snippet)))
 
+(defun yas/safely-run-hooks (hook-var)
+  (condition-case error
+      (run-hooks hook-var)
+    (error
+     (message "[yas] %s error: %s" hook-var (error-message-string error)))))
+
+
 (defun yas/check-commit-snippet ()
   "Checks if point exited the currently active field of the
 snippet, if so cleans up the whole snippet up."
@@ -3126,10 +3133,10 @@ snippet, if so cleans up the whole snippet up."
                  (yas/update-mirrors snippet)))
               (t
                nil))))
-    (unless snippets-left
+    (unless (or (null snippets) snippets-left)
       (if snippet-exit-transform
-          (yas/eval-lisp-no-saves snippet-exit-transform)
-        (run-hooks 'yas/after-exit-snippet-hook)))))
+          (yas/eval-lisp-no-saves snippet-exit-transform))
+      (yas/safely-run-hooks 'yas/after-exit-snippet-hook))))
 
 ;; Apropos markers-to-points:
 ;;
@@ -4105,7 +4112,7 @@ When multiple expressions are found, only the last one counts."
 ;;; Post-command hooks:
 
 (defvar yas/post-command-runonce-actions nil
-  "List of actions to run once  `post-command-hook'.
+  "List of actions to run once in `post-command-hook'.
 
 Each element of this list looks like (FN . ARGS) where FN is
 called with ARGS as its arguments after the currently executing
@@ -4232,12 +4239,19 @@ Remaining args as in `yas/expand-snippet'."
 
 
 ;;; Some hacks:
-;; `locate-dominating-file' is added for compatibility in emacs < 23
-(unless (or (eq emacs-major-version 23)
-            (fboundp 'locate-dominating-file))
-  (defvar locate-dominating-stop-dir-regexp
-    "\\`\\(?:[\\/][\\/][^\\/]+[\\/]\\|/\\(?:net\\|afs\\|\\.\\.\\.\\)/\\)\\'"
-    "Regexp of directory names which stop the search in `locate-dominating-file'.
+;;; 
+;; `locate-dominating-file' 
+;; `region-active-p'
+;; 
+;; added for compatibility in emacs < 23
+(unless (>= emacs-major-version 23)
+  (unless (fboundp 'region-active-p)
+    (defun region-active-p ()  (and transient-mark-mode mark-active)))
+
+  (unless (fboundp 'locate-dominating-file)
+    (defvar locate-dominating-stop-dir-regexp
+      "\\`\\(?:[\\/][\\/][^\\/]+[\\/]\\|/\\(?:net\\|afs\\|\\.\\.\\.\\)/\\)\\'"
+      "Regexp of directory names which stop the search in `locate-dominating-file'.
 Any directory whose name matches this regexp will be treated like
 a kind of root directory by `locate-dominating-file' which will stop its search
 when it bumps into it.
@@ -4245,44 +4259,44 @@ The default regexp prevents fruitless and time-consuming attempts to find
 special files in directories in which filenames are interpreted as hostnames,
 or mount points potentially requiring authentication as a different user.")
 
-  (defun locate-dominating-file (file name)
-    "Look up the directory hierarchy from FILE for a file named NAME.
+    (defun locate-dominating-file (file name)
+      "Look up the directory hierarchy from FILE for a file named NAME.
 Stop at the first parent directory containing a file NAME,
 and return the directory.  Return nil if not found."
-    ;; We used to use the above locate-dominating-files code, but the
-    ;; directory-files call is very costly, so we're much better off doing
-    ;; multiple calls using the code in here.
-    ;;
-    ;; Represent /home/luser/foo as ~/foo so that we don't try to look for
-    ;; `name' in /home or in /.
-    (setq file (abbreviate-file-name file))
-    (let ((root nil)
-          (prev-file file)
-          ;; `user' is not initialized outside the loop because
-          ;; `file' may not exist, so we may have to walk up part of the
-          ;; hierarchy before we find the "initial UUID".
-          (user nil)
-          try)
-      (while (not (or root
-                      (null file)
-                      ;; FIXME: Disabled this heuristic because it is sometimes
-                      ;; inappropriate.
-                      ;; As a heuristic, we stop looking up the hierarchy of
-                      ;; directories as soon as we find a directory belonging
-                      ;; to another user.  This should save us from looking in
-                      ;; things like /net and /afs.  This assumes that all the
-                      ;; files inside a project belong to the same user.
-                      ;; (let ((prev-user user))
-                      ;;   (setq user (nth 2 (file-attributes file)))
-                      ;;   (and prev-user (not (equal user prev-user))))
-                      (string-match locate-dominating-stop-dir-regexp file)))
-        (setq try (file-exists-p (expand-file-name name file)))
-        (cond (try (setq root file))
-              ((equal file (setq prev-file file
-                                 file (file-name-directory
-                                       (directory-file-name file))))
-               (setq file nil))))
-      root)))
+      ;; We used to use the above locate-dominating-files code, but the
+      ;; directory-files call is very costly, so we're much better off doing
+      ;; multiple calls using the code in here.
+      ;;
+      ;; Represent /home/luser/foo as ~/foo so that we don't try to look for
+      ;; `name' in /home or in /.
+      (setq file (abbreviate-file-name file))
+      (let ((root nil)
+            (prev-file file)
+            ;; `user' is not initialized outside the loop because
+            ;; `file' may not exist, so we may have to walk up part of the
+            ;; hierarchy before we find the "initial UUID".
+            (user nil)
+            try)
+        (while (not (or root
+                        (null file)
+                        ;; FIXME: Disabled this heuristic because it is sometimes
+                        ;; inappropriate.
+                        ;; As a heuristic, we stop looking up the hierarchy of
+                        ;; directories as soon as we find a directory belonging
+                        ;; to another user.  This should save us from looking in
+                        ;; things like /net and /afs.  This assumes that all the
+                        ;; files inside a project belong to the same user.
+                        ;; (let ((prev-user user))
+                        ;;   (setq user (nth 2 (file-attributes file)))
+                        ;;   (and prev-user (not (equal user prev-user))))
+                        (string-match locate-dominating-stop-dir-regexp file)))
+          (setq try (file-exists-p (expand-file-name name file)))
+          (cond (try (setq root file))
+                ((equal file (setq prev-file file
+                                   file (file-name-directory
+                                         (directory-file-name file))))
+                 (setq file nil))))
+        root))))
 
 ;; `c-neutralize-syntax-in-CPP` sometimes fires "End of Buffer" error
 ;; (when it execute forward-char) and interrupt the after change

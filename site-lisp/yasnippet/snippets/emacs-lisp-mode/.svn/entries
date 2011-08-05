@@ -1,7 +1,7 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/emacs-lisp-mode
 http://yasnippet.googlecode.com/svn
 
@@ -604,40 +604,6 @@ has-props
 
 241
 
-find-file.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-2b99adbba6a6cd330bd46abb2e2a7d1b
-2010-08-24T10:01:37.127960Z
-650
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-97
-
 line-end-position.yasnippet
 file
 
@@ -672,14 +638,14 @@ has-props
 
 118
 
-string-match.yasnippet
+find-file.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-f972624955bfa7eb22bb901bb3c8fff8
+2b99adbba6a6cd330bd46abb2e2a7d1b
 2010-08-24T10:01:37.127960Z
 650
 xahlee@gmail.com
@@ -704,7 +670,7 @@ has-props
 
 
 
-138
+97
 
 match-end.yasnippet
 file
@@ -739,6 +705,40 @@ has-props
 
 
 97
+
+string-match.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+f972624955bfa7eb22bb901bb3c8fff8
+2010-08-24T10:01:37.127960Z
+650
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+138
 
 kill-buffer.yasnippet
 file
@@ -808,40 +808,6 @@ has-props
 
 82
 
-equal.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-814ec256d86af0bf65df01696142bc8e
-2010-08-24T10:01:37.127960Z
-650
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-75
-
 defvar.yasnippet
 file
 
@@ -876,17 +842,17 @@ has-props
 
 110
 
-.yas-parents
+equal.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-6fb0b8ba4f765c35dd7013682307e71b
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
+814ec256d86af0bf65df01696142bc8e
+2010-08-24T10:01:37.127960Z
+650
+xahlee@gmail.com
 has-props
 
 
@@ -908,7 +874,7 @@ has-props
 
 
 
-10
+75
 
 unless.yasnippet
 file
@@ -944,6 +910,40 @@ has-props
 
 78
 
+.yas-parents
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+6fb0b8ba4f765c35dd7013682307e71b
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10
+
 push.yasnippet
 file
 
@@ -978,40 +978,6 @@ has-props
 
 73
 
-yes-or-no-p.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-6999aacf20d50faf110cf0635438a4e9
-2010-09-03T02:12:33.097213Z
-653
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-102
-
 re-search-backward.yasnippet
 file
 
@@ -1045,6 +1011,40 @@ has-props
 
 
 160
+
+yes-or-no-p.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+6999aacf20d50faf110cf0635438a4e9
+2010-09-03T02:12:33.097213Z
+653
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+102
 
 beginning-of-line.yasnippet
 file
@@ -2134,16 +2134,16 @@ has-props
 
 137
 
-delete-char.yasnippet
+interactive.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-5ace1391418cb7d1fd4437caee16fce8
-2010-09-03T02:12:33.097213Z
-653
+876f38df8364fc9032e9f96bf9dc7f0d
+2010-08-24T10:01:37.127960Z
+650
 xahlee@gmail.com
 has-props
 
@@ -2166,7 +2166,7 @@ has-props
 
 
 
-102
+90
 
 aref.yasnippet
 file
@@ -2202,16 +2202,16 @@ has-props
 
 83
 
-interactive.yasnippet
+delete-char.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-876f38df8364fc9032e9f96bf9dc7f0d
-2010-08-24T10:01:37.127960Z
-650
+5ace1391418cb7d1fd4437caee16fce8
+2010-09-03T02:12:33.097213Z
+653
 xahlee@gmail.com
 has-props
 
@@ -2234,75 +2234,7 @@ has-props
 
 
 
-90
-
-get.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-039cea113b8fcd29f1379226504f6542
-2010-08-24T10:01:37.127960Z
-650
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-84
-
-defsubst.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-817ede91306a2882a4d0674e46934f14
-2010-08-24T10:01:37.127960Z
-650
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-85
+102
 
 forward-char.yasnippet
 file
@@ -2338,14 +2270,14 @@ has-props
 
 105
 
-skip-chars-backward.yasnippet
+defsubst.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-7d1bc819493a7773229227566639fef0
+817ede91306a2882a4d0674e46934f14
 2010-08-24T10:01:37.127960Z
 650
 xahlee@gmail.com
@@ -2370,7 +2302,41 @@ has-props
 
 
 
-143
+85
+
+get.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+039cea113b8fcd29f1379226504f6542
+2010-08-24T10:01:37.127960Z
+650
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+84
 
 substring.yasnippet
 file
@@ -2405,6 +2371,40 @@ has-props
 
 
 112
+
+skip-chars-backward.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+7d1bc819493a7773229227566639fef0
+2010-08-24T10:01:37.127960Z
+650
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+143
 
 funcall.yasnippet
 file
@@ -2610,40 +2610,6 @@ has-props
 
 66
 
-file-name-directory.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-cb236286dfcb12bedeb0d0f0051a3532
-2010-09-03T02:12:33.097213Z
-653
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-127
-
 search-forward-regexp.yasnippet
 file
 
@@ -2678,14 +2644,14 @@ has-props
 
 165
 
-directory-files.yasnippet
+file-name-directory.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-729a5a40e4454d338961c1d530b77960
+cb236286dfcb12bedeb0d0f0051a3532
 2010-09-03T02:12:33.097213Z
 653
 xahlee@gmail.com
@@ -2710,7 +2676,7 @@ has-props
 
 
 
-142
+127
 
 looking-at.yasnippet
 file
@@ -2745,6 +2711,40 @@ has-props
 
 
 99
+
+directory-files.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+729a5a40e4454d338961c1d530b77960
+2010-09-03T02:12:33.097213Z
+653
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+142
 
 x-file.read-lines.yasnippet
 file
@@ -2848,14 +2848,14 @@ has-props
 
 157
 
-string-to-number.yasnippet
+require.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-f88a8d9e8a62a54251e72ac9fd98a621
+a03ea49cc5ed3e1af76deeacb2f113f1
 2010-08-24T10:01:37.127960Z
 650
 xahlee@gmail.com
@@ -2880,41 +2880,7 @@ has-props
 
 
 
-120
-
-copy-directory.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-f557ffe1811887d947b801e7cd263ea0
-2010-09-03T02:12:33.097213Z
-653
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-147
+82
 
 point-max.yasnippet
 file
@@ -2950,14 +2916,48 @@ has-props
 
 84
 
-require.yasnippet
+copy-directory.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-a03ea49cc5ed3e1af76deeacb2f113f1
+f557ffe1811887d947b801e7cd263ea0
+2010-09-03T02:12:33.097213Z
+653
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+147
+
+string-to-number.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+f88a8d9e8a62a54251e72ac9fd98a621
 2010-08-24T10:01:37.127960Z
 650
 xahlee@gmail.com
@@ -2982,7 +2982,7 @@ has-props
 
 
 
-82
+120
 
 make-directory.yasnippet
 file
@@ -3154,40 +3154,6 @@ has-props
 
 85
 
-line-beginning-position.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-9ad8ca27df34c65cbd5166e8de692f7b
-2010-08-24T10:01:37.127960Z
-650
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-136
-
 copy-file.yasnippet
 file
 
@@ -3222,14 +3188,14 @@ has-props
 
 166
 
-nth.yasnippet
+line-beginning-position.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-5d408a5704db128d1ac46ff1e2d8efa3
+9ad8ca27df34c65cbd5166e8de692f7b
 2010-08-24T10:01:37.127960Z
 650
 xahlee@gmail.com
@@ -3254,7 +3220,7 @@ has-props
 
 
 
-75
+136
 
 current-buffer.yasnippet
 file
@@ -3289,6 +3255,40 @@ has-props
 
 
 108
+
+nth.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+5d408a5704db128d1ac46ff1e2d8efa3
+2010-08-24T10:01:37.127960Z
+650
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+75
 
 delete-directory.yasnippet
 file
@@ -3392,14 +3392,14 @@ has-props
 
 143
 
-list.yasnippet
+princ.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-47e695f4aa557d0298673e714389dee7
+11e7965716ee54c043392a6a26610224
 2010-08-24T10:01:37.127960Z
 650
 xahlee@gmail.com
@@ -3424,7 +3424,7 @@ has-props
 
 
 
-72
+75
 
 save-excursion.yasnippet
 file
@@ -3460,14 +3460,14 @@ has-props
 
 111
 
-princ.yasnippet
+list.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-11e7965716ee54c043392a6a26610224
+47e695f4aa557d0298673e714389dee7
 2010-08-24T10:01:37.127960Z
 650
 xahlee@gmail.com
@@ -3492,41 +3492,7 @@ has-props
 
 
 
-75
-
-setq.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-8d483813305f75a21e394d282609b2ce
-2010-08-24T10:01:37.127960Z
-650
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-81
+72
 
 insert-file-contents.yasnippet
 file
@@ -3561,6 +3527,40 @@ has-props
 
 
 162
+
+setq.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+8d483813305f75a21e394d282609b2ce
+2010-08-24T10:01:37.127960Z
+650
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+81
 
 set-file-modes.yasnippet
 file
@@ -3970,40 +3970,6 @@ has-props
 
 79
 
-save-buffer.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-db4f41007b04812d0de7370008fabc7e
-2010-09-03T02:12:33.097213Z
-653
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-102
-
 eq.yasnippet
 file
 
@@ -4038,16 +4004,16 @@ has-props
 
 66
 
-string.yasnippet
+save-buffer.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-8da6a071cbc31e820ecbb16a3181b227
-2010-08-24T10:01:37.127960Z
-650
+db4f41007b04812d0de7370008fabc7e
+2010-09-03T02:12:33.097213Z
+653
 xahlee@gmail.com
 has-props
 
@@ -4070,7 +4036,7 @@ has-props
 
 
 
-79
+102
 
 file-relative-name.yasnippet
 file
@@ -4106,16 +4072,16 @@ has-props
 
 125
 
-x-grabstring.yasnippet
+string.yasnippet
 file
 
 
 
 
 2011-03-20T07:14:19.000000Z
-16948f0df2c550e1c8cc4648aa77ea67
-2010-08-05T07:44:11.749651Z
-641
+8da6a071cbc31e820ecbb16a3181b227
+2010-08-24T10:01:37.127960Z
+650
 xahlee@gmail.com
 has-props
 
@@ -4138,7 +4104,7 @@ has-props
 
 
 
-132
+79
 
 concat.yasnippet
 file
@@ -4174,6 +4140,40 @@ has-props
 
 78
 
+x-grabstring.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+16948f0df2c550e1c8cc4648aa77ea67
+2010-08-05T07:44:11.749651Z
+641
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+132
+
 global-set-key.yasnippet
 file
 
@@ -4208,40 +4208,6 @@ has-props
 
 131
 
-or.yasnippet
-file
-
-
-
-
-2011-03-20T07:14:19.000000Z
-a67f6806a2e84d07f4057ea76c0fa948
-2010-09-03T02:12:33.097213Z
-653
-xahlee@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-75
-
 mapc.yasnippet
 file
 
@@ -4275,6 +4241,40 @@ has-props
 
 
 82
+
+or.yasnippet
+file
+
+
+
+
+2011-03-20T07:14:19.000000Z
+a67f6806a2e84d07f4057ea76c0fa948
+2010-09-03T02:12:33.097213Z
+653
+xahlee@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+75
 
 progn.yasnippet
 file

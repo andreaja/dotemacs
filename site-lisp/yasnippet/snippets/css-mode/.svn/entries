@@ -1,7 +1,7 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/css-mode
 http://yasnippet.googlecode.com/svn
 
@@ -25,40 +25,6 @@ joaotavora
 
 
 b2103351-7347-0410-aa0e-656c9fbaa8cf
-
-pad.right
-file
-
-
-
-
-2011-03-20T07:14:35.000000Z
-8745a92ec70bca93fd138cfd71e627c9
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-98
 
 mar.top
 file
@@ -94,14 +60,14 @@ has-props
 
 92
 
-bor
+pad.right
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-c11197c45425f939131f13d9884aba1b
+8745a92ec70bca93fd138cfd71e627c9
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -126,7 +92,7 @@ has-props
 
 
 
-75
+98
 
 mar.bottom
 file
@@ -161,6 +127,40 @@ has-props
 
 
 98
+
+bor
+file
+
+
+
+
+2011-03-20T07:14:35.000000Z
+c11197c45425f939131f13d9884aba1b
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+75
 
 .yas-parents
 file
@@ -230,40 +230,6 @@ has-props
 
 61
 
-disp.block
-file
-
-
-
-
-2011-03-20T07:14:35.000000Z
-3d8db10f08fda1ddf5c10963bcb1e32c
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-91
-
 bg
 file
 
@@ -298,14 +264,14 @@ has-props
 
 63
 
-mar.margin
+disp.block
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-3ad22c232d462e2762cc3ec3e0c2a2a1
+3d8db10f08fda1ddf5c10963bcb1e32c
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -330,41 +296,7 @@ has-props
 
 
 
-132
-
-ff
-file
-
-
-
-
-2011-03-20T07:14:35.000000Z
-e7cfb5fd090037231b233a91ca96fb4b
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-94
+91
 
 mar.right
 file
@@ -400,14 +332,14 @@ has-props
 
 96
 
-disp.none
+ff
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-282a72c642ba71a43d1ee106f55daefe
+e7cfb5fd090037231b233a91ca96fb4b
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -432,7 +364,75 @@ has-props
 
 
 
-89
+94
+
+mar.margin
+file
+
+
+
+
+2011-03-20T07:14:35.000000Z
+3ad22c232d462e2762cc3ec3e0c2a2a1
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+132
+
+pad.left
+file
+
+
+
+
+2011-03-20T07:14:35.000000Z
+60ffe1db943d442cbb8f7004364f25ad
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+96
 
 mar.mar
 file
@@ -468,14 +468,14 @@ has-props
 
 84
 
-pad.left
+disp.none
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-60ffe1db943d442cbb8f7004364f25ad
+282a72c642ba71a43d1ee106f55daefe
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -500,7 +500,7 @@ has-props
 
 
 
-96
+89
 
 cl
 file

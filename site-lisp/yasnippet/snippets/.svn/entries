@@ -1,15 +1,15 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets
 http://yasnippet.googlecode.com/svn
 
 
 
-2010-09-03T02:12:33.097213Z
-653
-xahlee@gmail.com
+2011-05-07T20:00:55.190864Z
+663
+joaotavora
 
 
 
@@ -44,19 +44,19 @@ dir
 cperl-mode
 dir
 
-c++-mode
+rst-mode
 dir
 
 erlang-mode
 dir
 
-rst-mode
-dir
-
-latex-mode
+c++-mode
 dir
 
 objc-mode
+dir
+
+latex-mode
 dir
 
 nxml-mode
@@ -65,10 +65,10 @@ dir
 csharp-mode
 dir
 
-python-mode
+ruby-mode
 dir
 
-ruby-mode
+python-mode
 dir
 
 c-mode

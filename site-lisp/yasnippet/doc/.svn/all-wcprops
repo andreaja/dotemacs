@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 27
-/svn/!svn/ver/572/trunk/doc
+/svn/!svn/ver/660/trunk/doc
 END
 compile-doc.py
 K 25
@@ -9,11 +9,11 @@ svn:wc:ra_dav:version-url
 V 42
 /svn/!svn/ver/572/trunk/doc/compile-doc.py
 END
-snippet-organization.html
+snippet-menu.html
 K 25
 svn:wc:ra_dav:version-url
-V 53
-/svn/!svn/ver/572/trunk/doc/snippet-organization.html
+V 45
+/svn/!svn/ver/572/trunk/doc/snippet-menu.html
 END
 snippet-expansion.html
 K 25
@@ -21,11 +21,11 @@ svn:wc:ra_dav:version-url
 V 50
 /svn/!svn/ver/572/trunk/doc/snippet-expansion.html
 END
-snippet-menu.html
+snippet-organization.html
 K 25
 svn:wc:ra_dav:version-url
-V 45
-/svn/!svn/ver/572/trunk/doc/snippet-menu.html
+V 53
+/svn/!svn/ver/572/trunk/doc/snippet-organization.html
 END
 template.txt
 K 25
@@ -39,11 +39,11 @@ svn:wc:ra_dav:version-url
 V 42
 /svn/!svn/ver/572/trunk/doc/changelog.html
 END
-snippet-expansion.rst
+snippet-organization.rst
 K 25
 svn:wc:ra_dav:version-url
-V 49
-/svn/!svn/ver/572/trunk/doc/snippet-expansion.rst
+V 52
+/svn/!svn/ver/572/trunk/doc/snippet-organization.rst
 END
 snippet-menu.rst
 K 25
@@ -51,11 +51,11 @@ svn:wc:ra_dav:version-url
 V 44
 /svn/!svn/ver/572/trunk/doc/snippet-menu.rst
 END
-snippet-organization.rst
+snippet-expansion.rst
 K 25
 svn:wc:ra_dav:version-url
-V 52
-/svn/!svn/ver/572/trunk/doc/snippet-organization.rst
+V 49
+/svn/!svn/ver/660/trunk/doc/snippet-expansion.rst
 END
 changelog.rst
 K 25
@@ -81,17 +81,17 @@ svn:wc:ra_dav:version-url
 V 52
 /svn/!svn/ver/572/trunk/doc/snippet-development.html
 END
-html4css1.css
-K 25
-svn:wc:ra_dav:version-url
-V 41
-/svn/!svn/ver/572/trunk/doc/html4css1.css
-END
 snippet-development.rst
 K 25
 svn:wc:ra_dav:version-url
 V 51
 /svn/!svn/ver/572/trunk/doc/snippet-development.rst
+END
+html4css1.css
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/572/trunk/doc/html4css1.css
 END
 styles.css
 K 25

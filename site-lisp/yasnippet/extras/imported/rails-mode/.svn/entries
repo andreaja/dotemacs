@@ -1,14 +1,14 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/extras/imported/rails-mode
 http://yasnippet.googlecode.com/svn
 
 
 
-2010-08-15T23:38:56.167222Z
-646
+2011-05-07T19:13:40.354561Z
+660
 joaotavora
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2011-03-20T07:15:20.000000Z
-460daf6915c2d74d2227fd5e9802dd18
-2010-08-15T23:38:56.167222Z
-646
+2011-08-05T20:04:26.000000Z
+c28ba71eb0b8503ffc6bd89f2436aff2
+2011-05-07T19:13:40.354561Z
+660
 joaotavora
 
 
@@ -58,5 +58,5 @@ joaotavora
 
 
 
-83201
+83211
 

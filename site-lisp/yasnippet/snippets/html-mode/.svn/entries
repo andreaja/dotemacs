@@ -1,15 +1,15 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/html-mode
 http://yasnippet.googlecode.com/svn
 
 
 
-2010-08-05T05:19:11.708106Z
-640
-xahlee@gmail.com
+2011-05-07T20:00:55.190864Z
+663
+joaotavora
 
 
 
@@ -505,40 +505,6 @@ has-props
 
 119
 
-script.javascript
-file
-
-
-
-
-2011-03-20T07:14:25.000000Z
-d0869f1b3f23519b106b36f1dc52957c
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-154
-
 hr
 file
 
@@ -572,6 +538,40 @@ has-props
 
 
 78
+
+script.javascript
+file
+
+
+
+
+2011-03-20T07:14:25.000000Z
+d0869f1b3f23519b106b36f1dc52957c
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+154
 
 list
 dir
@@ -610,40 +610,6 @@ has-props
 
 140
 
-div.id
-file
-
-
-
-
-2011-03-20T07:14:25.000000Z
-d83c3a24df730bd71ae30c4d44d6759d
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-113
-
 textarea
 file
 
@@ -677,6 +643,40 @@ has-props
 
 
 163
+
+div.id
+file
+
+
+
+
+2011-03-20T07:14:25.000000Z
+d83c3a24df730bd71ae30c4d44d6759d
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+113
 
 code.class
 file
@@ -851,6 +851,9 @@ has-props
 table
 dir
 
+header
+dir
+
 dov
 file
 
@@ -885,20 +888,17 @@ has-props
 
 202
 
-header
-dir
-
 b.yasnippet
 file
 
 
 
 
-2011-03-20T07:14:25.000000Z
-1c67dd44f85ec5a01352d853ec3809fe
-2010-08-05T05:19:11.708106Z
-640
-xahlee@gmail.com
+2011-08-05T20:04:24.000000Z
+8c4d79b4bb43e0bb1ae86e94d222861e
+2011-05-07T20:00:55.190864Z
+663
+joaotavora
 has-props
 
 
@@ -920,7 +920,7 @@ has-props
 
 
 
-70
+68
 
 body
 file
@@ -1166,11 +1166,11 @@ file
 
 
 
-2011-03-20T07:14:25.000000Z
-f6850ee7750c5e8ff8a83ac7c1fb5a3a
-2010-08-05T05:19:11.708106Z
-640
-xahlee@gmail.com
+2011-08-05T20:04:24.000000Z
+98321d0710ca80153fe02534ada71ec9
+2011-05-07T20:00:55.190864Z
+663
+joaotavora
 has-props
 
 
@@ -1192,7 +1192,7 @@ has-props
 
 
 
-70
+68
 
 code
 file

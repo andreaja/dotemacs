@@ -1,7 +1,7 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/markdown-mode
 http://yasnippet.googlecode.com/svn
 
@@ -26,14 +26,14 @@ joaotavora
 
 b2103351-7347-0410-aa0e-656c9fbaa8cf
 
-`
+rlb
 file
 
 
 
 
 2011-03-20T07:14:32.000000Z
-86d7e56d5dae389f0dd5cdf4ae0436f2
+1236451cee089443127f135612e9bba1
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -58,7 +58,7 @@ has-props
 
 
 
-87
+107
 
 rlink
 file
@@ -94,14 +94,14 @@ has-props
 
 97
 
-rlb
+`
 file
 
 
 
 
 2011-03-20T07:14:32.000000Z
-1236451cee089443127f135612e9bba1
+86d7e56d5dae389f0dd5cdf4ae0436f2
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -126,7 +126,7 @@ has-props
 
 
 
-107
+87
 
 .yas-parents
 file
@@ -332,14 +332,14 @@ has-props
 
 93
 
-h1.2
+hr.1
 file
 
 
 
 
 2011-03-20T07:14:32.000000Z
-338614583589da35f31eb077b7e26df2
+99cb4a85cb0e2f13d41036570e4dccdf
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -364,7 +364,7 @@ has-props
 
 
 
-133
+94
 
 h2.1
 file
@@ -400,48 +400,14 @@ has-props
 
 96
 
-hr.1
+h1.2
 file
 
 
 
 
 2011-03-20T07:14:32.000000Z
-99cb4a85cb0e2f13d41036570e4dccdf
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-94
-
-h2.2
-file
-
-
-
-
-2011-03-20T07:14:32.000000Z
-122239e176e5877b76e956e2cb94be67
+338614583589da35f31eb077b7e26df2
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -501,6 +467,40 @@ has-props
 
 
 91
+
+h2.2
+file
+
+
+
+
+2011-03-20T07:14:32.000000Z
+122239e176e5877b76e956e2cb94be67
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+133
 
 ol
 file

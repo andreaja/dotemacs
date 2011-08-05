@@ -1,7 +1,7 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/f90-mode
 http://yasnippet.googlecode.com/svn
 
@@ -162,40 +162,6 @@ has-props
 
 83
 
-st
-file
-
-
-
-
-2011-03-20T07:14:20.000000Z
-51e7f716b07498e98d3c87c314c6d62c
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-81
-
 dc
 file
 
@@ -229,6 +195,40 @@ has-props
 
 
 91
+
+st
+file
+
+
+
+
+2011-03-20T07:14:20.000000Z
+51e7f716b07498e98d3c87c314c6d62c
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+81
 
 su
 file
@@ -298,40 +298,6 @@ has-props
 
 95
 
-ch
-file
-
-
-
-
-2011-03-20T07:14:20.000000Z
-ef76fff46ba6f4db0bb352b84fce0e82
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-81
-
 ib
 file
 
@@ -366,14 +332,14 @@ has-props
 
 89
 
-l
+ch
 file
 
 
 
 
 2011-03-20T07:14:20.000000Z
-76bd2b8b3cfaf8ac0feaf2bb1f4ce482
+ef76fff46ba6f4db0bb352b84fce0e82
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -398,7 +364,7 @@ has-props
 
 
 
-77
+81
 
 ic
 file
@@ -433,6 +399,40 @@ has-props
 
 
 95
+
+l
+file
+
+
+
+
+2011-03-20T07:14:20.000000Z
+76bd2b8b3cfaf8ac0feaf2bb1f4ce482
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+77
 
 if
 file

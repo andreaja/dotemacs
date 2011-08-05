@@ -1,7 +1,7 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/csharp-mode
 http://yasnippet.googlecode.com/svn
 
@@ -25,40 +25,6 @@ joaotavora
 
 
 b2103351-7347-0410-aa0e-656c9fbaa8cf
-
-prop
-file
-
-
-
-
-2011-03-20T07:14:30.000000Z
-a3b0933f1f91a3ab9e88fa857b7c91e8
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-260
 
 method
 file
@@ -94,6 +60,40 @@ has-props
 
 314
 
+prop
+file
+
+
+
+
+2011-03-20T07:14:30.000000Z
+a3b0933f1f91a3ab9e88fa857b7c91e8
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+260
+
 region
 file
 
@@ -127,74 +127,6 @@ has-props
 
 
 131
-
-using.1
-file
-
-
-
-
-2011-03-20T07:14:30.000000Z
-5b2f2ef09f49aaab30599f0570a4cfb5
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-111
-
-.yas-parents
-file
-
-
-
-
-2011-03-20T07:14:30.000000Z
-f58a0e3cd79ed64b79d9c92f92a8fc93
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-8
 
 attrib.1
 file
@@ -230,14 +162,14 @@ has-props
 
 347
 
-using.2
+.yas-parents
 file
 
 
 
 
 2011-03-20T07:14:30.000000Z
-43d73548a11b82ccf89cb068860ef060
+f58a0e3cd79ed64b79d9c92f92a8fc93
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -262,16 +194,16 @@ has-props
 
 
 
-118
+8
 
-attrib
+using.1
 file
 
 
 
 
 2011-03-20T07:14:30.000000Z
-d8f9f7e43423f5cfa5c7525984948e3b
+5b2f2ef09f49aaab30599f0570a4cfb5
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -296,7 +228,41 @@ has-props
 
 
 
-158
+111
+
+using
+file
+
+
+
+
+2011-03-20T07:14:30.000000Z
+1f92a53827d2f7e604bd2050b15873cc
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+104
 
 attrib.2
 file
@@ -332,14 +298,14 @@ has-props
 
 722
 
-using
+attrib
 file
 
 
 
 
 2011-03-20T07:14:30.000000Z
-1f92a53827d2f7e604bd2050b15873cc
+d8f9f7e43423f5cfa5c7525984948e3b
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -364,7 +330,41 @@ has-props
 
 
 
-104
+158
+
+using.2
+file
+
+
+
+
+2011-03-20T07:14:30.000000Z
+43d73548a11b82ccf89cb068860ef060
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+118
 
 namespace
 file
@@ -434,40 +434,6 @@ has-props
 
 151
 
-comment.2
-file
-
-
-
-
-2011-03-20T07:14:30.000000Z
-2a0c0be5d27974f77d3adca7433dbe58
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-145
-
 comment
 file
 
@@ -501,6 +467,40 @@ has-props
 
 
 148
+
+comment.2
+file
+
+
+
+
+2011-03-20T07:14:30.000000Z
+2a0c0be5d27974f77d3adca7433dbe58
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+145
 
 comment.3
 file

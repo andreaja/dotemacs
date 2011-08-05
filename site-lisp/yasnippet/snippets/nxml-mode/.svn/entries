@@ -1,14 +1,14 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/nxml-mode
 http://yasnippet.googlecode.com/svn
 
 
 
-2010-03-16T11:21:23.777446Z
-573
+2011-05-07T20:00:55.190864Z
+663
 joaotavora
 
 
@@ -675,40 +675,6 @@ has-props
 
 96
 
-table
-file
-
-
-
-
-2011-03-20T07:14:29.000000Z
-0871597cf10194367c52ab96cb8526ab
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-108
-
 tag.2l
 file
 
@@ -743,17 +709,14 @@ has-props
 
 111
 
-header
-dir
-
-link
+table
 file
 
 
 
 
 2011-03-20T07:14:29.000000Z
-4c3ef6fadd19ade31bbcb41097ca2e7f
+0871597cf10194367c52ab96cb8526ab
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -778,7 +741,10 @@ has-props
 
 
 
-181
+108
+
+header
+dir
 
 body
 file
@@ -813,6 +779,40 @@ has-props
 
 
 106
+
+link
+file
+
+
+
+
+2011-03-20T07:14:29.000000Z
+4c3ef6fadd19ade31bbcb41097ca2e7f
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+181
 
 p
 file
@@ -882,40 +882,6 @@ has-props
 
 172
 
-head
-file
-
-
-
-
-2011-03-20T07:14:29.000000Z
-eaaba92a412968a9a73fc3177c0a5927
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-104
-
 span
 file
 
@@ -949,6 +915,40 @@ has-props
 
 
 100
+
+head
+file
+
+
+
+
+2011-03-20T07:14:29.000000Z
+eaaba92a412968a9a73fc3177c0a5927
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+104
 
 form
 file

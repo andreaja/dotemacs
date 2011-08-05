@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/svn/!svn/ver/577/trunk/snippets/html-mode/meta
+/svn/!svn/ver/663/trunk/snippets/html-mode/meta
 END
 doctype.xhml1
 K 25
@@ -19,7 +19,7 @@ meta
 K 25
 svn:wc:ra_dav:version-url
 V 52
-/svn/!svn/ver/555/trunk/snippets/html-mode/meta/meta
+/svn/!svn/ver/663/trunk/snippets/html-mode/meta/meta
 END
 doctype
 K 25
@@ -37,7 +37,7 @@ meta.http-equiv
 K 25
 svn:wc:ra_dav:version-url
 V 63
-/svn/!svn/ver/577/trunk/snippets/html-mode/meta/meta.http-equiv
+/svn/!svn/ver/663/trunk/snippets/html-mode/meta/meta.http-equiv
 END
 doctype.xhtml1_strict
 K 25

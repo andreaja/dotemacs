@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/svn/!svn/ver/572/trunk/snippets/html-mode/list
+/svn/!svn/ver/663/trunk/snippets/html-mode/list
 END
 dl
 K 25
@@ -13,13 +13,13 @@ ul
 K 25
 svn:wc:ra_dav:version-url
 V 50
-/svn/!svn/ver/553/trunk/snippets/html-mode/list/ul
+/svn/!svn/ver/663/trunk/snippets/html-mode/list/ul
 END
 li
 K 25
 svn:wc:ra_dav:version-url
 V 50
-/svn/!svn/ver/553/trunk/snippets/html-mode/list/li
+/svn/!svn/ver/663/trunk/snippets/html-mode/list/li
 END
 ul.class
 K 25
@@ -31,7 +31,7 @@ ol.id
 K 25
 svn:wc:ra_dav:version-url
 V 53
-/svn/!svn/ver/553/trunk/snippets/html-mode/list/ol.id
+/svn/!svn/ver/663/trunk/snippets/html-mode/list/ol.id
 END
 dt
 K 25
@@ -61,13 +61,13 @@ ol
 K 25
 svn:wc:ra_dav:version-url
 V 50
-/svn/!svn/ver/553/trunk/snippets/html-mode/list/ol
+/svn/!svn/ver/663/trunk/snippets/html-mode/list/ol
 END
 ul.id
 K 25
 svn:wc:ra_dav:version-url
 V 53
-/svn/!svn/ver/553/trunk/snippets/html-mode/list/ul.id
+/svn/!svn/ver/663/trunk/snippets/html-mode/list/ul.id
 END
 ol.class
 K 25

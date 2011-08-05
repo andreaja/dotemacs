@@ -1,7 +1,7 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/scala-mode
 http://yasnippet.googlecode.com/svn
 
@@ -196,40 +196,6 @@ has-props
 
 109
 
-pri
-file
-
-
-
-
-2011-03-20T07:14:35.000000Z
-b6f9d7ede7060f02240daea59e847358
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-77
-
 def.body
 file
 
@@ -263,6 +229,40 @@ has-props
 
 
 97
+
+pri
+file
+
+
+
+
+2011-03-20T07:14:35.000000Z
+b6f9d7ede7060f02240daea59e847358
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+77
 
 try.catch-finally
 file
@@ -400,40 +400,6 @@ has-props
 
 113
 
-pro
-file
-
-
-
-
-2011-03-20T07:14:35.000000Z
-479979ab6745dfa652164262b9ef0bb6
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-81
-
 ext
 file
 
@@ -467,6 +433,40 @@ has-props
 
 
 79
+
+pro
+file
+
+
+
+
+2011-03-20T07:14:35.000000Z
+479979ab6745dfa652164262b9ef0bb6
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+81
 
 throw
 file
@@ -1250,40 +1250,6 @@ has-props
 
 84
 
-ob
-file
-
-
-
-
-2011-03-20T07:14:35.000000Z
-ff96e78c3e12c68a952242823712cb8f
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-118
-
 isof
 file
 
@@ -1318,14 +1284,14 @@ has-props
 
 102
 
-co
+ob
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-3653fa7566a7a237364fb8cf8e8eedb4
+ff96e78c3e12c68a952242823712cb8f
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -1350,7 +1316,7 @@ has-props
 
 
 
-97
+118
 
 def.arg-body
 file
@@ -1385,6 +1351,40 @@ has-props
 
 
 116
+
+co
+file
+
+
+
+
+2011-03-20T07:14:35.000000Z
+3653fa7566a7a237364fb8cf8e8eedb4
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+97
 
 at.param
 file
@@ -1760,40 +1760,6 @@ has-props
 
 112
 
-at.version
-file
-
-
-
-
-2011-03-20T07:14:35.000000Z
-cc8af1d2368e459754376a86dbc18930
-2010-03-15T21:58:33.640491Z
-572
-joaotavora
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-108
-
 expect
 file
 
@@ -1828,14 +1794,14 @@ has-props
 
 106
 
-suite
+at.version
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-c2094bf7627c2f3d44edcfcad7e89036
+cc8af1d2368e459754376a86dbc18930
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -1860,7 +1826,7 @@ has-props
 
 
 
-150
+108
 
 pri.param
 file
@@ -1896,14 +1862,14 @@ has-props
 
 94
 
-match.can
+suite
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-2ad9233ec8a97aa458985265707b0408
+c2094bf7627c2f3d44edcfcad7e89036
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -1928,7 +1894,7 @@ has-props
 
 
 
-188
+150
 
 match
 file
@@ -1964,14 +1930,14 @@ has-props
 
 118
 
-tr.ext-with
+match.can
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-f89ece8c91d1d01ee6afdd1755fc9462
+2ad9233ec8a97aa458985265707b0408
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -1996,7 +1962,7 @@ has-props
 
 
 
-165
+188
 
 hmap.val-new
 file
@@ -2032,6 +1998,40 @@ has-props
 
 134
 
+tr.ext-with
+file
+
+
+
+
+2011-03-20T07:14:35.000000Z
+f89ece8c91d1d01ee6afdd1755fc9462
+2010-03-15T21:58:33.640491Z
+572
+joaotavora
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+165
+
 pro.param
 file
 
@@ -2066,14 +2066,14 @@ has-props
 
 98
 
-doc.def
+cl.abs
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-29c096f32e508ba691a7830578a055a4
+bc8da5580a30acd7bfc4ede0dadef5df
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -2098,7 +2098,7 @@ has-props
 
 
 
-135
+116
 
 cons
 file
@@ -2134,14 +2134,14 @@ has-props
 
 113
 
-cl.abs
+doc.def
 file
 
 
 
 
 2011-03-20T07:14:35.000000Z
-bc8da5580a30acd7bfc4ede0dadef5df
+29c096f32e508ba691a7830578a055a4
 2010-03-15T21:58:33.640491Z
 572
 joaotavora
@@ -2166,7 +2166,7 @@ has-props
 
 
 
-116
+135
 
 pac
 file

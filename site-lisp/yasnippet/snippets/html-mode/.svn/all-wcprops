@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 42
-/svn/!svn/ver/640/trunk/snippets/html-mode
+/svn/!svn/ver/663/trunk/snippets/html-mode
 END
 link.stylesheet-ie
 K 25
@@ -87,17 +87,17 @@ svn:wc:ra_dav:version-url
 V 53
 /svn/!svn/ver/572/trunk/snippets/html-mode/span.class
 END
-hr
-K 25
-svn:wc:ra_dav:version-url
-V 45
-/svn/!svn/ver/572/trunk/snippets/html-mode/hr
-END
 script.javascript
 K 25
 svn:wc:ra_dav:version-url
 V 60
 /svn/!svn/ver/572/trunk/snippets/html-mode/script.javascript
+END
+hr
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/572/trunk/snippets/html-mode/hr
 END
 img
 K 25
@@ -105,17 +105,17 @@ svn:wc:ra_dav:version-url
 V 46
 /svn/!svn/ver/572/trunk/snippets/html-mode/img
 END
-div.id
-K 25
-svn:wc:ra_dav:version-url
-V 49
-/svn/!svn/ver/572/trunk/snippets/html-mode/div.id
-END
 textarea
 K 25
 svn:wc:ra_dav:version-url
 V 51
 /svn/!svn/ver/572/trunk/snippets/html-mode/textarea
+END
+div.id
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/572/trunk/snippets/html-mode/div.id
 END
 code.class
 K 25
@@ -157,7 +157,7 @@ b.yasnippet
 K 25
 svn:wc:ra_dav:version-url
 V 54
-/svn/!svn/ver/640/trunk/snippets/html-mode/b.yasnippet
+/svn/!svn/ver/663/trunk/snippets/html-mode/b.yasnippet
 END
 body
 K 25
@@ -205,7 +205,7 @@ i.yasnippet
 K 25
 svn:wc:ra_dav:version-url
 V 54
-/svn/!svn/ver/640/trunk/snippets/html-mode/i.yasnippet
+/svn/!svn/ver/663/trunk/snippets/html-mode/i.yasnippet
 END
 code
 K 25

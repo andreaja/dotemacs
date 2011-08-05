@@ -1,14 +1,14 @@
 10
 
 dir
-659
+666
 http://yasnippet.googlecode.com/svn/trunk/snippets/html-mode/meta
 http://yasnippet.googlecode.com/svn
 
 
 
-2010-03-17T11:15:54.770390Z
-577
+2011-05-07T20:00:55.190864Z
+663
 joaotavora
 
 
@@ -100,10 +100,10 @@ file
 
 
 
-2011-03-20T07:14:20.000000Z
-dbd8b652234364de165cb007f1da624e
-2009-12-25T18:04:52.518283Z
-555
+2011-08-05T20:04:23.000000Z
+f5db0076f4e02bdea5c7425cf5cdecdb
+2011-05-07T20:00:55.190864Z
+663
 joaotavora
 
 
@@ -126,7 +126,7 @@ joaotavora
 
 
 
-155
+152
 
 doctype
 file
@@ -202,10 +202,10 @@ file
 
 
 
-2011-03-20T07:14:20.000000Z
-ddf657063c155787dadef777abe76893
-2010-03-17T11:15:54.770390Z
-577
+2011-08-05T20:04:23.000000Z
+1531cb30d1d7bf87a54cbb5332a069d6
+2011-05-07T20:00:55.190864Z
+663
 joaotavora
 
 
@@ -228,7 +228,7 @@ joaotavora
 
 
 
-187
+184
 
 doctype.xhtml1_strict
 file

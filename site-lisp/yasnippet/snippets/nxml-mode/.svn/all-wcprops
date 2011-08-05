@@ -1,19 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 42
-/svn/!svn/ver/573/trunk/snippets/nxml-mode
-END
-name
-K 25
-svn:wc:ra_dav:version-url
-V 47
-/svn/!svn/ver/572/trunk/snippets/nxml-mode/name
+/svn/!svn/ver/663/trunk/snippets/nxml-mode
 END
 ul
 K 25
 svn:wc:ra_dav:version-url
 V 45
 /svn/!svn/ver/572/trunk/snippets/nxml-mode/ul
+END
+name
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/572/trunk/snippets/nxml-mode/name
 END
 title
 K 25
@@ -27,17 +27,17 @@ svn:wc:ra_dav:version-url
 V 46
 /svn/!svn/ver/572/trunk/snippets/nxml-mode/div
 END
-href
-K 25
-svn:wc:ra_dav:version-url
-V 47
-/svn/!svn/ver/572/trunk/snippets/nxml-mode/href
-END
 .yas-parents
 K 25
 svn:wc:ra_dav:version-url
 V 55
 /svn/!svn/ver/572/trunk/snippets/nxml-mode/.yas-parents
+END
+href
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/572/trunk/snippets/nxml-mode/href
 END
 tr
 K 25
@@ -45,23 +45,17 @@ svn:wc:ra_dav:version-url
 V 45
 /svn/!svn/ver/572/trunk/snippets/nxml-mode/tr
 END
-tag.1l
-K 25
-svn:wc:ra_dav:version-url
-V 49
-/svn/!svn/ver/572/trunk/snippets/nxml-mode/tag.1l
-END
 pre
 K 25
 svn:wc:ra_dav:version-url
 V 46
 /svn/!svn/ver/572/trunk/snippets/nxml-mode/pre
 END
-tag.2l
+tag.1l
 K 25
 svn:wc:ra_dav:version-url
 V 49
-/svn/!svn/ver/572/trunk/snippets/nxml-mode/tag.2l
+/svn/!svn/ver/572/trunk/snippets/nxml-mode/tag.1l
 END
 table
 K 25
@@ -69,11 +63,17 @@ svn:wc:ra_dav:version-url
 V 48
 /svn/!svn/ver/572/trunk/snippets/nxml-mode/table
 END
-quote
+tag.2l
 K 25
 svn:wc:ra_dav:version-url
-V 48
-/svn/!svn/ver/572/trunk/snippets/nxml-mode/quote
+V 49
+/svn/!svn/ver/572/trunk/snippets/nxml-mode/tag.2l
+END
+link
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/572/trunk/snippets/nxml-mode/link
 END
 body
 K 25
@@ -81,11 +81,11 @@ svn:wc:ra_dav:version-url
 V 47
 /svn/!svn/ver/572/trunk/snippets/nxml-mode/body
 END
-link
+quote
 K 25
 svn:wc:ra_dav:version-url
-V 47
-/svn/!svn/ver/572/trunk/snippets/nxml-mode/link
+V 48
+/svn/!svn/ver/572/trunk/snippets/nxml-mode/quote
 END
 input
 K 25
