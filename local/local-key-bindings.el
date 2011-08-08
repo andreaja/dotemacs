@@ -7,7 +7,7 @@
 ;; see local-functions.el
 (global-set-key [(control x) (control r)] 'find-file-root)
 (global-set-key [(control .) (<)] 'spotify-previous-track)
-(global-set-key [(control .) "C-,"] 'spotify-previous-track)
+(global-set-key [(control .) (control ?,)] 'spotify-previous-track)
 (global-set-key [(control .) (>)] 'spotify-next-track)
 (global-set-key [(control .) (control .)] 'spotify-next-track)
 (global-set-key [(control .) (p)] 'spotify-playpause)
