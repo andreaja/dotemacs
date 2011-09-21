@@ -16,3 +16,12 @@
 (global-set-key [(control .) (c)] 'spotify-now-playing)
 
 
+(global-set-key [(control .) (i)] 'indent-region)
+
+;; local keybindings
+(add-hook 'clojure-mode-hook
+ (lambda ()
+ (local-set-key (kbd "C-c C-j") 'clojure-jack-in)
+ (local-set-key (kbd "C-c j") 'clojure-jack-in)
+ )
+)

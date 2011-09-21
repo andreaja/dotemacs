@@ -4,3 +4,8 @@
 (add-to-list 'auto-mode-alist '("\.vws$" . sql-mode))
 (add-to-list 'auto-mode-alist '("\.pp$" . puppet-mode))
 (add-to-list 'auto-mode-alist '("\.md$" . markdown-mode))
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'midje-mode)
+(add-hook 'slime-repl-mode-hook 'clojure-mode-font-lock-setup)
