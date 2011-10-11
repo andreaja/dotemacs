@@ -5,7 +5,7 @@
 (prefer-coding-system 'utf-8)
 
 (show-paren-mode t)
-(setq-default show-trailing-whitespace t)  
+(setq-default show-trailing-whitespace t)
 (set-face-background 'trailing-whitespace "red4")
 
 
@@ -13,7 +13,7 @@
 
 
 (setq backup-directory-alist '(("." . "~/.emacs-backups")))
-(fset 'yes-or-no-p 'y-or-n-p) 
+(fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-message t)
 (set-cursor-color 'red)
 (setq-default truncate-lines nil)
