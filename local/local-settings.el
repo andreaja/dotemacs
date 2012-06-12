@@ -1,6 +1,6 @@
 (tool-bar-mode 0)
 (setq org-todo-keywords
-      '((sequence "TODO" "WAIT" "|" "DONE" "DLGT")))
+      '((sequence "TODO" "WAIT" "|" "DONE" "DLGT" "CNCL")))
 
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
