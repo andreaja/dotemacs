@@ -2,7 +2,6 @@
 (load custom-file 'noerror)
 
 (add-to-list 'load-path "~/.emacs.d/local")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/other")
 ;(add-to-list 'load-path "~/.emacs.d/site-lisp/io-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/markdown-mode")
