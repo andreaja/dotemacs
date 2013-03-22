@@ -1,5 +1,5 @@
 (global-set-key [C-tab] 'other-window)
-(global-set-key (kbd "C-c c") 'comment-region)
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c u") 'uncomment-region)
 
 (global-set-key [(control .) (b)] 'browse-url-at-point)
