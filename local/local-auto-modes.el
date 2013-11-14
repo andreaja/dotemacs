@@ -13,3 +13,6 @@
 (add-hook 'slime-repl-mode-hook 'paredit-mode)
 (add-hook 'slime-repl-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
+(add-to-list 'auto-mode-alist '("\.ps1$" . powershell-mode))
+(add-to-list 'auto-mode-alist '("\.xsd$" . xml-mode))
