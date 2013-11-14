@@ -3,3 +3,4 @@
 
 
 (require 'yaml-mode)
+(require 'powershell-mode)
