@@ -25,3 +25,7 @@
  (local-set-key (kbd "C-c j") 'clojure-jack-in)
  )
 )
+
+
+;; Handy key definition
+(global-set-key (kbd "C-M-q") 'unfill-paragraph)
