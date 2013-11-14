@@ -73,7 +73,8 @@ end tell
 if (MyList contains \"Spotify\") is true then
 	tell application \"Spotify\" to next track
 end if
-"))
+")
+   (spotify-now-playing))
 
 (defun spotify-previous-track ()
   "Tells spotify to revert play to the previous track"
