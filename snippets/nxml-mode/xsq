@@ -1,0 +1,6 @@
+# name: <xs:sequence />
+# key: xsq
+# --
+<xs:sequence>
+     $0
+</xs:sequence>

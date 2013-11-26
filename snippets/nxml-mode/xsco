@@ -1,0 +1,8 @@
+# name: <xs:complexType />
+# key: xsco
+# --
+<xs:complexType name="$1">
+  <xs:sequence>
+      $0
+  </xs:sequence>
+</xs:complexType>

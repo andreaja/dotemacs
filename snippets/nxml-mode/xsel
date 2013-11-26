@@ -1,0 +1,5 @@
+# name: <xs:element />
+# key: xsel
+# --
+<xs:element name="$1" type="$2" />
+$0

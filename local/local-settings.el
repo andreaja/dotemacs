@@ -8,7 +8,8 @@
 ;; (makes keyboard scrolling in org-mode faster?)
 (setq redisplay-dont-pause 1)
 
-
 (setq powershell-indent 4)
 
 (setq powershell-continuation-indent 2)
+
+(yas-global-mode 1)

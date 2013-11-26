@@ -1,0 +1,10 @@
+# name: <xs:len />
+# key: xlen
+# --
+
+<xs:simpleType>
+<xs:restriction base="xs:String">
+<xs:length value="$1"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>$0
