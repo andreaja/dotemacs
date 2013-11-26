@@ -6,12 +6,14 @@
 ;(add-to-list 'load-path "~/.emacs.d/site-lisp/io-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/markdown-mode")
 
-(require 'markdown-mode)
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
+(load "local-modes")
 (load "local-settings")
 (load "local-auto-modes")
 (load "local-minor-modes")
-(load "local-modes")
 (load "local-ido")
 (load "local-functions")
 (load "local-hooks")

@@ -2,9 +2,6 @@
 (setq org-todo-keywords
       '((sequence "TODO" "WAIT" "|" "DONE" "DLGT" "CNCL")))
 
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
 ;; http://www.masteringemacs.org/articles/2011/10/02/improving-performance-emacs-display-engine/
