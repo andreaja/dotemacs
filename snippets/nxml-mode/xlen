@@ -3,7 +3,7 @@
 # --
 
 <xs:simpleType>
-<xs:restriction base="xs:String">
+<xs:restriction base="xs:string">
 <xs:length value="$1"/>
 </xs:restriction>
 </xs:simpleType>

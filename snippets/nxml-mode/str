@@ -1,4 +1,4 @@
 # name: str
 # key: str
 # --
-xs:String
+xs:string

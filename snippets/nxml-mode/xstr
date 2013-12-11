@@ -1,5 +1,5 @@
-# name: <xs:element type="xs:String" />
+# name: <xs:element type="xs:string" />
 # key: xstr
 # --
-<xs:element name="$1" type="xs:String" />
+<xs:element name="$1" type="xs:string" />
 $0
