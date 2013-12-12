@@ -2,11 +2,11 @@
 # key: xscc
 # --
 <xs:complexType name="$1">
-  <xs:complextContent>
+  <xs:complexContent>
     <xs:extension base="$2">
       <xs:sequence>
         $0
       </xs:sequence>
     </xs:extension>
-  </xs:complextContent>
+  </xs:complexContent>
 </xs:complexType>
