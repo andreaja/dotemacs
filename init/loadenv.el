@@ -1,4 +1,4 @@
-(setq custom-file "~/.emacs.d/settings.el")
+(setq custom-file "~/.emacs.d/init/settings.el")
 (load custom-file 'noerror)
 
 (add-to-list 'load-path "~/.emacs.d/local")

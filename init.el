@@ -1,6 +1,6 @@
 (defvar emacs-root (expand-file-name "~"))
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/init")
 
 (load "loadenv")
 
