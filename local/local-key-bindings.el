@@ -15,6 +15,8 @@
 (global-set-key [(control .) (control c)] 'spotify-now-playing)
 (global-set-key [(control .) (c)] 'spotify-now-playing)
 
+(global-set-key [(meta o)] 'other-window)
+
 
 (global-set-key [(control .) (i)] 'indent-region)
 
