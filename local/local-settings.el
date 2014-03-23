@@ -13,3 +13,5 @@
 (setq powershell-continuation-indent 2)
 
 (yas-global-mode 1)
+
+(setq ns-use-srgb-colorspace t)
