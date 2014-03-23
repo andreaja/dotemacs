@@ -12,3 +12,6 @@
            (base-dir (car (last folders 2))))
       (rename-buffer (format "%s-pom" base-dir)))))
 (add-hook 'find-file-hook 'detect-and-rename-pom-file-buffer)
+
+
+(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
