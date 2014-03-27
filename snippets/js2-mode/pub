@@ -1,0 +1,6 @@
+# name: public function
+# key: pub
+# --
+this.$1 = function($2) {
+   $0
+};
