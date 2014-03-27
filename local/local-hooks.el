@@ -13,5 +13,6 @@
       (rename-buffer (format "%s-pom" base-dir)))))
 (add-hook 'find-file-hook 'detect-and-rename-pom-file-buffer)
 
-
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
+
+(add-hook 'js2-mode-hook 'jquery-doc-setup)
