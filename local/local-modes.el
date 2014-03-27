@@ -1,4 +1,5 @@
-;(require 'io-mode)
+(projectile-global-mode)
+
 (require 'plsql)
 
 (require 'markdown-mode)

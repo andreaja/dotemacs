@@ -6,3 +6,6 @@
 .DS_Store
 /tramp
 ido.last
+projectile-bookmarks.eld
+projectile.cache
+.mc-lists.el
