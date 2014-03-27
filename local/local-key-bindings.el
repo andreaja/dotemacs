@@ -31,3 +31,6 @@
 
 ;; Handy key definition
 (global-set-key (kbd "C-M-q") 'unfill-paragraph)
+
+
+(js2r-add-keybindings-with-prefix "C-c C-m")
