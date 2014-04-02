@@ -20,6 +20,8 @@
 
 (global-set-key [(control .) (i)] 'indent-region)
 
+(global-set-key [(control z)] 'repeat)
+
 ;; local keybindings
 (add-hook 'clojure-mode-hook
  (lambda ()
