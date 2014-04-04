@@ -15,5 +15,3 @@
 (yas-global-mode 1)
 
 (setq ns-use-srgb-colorspace t)
-
-(setq create-lockfiles nil)
