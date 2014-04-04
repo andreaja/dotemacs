@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "projectile" "projectile.el" (21307 48375 0
+;;;### (autoloads nil "projectile" "projectile.el" (21310 37566 0
 ;;;;;;  0))
 ;;; Generated autoloads from projectile.el
 
@@ -55,11 +55,6 @@ Projectile mode is enabled in all buffers where
 See `projectile-mode' for more information on Projectile mode.
 
 \(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads nil nil ("projectile-pkg.el") (21307 48375 389255
-;;;;;;  0))
 
 ;;;***
 

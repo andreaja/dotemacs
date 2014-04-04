@@ -961,9 +961,7 @@ used with a prefix argument (C-u), doesn't switch back afterwards."
   "Add STRING to the input history.
 Empty strings and duplicates are ignored."
   (when slime-repl-history-trim-whitespaces
-    (setq string (replace-regexp-in-string "[\t\n\s]*\\(.*?\\)[\t\n\s]*"
-                                           "\\1"
-                                           string)))
+    (setq string (slime-trim-whitespace string)))
   (unless (equal string "")
     (when slime-repl-history-remove-duplicates
       (setq slime-repl-input-history
