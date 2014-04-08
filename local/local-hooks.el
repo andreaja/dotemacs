@@ -16,3 +16,10 @@
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
 (add-hook 'js2-mode-hook 'jquery-doc-setup)
+
+
+;; Disable electric here docs in shell-script-mode
+;; http://unix.stackexchange.com/questions/20121/how-to-disable-emacs-here-document-completion
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (sh-electric-here-document-mode -1)))
