@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
- '(markdown-command "/opt/local/bin/multimarkdown")
+ '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
  '(vc-follow-symlinks nil))
 (custom-set-faces
