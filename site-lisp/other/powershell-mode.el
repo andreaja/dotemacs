@@ -29,7 +29,7 @@
 ;; hilighting, speedbar/imenu support. The indentation is pretty naïve
 ;; but robust, and sufficient for my current needs.
 
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 (defvar powershell-indent 8
   "Amount of horizontal space to indent after, for instance, an
