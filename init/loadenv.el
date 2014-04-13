@@ -25,3 +25,4 @@
 (if (eq system-type 'darwin)
     (load "local-mac-mode"))
 
+(my-keys-minor-mode 1)

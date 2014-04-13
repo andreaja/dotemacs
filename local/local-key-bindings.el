@@ -1,37 +1,38 @@
-(global-set-key [C-tab] 'other-window)
-(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
+;; as per http://stackoverflow.com/a/683575/25328
+;; Set up a minor mode with our keybindings so they take precedence
 
-(global-set-key [(control .) (b)] 'browse-url-at-point)
+(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
+
+(define-key my-keys-minor-mode-map
+  (kbd "C-c c") 'comment-or-uncomment-region)
+
+(define-minor-mode my-keys-minor-mode
+  "A minor mode so that my key settings override annoying major modes."
+  t " my-keys" 'my-keys-minor-mode-map)
+
+(define-key my-keys-minor-mode-map [C-tab] 'other-window)
+
+(define-key my-keys-minor-mode-map [(control .) (b)] 'browse-url-at-point)
 
 ;; see local-functions.el
-(global-set-key [(control x) (control r)] 'find-file-root)
-(global-set-key [(control .) (<)] 'spotify-previous-track)
-(global-set-key [(control .) (control ?,)] 'spotify-previous-track)
-(global-set-key [(control .) (>)] 'spotify-next-track)
-(global-set-key [(control .) (control .)] 'spotify-next-track)
-(global-set-key [(control .) (p)] 'spotify-playpause)
-(global-set-key [(control .) (control p)] 'spotify-playpause)
-(global-set-key [(control .) (control c)] 'spotify-now-playing)
-(global-set-key [(control .) (c)] 'spotify-now-playing)
+(define-key my-keys-minor-mode-map [(control x) (control r)] 'find-file-root)
+(define-key my-keys-minor-mode-map [(control .) (<)] 'spotify-previous-track)
+(define-key my-keys-minor-mode-map [(control .) (control ?,)] 'spotify-previous-track)
+(define-key my-keys-minor-mode-map [(control .) (>)] 'spotify-next-track)
+(define-key my-keys-minor-mode-map [(control .) (control .)] 'spotify-next-track)
+(define-key my-keys-minor-mode-map [(control .) (p)] 'spotify-playpause)
+(define-key my-keys-minor-mode-map [(control .) (control p)] 'spotify-playpause)
+(define-key my-keys-minor-mode-map [(control .) (control c)] 'spotify-now-playing)
+(define-key my-keys-minor-mode-map [(control .) (c)] 'spotify-now-playing)
 
-(global-set-key [(meta o)] 'other-window)
+(define-key my-keys-minor-mode-map [(meta o)] 'other-window)
 
+(define-key my-keys-minor-mode-map [(control .) (i)] 'indent-region)
 
-(global-set-key [(control .) (i)] 'indent-region)
-
-(global-set-key [(control z)] 'repeat)
-
-;; local keybindings
-(add-hook 'clojure-mode-hook
- (lambda ()
- (local-set-key (kbd "C-c C-j") 'clojure-jack-in)
- (local-set-key (kbd "C-c j") 'clojure-jack-in)
- )
-)
-
+(define-key my-keys-minor-mode-map [(control z)] 'repeat)
 
 ;; Handy key definition
-(global-set-key (kbd "C-M-q") 'unfill-paragraph)
+(define-key my-keys-minor-mode-map (kbd "C-M-q") 'unfill-paragraph)
 
 (js2r-add-keybindings-with-prefix "C-c C-m")
+
