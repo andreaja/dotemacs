@@ -26,3 +26,10 @@
     (load "local-mac-mode"))
 
 (my-keys-minor-mode 1)
+
+(defun my-minibuffer-setup-hook ()
+  (my-keys-minor-mode 0))
+
+(add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
+
+)
