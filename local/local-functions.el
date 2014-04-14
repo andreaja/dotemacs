@@ -157,3 +157,12 @@ by using nxml's indentation rules."
   (interactive)
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
+
+;; sensible version of this: http://stackoverflow.com/a/5340797/25328
+(defun reload-my-keys ()
+  "Ensures my-keys-mode is last in minor-mode-map so it takes precedence"
+  (interactive)
+  (if (not (eq (car (car minor-mode-map-alist)) 'my-keys-minor-mode))
+      (let ((mykeys (assq 'my-keys-minor-mode minor-mode-map-alist)))
+        (assq-delete-all 'my-keys-minor-mode minor-mode-map-alist)
+        (add-to-list 'minor-mode-map-alist mykeys))))
