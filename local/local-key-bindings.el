@@ -10,8 +10,6 @@
   "A minor mode so that my key settings override annoying major modes."
   t " my-keys" 'my-keys-minor-mode-map)
 
-(define-key my-keys-minor-mode-map [C-tab] 'other-window)
-
 (define-key my-keys-minor-mode-map [(control .) (b)] 'browse-url-at-point)
 
 ;; see local-functions.el
