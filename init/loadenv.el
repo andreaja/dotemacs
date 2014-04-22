@@ -25,6 +25,9 @@
 (if (eq system-type 'darwin)
     (load "local-mac-mode"))
 
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 (my-keys-minor-mode 1)
 
 (defun my-minibuffer-setup-hook ()
