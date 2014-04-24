@@ -34,3 +34,7 @@
 
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
+(define-key org-mode-map [remap browse-url-at-point] 'org-open-at-point)
+
+(define-key org-mode-map [S-left] (lambda () (interactive) (message "Use org-todo instead")))
+(define-key org-mode-map [S-right] (lambda () (interactive) (message "Use org-todo instead")))
