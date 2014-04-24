@@ -32,3 +32,5 @@
         (append
          (split-string-and-unquote path ":")
          exec-path)))
+
+(setq scroll-preserve-screen-position t)
