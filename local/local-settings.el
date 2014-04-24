@@ -1,6 +1,15 @@
 (tool-bar-mode 0)
+
 (setq org-todo-keywords
-      '((sequence "TODO" "WAIT" "|" "DONE" "DLGT" "CNCL")))
+      '((sequence "TODO(t)" "WAIT(w/!)" "|" "DONE(d!)" "DLGT(l!)" "CNCL(c!)")))
+
+
+;;; Re-enable this once familiar with org-todo (rather than S-arrows)
+;; (add-to-list 'org-drawers
+;;              (setq org-log-into-drawer "STATE"))
+
+(setq org-return-follows-link t)
+
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
