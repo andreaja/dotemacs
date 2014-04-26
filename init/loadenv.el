@@ -34,5 +34,3 @@
   (my-keys-minor-mode 0))
 
 (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
-
-
