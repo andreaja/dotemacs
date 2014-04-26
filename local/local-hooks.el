@@ -13,9 +13,11 @@
       (rename-buffer (format "%s-pom" base-dir)))))
 (add-hook 'find-file-hook 'detect-and-rename-pom-file-buffer)
 
-(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
+(add-hook 'focus-out-hook (lambda () (flet ((message (format &rest args) nil)) (save-some-buffers t))))
+
 
 (add-hook 'js2-mode-hook 'jquery-doc-setup)
+
 
 
 ;; Disable electric here docs in shell-script-mode
