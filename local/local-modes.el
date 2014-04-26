@@ -11,3 +11,5 @@
 (require 'js2-refactor)
 
 (require 'jquery-doc)
+
+(require 'flycheck)

@@ -20,6 +20,8 @@
 
 (global-hl-line-mode t)
 
+(global-flycheck-mode t)
+
 ;(global-set-key "\M-/" 'hippie-expand)
 
 (fancy-narrow-mode)
