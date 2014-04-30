@@ -17,3 +17,7 @@
 (add-to-list 'auto-mode-alist '("\.ps1$" . powershell-mode))
 (add-to-list 'auto-mode-alist '("\.xsd$" . xml-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+
+(add-hook 'prog-mode-hook 'ggtags-mode)
+(add-hook 'prog-mode-hook 'subword-mode)

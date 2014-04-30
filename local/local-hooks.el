@@ -26,5 +26,3 @@
           (lambda ()
             (sh-electric-here-document-mode -1)))
 
-(add-hook 'prog-mode-hook 'ggtags-mode)
-(add-hook 'prog-mode-hook 'subword-mode)
