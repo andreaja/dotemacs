@@ -4,7 +4,7 @@
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
 ;;;### (autoloads nil "clojure-test-mode" "clojure-test-mode.el"
-;;;;;;  (21307 48397 0 0))
+;;;;;;  (21351 16706 0 0))
 ;;; Generated autoloads from clojure-test-mode.el
 
 (autoload 'clojure-test-mode "clojure-test-mode" "\
@@ -23,11 +23,6 @@ A minor mode for running Clojure tests.
 Enable clojure-test-mode if the current buffer contains a \"clojure.test\" bit in it." (when (clojure-find-clojure-test) (save-window-excursion (clojure-test-mode t))))
 
 (add-hook 'clojure-mode-hook 'clojure-test-maybe-enable)
-
-;;;***
-
-;;;### (autoloads nil nil ("clojure-test-mode-pkg.el") (21307 48397
-;;;;;;  293400 0))
 
 ;;;***
 
