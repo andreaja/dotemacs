@@ -3,8 +3,8 @@
 ;; Copyright (C) 2013-2014  Free Software Foundation, Inc.
 
 ;; Author: Leo Liu <sdl.web@gmail.com>
-;; Version: 20140423.2006
-;; X-Original-Version: 0.8.4
+;; Version: 20140506.1935
+;; X-Original-Version: 0.8.5
 ;; Keywords: tools, convenience
 ;; Created: 2013-01-29
 ;; URL: https://github.com/leoliu/ggtags
@@ -208,6 +208,15 @@ particularly when the output is large."
 (defcustom ggtags-global-treat-text nil
   "Non-nil if Global should include matches from text files.
 This affects `ggtags-find-file' and `ggtags-grep'."
+  :safe 'booleanp
+  :type 'boolean
+  :group 'ggtags)
+
+;; See also https://github.com/leoliu/ggtags/issues/52
+(defcustom ggtags-global-search-libpath-for-reference t
+  "If non-nil global will search GTAGSLIBPATH for references.
+Search is only continued in GTAGSLIBPATH if it finds no matches
+in current project."
   :safe 'booleanp
   :type 'boolean
   :group 'ggtags)
@@ -867,8 +876,7 @@ definition tags."
     (ggtags-find-file name))
    ((or (eq what 'definition)
         (not buffer-file-name)
-        (and (ggtags-find-project)
-             (not (ggtags-project-has-refs (ggtags-find-project))))
+        (not (ggtags-project-has-refs (ggtags-find-project)))
         (not (ggtags-project-file-p buffer-file-name)))
     (ggtags-find-tag 'definition (shell-quote-argument name)))
    (t (ggtags-find-tag (format "--from-here=%d:%s"
@@ -879,8 +887,16 @@ definition tags."
                                 (ggtags-project-relative-file buffer-file-name)))
                        (shell-quote-argument name)))))
 
+(defun ggtags-find-tag-mouse (event)
+  (interactive "e")
+  (with-selected-window (posn-window (event-start event))
+    (save-excursion
+      (goto-char (posn-point (event-start event)))
+      (call-interactively #'ggtags-find-tag-dwim))))
+
 (defun ggtags-setup-libpath-search (type name)
-  (pcase (ggtags-get-libpath)
+  (pcase (and ggtags-global-search-libpath-for-reference
+              (ggtags-get-libpath))
     ((and libs (guard libs))
      (cl-labels ((cont (buf how)
                    (pcase ggtags-global-exit-info

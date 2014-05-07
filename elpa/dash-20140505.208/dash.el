@@ -3,7 +3,7 @@
 ;; Copyright (C) 2012 Magnar Sveen
 
 ;; Author: Magnar Sveen <magnars@gmail.com>
-;; Version: 20140505.8
+;; Version: 20140505.208
 ;; X-Original-Version: 2.6.0
 ;; Keywords: lists
 
@@ -275,6 +275,10 @@ through the REP function."
   (if (and (listp l) (listp (cdr l)))
       (-mapcat '-flatten l)
     (list l)))
+
+(defun -flatten-n (num list)
+  "Flatten NUM levels of a nested LIST."
+  (-last-item (--iterate (--mapcat (-list it) it) list (1+ num))))
 
 (defun -concat (&rest lists)
   "Returns a new list with the concatenation of the elements in the supplied LISTS."
@@ -844,6 +848,69 @@ element of LIST paired with the unmodified element of LIST."
   (declare (debug (form form)))
   `(-annotate (lambda (it) ,form) ,list))
 
+(defun dash--table-carry (lists restore-lists &optional re)
+  "Helper for `-table' and `-table-flat'.
+
+If a list overflows, carry to the right and reset the list.
+
+Return how many lists were re-seted."
+  (while (and (not (car lists))
+              (not (equal lists '(nil))))
+    (setcar lists (car restore-lists))
+    (pop (cadr lists))
+    (!cdr lists)
+    (!cdr restore-lists)
+    (when re
+      (push (nreverse (car re)) (cadr re))
+      (setcar re nil)
+      (!cdr re))))
+
+(defun -table (fn &rest lists)
+  "Compute outer product of LISTS using function FN.
+
+The function FN should have the same arity as the number of
+supplied lists.
+
+The outer product is computed by applying fn to all possible
+combinations created by taking one element from each list in
+order.  The dimension of the result is (length lists).
+
+See also: `-table-flat'."
+  (let ((restore-lists (copy-sequence lists))
+        (last-list (last lists))
+        (re (--map nil (number-sequence 1 (length lists)))))
+    (while (car last-list)
+      (let ((item (apply fn (-map 'car lists))))
+        (push item (car re))
+        (pop (car lists))
+        (dash--table-carry lists restore-lists re)))
+    (nreverse (car (last re)))))
+
+(defun -table-flat (fn &rest lists)
+  "Compute flat outer product of LISTS using function FN.
+
+The function FN should have the same arity as the number of
+supplied lists.
+
+The outer product is computed by applying fn to all possible
+combinations created by taking one element from each list in
+order.  The results are flattened, ignoring the tensor structure
+of the result.  This is equivalent to calling:
+
+    (-flatten-n (1- (length lists)) (-table fn lists))
+
+but the implementation here is much more efficient.
+
+See also: `-flatten-n', `-table'."
+  (let ((restore-lists (copy-sequence lists))
+        (last-list (last lists))
+        re)
+    (while (car last-list)
+      (push (apply fn (-map 'car lists)) re)
+      (pop (car lists))
+      (dash--table-carry lists restore-lists))
+    (nreverse re)))
+
 (defun -partial (fn &rest args)
   "Takes a function FN and fewer than the normal arguments to FN,
 and returns a fn that takes a variable number of additional ARGS.
@@ -1395,6 +1462,7 @@ structure such as plist or alist."
                              "-replace-where"
                              "--replace-where"
                              "-flatten"
+                             "-flatten-n"
                              "-concat"
                              "-mapcat"
                              "--mapcat"
@@ -1469,6 +1537,13 @@ structure such as plist or alist."
                              "-zip-with"
                              "--zip-with"
                              "-zip"
+                             "-zip-fill"
+                             "-cycle"
+                             "-pad"
+                             "-annotate"
+                             "--annotate"
+                             "-table"
+                             "-table-flat"
                              "-partial"
                              "-elem-index"
                              "-elem-indices"
