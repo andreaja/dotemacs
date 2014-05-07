@@ -26,6 +26,14 @@
     (load "local-mac-mode"))
 
 
+(require 'cedet)
+(require 'semantic)
+(load "semantic/loaddefs.el")
+(semantic-mode 1)
+(require 'malabar-mode)
+(load "malabar-flycheck")
+(add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
+
 (my-keys-minor-mode 1)
 
 (defun my-minibuffer-setup-hook ()

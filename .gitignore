@@ -9,3 +9,5 @@ ido.last
 projectile-bookmarks.eld
 projectile.cache
 .mc-lists.el
+srecode-map.el
+semanticdb/
