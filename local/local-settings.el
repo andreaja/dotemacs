@@ -13,7 +13,6 @@
 
 (setq org-return-follows-link t)
 
-
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
 (setq locate-command "mdfind")
