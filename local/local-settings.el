@@ -3,6 +3,9 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w/!)" "|" "DONE(d!)" "DLGT(l!)" "CNCL(c!)")))
 
+;; Flat mode-line
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
 
 ;;; Re-enable this once familiar with org-todo (rather than S-arrows)
 ;; (add-to-list 'org-drawers
