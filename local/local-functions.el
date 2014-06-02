@@ -99,13 +99,6 @@ end if
         end tell
     end tell"))
 
-(defun spotify-current-position ()
-  "DOCSTRING"
-  (do-applescript "
-    tell application \"Spotify\"
-        get player position as integer
-    end tell"))
-
 (defun spotify-current-track-length ()
   "DOCSTRING"
   (do-applescript "
@@ -133,7 +126,6 @@ end if
     tell application \"Spotify\"
         get player position as integer
     end tell"))
-
 
 ;; From: http://stackoverflow.com/questions/12492/pretty-printing-xml-files-on-emacs
 (defun bf-pretty-print-xml-region (begin end)
