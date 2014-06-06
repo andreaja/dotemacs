@@ -38,7 +38,7 @@
 	  nil "Integrated environment for *TeX*" tar
 	  ((:url . "http://www.gnu.org/software/auctex/"))])
  (chess .
-	[(2 0 0)
+	[(2 0 1)
 	 ((cl-lib
 	   (0 5)))
 	 "Play chess in GNU Emacs" tar
@@ -257,7 +257,7 @@
 	    ((:url . "http://elpa.gnu.org/packages/omn-mode.html")
 	     (:keywords))])
  (org .
-      [(20140526)
+      [(20140602)
        nil "Outline-based notes management and organizer" tar nil])
  (osc .
       [(0 1)
