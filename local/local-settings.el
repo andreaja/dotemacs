@@ -32,9 +32,21 @@
 ;; Correctly set up PATH from bash variables
 (let ((path (shell-command-to-string ". ~/.bashrc; echo -n $PATH")))
   (setenv "PATH" path)
-  (setq exec-path 
+  (setq exec-path
         (append
          (split-string-and-unquote path ":")
          exec-path)))
 
 (setq scroll-preserve-screen-position t)
+
+
+;; https://gist.github.com/robtillotson/5d162f9674ad9c207d44
+;; Quick emacs version of syntactic line compression, found on reddit
+(make-face 'mundane-line-face)
+(set-face-attribute 'mundane-line-face nil :height 0.5)
+
+(defun add-mundane-line-font-lock ()
+  (setq font-lock-multiline t)
+  (font-lock-add-keywords nil '(("^[ \t(){};`']*\n" 0 'mundane-line-face prepend))))
+
+(add-hook 'prog-mode-hook 'add-mundane-line-font-lock)
