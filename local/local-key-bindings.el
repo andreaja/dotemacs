@@ -45,3 +45,8 @@
 
 (define-key my-keys-minor-mode-map [(control .) (control t)] 'org-todo)
 (define-key my-keys-minor-mode-map [(control .) (t)] 'org-todo)
+
+(define-key my-keys-minor-mode-map [(control meta n)] 'smartscan-symbol-go-forward)
+
+(define-key my-keys-minor-mode-map [(control meta p)] 'smartscan-symbol-go-backward)
+(define-key my-keys-minor-mode-map [(meta r)] 'smartscan-symbol-replace)
