@@ -34,8 +34,9 @@
 
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
-(define-key my-keys-minor-mode-map [(meta n)] 'flycheck-next-error)
-(define-key my-keys-minor-mode-map [(meta p)] 'flycheck-previous-error)
+(define-key flycheck-mode-map [(meta n)] 'flycheck-next-error)
+(define-key flycheck-mode-map [(meta p)] 'flycheck-previous-error)
+
 
 
 (define-key org-mode-map [remap browse-url-at-point] 'org-open-at-point)
