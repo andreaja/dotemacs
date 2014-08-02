@@ -13,3 +13,5 @@
 (require 'jquery-doc)
 
 (require 'flycheck)
+
+(require 'hungry-delete)
