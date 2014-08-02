@@ -44,6 +44,9 @@
 (define-key org-mode-map [S-left] (lambda () (interactive) (message "Use org-todo instead")))
 (define-key org-mode-map [S-right] (lambda () (interactive) (message "Use org-todo instead")))
 
+(define-key my-keys-minor-mode-map [(control .) (control m)] 'magit-status)
+(define-key my-keys-minor-mode-map [(control .) (m)] 'magit-status)
+
 (define-key my-keys-minor-mode-map [(control .) (control t)] 'org-todo)
 (define-key my-keys-minor-mode-map [(control .) (t)] 'org-todo)
 
