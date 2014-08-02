@@ -177,3 +177,9 @@ by using nxml's indentation rules."
       (progn
         (indent-buffer)
         (message "Indented buffer.")))))
+
+
+(defun kill-current-buffer ()
+  "Kills the current buffer"
+  (interactive)
+  (kill-buffer (current-buffer)))
