@@ -58,3 +58,4 @@
 
 
 (define-key my-keys-minor-mode-map [(control x) (control k)] 'kill-current-buffer)
+(define-key my-keys-minor-mode-map [(control .) (control s)] 'insert-shebang)
