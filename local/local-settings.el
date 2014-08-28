@@ -47,6 +47,6 @@
 
 (defun add-mundane-line-font-lock ()
   (setq font-lock-multiline t)
-  (font-lock-add-keywords nil '(("^[ \t(){};`']*\n" 0 'mundane-line-face prepend))))
+  (font-lock-add-keywords nil '(("^[ \t;`']*\n" 0 'mundane-line-face prepend))))
 
 (add-hook 'prog-mode-hook 'add-mundane-line-font-lock)
