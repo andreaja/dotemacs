@@ -37,6 +37,7 @@
 (define-key flycheck-mode-map [(meta n)] 'flycheck-next-error)
 (define-key flycheck-mode-map [(meta p)] 'flycheck-previous-error)
 
+(define-key projectile-mode-map [(control c) (p) (g)] 'projectile-grep)
 
 
 (define-key org-mode-map [remap browse-url-at-point] 'org-open-at-point)
