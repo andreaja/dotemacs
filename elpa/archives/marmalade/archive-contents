@@ -1,7 +1,4 @@
 (1
- (dired-nav-enhance .
-		    [(1 0)
-		     nil "Enhanced navigation for dired buffers" single])
  (zone-matrix .
 	      [(0 0 1)
 	       nil "Matrix themed Zone mode" tar])
@@ -198,7 +195,7 @@
 	 (1 5 0)))
        "useful HTTP client" single])
  (weather-metno .
-		[(20140121)
+		[(20140909)
 		 ((emacs
 		   (24))
 		  (cl-lib
@@ -396,7 +393,7 @@
 	    (0 4 2)))
 	  "Test the content of a value" single])
  (tronesque-theme .
-		  [(1 3)
+		  [(1 5)
 		   nil "Color Theme based on Tron universe." single])
  (troncle .
 	  [(0 1 2)
@@ -1060,7 +1057,7 @@
 	     (1 2)))
 	   "A library for pasting to https://refheap.com" single])
  (recursive-narrow .
-		   [(20140801 1400)
+		   [(20140811 1546)
 		    nil "narrow-to-region that operates recursively" single])
  (rect-mark .
 	    [(1 4)
@@ -1460,20 +1457,18 @@
 	      (1 6 8)))
 	    "Blog from Org mode to wordpress" tar])
  (org-trello .
-	     [(0 4 8)
-	      ((db
-		(0 0 6))
-	       (s
-		(1 7 0))
-	       (esxml
-		(0 3 0))
-	       (elnode
-		(0 9 9 7 6))
-	       (request
-		(0 2 0))
+	     [(0 5 9)
+	      ((emacs
+		(24))
 	       (dash
-		(2 5 0)))
-	      "Minor mode to synchronize org-mode buffer and trello board" tar])
+		(2 8 0))
+	       (s
+		(1 9 0))
+	       (deferred
+		   (0 3 2))
+	       (request-deferred
+		(0 1 0)))
+	      "Minor mode to synchronize org-mode buffer and trello board" single])
  (org-table-comment .
 		    [(0 2)
 		     nil "Org table comment modes." single])
@@ -1700,6 +1695,9 @@
  (move-text .
 	    [(1 0)
 	     nil "Move current line or region with M-up or M-down." single])
+ (move-line .
+	    [(0 0 1)
+	     nil "utilities for moving lines in file" single])
  (mote-mode .
 	    [(1 0 0)
 	     ((ruby-mode
@@ -1784,6 +1782,9 @@
  (maxframe .
 	   [(0 5 1)
 	    nil "maximize the emacs frame based on display size" single])
+ (math-at-point .
+		[(0 0 1)
+		 nil "Utilities for modifying numbers at point" single])
  (master-mode .
 	      [(0 1)
 	       nil "Become an Emacs master" single])
@@ -1992,6 +1993,9 @@
  (linum-off .
 	    [(0 1)
 	     nil "Provides an interface for turning line-numbering off" single])
+ (linky-client .
+	       [(0 0 2)
+		nil "a client for linky.elnode.org" single])
  (lineno .
 	 [(0 1)
 	  nil "Alternate mode to display line numbers." single])
@@ -2185,6 +2189,9 @@
  (isgd .
        [(20130927)
 	nil "Shorten URLs using the isgd.com shortener service" single])
+ (isearch-switch .
+		 [(1 0)
+		  nil "switch the manner you are isearching in." single])
  (isea .
        [(0 0 2)
 	((elpakit
@@ -2911,6 +2918,9 @@
 	   (tabulated-list
 	    (0)))
 	  "Quickly navigate to FIXME notices in code" single])
+ (fixme-mode .
+	     [(1 0 1)
+	      nil "fixme minor mode to highlight warning words" single])
  (fit-frame .
 	    [(0)
 	     nil "Resize a frame.  In particular, fit a frame to its buffers." single])
@@ -3406,6 +3416,9 @@
  (dired-single .
 	       [(1 7)
 		nil "reuse the current dired buffer to visit another directory" single])
+ (dired-nav-enhance .
+		    [(1 0)
+		     nil "Enhanced navigation for dired buffers" single])
  (dired-efap .
 	     [(0 8)
 	      nil "Edit Filename At Point in a dired buffer" single])
