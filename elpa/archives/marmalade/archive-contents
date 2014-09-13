@@ -1,4 +1,7 @@
 (1
+ (om-mode .
+	  [(0 5 20140914)
+	   nil "Insert Om component template with life cycle." single])
  (zone-matrix .
 	      [(0 0 1)
 	       nil "Matrix themed Zone mode" tar])
@@ -539,6 +542,9 @@
  (sumatra-forward .
 		  [(2008 10 8)
 		   nil "Provides Sumatra Forward search" single])
+ (sudo-edit .
+	    [(0 0 1)
+	     nil "Utilities for opening files with sudo" single])
  (sudden-death .
 	       [(0 1)
 		nil "Totsuzen-no-Shi" single])
@@ -1457,18 +1463,18 @@
 	      (1 6 8)))
 	    "Blog from Org mode to wordpress" tar])
  (org-trello .
-	     [(0 5 9)
-	      ((emacs
-		(24))
-	       (dash
-		(2 8 0))
-	       (s
-		(1 9 0))
+	     [(0 6 0)
+	      ((request-deferred
+		(0 1 0))
 	       (deferred
 		   (0 3 2))
-	       (request-deferred
-		(0 1 0)))
-	      "Minor mode to synchronize org-mode buffer and trello board" single])
+	       (s
+		(1 9 0))
+	       (dash
+		(2 8 0))
+	       (emacs
+		(24)))
+	      "Minor mode to synchronize org-mode buffer and trello board" tar])
  (org-table-comment .
 		    [(0 2)
 		     nil "Org table comment modes." single])
@@ -2530,7 +2536,7 @@
 	   [(1 6)
 	    nil "goto last change" single])
  (google-translate .
-		   [(0 8 2)
+		   [(0 10 2)
 		    nil "Emacs interface to Google Translate." tar])
  (god-mode .
 	   [(2 12 0)
@@ -2919,7 +2925,7 @@
 	    (0)))
 	  "Quickly navigate to FIXME notices in code" single])
  (fixme-mode .
-	     [(1 0 1)
+	     [(1 0 2)
 	      nil "fixme minor mode to highlight warning words" single])
  (fit-frame .
 	    [(0)
