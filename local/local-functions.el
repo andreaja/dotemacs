@@ -190,6 +190,5 @@ by using nxml's indentation rules."
   (interactive)
   (if (not (eolp))
       (end-of-line)
-    (progn
-      (forward-line)
-      (end-of-line))))
+    (forward-line)
+    (end-of-line)))
