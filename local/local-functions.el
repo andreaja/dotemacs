@@ -183,3 +183,13 @@ by using nxml's indentation rules."
   "Kills the current buffer"
   (interactive)
   (kill-buffer (current-buffer)))
+
+
+(defun end-of-code-or-end-of-next-line ()
+  "Move to the end of the line. If already there, move to the end of next line"
+  (interactive)
+  (if (not (eolp))
+      (end-of-line)
+    (progn
+      (forward-line)
+      (end-of-line))))
