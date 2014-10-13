@@ -62,3 +62,10 @@
                     :background "dark grey")
 
 (setq-default mode-line-format "")
+
+
+(org-add-link-type
+ "docx" 'follow-doc-link)
+
+(defun follow-doc-link (tag)
+  (shell-command (format "open \"%s\"" tag)))
