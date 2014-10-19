@@ -7,10 +7,6 @@
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
-;;; Re-enable this once familiar with org-todo (rather than S-arrows)
-;; (add-to-list 'org-drawers
-;;              (setq org-log-into-drawer "STATE"))
-
 (setq org-return-follows-link t)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
@@ -64,8 +60,12 @@
 (setq-default mode-line-format "")
 
 
-(org-add-link-type
- "docx" 'follow-doc-link)
 
-(defun follow-doc-link (tag)
-  (shell-command (format "open \"%s\"" tag)))
+(add-hook 'org-load-hook
+          (lambda ()
+            (add-to-list 'org-drawers
+             (setq org-log-into-drawer "STATE"))
+            (org-add-link-type
+             "docx" 'follow-doc-link)
+            (defun follow-doc-link (tag)
+              (shell-command (format "open \"%s\"" tag)))))

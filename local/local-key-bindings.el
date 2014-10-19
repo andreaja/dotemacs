@@ -40,10 +40,6 @@
 (define-key projectile-mode-map [(control c) (p) (g)] 'projectile-grep)
 
 
-(define-key org-mode-map [remap browse-url-at-point] 'org-open-at-point)
-
-(define-key org-mode-map [S-left] (lambda () (interactive) (message "Use org-todo instead")))
-(define-key org-mode-map [S-right] (lambda () (interactive) (message "Use org-todo instead")))
 
 (define-key my-keys-minor-mode-map [(control .) (control m)] 'magit-status)
 (define-key my-keys-minor-mode-map [(control .) (m)] 'magit-status)
@@ -62,3 +58,11 @@
 (define-key my-keys-minor-mode-map [(control .) (control s)] 'insert-shebang)
 
 (define-key my-keys-minor-mode-map [remap move-end-of-line] 'end-of-code-or-end-of-next-line)
+
+(add-hook 'org-load-hook
+          (lambda ()
+            (define-key org-mode-map [remap browse-url-at-point] 'org-open-at-point)
+            (define-key org-mode-map [S-left]
+              (lambda () (interactive) (message "Use org-todo instead")))
+            (define-key org-mode-map [S-right]
+              (lambda () (interactive) (message "Use org-todo instead")))))
