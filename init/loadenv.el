@@ -31,7 +31,8 @@
 (load "semantic/loaddefs.el")
 (semantic-mode 1)
 (require 'malabar-mode)
-(load "malabar-flycheck")
+(add-hook 'malabar-mode-hook (lambda ()
+                               (load "malabar-flycheck")))
 (add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
 
 (my-keys-minor-mode 1)
