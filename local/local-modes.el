@@ -2,15 +2,15 @@
 
 (require 'plsql)
 
-(require 'markdown-mode)
+(autoload 'markdown-mode "markdown-mode" "Major mode for markdown files" t)
 
-(require 'yaml-mode)
+(autoload 'yaml-mode "yaml-mode" "Major mode for yaml" t)
 
-(require 'powershell-mode)
+(autoload 'powershell-mode "powershell-mode" "Major mode for powershell" t)
 
-(require 'js2-refactor)
+(autoload 'js2-mode "js2-refactor" "Refactoring for js2-mode" t)
 
-(require 'jquery-doc)
+(autoload 'js2-mode "jquery-doc" "JQuery doc for js2-mode" t)
 
 (require 'flycheck)
 

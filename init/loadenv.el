@@ -26,7 +26,7 @@
     (load "local-mac-mode"))
 
 
-(require 'cedet)
+(autoload 'malabar-mode "cedet" "Cedet is required by malabar" t)
 (require 'semantic)
 (load "semantic/loaddefs.el")
 (semantic-mode 1)
