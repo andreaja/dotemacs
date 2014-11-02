@@ -22,3 +22,5 @@
 (add-hook 'prog-mode-hook 'ggtags-mode)
 (add-hook 'prog-mode-hook 'subword-mode)
 (add-hook 'xml-mode-hook 'ggtags-mode)
+
+(global-aggressive-indent-mode 1)
