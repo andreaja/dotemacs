@@ -9,7 +9,7 @@
 ;;       Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://github.com/clojure-emacs/clojure-mode
 ;; Keywords: languages clojure clojurescript lisp
-;; Version: 20141120.1410
+;; Version: 20141122.110
 ;; X-Original-Version: 3.1.0-cvs
 ;; Package-Requires: ((emacs "24.1"))
 
@@ -199,6 +199,7 @@ For example, \[ is allowed in :db/id[:db.part/user]."
     (modify-syntax-entry ?\[ "(]" table)
     (modify-syntax-entry ?\] ")[" table)
     (modify-syntax-entry ?^ "'" table)
+    (modify-syntax-entry ?@ "'" table)
     ;; Make hash a usual word character
     (modify-syntax-entry ?# "_ p" table)
     table))

@@ -5,7 +5,7 @@
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/projectile
 ;; Keywords: project, convenience
-;; Version: 20141120.717
+;; Version: 20141121.321
 ;; X-Original-Version: 0.11.0
 ;; Package-Requires: ((s "1.6.0") (f "0.17.1") (dash "1.5.0") (pkg-info "0.4"))
 
@@ -871,7 +871,7 @@ we can avoid such case."
                        (projectile-files-via-ext-command projectile-git-command))))
            (condition-case nil
                (projectile-get-all-sub-projects (projectile-project-root))
-             nil))))
+             (error nil)))))
 
 (defun projectile-get-repo-files ()
   "Get a list of the files in the project, including sub-projects."
