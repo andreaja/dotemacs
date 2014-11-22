@@ -8,7 +8,7 @@
  '(indent-tabs-mode nil)
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
- '(require-final-newline (quote visit))
+ '(require-final-newline (quote visit-save))
  '(show-paren-delay 0)
  '(vc-follow-symlinks nil))
 (custom-set-faces
