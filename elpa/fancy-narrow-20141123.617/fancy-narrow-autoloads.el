@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "fancy-narrow" "fancy-narrow.el" (21344 60872
+;;;### (autoloads nil "fancy-narrow" "fancy-narrow.el" (21619 25172
 ;;;;;;  0 0))
 ;;; Generated autoloads from fancy-narrow.el
 

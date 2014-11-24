@@ -5,7 +5,7 @@
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/projectile
 ;; Keywords: project, convenience
-;; Version: 20141121.321
+;; Version: 20141124.643
 ;; X-Original-Version: 0.11.0
 ;; Package-Requires: ((s "1.6.0") (f "0.17.1") (dash "1.5.0") (pkg-info "0.4"))
 
@@ -367,6 +367,12 @@ The saved data can be restored with `projectile-unserialize'."
   "List of locations where we have previously seen projects.
 The list of projects is ordered by the time they have been accessed.")
 
+(defvar projectile-known-projects-on-file nil
+  "List of known projects reference point.
+
+Contains a copy of `projectile-known-projects' when it was last
+synchronized with `projectile-known-projects-file'.")
+
 (defcustom projectile-known-projects-file
   (expand-file-name "projectile-bookmarks.eld"
                     user-emacs-directory)
@@ -543,8 +549,12 @@ The cache is created both in memory and on the hard drive."
 (defun projectile-cache-projects-find-file-hook ()
   "Function for caching projects with `find-file-hook'."
   (when (projectile-project-p)
-    (projectile-add-known-project (projectile-project-root))
-    (projectile-save-known-projects)))
+    (let ((known-projects (and (sequencep projectile-known-projects)
+                               (copy-sequence projectile-known-projects))))
+      (projectile-add-known-project (projectile-project-root))
+      (unless (equal known-projects projectile-known-projects)
+        (projectile-merge-known-projects)))))
+
 
 (defun projectile-maybe-invalidate-cache (force)
   "Invalidate if FORCE or project's dirconfig newer than cache."
@@ -730,7 +740,7 @@ Files are returned as relative paths to the project root."
   :group 'projectile
   :type 'string)
 
-(defcustom projectile-git-submodule-command "git submodule --quiet foreach 'echo $name' | tr '\\n' '\\0'"
+(defcustom projectile-git-submodule-command "git submodule --quiet foreach 'echo $path' | tr '\\n' '\\0'"
   "Command used by projectile to get the files in git submodules."
   :group 'projectile
   :type 'string)
@@ -843,8 +853,8 @@ Running \"git submodule\" any of those submodule returns this result:
 -da63813a86d46f17abf0a9303de1149ca7cee60a ../ruby-tmbundle
 
 So, each of those modules is point to itself! We must only check to avoid
-looping at a single point. Thankfully, wich the command git submodule --quiet foreach 'echo $name',
-we can avoid such case."
+looping at a single point.  The sub-project listing command should be able
+to handle such case."
   (let* ((default-directory project)
          ;; search for sub-projects under current project `project'
          (submodules (mapcar
@@ -2282,11 +2292,13 @@ It handles the case of remote files as well. See `projectile-cleanup-known-proje
 (defun projectile-cleanup-known-projects ()
   "Remove known projects that don't exist anymore."
   (interactive)
-  (let* ((separated-projects (-separate #'projectile-keep-project-p projectile-known-projects))
+  (projectile-merge-known-projects)
+  (let* ((separated-projects
+          (-separate #'projectile-keep-project-p projectile-known-projects))
          (projects-kept (car separated-projects))
          (projects-removed (cadr separated-projects)))
     (setq projectile-known-projects projects-kept)
-    (projectile-save-known-projects)
+    (projectile-merge-known-projects)
     (if projects-removed
         (message "Projects removed: %s" (s-join ", " projects-removed))
       (message "No projects needed to be removed."))))
@@ -2303,7 +2315,7 @@ It handles the case of remote files as well. See `projectile-cleanup-known-proje
                                                  projectile-known-projects)))
   (setq projectile-known-projects
         (--reject (string= project it) projectile-known-projects))
-  (projectile-save-known-projects)
+  (projectile-merge-known-projects)
   (when projectile-verbose
     (message "Project %s removed from the list of known projects." project)))
 
@@ -2328,14 +2340,40 @@ It handles the case of remote files as well. See `projectile-cleanup-known-proje
   "Load saved projects from `projectile-known-projects-file'.
 Also set `projectile-known-projects'."
   (setq projectile-known-projects
-        (projectile-unserialize projectile-known-projects-file)))
+        (projectile-unserialize projectile-known-projects-file))
+  (setq projectile-known-projects-on-file
+        (and (sequencep projectile-known-projects)
+             (copy-sequence projectile-known-projects))))
 
 ;; load the known projects
 (projectile-load-known-projects)
 
 (defun projectile-save-known-projects ()
   "Save PROJECTILE-KNOWN-PROJECTS to PROJECTILE-KNOWN-PROJECTS-FILE."
-  (projectile-serialize projectile-known-projects projectile-known-projects-file))
+  (projectile-serialize projectile-known-projects
+                        projectile-known-projects-file)
+  (setq projectile-known-projects-on-file
+        (and (sequencep projectile-known-projects)
+             (copy-sequence projectile-known-projects))))
+
+(defun projectile-merge-known-projects ()
+  "Merge any change from `projectile-known-projects-file' and save to disk.
+
+This enables multiple Emacs processes to make changes without
+overwriting each other's changes."
+  (let* ((known-now projectile-known-projects)
+         (known-on-last-sync projectile-known-projects-on-file)
+         (known-on-file
+          (projectile-unserialize projectile-known-projects-file))
+         (removed-after-sync (-difference known-on-last-sync known-now))
+         (removed-in-other-process
+          (-difference known-on-last-sync known-on-file))
+         (result (-distinct
+                  (-difference
+                   (-concat known-now known-on-file)
+                   (-concat removed-after-sync removed-in-other-process)))))
+    (setq projectile-known-projects result)
+    (projectile-save-known-projects)))
 
 (define-ibuffer-filter projectile-files
   "Show Ibuffer with all buffers in the current project."
