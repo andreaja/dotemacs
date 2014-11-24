@@ -67,5 +67,7 @@
              (setq org-log-into-drawer "STATE"))
             (org-add-link-type
              "docx" 'follow-doc-link)
+            (org-add-link-type
+             "pdf" 'follow-doc-link)
             (defun follow-doc-link (tag)
               (shell-command (format "open \"%s\"" tag)))))
