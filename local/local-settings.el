@@ -59,8 +59,6 @@
 
 (setq-default mode-line-format "")
 
-
-
 (add-hook 'org-load-hook
           (lambda ()
             (add-to-list 'org-drawers
