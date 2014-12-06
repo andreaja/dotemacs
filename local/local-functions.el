@@ -184,6 +184,17 @@ by using nxml's indentation rules."
   (interactive)
   (kill-buffer (current-buffer)))
 
+;; thanks josse
+(defun yank-flexible ()
+  "Use Ido to select a kill-ring entry to yank."
+  (interactive)
+  (insert (ido-completing-read "Select kill: " kill-ring)))
+
+(defun yank-pop-dwim (&optional arg)
+  (interactive "*p")
+  (if (eq last-command 'yank)
+      (yank-pop arg)
+    (yank-flexible)))
 
 (defun exchange-point-and-mark-no-activate ()
   "Identical to \\[exchange-point-and-mark] but will not activate the region."

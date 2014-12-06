@@ -66,3 +66,5 @@
               (lambda () (interactive) (message "Use org-todo instead")))
             (define-key org-mode-map [S-right]
               (lambda () (interactive) (message "Use org-todo instead")))))
+
+(define-key my-keys-minor-mode-map [(meta y)] 'yank-pop-dwim)
