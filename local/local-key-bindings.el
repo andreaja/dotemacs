@@ -39,7 +39,7 @@
 
 (define-key projectile-mode-map [(control c) (p) (g)] 'projectile-grep)
 
-
+(define-key my-keys-minor-mode-map [(meta \`)] 'other-frame)
 
 (define-key my-keys-minor-mode-map [(control .) (control m)] 'magit-status)
 (define-key my-keys-minor-mode-map [(control .) (m)] 'magit-status)
