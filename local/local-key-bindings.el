@@ -52,7 +52,7 @@
 (define-key my-keys-minor-mode-map [(control meta p)] 'smartscan-symbol-go-backward)
 (define-key my-keys-minor-mode-map [(meta r)] 'smartscan-symbol-replace)
 (define-key my-keys-minor-mode-map [(control meta \\)] 'indent-region-or-buffer)
-
+(define-key my-keys-minor-mode-map [(control meta \ )] 'er/expand-region)
 
 (define-key my-keys-minor-mode-map [(control x) (control k)] 'kill-current-buffer)
 (define-key my-keys-minor-mode-map [(control .) (control s)] 'insert-shebang)
