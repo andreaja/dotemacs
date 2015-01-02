@@ -1,18 +1,4 @@
 (1
- (marshal .
-	  [(0 1)
-	   ((eieio
-	     (1 4)))
-	   "eieio extension for automatic (un)marshalling" single])
- (overseer .
-	   [(0 1 0)
-	    ((emacs
-	      (24))
-	     (dash
-	      (2 10 0))
-	     (pkg-info
-	      (0 4)))
-	    "Ert-runner Integration Into Emacs." single])
  (zone-matrix .
 	      [(0 0 1)
 	       nil "Matrix themed Zone mode" tar])
@@ -1501,6 +1487,15 @@
  (oz .
      [(16513)
       nil "Major mode for editing Oz programs" tar])
+ (overseer .
+	   [(0 1 0)
+	    ((emacs
+	      (24))
+	     (dash
+	      (2 10 0))
+	     (pkg-info
+	      (0 4)))
+	    "Ert-runner Integration Into Emacs." single])
  (outlined-elisp-mode .
 		      [(1 0 5)
 		       nil "outline-minor-mode settings for emacs lisp" single])
@@ -1899,6 +1894,11 @@
  (master-mode .
 	      [(0 1)
 	       nil "Become an Emacs master" single])
+ (marshal .
+	  [(0 1 1)
+	   ((eieio
+	     (1 4)))
+	   "eieio extension for automatic (un)marshalling" single])
  (marmalade-upload .
 		   [(0 0 5)
 		    ((web
