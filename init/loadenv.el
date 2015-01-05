@@ -26,15 +26,14 @@
     (load "local-mac-mode"))
 
 
-(autoload 'malabar-mode "cedet" "Cedet is required by malabar" t)
-(require 'semantic)
-(load "semantic/loaddefs.el")
-(semantic-mode 1)
-(require 'malabar-mode)
-(add-hook 'malabar-mode-hook (lambda ()
-                               (load "malabar-flycheck")))
-(add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
-
+;; (autoload 'malabar-mode "cedet" "Cedet is required by malabar" t)
+;; (require 'semantic)
+;; (load "semantic/loaddefs.el")
+;; (semantic-mode 1)
+;; (require 'malabar-mode)
+;; (add-hook 'malabar-mode-hook (lambda ()
+;;                                (load "malabar-flycheck")))
+;; (add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
 (my-keys-minor-mode 1)
 
 (defun my-minibuffer-setup-hook ()
