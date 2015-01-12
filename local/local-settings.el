@@ -36,6 +36,9 @@
 (setq scroll-preserve-screen-position t)
 
 
+(js2r-add-keybindings-with-prefix "C-c C-m")
+
+
 ;; https://gist.github.com/robtillotson/5d162f9674ad9c207d44
 ;; Quick emacs version of syntactic line compression, found on reddit
 (make-face 'mundane-line-face)
