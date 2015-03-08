@@ -9,6 +9,8 @@
 
 (setq org-return-follows-link t)
 
+(setq use-dialog-box nil)
+
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
 (setq locate-command "mdfind")
