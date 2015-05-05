@@ -24,7 +24,5 @@
 
 ;(global-set-key "\M-/" 'hippie-expand)
 
-(fancy-narrow-mode)
-
 
 (global-hungry-delete-mode)
