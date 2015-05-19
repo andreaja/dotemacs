@@ -62,15 +62,21 @@
 (set-face-attribute 'mode-line-inactive nil
                     :background "dark grey")
 
+;; http://orgmode.org/manual/Deadlines-and-scheduling.html
+(setq org-agenda-skip-scheduled-if-done 1)
+(setq org-agenda-skip-deadline-if-done 1)
+
 (setq-default mode-line-format "")
 
 (add-hook 'org-load-hook
           (lambda ()
             (add-to-list 'org-drawers
-             (setq org-log-into-drawer "STATE"))
+                         (setq org-log-into-drawer "STATE"))
             (org-add-link-type
              "docx" 'follow-doc-link)
             (org-add-link-type
              "pdf" 'follow-doc-link)
             (defun follow-doc-link (tag)
               (shell-command (format "open \"%s\"" tag)))))
+
+
