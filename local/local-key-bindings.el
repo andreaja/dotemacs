@@ -45,6 +45,7 @@
 (define-key my-keys-minor-mode-map [(control .) (m)] 'magit-status)
 
 (define-key my-keys-minor-mode-map [(control .) (control t)] 'org-todo)
+(define-key my-keys-minor-mode-map [(control .) (control a)] 'org-agenda)
 (define-key my-keys-minor-mode-map [(control .) (t)] 'org-todo)
 
 (define-key my-keys-minor-mode-map [(control meta n)] 'smartscan-symbol-go-forward)
@@ -68,5 +69,9 @@
               (lambda () (interactive) (message "Use org-todo instead")))
             (define-key org-mode-map [S-right]
               (lambda () (interactive) (message "Use org-todo instead")))))
+
+(add-hook 'org-agenda-mode-hook
+          (lambda ()
+            (define-key org-agenda-mode-map [remap org-agenda-switch-to] 'org-agenda-goto)))
 
 (define-key my-keys-minor-mode-map [(meta y)] 'yank-pop-dwim)

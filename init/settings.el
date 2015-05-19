@@ -8,6 +8,7 @@
  '(indent-tabs-mode nil)
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
+ '(org-agenda-files "~/.emacs.d/org.file.list")
  '(require-final-newline (quote visit-save))
  '(show-paren-delay 0)
  '(vc-follow-symlinks nil))
