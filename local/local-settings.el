@@ -79,4 +79,3 @@
             (defun follow-doc-link (tag)
               (shell-command (format "open \"%s\"" tag)))))
 
-
