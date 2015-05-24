@@ -63,6 +63,40 @@
 (set-face-attribute 'mode-line-inactive nil
                     :background "dark grey")
 
+
+(defun bh/is-subproject-p ()
+  "Any task which is a subtask of another project"
+  (let ((is-subproject)
+        (is-a-task (member (nth 2 (org-heading-components)) org-todo-keywords-1)))
+    (save-excursion
+      (while (and (not is-subproject) (org-up-heading-safe))
+        (when (member (nth 2 (org-heading-components)) org-todo-keywords-1)
+          (setq is-subproject t))))
+    (and is-a-task is-subproject)))
+
+
+(defun bh/skip-non-subprojects ()
+  "Skip trees that are not projects"
+  (let ((next-headline (save-excursion (outline-next-heading))))
+    (if (bh/is-subproject-p)
+        nil
+      next-headline)))
+
+(setq org-agenda-custom-commands
+      `(("w" "Waiting for" todo "WAIT"
+         ((org-agenda-overriding-header "Waiting for response")))
+        (" " "Testing" ((agenda "" ((org-agenda-ndays 1)
+                                    (org-agenda-show-log t)))
+                        (tags-todo "/!TODO"
+                                   ((org-agenda-overriding-header "Projects")
+                                    (org-agenda-skip-function 'bh/skip-non-projects)
+                                    (org-tags-match-list-sublevels 'indented)
+                                    (org-agenda-sorting-strategy
+                                     '(category-keep))))
+                        ))
+        ))
+
+
 ;; http://orgmode.org/manual/Deadlines-and-scheduling.html
 (setq org-agenda-skip-scheduled-if-done 1)
 (setq org-agenda-skip-deadline-if-done 1)
