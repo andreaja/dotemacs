@@ -8,7 +8,7 @@
  '(indent-tabs-mode nil)
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
- '(org-agenda-files "~/.emacs.d/org.file.list")
+ '(org-agenda-files "~/.org.file.list")
  '(org-agenda-span (quote fortnight))
  '(org-agenda-start-on-weekday 2)
  '(require-final-newline (quote visit-save))
