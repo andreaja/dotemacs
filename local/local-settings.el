@@ -64,6 +64,7 @@
                     :background "dark grey")
 
 
+;;; From http://doc.norang.ca/org-mode.html
 (defun bh/is-subproject-p ()
   "Any task which is a subtask of another project"
   (let ((is-subproject)
@@ -83,17 +84,26 @@
       next-headline)))
 
 (setq org-agenda-custom-commands
-      `(("w" "Waiting for" todo "WAIT"
-         ((org-agenda-overriding-header "Waiting for response")))
-        (" " "Testing" ((agenda "" ((org-agenda-ndays 1)
-                                    (org-agenda-show-log t)))
-                        (tags-todo "/!TODO"
-                                   ((org-agenda-overriding-header "Projects")
-                                    (org-agenda-skip-function 'bh/skip-non-projects)
-                                    (org-tags-match-list-sublevels 'indented)
-                                    (org-agenda-sorting-strategy
-                                     '(category-keep))))
-                        ))
+      `(("w" "Waiting for" tags-todo "/!WAIT"
+         ((org-agenda-overriding-header "Waiting for response")
+          (org-agenda-skip-function 'bh/skip-non-projects)
+          (org-tags-match-list-sublevels 'indented)
+          (org-agenda-sorting-strategy
+           '(category-keep))))
+        (" " "Daily agenda with TODO"
+         ((agenda "" ((org-agenda-ndays 1)
+                      (org-agenda-show-log t)))
+          (tags-todo "-CATEGORY=\"Inbox\"/!TODO"
+                     ((org-agenda-overriding-header "Projects")
+                      (org-agenda-skip-function 'bh/skip-non-projects)
+                      (org-tags-match-list-sublevels 'indented)
+                      (org-agenda-sorting-strategy
+                       '(category-keep))))
+          ))
+        ("f" "Fortnight schedule"
+         ((agenda "" ((org-agenda-ndays 14)
+                      (org-agenda-start-day "-3d")
+                      (org-agenda-start-on-weekday nil)))))
         ))
 
 
