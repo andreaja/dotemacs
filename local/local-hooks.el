@@ -29,8 +29,3 @@
           (lambda ()
             (sh-electric-here-document-mode -1)))
 
-(add-hook 'auto-save-hook
-          (lambda () (flet ((message
-                             (format &rest args) nil))
-                       (save-some-buffers t))))
-
