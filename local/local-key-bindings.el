@@ -23,7 +23,12 @@
 (define-key my-keys-minor-mode-map [(control .) (control c)] 'spotify-now-playing)
 (define-key my-keys-minor-mode-map [(control .) (c)] 'spotify-now-playing)
 
-(define-key my-keys-minor-mode-map [(meta o)] 'other-window)
+(setq avy-keys
+      '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
+(setq aw-keys '(?a ?o ?e ?u ?i ?d ?h))
+
+(define-key my-keys-minor-mode-map [(meta o)] 'ace-window)
+(define-key my-keys-minor-mode-map [(meta s)] 'avy-goto-word-1)
 
 (define-key my-keys-minor-mode-map [(control .) (i)] 'indent-region-or-buffer)
 
@@ -76,3 +81,6 @@
             (define-key org-agenda-mode-map [remap org-agenda-switch-to] 'org-agenda-goto)))
 
 (define-key my-keys-minor-mode-map [(meta y)] 'yank-pop-dwim)
+
+
+
