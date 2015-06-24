@@ -63,6 +63,8 @@
 (define-key my-keys-minor-mode-map [(control x) (control k)] 'kill-current-buffer)
 (define-key my-keys-minor-mode-map [(control .) (control s)] 'insert-shebang)
 
+(define-key my-keys-minor-mode-map [(control .) (control i)] 'ido-imenu)
+
 (define-key my-keys-minor-mode-map [(meta h)] 'ns-do-hide-emacs)
 
 (define-key my-keys-minor-mode-map [remap move-end-of-line] 'end-of-code-or-end-of-next-line)
