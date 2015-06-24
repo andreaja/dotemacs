@@ -69,10 +69,10 @@
 
 (define-key my-keys-minor-mode-map [remap move-end-of-line] 'end-of-code-or-end-of-next-line)
 
-(add-hook 'org-load-hook
+(add-hook 'org-mode-hook
           (lambda ()
             (define-key org-mode-map [remap browse-url-at-point] 'org-open-at-point)
-            (define-key org-mode-map [C-c C-4] 'org-archive-subtree)
+            (define-key org-mode-map (kbd "C-c C-4") 'org-archive-subtree)
             (define-key org-mode-map [S-left]
               (lambda () (interactive) (message "Use org-todo instead")))
             (define-key org-mode-map [S-right]
@@ -83,6 +83,8 @@
             (define-key org-agenda-mode-map [remap org-agenda-switch-to] 'org-agenda-goto)))
 
 (define-key my-keys-minor-mode-map [(meta y)] 'yank-pop-dwim)
+
+
 
 
 
