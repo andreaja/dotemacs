@@ -12,3 +12,5 @@ projectile.cache
 srecode-map.el
 semanticdb/
 org.file.list
+bookmarks
+.org-id-locations
