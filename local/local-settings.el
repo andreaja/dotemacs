@@ -100,6 +100,16 @@
                       (org-agenda-sorting-strategy
                        '(category-keep))))
           ))
+        ("p" "Other daily agenda with TODO"
+         ((agenda "" ((org-agenda-ndays 1)
+                      (org-agenda-show-log t)))
+          (tags-todo "-CATEGORY=\"Inbox\"/!TODO"
+                     ((org-agenda-overriding-header "Projects")
+                      (org-agenda-skip-function 'bh/skip-non-projects)
+                      (org-tags-match-list-sublevels 'indented)
+                      (org-agenda-sorting-strategy
+                       '(category-keep)))))
+         ((org-agenda-files "~/.org.file.list.p")))
         ("f" "Fortnight schedule"
          ((agenda "" ((org-agenda-ndays 14)
                       (org-agenda-start-day "-3d")
