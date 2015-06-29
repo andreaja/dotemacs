@@ -9,6 +9,7 @@
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
  '(org-agenda-files "~/.org.file.list")
+ '(org-archive-location "%s_archive::* Archive")
  '(package-selected-packages
    (quote
     (ace-window visible-mark urlenc smartscan slime rust-mode ruby-refactor restclient rainbow-mode rainbow-delimiters puppet-mode projectile php-mode paredit midje-mode malabar-mode magit lorem-ipsum json-reformat js2-refactor jquery-doc insert-shebang inf-ruby hungry-delete groovy-mode gh ggtags flycheck f expand-region ess clojure-test-mode browse-kill-ring aggressive-indent)))
