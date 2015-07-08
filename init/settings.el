@@ -6,6 +6,7 @@
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
+ '(js-indent-level 2)
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
  '(org-agenda-files "~/.org.file.list")
@@ -14,6 +15,7 @@
    (quote
     (ace-window visible-mark urlenc smartscan slime rust-mode ruby-refactor restclient rainbow-mode rainbow-delimiters puppet-mode projectile php-mode paredit midje-mode malabar-mode magit lorem-ipsum json-reformat js2-refactor jquery-doc insert-shebang inf-ruby hungry-delete groovy-mode gh ggtags flycheck f expand-region ess clojure-test-mode browse-kill-ring aggressive-indent)))
  '(require-final-newline (quote visit-save))
+ '(safe-local-variable-values (quote ((js-indent-level . 2))))
  '(show-paren-delay 0)
  '(vc-follow-symlinks nil))
 (custom-set-faces
