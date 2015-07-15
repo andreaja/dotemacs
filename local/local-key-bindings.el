@@ -24,8 +24,8 @@
 (define-key my-keys-minor-mode-map [(control .) (c)] 'spotify-now-playing)
 
 (setq avy-keys
-      '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
-(setq aw-keys '(?a ?o ?e ?u ?i ?d ?h))
+      '(?h ?t ?n ?s ?g ?c ?r ?l))
+(setq aw-keys '(?h ?t ?n ?s ?g ?c ?r))
 
 (define-key my-keys-minor-mode-map [(meta o)] 'ace-window)
 (define-key my-keys-minor-mode-map [(meta s)] 'avy-goto-word-1)
