@@ -75,13 +75,13 @@
           (setq is-subproject t))))
     (and is-a-task is-subproject)))
 
+(defun aja/is-not-subproject-p ()
+  "Inverts bh/is-subproject-p"
+  (not (bh/is-subproject-p)))
 
-(defun bh/skip-non-subprojects ()
-  "Skip trees that are not projects"
-  (let ((next-headline (save-excursion (outline-next-heading))))
-    (if (bh/is-subproject-p)
-        nil
-      next-headline)))
+;; http://pages.sachachua.com/.emacs.d/Sacha.html
+(defun aja/org-agenda-skip-scheduled-and-non-tasks ()
+  (org-agenda-skip-entry-if 'scheduled 'aja/is-not-subproject-p))
 
 (setq org-agenda-custom-commands
       `(("w" "Waiting for" tags-todo "/!WAIT"
@@ -95,7 +95,7 @@
                       (org-agenda-show-log t)))
           (tags-todo "-CATEGORY=\"Inbox\"/!TODO"
                      ((org-agenda-overriding-header "Projects")
-                      (org-agenda-skip-function 'bh/skip-non-projects)
+                      (org-agenda-skip-function 'aja/org-agenda-skip-scheduled-and-non-tasks)
                       (org-tags-match-list-sublevels 'indented)
                       (org-agenda-sorting-strategy
                        '(category-keep))))
