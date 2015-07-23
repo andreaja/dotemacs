@@ -124,6 +124,8 @@
 
 (setq-default mode-line-format "")
 
+(require 'org-depend)
+
 (add-hook 'org-load-hook
           (lambda ()
             (add-to-list 'org-drawers
