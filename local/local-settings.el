@@ -124,8 +124,6 @@
 
 (setq-default mode-line-format "")
 
-(require 'org-depend)
-
 (add-hook 'org-load-hook
           (lambda ()
             (add-to-list 'org-drawers
@@ -136,4 +134,5 @@
              "pdf" 'follow-doc-link)
             (defun follow-doc-link (tag)
               (shell-command (format "open \"%s\"" tag)))))
+
 
