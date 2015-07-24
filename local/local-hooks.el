@@ -14,8 +14,8 @@
 (add-hook 'find-file-hook 'detect-and-rename-pom-file-buffer)
 
 (add-hook 'focus-out-hook
-          (lambda () (flet ((message
-                             (format &rest args) nil))
+          (lambda () (cl-flet ((message
+                                (format &rest args) nil))
                        (save-some-buffers t))))
 
 
