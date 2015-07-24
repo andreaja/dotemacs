@@ -132,6 +132,7 @@
              "docx" 'follow-doc-link)
             (org-add-link-type
              "pdf" 'follow-doc-link)
+            (require 'org-depend)
             (defun follow-doc-link (tag)
               (shell-command (format "open \"%s\"" tag)))))
 

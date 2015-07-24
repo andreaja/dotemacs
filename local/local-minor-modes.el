@@ -26,4 +26,4 @@
 
 
 (global-hungry-delete-mode)
-(require 'org-depend)
+
