@@ -105,7 +105,7 @@
                       (org-agenda-show-log t)))
           (tags-todo "-CATEGORY=\"Inbox\"/!TODO"
                      ((org-agenda-overriding-header "Projects")
-                      (org-agenda-skip-function 'bh/skip-non-projects)
+                      (org-agenda-skip-function 'aja/org-agenda-skip-scheduled-and-non-tasks)
                       (org-tags-match-list-sublevels 'indented)
                       (org-agenda-sorting-strategy
                        '(category-keep)))))
