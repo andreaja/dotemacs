@@ -116,6 +116,9 @@
                       (org-agenda-start-on-weekday nil)))))
         ))
 
+(defun hacky-template-issue-workaround ()
+  (format "**** %s" (current-kill 0 t)))
+
 
 (setq org-capture-templates
       '(("t" "New todo item" entry
@@ -123,7 +126,7 @@
          "** TODO %?\n   %U")
         ("l" "New link for slack" entry
          (file+headline (expand-file-name (car (org-agenda-files))) "Share a link on Slack")
-         "**** %x\n" :prepend t :immediate-finish 1)))
+         (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)))
 
 ;; http://orgmode.org/manual/Deadlines-and-scheduling.html
 (setq org-agenda-skip-scheduled-if-done 1)
