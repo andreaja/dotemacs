@@ -6,6 +6,12 @@
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
+ '(insert-shebang-file-types
+   (quote
+    (("py" . "python")
+     ("sh" . "bash")
+     ("pl" . "perl")
+     ("rb" . "ruby"))))
  '(js-indent-level 2)
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
