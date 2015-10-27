@@ -4,7 +4,7 @@
 
 ;; Author: Oleh Krehel <ohwoeowho@gmail.com>
 ;; URL: https://github.com/abo-abo/avy
-;; Package-Version: 20151025.718
+;; Package-Version: 20151026.59
 ;; Version: 0.3.0
 ;; Package-Requires: ((emacs "24.1") (cl-lib "0.5"))
 ;; Keywords: point, location
@@ -760,7 +760,16 @@ LEAF is normally ((BEG . END) . WND)."
           (when (and (bound-and-true-p visual-line-mode)
                      (> len (- end beg)))
             (setq len (- end beg))
-            (setq str (substring str 0 len))))))
+            (let ((old-str (apply #'string (reverse path))))
+              (setq str
+                    (substring
+                     (propertize
+                      old-str
+                      'face
+                      (if (= (length old-str) 1)
+                          'avy-lead-face
+                        'avy-lead-face-0))
+                     0 len)))))))
     (avy--overlay
      str beg end wnd
      (lambda (str old-str)

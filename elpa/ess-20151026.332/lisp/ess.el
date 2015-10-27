@@ -162,38 +162,43 @@
  ; Miscellaneous "ESS globals"
 
 (defun ess-version-string ()
-  (let* ((svn-fname (concat ess-etc-directory "SVN-REVISION"))
-         (svn-rev
-          (when (file-exists-p svn-fname)
-            ;; then it has two lines that look like
-            ;; |Revision: 4803
-            ;; |Last Changed Date: 2012-04-16
-            (with-current-buffer (find-file-noselect svn-fname)
-              (goto-char (point-min))
-              (when (re-search-forward "Revision: \\(.*\\)\n.*: \\(.*\\)" nil t)
-                (concat "svn: " (match-string 1) " (" (match-string 2) ")")))))
-         (lisp-dir (file-name-directory ess-lisp-directory))
-         (git-ref-fn (concat lisp-dir ".git/HEAD"))
+  (let* (;;(svn-fname (concat ess-etc-directory "SVN-REVISION"))
+         ;; (svn-rev
+         ;;  (when (file-exists-p svn-fname)
+         ;;    ;; then it has two lines that look like
+         ;;    ;; |Revision: 4803
+         ;;    ;; |Last Changed Date: 2012-04-16
+         ;;    (with-current-buffer (find-file-noselect svn-fname)
+         ;;      (goto-char (point-min))
+         ;;      (when (re-search-forward "Revision: \\(.*\\)\n.*: \\(.*\\)" nil t)
+         ;;        (concat "svn: " (match-string 1) " (" (match-string 2) ")")))))
+         (ess-dir (file-name-directory ess-lisp-directory)) ; if(<from source>) the top-level 'ess/'
+         (is-release (file-exists-p (concat ess-etc-directory ".IS.RELEASE")))
+         (rel-string (if is-release "Released "))
+         (git-ref-fn (concat ess-dir ".git/HEAD"))
          (git-ref (when (file-exists-p git-ref-fn)
                     (with-current-buffer (find-file-noselect git-ref-fn)
                       (goto-char (point-min))
                       (when (re-search-forward "ref: \\(.*\\)\n" nil t)
                         (match-string 1)))))
-         (git-fname (concat lisp-dir ".git/" git-ref))
+         (git-fname (if git-ref
+                        (concat ess-dir ".git/" git-ref)
+                      ;; for release
+                      (concat ess-etc-directory "git-ref")))
          (git-rev (when (file-exists-p git-fname)
                     (with-current-buffer (find-file-noselect git-fname)
                       (goto-char (point-min))
                       (concat "git: "(buffer-substring 1 (point-at-eol))))))
-         (elpa-fname (concat lisp-dir "ess-pkg.el"))
+         (elpa-fname (concat ess-dir "ess-pkg.el"))
          (elpa-rev (when (file-exists-p elpa-fname)
                      ;; get it from ELPA dir name, (probably won't work if installed manually)
                      (concat "elpa: "
                              (replace-regexp-in-string "ess-" ""
                                                        (file-name-nondirectory
-                                                        (substring lisp-dir 1 -1)))))))
+                                                        (substring ess-dir 1 -1)))))))
     ;; set the "global" ess-revision:
     (setq ess-revision (format "%s%s%s"
-                               (or svn-rev "")
+                               (or rel-string "") ;;(or svn-rev "")
                                (or git-rev "")
                                (or elpa-rev "")))
     (when (string= ess-revision "")
