@@ -132,6 +132,7 @@
 (setq org-agenda-skip-scheduled-if-done 1)
 (setq org-agenda-skip-deadline-if-done 1)
 (setq org-agenda-window-setup 'current-window)
+(setq org-ellipsis "⤵")
 
 (setq-default mode-line-format "")
 
