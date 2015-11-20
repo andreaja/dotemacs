@@ -73,6 +73,19 @@
 (define-key my-keys-minor-mode-map [(control .) (control n)] 'org-capture)
 (define-key my-keys-minor-mode-map [(control .) (n)] 'org-capture)
 
+
+;; example of binding keys only when html-mode is active
+;; http://ergoemacs.org/emacs/emacs_set_keys_for_major_mode.html
+
+(defun my-html-mode-keys ()
+  "Modify keymaps used by `html-mode'."
+  (local-set-key [(control c) (control f)] 'sgml-close-tag)
+  )
+
+;; add to hook
+(add-hook 'html-mode-hook 'my-html-mode-keys)
+
+
 (add-hook 'org-mode-hook
           (lambda ()
             (define-key org-mode-map [remap browse-url-at-point] 'org-open-at-point)
@@ -87,6 +100,8 @@
             (define-key org-agenda-mode-map [remap org-agenda-switch-to] 'org-agenda-goto)))
 
 (define-key my-keys-minor-mode-map [(meta y)] 'yank-pop-dwim)
+
+
 
 
 
