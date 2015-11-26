@@ -3,10 +3,6 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w/!)" "|" "DONE(d!)" "DLGT(l!)" "CNCL(c!)")))
 
-;; Flat mode-line
-(set-face-attribute 'mode-line nil :box nil)
-(set-face-attribute 'mode-line-inactive nil :box nil)
-
 (setq org-return-follows-link t)
 
 (setq use-dialog-box nil)
@@ -54,7 +50,9 @@
 
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(setq frame-title-format '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position
+(setq frame-title-format '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification " "
+                           "%p of %I "(:eval (format "L%d" (line-number-at-pos)))
+                                        ;mode-line-position
                            (vc-mode vc-mode)
                            "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
 (set-face-attribute 'mode-line nil
