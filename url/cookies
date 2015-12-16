@@ -2,12 +2,15 @@
 ;; Automatically generated file!!! DO NOT EDIT!!!
 
 (setq url-cookie-storage
- '(("marmalade-repo.org"
-  [url-cookie "httpOnly" nil "Tue, 13 May 2014 13:00:22 GMT" "/" "marmalade-repo.org" nil]
-  [url-cookie "connect.sid" "EHtCVmp4SuqTfrVLXftrfnoD.gNnWi%2Fwfyd%2BpLJq7d6FqAT92ZFZlbjVtpnuc9Nj1aII" "Tue, 13 May 2014 13:00:22 GMT" "/" "marmalade-repo.org" nil]))
+ '((".getbootstrap.com"
+  [url-cookie "HttpOnly" nil "05 Dec 16 12:06:54 [GMT]" "/" ".getbootstrap.com" nil]
+  [url-cookie "__cfduid" "d004e1df9884bab62d6f1730fc53c565d1449403614" "05 Dec 16 12:06:54 [GMT]" "/" ".getbootstrap.com" nil]))
 )
 (setq url-cookie-secure-storage
- 'nil)
+ '((".github.com"
+  [url-cookie "logged_in" "no" "Thu, 06 Dec 2035 12:55:27 -0000" "/" ".github.com" t]
+  [url-cookie "HttpOnly" nil "Thu, 06 Dec 2035 12:55:27 -0000" "/" ".github.com" t]))
+)
 
 ;; Local Variables:
 ;; version-control: never

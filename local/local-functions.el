@@ -38,13 +38,30 @@
       (run-hooks 'find-file-root-hook))))
 
 
+;; Launch a static web server in the current project root
+(defun http-server-in-project ()
+  (interactive)
+  (let
+      ((port (+ 1024 (random 30000))))
+    (elnode-make-webserver (projectile-project-root) port)
+    port))
+
+;; Launch a static web server in the current project root
+;; and browse to the file currently open
+(defun browse-current-buffer ()
+  (interactive)
+  (let ((port (http-server-in-project))
+        (relative-path  (file-relative-name (file-truename (buffer-file-name (current-buffer))) (projectile-project-root))))
+    (browse-url (format "http://localhost:%d/%s" port relative-path))))
+
+
 (defun spotify-player-state ()
   "DOCSTRING"
   (do-applescript
    "tell application \"Spotify\"
         get player state as string
     end tell"
-    ))
+   ))
 
 (defun spotify-playpause ()
   "plays or pauses Spotify (if running)"
