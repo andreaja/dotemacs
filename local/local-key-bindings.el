@@ -10,7 +10,7 @@
   "A minor mode so that my key settings override annoying major modes."
   t " my-keys" 'my-keys-minor-mode-map)
 
-(define-key my-keys-minor-mode-map [(control .) (b)] 'browse-url-at-point)
+(define-key my-keys-minor-mode-map [(control .) (b)] 'browse-current-buffer)
 
 ;; see local-functions.el
 (define-key my-keys-minor-mode-map [(control x) (control r)] 'find-file-root)
