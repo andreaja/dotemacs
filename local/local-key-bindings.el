@@ -11,6 +11,8 @@
   t " my-keys" 'my-keys-minor-mode-map)
 
 (define-key my-keys-minor-mode-map [(control .) (b)] 'browse-current-buffer)
+(define-key my-keys-minor-mode-map [(control .) (control b)] 'browse-current-buffer)
+(define-key my-keys-minor-mode-map [(control .) (control l)] 'post-current-kill-to-slack)
 
 ;; see local-functions.el
 (define-key my-keys-minor-mode-map [(control x) (control r)] 'find-file-root)
@@ -22,6 +24,8 @@
 (define-key my-keys-minor-mode-map [(control .) (control p)] 'spotify-playpause)
 (define-key my-keys-minor-mode-map [(control .) (control c)] 'spotify-now-playing)
 (define-key my-keys-minor-mode-map [(control .) (c)] 'spotify-now-playing)
+
+
 
 (setq avy-keys
       '(?h ?t ?n ?s ?g ?c ?r ?l))

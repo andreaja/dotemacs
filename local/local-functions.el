@@ -176,6 +176,17 @@ by using nxml's indentation rules."
         (assq-delete-all 'my-keys-minor-mode minor-mode-map-alist)
         (add-to-list 'minor-mode-map-alist mykeys))))
 
+(defun post-current-kill-to-slack ()
+  (interactive)
+  (post-to-slack (current-kill 0 t)))
+
+(defun post-to-slack (text)
+  (interactive)
+  (let* ((machine (netrc-machine (netrc-parse) "slack"))
+         (token (cdr (assoc "password"  machine)))
+         (channel (cdr (assoc "port" machine)))
+         (username (cdr (assoc "login" machine))))
+    (url-retrieve-synchronously (format "https://slack.com/api/chat.postMessage?token=%s&channel=%%23tseting&text=%s&username=%s&as_user=%s&pretty=1" token text username username) )))
 
 ;; http://emacsredux.com/blog/2013/03/27/indent-region-or-buffer/
 (defun indent-buffer ()

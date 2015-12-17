@@ -147,3 +147,6 @@
               (shell-command (format "open \"%s\"" tag)))))
 
 
+
+(require 'netrc)
+(setq netrc-file "~/.netrc")
