@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
+ '(flycheck-tidyrc "/Users/andreaja/.tidyrc")
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
  '(insert-shebang-file-types
