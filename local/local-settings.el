@@ -149,4 +149,4 @@
 
 
 (require 'netrc)
-(setq netrc-file "~/.netrc")
+(setq netrc-file "~/.netrc-emacs")
