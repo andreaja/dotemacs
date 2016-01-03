@@ -2040,7 +2040,7 @@
 	       [(1 0 0)
 		nil "collection of faces for markup language modes" single])
  (markdown-toc .
-	       [(0 0 8)
+               [(0 0 9)
 		((markdown-mode
 		  (2 0))
 		 (dash
