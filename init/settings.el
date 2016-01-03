@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(create-lockfiles nil)
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(flycheck-tidyrc "/Users/andreaja/.tidyrc")
  '(fringe-mode 0 nil (fringe))
@@ -20,10 +21,13 @@
  '(org-archive-location "%s_archive::* Archive")
  '(package-selected-packages
    (quote
-    (lua-mode elnode ace-window visible-mark urlenc smartscan slime rust-mode ruby-refactor restclient rainbow-mode rainbow-delimiters puppet-mode projectile php-mode paredit midje-mode malabar-mode magit lorem-ipsum json-reformat js2-refactor jquery-doc insert-shebang inf-ruby hungry-delete groovy-mode gh ggtags flycheck f expand-region ess clojure-test-mode browse-kill-ring aggressive-indent)))
+    (super-save lua-mode elnode ace-window visible-mark urlenc smartscan slime rust-mode ruby-refactor restclient rainbow-mode rainbow-delimiters puppet-mode projectile php-mode paredit midje-mode malabar-mode magit lorem-ipsum json-reformat js2-refactor jquery-doc insert-shebang inf-ruby hungry-delete groovy-mode gh ggtags flycheck f expand-region ess clojure-test-mode browse-kill-ring aggressive-indent)))
  '(require-final-newline (quote visit-save))
  '(safe-local-variable-values (quote ((js2-basic-offset . 2) (js-indent-level . 2))))
  '(show-paren-delay 0)
+ '(super-save-triggers
+   (quote
+    (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right ace-window)))
  '(vc-follow-symlinks nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -13,6 +13,8 @@
 
 
 (setq backup-directory-alist '(("." . "~/.emacs-backups")))
+(setq auto-save-default nil)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-message t)
 (set-cursor-color 'red)
