@@ -20,12 +20,4 @@
 (set-cursor-color 'red)
 (setq-default truncate-lines nil)
 
-(global-hl-line-mode t)
-
-(global-flycheck-mode t)
-
-;(global-set-key "\M-/" 'hippie-expand)
-
-
-(global-hungry-delete-mode)
 

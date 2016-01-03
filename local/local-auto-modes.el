@@ -23,4 +23,8 @@
 (add-hook 'prog-mode-hook 'subword-mode)
 (add-hook 'xml-mode-hook 'ggtags-mode)
 
+(global-hl-line-mode t)
+(global-flycheck-mode t)
+(global-hungry-delete-mode t)
 (global-aggressive-indent-mode 1)
+(global-prettify-symbols-mode 1)

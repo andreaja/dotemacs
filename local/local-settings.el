@@ -126,6 +126,8 @@
          (file+headline (expand-file-name (car (org-agenda-files))) "Share a link on Slack")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)))
 
+(setq prettify-symbols-unprettify-at-point 'right-edge)
+
 ;; http://orgmode.org/manual/Deadlines-and-scheduling.html
 (setq org-agenda-skip-scheduled-if-done 1)
 (setq org-agenda-skip-deadline-if-done 1)
