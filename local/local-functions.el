@@ -186,7 +186,7 @@ by using nxml's indentation rules."
          (token (cdr (assoc "password"  machine)))
          (channel (cdr (assoc "port" machine)))
          (username (cdr (assoc "login" machine))))
-    (url-retrieve-synchronously (format "https://slack.com/api/chat.postMessage?token=%s&channel=%%23tseting&text=%s&username=%s&as_user=%s&pretty=1" token text username username) )))
+    (url-retrieve-synchronously (format "https://slack.com/api/chat.postMessage?token=%s&channel=%%23%s&text=%s&username=%s&as_user=%s&pretty=1" token channel text username username) )))
 
 ;; http://emacsredux.com/blog/2013/03/27/indent-region-or-buffer/
 (defun indent-buffer ()
