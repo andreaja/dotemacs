@@ -15,6 +15,7 @@
      ("pl" . "perl")
      ("rb" . "ruby"))))
  '(js-indent-level 2)
+ '(magit-save-repository-buffers (quote dontask))
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
  '(org-agenda-files "~/.org.file.list")
