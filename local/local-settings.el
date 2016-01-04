@@ -46,6 +46,14 @@
   (setq font-lock-multiline t)
   (font-lock-add-keywords nil '(("^[ \t;`']*\n" 0 'mundane-line-face prepend))))
 
+;;; Work around incredibly annoying bug in interaction between
+;;; next-line and mundane-line-face.
+
+;;; Symptom: every time a window isn't pixel perfectly aligned with
+;;; the last lines, vscroll is triggered instead of moving the cursor
+;;; when calling next-line
+(setq auto-window-vscroll nil)
+
 (add-hook 'prog-mode-hook 'add-mundane-line-font-lock)
 
 (setq magit-last-seen-setup-instructions "1.4.0")
