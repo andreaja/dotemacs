@@ -11,10 +11,6 @@
 
 (setq locate-command "mdfind")
 
-;; http://www.masteringemacs.org/articles/2011/10/02/improving-performance-emacs-display-engine/
-;; (makes keyboard scrolling in org-mode faster?)
-(setq redisplay-dont-pause 1)
-
 (setq powershell-indent 4)
 
 (setq powershell-continuation-indent 2)
@@ -68,7 +64,6 @@
                     :height 0.1)
 (set-face-attribute 'mode-line-inactive nil
                     :background "dark grey")
-
 
 ;;; From http://doc.norang.ca/org-mode.html
 (defun bh/is-subproject-p ()

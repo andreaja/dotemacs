@@ -231,7 +231,6 @@ by using nxml's indentation rules."
   (deactivate-mark nil))
 (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
-
 (defun end-of-code-or-end-of-next-line ()
   "Move to the end of the line. If already there, move to the end of next line"
   (interactive)
