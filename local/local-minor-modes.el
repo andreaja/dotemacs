@@ -21,3 +21,6 @@
 (setq-default truncate-lines nil)
 
 
+
+(require 'hl-tags-mode)
+
