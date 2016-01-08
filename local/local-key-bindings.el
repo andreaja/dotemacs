@@ -50,8 +50,6 @@
 
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
-(define-key flycheck-mode-map [(meta n)] 'flycheck-next-error)
-(define-key flycheck-mode-map [(meta p)] 'flycheck-previous-error)
 
 (define-key projectile-mode-map [(control c) (p) (g)] 'projectile-grep)
 
@@ -64,10 +62,12 @@
 (define-key my-keys-minor-mode-map [(control .) (control a)] 'org-agenda)
 (define-key my-keys-minor-mode-map [(control .) (t)] 'org-todo)
 
-(define-key my-keys-minor-mode-map [(control meta n)] 'smartscan-symbol-go-forward)
-
-(define-key my-keys-minor-mode-map [(control meta p)] 'smartscan-symbol-go-backward)
+(define-key flycheck-mode-map [(control meta n)] 'flycheck-next-error)
+(define-key flycheck-mode-map [(control meta p)] 'flycheck-previous-error)
+(define-key my-keys-minor-mode-map [(meta n)] 'smartscan-symbol-go-forward)
+(define-key my-keys-minor-mode-map [(meta p)] 'smartscan-symbol-go-backward)
 (define-key my-keys-minor-mode-map [(meta r)] 'smartscan-symbol-replace)
+
 (define-key my-keys-minor-mode-map [(control meta \\)] 'indent-region-or-buffer)
 (define-key my-keys-minor-mode-map [(control meta \ )] 'er/expand-region)
 
