@@ -32,6 +32,10 @@
 
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
+(setenv "LANG" "en_GB.UTF-8")
+
+;; font for all unicode characters
+(set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
 
 ;; https://gist.github.com/robtillotson/5d162f9674ad9c207d44
 ;; Quick emacs version of syntactic line compression, found on reddit
