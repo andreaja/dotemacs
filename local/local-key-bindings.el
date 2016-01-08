@@ -38,6 +38,13 @@
 
 (define-key my-keys-minor-mode-map [(control z)] 'repeat)
 
+;; smex
+(define-key my-keys-minor-mode-map [(meta x)] 'smex)
+(define-key my-keys-minor-mode-map [(meta shift x) ()] 'smex-major-mode-commands)
+;; This is your old M-x.
+(define-key my-keys-minor-mode-map [(control c) (control c) (meta x)] 'execute-extended-command)
+
+
 ;; Handy key definition
 (define-key my-keys-minor-mode-map (kbd "C-M-q") 'unfill-paragraph)
 
