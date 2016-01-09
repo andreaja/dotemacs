@@ -54,6 +54,12 @@
         (relative-path  (file-relative-name (file-truename (buffer-file-name (current-buffer))) (projectile-project-root))))
     (browse-url (format "http://localhost:%d/%s" port relative-path))))
 
+(defun browse-dwim ()
+  (interactive)
+  (let ((url (url-get-url-at-point)))
+    (if (s-blank? url)
+        (browse-current-buffer)
+      (browse-url url))))
 
 (defun spotify-player-state ()
   "DOCSTRING"

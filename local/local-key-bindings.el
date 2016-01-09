@@ -10,8 +10,8 @@
   "A minor mode so that my key settings override annoying major modes."
   t " my-keys" 'my-keys-minor-mode-map)
 
-(define-key my-keys-minor-mode-map [(control .) (b)] 'browse-current-buffer)
-(define-key my-keys-minor-mode-map [(control .) (control b)] 'browse-current-buffer)
+(define-key my-keys-minor-mode-map [(control .) (b)] 'browse-dwim)
+(define-key my-keys-minor-mode-map [(control .) (control b)] 'browse-dwim)
 (define-key my-keys-minor-mode-map [(control .) (control l)] 'post-current-kill-to-slack)
 
 ;; see local-functions.el
