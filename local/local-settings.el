@@ -15,6 +15,8 @@
 
 (setq powershell-continuation-indent 2)
 
+(set-default 'imenu-auto-rescan t)
+
 (yas-global-mode 1)
 
 (setq ns-use-srgb-colorspace t)

@@ -6,4 +6,3 @@
       ido-create-new-buffer 'always
       ido-use-filename-at-point 'guess)
 (ido-mode t)
-
