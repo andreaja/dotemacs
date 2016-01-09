@@ -43,8 +43,10 @@
 
 
 (add-hook 'web-mode-hook (lambda  ()
-                           (rainbow-mode 1)
                            (setq web-mode-markup-indent-offset 2)
                            (setq web-mode-css-indent-offset 2)
                            (setq web-mode-code-indent-offset 2)
+                           (setq web-mode-enable-current-element-highlight 1)
+                           (setq web-mode-enable-css-colorization t)
                            ))
+
