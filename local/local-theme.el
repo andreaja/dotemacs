@@ -58,7 +58,7 @@
 (set-face-attribute 'mode-line-inactive nil
                     :overline nil
                     :underline nil
-                    :background "#073642"
+                    :background "#073642" ;; base02 (background highlights)
                     :height 0.1)
 
 (setq-default mode-line-format "")
@@ -66,6 +66,6 @@
 ;; Flag trailing white
 (show-paren-mode t)
 (setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "#586e75")
+(set-face-background 'trailing-whitespace "#586e75") ;; base01 (emphasized content)
 
 
