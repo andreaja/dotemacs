@@ -22,6 +22,7 @@
 (load "local-functions")
 (load "local-hooks")
 (load "local-key-bindings")
+(load "local-theme")
 
 (if (eq system-type 'darwin)
     (load "local-mac-mode"))
