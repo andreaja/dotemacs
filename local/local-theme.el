@@ -33,6 +33,15 @@
 (set-scroll-bar-mode nil)
 (tool-bar-mode 0)
 
+
+;; Solarized
+;; Don't change size of org-mode headlines (but keep other size-changes)
+(setq solarized-scale-org-headlines nil)
+
+
+(load-theme 'solarized-dark t)
+
+
 ;; Invisible mode-line, set up this after solarized so we can override the mode-line height
 (setq column-number-mode t)
 
@@ -43,8 +52,13 @@
                            "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
 
 (set-face-attribute 'mode-line nil
+                    :overline nil
+                    :underline nil
                     :height 0.1)
 (set-face-attribute 'mode-line-inactive nil
+                    :overline nil
+                    :underline nil
+                    :background "#073642"
                     :height 0.1)
 
 (setq-default mode-line-format "")
@@ -52,11 +66,6 @@
 ;; Flag trailing white
 (show-paren-mode t)
 (setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "red4")
-
-
-;; Make the cursor nice and visible
-(set-cursor-color 'red)
-
+(set-face-background 'trailing-whitespace "#586e75")
 
 
