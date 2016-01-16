@@ -39,8 +39,6 @@
 (setq solarized-scale-org-headlines nil)
 
 
-(load-theme 'solarized-dark t)
-
 
 ;; Invisible mode-line, set up this after solarized so we can override the mode-line height
 (setq column-number-mode t)
@@ -51,21 +49,38 @@
                            (vc-mode vc-mode)
                            "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
 
-(set-face-attribute 'mode-line nil
-                    :overline nil
-                    :underline nil
-                    :height 0.1)
-(set-face-attribute 'mode-line-inactive nil
-                    :overline nil
-                    :underline nil
-                    :background "#073642" ;; base02 (background highlights)
-                    :height 0.1)
+(defun invisible-mode-line (base02)
+  (set-face-attribute 'mode-line nil
+                      :overline nil
+                      :underline nil
+                      :height 0.1)
+  (set-face-attribute 'mode-line-inactive nil
+                      :overline nil
+                      :underline nil
+                      :background base02
+                      :height 0.1)
+  (setq-default mode-line-format ""))
 
-(setq-default mode-line-format "")
+
+(defun theme-dark ()
+  (load-theme 'solarized-dark t)
+  (invisible-mode-line "#073642") ;; dark base02
+  (set-face-background 'trailing-whitespace "#586e75") ;; base01 (emphasized content)
+  )
+
+(defun theme-light ()
+  (load-theme 'solarized-light t)
+  (invisible-mode-line "#eee8d5") ;; light base02
+  (set-face-background 'trailing-whitespace "#93a1a1") ;; base01 (emphasized content)
+  )
+
+
+;; default theme
+(theme-dark)
 
 ;; Flag trailing white
 (show-paren-mode t)
-(setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "#586e75") ;; base01 (emphasized content)
+(setq-default show-trailing-whitespace t)  
+
 
 
