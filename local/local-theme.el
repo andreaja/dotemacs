@@ -111,7 +111,13 @@
 
 (rename-modeline "js2-mode" js2-mode "JS2")
 (rename-modeline "cc-mode" java-mode "Java")
+;; https://gist.github.com/sellout/18fabd242d7ab57c5094
+(rename-modeline "perl-mode" perl-mode "🐪")
+(rename-modeline "python-mode" python-mode "🐍")
+(rename-modeline "ruby-mode" ruby-mode "💎")
+
+;;aoeu
 
 (defadvice emacs-lisp-mode (after elisp-rename-modeline activate)
-  (setq mode-name "ELisp"))
+  (setq mode-name "👾"))
 
