@@ -46,11 +46,20 @@
 ;; Invisible mode-line, set up this after solarized so we can override the mode-line height
 (setq column-number-mode t)
 
-(setq frame-title-format '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification " "
-                           "%p of %I "(:eval (format "L%d" (line-number-at-pos)))
+(setq frame-title-format '("%e"
+                                        ;mode-line-front-space
+                                        ;mode-line-mule-info
+                                        ;mode-line-client
+                           mode-line-modified
+                                        ;mode-line-remote
+                                        ;mode-line-frame-identification
+                           mode-line-buffer-identification
+                           " "
+                                        ;"%p of %I "
+                           (:eval (format "L%d" (line-number-at-pos)))
                                         ;mode-line-position
-                           (vc-mode vc-mode)
-                           "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
+                                        ;(vc-mode vc-mode)
+                           " " mode-line-modes mode-line-misc-info mode-line-end-spaces))
 
 (defun invisible-mode-line (base02)
   (set-face-attribute 'mode-line nil
@@ -79,11 +88,32 @@
   (set-face-background 'trailing-whitespace "#93a1a1") ;; base01 (emphasized content)
   )
 
-
 ;; default theme
 (theme-dark)
 
+;; diminish
 
+                                        ;(require 'diminish)
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))
+(eval-after-load "rainbow-mode" '(diminish 'rainbow-mode))
+(eval-after-load "projectile" '(diminish 'projectile-mode))
+(eval-after-load "aggressive-indent" '(diminish 'aggressive-indent-mode))
+(eval-after-load "ggtags" '(diminish 'ggtags-mode))
+(eval-after-load "flycheck" '(diminish 'flycheck-mode))
+(eval-after-load "hungry-delete" '(diminish 'hungry-delete-mode))
+(eval-after-load "abbrev" '(diminish 'abbrev-mode))
+(diminish 'subword-mode)
 
+;; From http://whattheemacsd.com/appearance.el-01.html
+(defmacro rename-modeline (package-name mode new-name)
+  `(eval-after-load ,package-name
+     '(defadvice ,mode (after rename-modeline activate)
+        (setq mode-name ,new-name))))
 
+(rename-modeline "js2-mode" js2-mode "JS2")
+(rename-modeline "cc-mode" java-mode "Java")
+
+(defadvice emacs-lisp-mode (after elisp-rename-modeline activate)
+  (setq mode-name "ELisp"))
 

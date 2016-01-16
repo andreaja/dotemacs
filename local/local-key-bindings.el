@@ -8,7 +8,7 @@
 
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
-  t " my-keys" 'my-keys-minor-mode-map)
+  t "" 'my-keys-minor-mode-map)
 
 (define-key my-keys-minor-mode-map [(control .) (b)] 'browse-dwim)
 (define-key my-keys-minor-mode-map [(control .) (control b)] 'browse-dwim)
