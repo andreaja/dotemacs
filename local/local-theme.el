@@ -34,11 +34,6 @@
 (set-scroll-bar-mode nil)
 (tool-bar-mode 0)
 
-;; Solarized
-;; Don't change size of org-mode headlines (but keep other size-changes)
-(setq solarized-scale-org-headlines nil)
-
-
 ;; Flag trailing white
 (setq-default show-trailing-whitespace t)
 
@@ -73,6 +68,9 @@
                       :height 0.1)
   (setq-default mode-line-format ""))
 
+;; Solarized setting
+;; Don't change size of org-mode headlines (but keep other size-changes)
+(setq solarized-scale-org-headlines nil)
 
 (defun theme-dark ()
   (interactive)
