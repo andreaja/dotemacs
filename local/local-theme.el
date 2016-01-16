@@ -1,4 +1,5 @@
 (tooltip-mode -1)
+(show-paren-mode t)
 
 ;; Work around http://debbugs.gnu.org/cgi/bugreport.cgi?bug=8402
 (setq ns-use-srgb-colorspace t)
@@ -33,11 +34,13 @@
 (set-scroll-bar-mode nil)
 (tool-bar-mode 0)
 
-
 ;; Solarized
 ;; Don't change size of org-mode headlines (but keep other size-changes)
 (setq solarized-scale-org-headlines nil)
 
+
+;; Flag trailing white
+(setq-default show-trailing-whitespace t)
 
 
 ;; Invisible mode-line, set up this after solarized so we can override the mode-line height
@@ -78,9 +81,7 @@
 ;; default theme
 (theme-dark)
 
-;; Flag trailing white
-(show-paren-mode t)
-(setq-default show-trailing-whitespace t)  
+
 
 
 
