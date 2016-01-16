@@ -66,12 +66,14 @@
 
 
 (defun theme-dark ()
+  (interactive)
   (load-theme 'solarized-dark t)
   (invisible-mode-line "#073642") ;; dark base02
   (set-face-background 'trailing-whitespace "#586e75") ;; base01 (emphasized content)
   )
 
 (defun theme-light ()
+  (interactive)
   (load-theme 'solarized-light t)
   (invisible-mode-line "#eee8d5") ;; light base02
   (set-face-background 'trailing-whitespace "#93a1a1") ;; base01 (emphasized content)
