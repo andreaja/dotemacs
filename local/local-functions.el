@@ -54,6 +54,7 @@
         (relative-path  (file-relative-name (file-truename (buffer-file-name (current-buffer))) (projectile-project-root))))
     (browse-url (format "http://localhost:%d/%s" port relative-path))))
 
+(require 'url-util)
 (defun browse-dwim ()
   (interactive)
   (let ((url (url-get-url-at-point)))
