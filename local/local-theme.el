@@ -102,7 +102,8 @@
 (eval-after-load "flycheck" '(diminish 'flycheck-mode))
 (eval-after-load "hungry-delete" '(diminish 'hungry-delete-mode))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
-(diminish 'subword-mode)
+(eval-after-load "autorevert" '(diminish 'auto-revert-mode))
+(eval-after-load "subword" '(diminish 'subword-mode))
 (diminish 'auto-fill-function)
 
 ;; From http://whattheemacsd.com/appearance.el-01.html
