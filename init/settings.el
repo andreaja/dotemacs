@@ -29,7 +29,7 @@
  '(show-paren-delay 0)
  '(super-save-triggers
    (quote
-    (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right ace-window)))
+    ("switch-to-buffer" "other-window" "windmove-up" "windmove-down" "windmove-left" "windmove-right" "ace-window")))
  '(vc-follow-symlinks nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
