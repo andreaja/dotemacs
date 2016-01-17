@@ -24,6 +24,7 @@
 (load "local-functions")
 (load "local-hooks")
 (load "local-key-bindings")
+(load "local-completion")
 (load "local-theme")
 
 (if (eq system-type 'darwin)

@@ -7,6 +7,9 @@
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
  '(flycheck-tidyrc "/Users/andreaja/.tidyrc")
  '(fringe-mode 0 nil (fringe))
+ '(hippie-expand-try-functions-list
+   (quote
+    (try-expand-dabbrev-visible try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name try-complete-file-name-partially try-expand-list try-expand-all-abbrevs try-complete-lisp-symbol-partially try-complete-lisp-symbol)))
  '(indent-tabs-mode nil)
  '(insert-shebang-file-types
    (quote
