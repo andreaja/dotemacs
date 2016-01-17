@@ -15,6 +15,8 @@
 
 (setq powershell-continuation-indent 2)
 
+(setq auto-revert-verbose nil)
+
 (set-default 'imenu-auto-rescan t)
 
 (setq sentence-end-double-space nil)
