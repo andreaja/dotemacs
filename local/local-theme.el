@@ -96,12 +96,14 @@
 (eval-after-load "paredit" '(diminish 'paredit-mode))
 (eval-after-load "rainbow-mode" '(diminish 'rainbow-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
+(eval-after-load "with-editor" '(diminish 'with-editor-mode))
 (eval-after-load "aggressive-indent" '(diminish 'aggressive-indent-mode))
 (eval-after-load "ggtags" '(diminish 'ggtags-mode))
 (eval-after-load "flycheck" '(diminish 'flycheck-mode))
 (eval-after-load "hungry-delete" '(diminish 'hungry-delete-mode))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
 (diminish 'subword-mode)
+(diminish 'auto-fill-function)
 
 ;; From http://whattheemacsd.com/appearance.el-01.html
 (defmacro rename-modeline (package-name mode new-name)
