@@ -118,9 +118,5 @@
 (rename-modeline "perl-mode" perl-mode "🐪")
 (rename-modeline "python-mode" python-mode "🐍")
 (rename-modeline "ruby-mode" ruby-mode "💎")
-
-;;aoeu
-
-(defadvice emacs-lisp-mode (after elisp-rename-modeline activate)
-  (setq mode-name "👾"))
+(rename-modeline "elisp-mode" emacs-lisp-mode "👾")
 
