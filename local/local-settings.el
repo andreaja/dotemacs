@@ -1,5 +1,3 @@
-(tool-bar-mode 0)
-
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w/!)" "|" "DONE(d!)" "DLGT(l!)" "CNCL(c!)")))
 
@@ -8,8 +6,6 @@
 (setq use-dialog-box nil)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-
-(setq locate-command "mdfind")
 
 (setq powershell-indent 4)
 
@@ -34,7 +30,6 @@
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
 (setq magit-last-seen-setup-instructions "1.4.0")
-
 
 ;;; From http://doc.norang.ca/org-mode.html
 (defun bh/is-subproject-p ()
@@ -99,8 +94,6 @@
         ("l" "New link for slack" entry
          (file+headline (expand-file-name (car (org-agenda-files))) "Share a link on Slack")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)))
-
-(setq prettify-symbols-unprettify-at-point 'right-edge)
 
 ;; http://orgmode.org/manual/Deadlines-and-scheduling.html
 (setq org-agenda-skip-scheduled-if-done 1)

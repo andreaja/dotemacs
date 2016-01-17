@@ -84,7 +84,6 @@
 (define-key my-keys-minor-mode-map [(control .) (control n)] 'org-capture)
 (define-key my-keys-minor-mode-map [(control .) (n)] 'org-capture)
 
-
 ;; example of binding keys only when html-mode is active
 ;; http://ergoemacs.org/emacs/emacs_set_keys_for_major_mode.html
 

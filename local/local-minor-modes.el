@@ -1,4 +1,3 @@
-
 (prefer-coding-system 'utf-8)
 
 (setq ruby-insert-encoding-magic-comment nil)
@@ -7,7 +6,6 @@
 (setq auto-save-default nil)
 
 (fset 'yes-or-no-p 'y-or-n-p)
-(setq inhibit-startup-message t)
 
 (setq-default truncate-lines nil)
 

@@ -16,4 +16,3 @@
 
 (require 'browse-mark-ring)
 
-(require 'hungry-delete)
