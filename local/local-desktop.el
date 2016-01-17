@@ -8,6 +8,7 @@
   (auto-revert-mode))
 
 (find-files (read-lines (expand-file-name "~/.org.file.list")))
+(find-files (read-lines (expand-file-name "~/.org.file.list.p")))
 (load-calendar)
 
 (switch-to-buffer "*scratch*")
