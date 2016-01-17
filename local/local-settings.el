@@ -21,8 +21,6 @@
 
 (setq sentence-end-double-space nil)
 
-(yas-global-mode 1)
-
 ;; Correctly set up PATH from bash variables
 (let ((path (shell-command-to-string ". ~/.bashrc; echo -n $PATH")))
   (setenv "PATH" path)
