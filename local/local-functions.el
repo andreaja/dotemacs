@@ -218,6 +218,13 @@ by using nxml's indentation rules."
   (interactive)
   (kill-buffer (current-buffer)))
 
+;; From http://ergoemacs.org/emacs/elisp_read_file_content.html
+(defun read-lines (filePath)
+  "Return a list of lines of a file at filePath."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (split-string (buffer-string) "\n" t)))
+
 ;; thanks josse
 (defun yank-flexible ()
   "Use Ido to select a kill-ring entry to yank."

@@ -1,6 +1,8 @@
 (setq custom-file "~/.emacs.d/init/settings.el")
 (load custom-file 'noerror)
 
+(load "~/.emacs.secrets" t)
+
 (add-to-list 'load-path "~/.emacs.d/local")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/other")
 ;(add-to-list 'load-path "~/.emacs.d/site-lisp/io-mode")
@@ -26,6 +28,8 @@
 
 (if (eq system-type 'darwin)
     (load "local-mac-mode"))
+
+(load "local-desktop")
 
 
 ;; (autoload 'malabar-mode "cedet" "Cedet is required by malabar" t)
