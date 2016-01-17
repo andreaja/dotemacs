@@ -17,6 +17,8 @@
 
 (set-default 'imenu-auto-rescan t)
 
+(setq sentence-end-double-space nil)
+
 (yas-global-mode 1)
 
 ;; Correctly set up PATH from bash variables
