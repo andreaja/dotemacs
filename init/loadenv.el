@@ -23,6 +23,8 @@
 (load "local-functions")
 (load "local-hooks")
 (load "local-key-bindings")
+(load "local-edit")
+(load "local-navigate")
 (load "local-completion")
 (load "local-theme")
 

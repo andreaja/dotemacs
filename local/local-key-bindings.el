@@ -73,9 +73,6 @@
 
 (define-key my-keys-minor-mode-map [(meta h)] 'ns-do-hide-emacs)
 
-(define-key my-keys-minor-mode-map [remap move-end-of-line] 'end-of-code-or-end-of-next-line)
-
-
 (define-key my-keys-minor-mode-map [(control .) (control n)] 'org-capture)
 (define-key my-keys-minor-mode-map [(control .) (n)] 'org-capture)
 
