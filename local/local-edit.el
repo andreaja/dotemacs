@@ -24,10 +24,51 @@ already narrowed."
          (LaTeX-narrow-to-environment))
         (t (narrow-to-defun))))
 
-;; This line actually replaces Emacs' entire narrowing
-;; keymap, that's how much I like this command. Only copy it
-;; if that's what you want.
 (define-key my-keys-minor-mode-map [(control x) (n)] 'narrow-or-widen-dwim)
 (add-hook 'LaTeX-mode-hook
           (lambda () (define-key LaTeX-mode-map "\C-xn" nil)))
+
+
+
+;; thanks josse
+(defun yank-flexible ()
+  "Use Ido to select a kill-ring entry to yank."
+  (interactive)
+  (insert (ido-completing-read "Select kill: " kill-ring)))
+
+(defun yank-pop-dwim (&optional arg)
+  (interactive "*p")
+  (if (eq last-command 'yank)
+      (yank-pop arg)
+    (yank-flexible)))
+(define-key my-keys-minor-mode-map [(meta y)] 'yank-pop-dwim)
+
+
+;; http://emacsredux.com/blog/2013/03/27/indent-region-or-buffer/
+(defun indent-buffer ()
+  "Indent the currently visited buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (indent-buffer)
+        (message "Indented buffer.")))))
+(define-key my-keys-minor-mode-map [(control .) (i)] 'indent-region-or-buffer)
+(define-key my-keys-minor-mode-map [(control meta \\)] 'indent-region-or-buffer)
+
+;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
+(defun unfill-paragraph ()
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+(define-key my-keys-minor-mode-map (kbd "C-M-q") 'unfill-paragraph)
 

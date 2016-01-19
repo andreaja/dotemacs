@@ -34,7 +34,6 @@
 (define-key my-keys-minor-mode-map [(meta o)] 'ace-window)
 (define-key my-keys-minor-mode-map [(meta s)] 'avy-goto-word-1)
 
-(define-key my-keys-minor-mode-map [(control .) (i)] 'indent-region-or-buffer)
 
 (define-key my-keys-minor-mode-map [(control z)] 'repeat)
 
@@ -44,9 +43,6 @@
 ;; This is your old M-x.
 (define-key my-keys-minor-mode-map [(control .) (meta x)] 'execute-extended-command)
 
-
-;; Handy key definition
-(define-key my-keys-minor-mode-map (kbd "C-M-q") 'unfill-paragraph)
 
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
@@ -68,7 +64,6 @@
 (define-key my-keys-minor-mode-map [(meta p)] 'smartscan-symbol-go-backward)
 (define-key my-keys-minor-mode-map [(meta r)] 'smartscan-symbol-replace)
 
-(define-key my-keys-minor-mode-map [(control meta \\)] 'indent-region-or-buffer)
 (define-key my-keys-minor-mode-map [(control meta \ )] 'er/expand-region)
 
 (define-key my-keys-minor-mode-map [(control x) (control k)] 'kill-current-buffer)
@@ -109,7 +104,6 @@
           (lambda ()
             (define-key org-agenda-mode-map [remap org-agenda-switch-to] 'org-agenda-goto)))
 
-(define-key my-keys-minor-mode-map [(meta y)] 'yank-pop-dwim)
 
 
 
