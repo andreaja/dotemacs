@@ -72,3 +72,22 @@ already narrowed."
     (fill-paragraph nil)))
 (define-key my-keys-minor-mode-map (kbd "C-M-q") 'unfill-paragraph)
 
+;; example of binding keys only when html-mode is active
+;; http://ergoemacs.org/emacs/emacs_set_keys_for_major_mode.html
+
+(defun my-html-mode-keys ()
+  "Modify keymaps used by `html-mode'."
+  (local-set-key [(control c) (control f)] 'sgml-close-tag)
+  )
+
+;; add to hook
+(add-hook 'html-mode-hook 'my-html-mode-keys)
+
+(defun my-web-mode-keys ()
+  "Modify keymaps used by `web-mode'."
+  (local-set-key [(control c) (control f)] 'web-mode-element-close)
+  )
+
+;; add to hook
+(add-hook 'web-mode-hook 'my-web-mode-keys)
+
