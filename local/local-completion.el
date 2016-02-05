@@ -26,7 +26,8 @@
     ;; up in the same state that we began.
     (set-buffer-modified-p buffer-modified)
     ;; Provide the options in the order in which they are normally generated.
-    (delete he-search-string (reverse he-tried-table))))
+    ;; and ditch the first one, since we've already skipped that with dwim
+    (cdr (delete he-search-string (reverse he-tried-table)))))
 
 (defmacro ido-hippie-expand-with (hippie-expand-function)
   "Generate an interactively-callable function that offers ido-based completion
@@ -49,7 +50,9 @@
 (defun hippie-expand-dwim (&optional arg)
   (interactive)
   (if (eq last-command 'hippie-expand-dwim)
-      (ido-hippie-expand)
+      (progn
+        (he-reset-string)
+        (ido-hippie-expand))
     (hippie-expand arg)))
 
 (define-key my-keys-minor-mode-map [(meta /)] 'hippie-expand-dwim)
