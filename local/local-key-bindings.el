@@ -25,8 +25,6 @@
 (define-key my-keys-minor-mode-map [(control .) (control c)] 'spotify-now-playing)
 (define-key my-keys-minor-mode-map [(control .) (c)] 'spotify-now-playing)
 
-
-
 (setq avy-keys
       '(?h ?t ?n ?s ?g ?c ?r ?l))
 (setq aw-keys '(?h ?t ?n ?s ?g ?c ?r))
@@ -43,9 +41,7 @@
 ;; This is your old M-x.
 (define-key my-keys-minor-mode-map [(control .) (meta x)] 'execute-extended-command)
 
-
 (js2r-add-keybindings-with-prefix "C-c C-m")
-
 
 (define-key projectile-mode-map [(control c) (p) (g)] 'projectile-grep)
 
