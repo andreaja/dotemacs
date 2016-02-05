@@ -80,7 +80,6 @@ already narrowed."
   (local-set-key [(control c) (control f)] 'sgml-close-tag)
   )
 
-;; add to hook
 (add-hook 'html-mode-hook 'my-html-mode-keys)
 
 (defun my-web-mode-keys ()
@@ -88,6 +87,5 @@ already narrowed."
   (local-set-key [(control c) (control f)] 'web-mode-element-close)
   )
 
-;; add to hook
 (add-hook 'web-mode-hook 'my-web-mode-keys)
 
