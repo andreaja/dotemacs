@@ -7,6 +7,7 @@
       ido-use-filename-at-point 'guess)
 (ido-mode t)
 
+(define-key my-keys-minor-mode-map [(control x) (control b)] 'ido-switch-buffer)
 
 ;; http://www.emacswiki.org/emacs/HippieExpand
 (defun hippie-expand-completions (&optional hippie-expand-function)
