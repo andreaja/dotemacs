@@ -28,8 +28,6 @@ already narrowed."
 (add-hook 'LaTeX-mode-hook
           (lambda () (define-key LaTeX-mode-map "\C-xn" nil)))
 
-
-
 ;; thanks josse
 (defun yank-flexible ()
   "Use Ido to select a kill-ring entry to yank."
@@ -72,6 +70,49 @@ already narrowed."
     (fill-paragraph nil)))
 (define-key my-keys-minor-mode-map (kbd "C-M-q") 'unfill-paragraph)
 
+;; From magnars emacs.d
+;; kill region if active, otherwise kill backward word
+(defun kill-region-or-backward-word ()
+  (interactive)
+  (if (region-active-p)
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-word 1)))
+
+
+;; copy region if active
+;; otherwise copy to whole line
+;;   * with prefix, copy N whole lines
+
+(defun copy-to-end-of-line ()
+  (interactive)
+  (kill-ring-save (point)
+                  (line-end-position))
+  (message "Copied to end of line"))
+
+(defun copy-whole-lines (arg)
+  "Copy lines (as many as prefix argument) in the kill ring"
+  (interactive "p")
+  (kill-ring-save (line-beginning-position)
+                  (line-beginning-position (+ 1 arg)))
+  (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
+
+(defun copy-line (arg)
+  "Copy to end of line, or as many lines as prefix argument"
+  (interactive "P")
+  (if (null arg)
+      (copy-whole-lines 1)
+    (copy-whole-lines (prefix-numeric-value arg))))
+
+(defun save-region-or-current-line (arg)
+  (interactive "P")
+  (if (region-active-p)
+      (kill-ring-save (region-beginning) (region-end))
+    (copy-line arg)))
+
+;; Use M-w for copy-line if no active region
+(global-set-key (kbd "M-w") 'save-region-or-current-line)
+(global-set-key (kbd "C-w") 'kill-region-or-backward-word)
+
 ;; example of binding keys only when html-mode is active
 ;; http://ergoemacs.org/emacs/emacs_set_keys_for_major_mode.html
 
@@ -88,4 +129,18 @@ already narrowed."
   )
 
 (add-hook 'web-mode-hook 'my-web-mode-keys)
+
+;; setup paredit
+(require 'paredit)
+(defun paredit-kill-region-or-backward-word ()
+  (interactive)
+  (if (region-active-p)
+      (kill-region (region-beginning) (region-end))
+    (paredit-backward-kill-word)))
+
+(define-key paredit-mode-map (kbd "C-w") 'paredit-kill-region-or-backward-word)
+(define-key paredit-mode-map (kbd "M-C-<backspace>") 'backward-kill-sexp)
+
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode 1)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1)))
 
