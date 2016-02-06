@@ -10,7 +10,7 @@ already narrowed."
   (interactive "P")
   (declare (interactive-only))
   (cond ((and (buffer-narrowed-p) (not p)) (widen))
-        ((region-active-p)
+        ((use-region-p)
          (narrow-to-region (region-beginning) (region-end)))
         ((derived-mode-p 'org-mode)
          ;; `org-edit-src-code' is not a real narrowing
@@ -52,7 +52,7 @@ already narrowed."
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
-    (if (region-active-p)
+    (if (use-region-p)
         (progn
           (indent-region (region-beginning) (region-end))
           (message "Indented selected region."))
@@ -74,7 +74,7 @@ already narrowed."
 ;; kill region if active, otherwise kill backward word
 (defun kill-region-or-backward-word ()
   (interactive)
-  (if (region-active-p)
+  (if (use-region-p)
       (kill-region (region-beginning) (region-end))
     (backward-kill-word 1)))
 
@@ -105,7 +105,7 @@ already narrowed."
 
 (defun save-region-or-current-line (arg)
   (interactive "P")
-  (if (region-active-p)
+  (if (use-region-p)
       (kill-ring-save (region-beginning) (region-end))
     (copy-line arg)))
 
@@ -134,7 +134,7 @@ already narrowed."
 (require 'paredit)
 (defun paredit-kill-region-or-backward-word ()
   (interactive)
-  (if (region-active-p)
+  (if (use-region-p)
       (kill-region (region-beginning) (region-end))
     (paredit-backward-kill-word)))
 
