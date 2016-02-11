@@ -28,8 +28,7 @@
 (setq scroll-preserve-screen-position t)
 
 (js2r-add-keybindings-with-prefix "C-c C-m")
-
-(setq magit-last-seen-setup-instructions "1.4.0")
+(setq-default js2-global-externs '("module" "require" "process" "console"))
 
 ;;; From http://doc.norang.ca/org-mode.html
 (defun bh/is-subproject-p ()

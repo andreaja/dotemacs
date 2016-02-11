@@ -18,6 +18,7 @@
      ("pl" . "perl")
      ("rb" . "ruby"))))
  '(js-indent-level 2)
+ '(js2-skip-preprocessor-directives t)
  '(load-prefer-newer t)
  '(magit-save-repository-buffers (quote dontask))
  '(markdown-command "/usr/local/bin/multimarkdown")
