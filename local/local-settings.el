@@ -17,6 +17,8 @@
 
 (setq sentence-end-double-space nil)
 
+(setq smooth-scroll-margin 6)
+
 ;; Correctly set up PATH from bash variables
 (let ((path (shell-command-to-string ". ~/.bashrc; echo -n $PATH")))
   (setenv "PATH" path)
@@ -42,7 +44,6 @@
 (set-keyboard-coding-system 'utf-8) ; pretty
 (set-selection-coding-system 'utf-8) ; please
 (prefer-coding-system 'utf-8) ; with sugar on top
-
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
