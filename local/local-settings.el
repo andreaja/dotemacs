@@ -32,24 +32,6 @@
 (js2r-add-keybindings-with-prefix "C-c C-m")
 (setq-default js2-global-externs '("module" "require" "process" "console"))
 
-;; Show keystrokes in progress
-(setq echo-keystrokes 0.1)
-
-;; Real emacs knights don't use shift to mark things
-(setq shift-select-mode nil)
-
-;; UTF-8 please
-(setq locale-coding-system 'utf-8) ; pretty
-(set-terminal-coding-system 'utf-8) ; pretty
-(set-keyboard-coding-system 'utf-8) ; pretty
-(set-selection-coding-system 'utf-8) ; please
-(prefer-coding-system 'utf-8) ; with sugar on top
-
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; Lines should be 80 characters wide, not 72
-(setq fill-column 80)
-
 ;;; From http://doc.norang.ca/org-mode.html
 (defun bh/is-subproject-p ()
   "Any task which is a subtask of another project"
@@ -136,4 +118,31 @@
 
 (require 'netrc)
 (setq netrc-file "~/.netrc-emacs")
+
+
+
+;; Borrowed from magnars .emacs.d
+;; Show keystrokes in progress
+(setq echo-keystrokes 0.1)
+
+;; Real emacs knights don't use shift to mark things
+(setq shift-select-mode nil)
+
+;; UTF-8 please
+(setq locale-coding-system 'utf-8) ; pretty
+(set-terminal-coding-system 'utf-8) ; pretty
+(set-keyboard-coding-system 'utf-8) ; pretty
+(set-selection-coding-system 'utf-8) ; please
+(prefer-coding-system 'utf-8) ; with sugar on top
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Lines should be 80 characters wide, not 72
+(setq fill-column 80)
+
+;; Don't be so stingy on the memory, we have lots now. It's the distant future.
+(setq gc-cons-threshold 20000000)
+
+;; No electric indent
+(setq electric-indent-mode nil)
 
