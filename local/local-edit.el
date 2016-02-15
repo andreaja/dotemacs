@@ -113,6 +113,9 @@ already narrowed."
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 
+(autoload 'zap-up-to-char "misc")
+(define-key my-keys-minor-mode-map [(meta z)] 'zap-up-to-char)
+
 ;; example of binding keys only when html-mode is active
 ;; http://ergoemacs.org/emacs/emacs_set_keys_for_major_mode.html
 
