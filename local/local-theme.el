@@ -126,3 +126,14 @@
 (rename-modeline "ruby-mode" ruby-mode "💎")
 (rename-modeline "elisp-mode" emacs-lisp-mode "👾")
 
+;; https://gist.github.com/takaxp/1626603
+(defvar my-narrow-display " ∥")
+(setq mode-line-modes
+      (mapcar (lambda (entry)
+		(if (and (stringp entry)
+			 (string= entry "%n"))
+		    '(:eval (if (and (= 1 (point-min))
+                                     (= (1+ (buffer-size)) (point-max))) ""
+                              my-narrow-display)) entry))
+	      mode-line-modes))
+
