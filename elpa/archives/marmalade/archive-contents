@@ -1672,7 +1672,7 @@
 	       (6 1)))
 	     "basic support for magit links" single])
  (org-journal .
-	      [(1 11 0)
+	      [(1 11 1)
 	       nil "a simple org-mode based journaling mode" single])
  (org-gnome .
 	    [(0 1)
@@ -2054,7 +2054,7 @@
 	       [(1 0 0)
 		nil "collection of faces for markup language modes" single])
  (markdown-toc .
-	       [(0 1 0)
+	       [(0 1 2)
 		((markdown-mode
 		  (2 1))
 		 (dash
@@ -2478,7 +2478,7 @@
 	  [(2927)
 	   nil "Adds support for IPython to python-mode.el" single])
  (insert-shebang .
-		 [(0 9 4)
+		 [(0 9 5)
 		  nil "Insert shebang line automatically." single])
  (inline-crypt .
 	       [(0 1 4)
