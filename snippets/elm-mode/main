@@ -1,0 +1,11 @@
+# name: main
+# key: main
+# --
+main =
+    App.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+$0

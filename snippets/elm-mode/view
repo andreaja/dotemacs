@@ -1,0 +1,8 @@
+# name: view
+# key: view
+# --
+-- VIEW
+
+view : Model -> Html Msg
+view model =
+    div []

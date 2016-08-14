@@ -1,0 +1,9 @@
+# name: init
+# key: init
+# --
+init : $1 -> (Model, Cmd Msg)
+init $2 =
+    ( Model $2
+    , Cmd.none
+    )
+$0

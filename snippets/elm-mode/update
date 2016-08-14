@@ -1,0 +1,13 @@
+# name: update
+# key: update
+# --
+-- UPDATE
+
+type Msg
+    = $1
+
+update : Msg -> Model -> (Model, Cmd Msg)
+update msg model =
+    case msg of
+        $1 -> (model, Cmd.none)
+$0
