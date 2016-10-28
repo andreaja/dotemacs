@@ -23,6 +23,8 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
+(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
+
 (add-hook 'prog-mode-hook 'ggtags-mode)
 (add-hook 'prog-mode-hook 'subword-mode)
 (add-hook 'xml-mode-hook 'ggtags-mode)
