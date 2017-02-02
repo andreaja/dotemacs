@@ -12,12 +12,7 @@
     (try-expand-dabbrev try-expand-dabbrev-visible try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name try-complete-file-name-partially try-expand-list try-expand-all-abbrevs try-complete-lisp-symbol-partially try-complete-lisp-symbol)))
  '(indent-tabs-mode nil)
  '(insert-shebang-file-types
-   (quote
-    (("py" . "python")
-     ("sh" . "bash")
-     ("pl" . "perl")
-     ("rb" . "ruby")
-     ("js" . "node"))))
+   (quote ()))
  '(js-indent-level 2)
  '(js2-skip-preprocessor-directives t)
  '(load-prefer-newer t)
