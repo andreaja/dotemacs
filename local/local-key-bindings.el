@@ -71,6 +71,11 @@
 (define-key my-keys-minor-mode-map [(control .) (control n)] 'org-capture)
 (define-key my-keys-minor-mode-map [(control .) (n)] 'org-capture)
 
+
+;; remap C-a to `smarter-move-beginning-of-line'
+(global-set-key [remap move-beginning-of-line]
+                'smarter-move-beginning-of-line)
+
 (add-hook 'org-mode-hook
           (lambda ()
             (define-key org-mode-map [remap browse-url-at-point] 'org-open-at-point)
