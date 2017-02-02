@@ -94,6 +94,9 @@
          "** TODO %?\n   %U")
         ("l" "New link for slack" entry
          (file+headline (expand-file-name (car (org-agenda-files))) "Share a link on Slack")
+         (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)
+        ("f" "New link for FYI" entry
+         (file+headline (expand-file-name (car (org-agenda-files))) "FYI")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)))
 
 ;; http://orgmode.org/manual/Deadlines-and-scheduling.html
