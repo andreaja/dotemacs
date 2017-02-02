@@ -12,7 +12,6 @@
 
 (define-key my-keys-minor-mode-map [(control .) (b)] 'browse-dwim)
 (define-key my-keys-minor-mode-map [(control .) (control b)] 'browse-dwim)
-(define-key my-keys-minor-mode-map [(control .) (control l)] 'post-current-kill-to-slack)
 
 ;; see local-functions.el
 (define-key my-keys-minor-mode-map [(control x) (control r)] 'find-file-root)
