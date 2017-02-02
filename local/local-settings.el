@@ -97,6 +97,9 @@
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)
         ("f" "New link for FYI" entry
          (file+headline (expand-file-name (car (org-agenda-files))) "FYI")
+         (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)
+        ("r" "Reading list" entry
+         (file+headline (expand-file-name (car (org-agenda-files))) "Read one article from list")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)))
 
 ;; http://orgmode.org/manual/Deadlines-and-scheduling.html
