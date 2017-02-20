@@ -57,7 +57,7 @@
                            mode-line-buffer-identification
                            " "
                                         ;"%p of %I "
-                           (:eval (format "L%d" (line-number-at-pos)))
+                           (:eval (format "L%d" (string-to-number (format-mode-line "%l"))))
                                         ;mode-line-position
                                         ;(vc-mode vc-mode)
                            " " mode-line-modes mode-line-misc-info mode-line-end-spaces))
