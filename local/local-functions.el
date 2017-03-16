@@ -188,6 +188,15 @@ by using nxml's indentation rules."
     (insert-file-contents filePath)
     (split-string (buffer-string) "\n" t)))
 
+;; http://mbork.pl/2017-02-26_other-window-or-switch-buffer
+(defun ace-window-or-switch-buffer ()
+  "Call `ace-window' if more than one window is visible, switch
+to next buffer otherwise."
+  (interactive)
+  (if (one-window-p)
+      (switch-to-buffer nil)
+    (ace-window 1)))
+
 
 ;; http://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/
 (defun smarter-move-beginning-of-line (arg)

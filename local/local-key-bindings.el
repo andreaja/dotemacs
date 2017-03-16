@@ -28,7 +28,7 @@
       '(?h ?t ?n ?s ?g ?c ?r ?l))
 (setq aw-keys '(?h ?t ?n ?s ?g ?c ?r))
 
-(define-key my-keys-minor-mode-map [(meta o)] 'ace-window)
+(define-key my-keys-minor-mode-map [(meta o)] 'ace-window-or-switch-buffer)
 (define-key my-keys-minor-mode-map [(meta s)] 'avy-goto-word-1)
 
 
