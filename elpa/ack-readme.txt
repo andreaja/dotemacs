@@ -1,7 +1,7 @@
 ==============================================================
  Emacs Interface to `Ack <http://beyondgrep.com>`_-like Tools
 ==============================================================
-
+ 
 This package brings the full power of `ack <http://beyondgrep.com>`_
 to `emacs <http://www.gnu.org/software/emacs>`_ by allowing you to run
 it seamlessly with its large set of options. Ack-like tools such as
