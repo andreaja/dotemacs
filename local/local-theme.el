@@ -36,6 +36,9 @@
 
 (add-hook 'prog-mode-hook 'add-mundane-line-font-lock)
 
+;; get rid of the title-bar
+(setq default-frame-alist '((undecorated . t)))
+
 ;; Get rid of as much chrome as humanly possible
 (set-scroll-bar-mode nil)
 (tool-bar-mode 0)
@@ -47,20 +50,28 @@
 ;; Invisible mode-line, set up this after solarized so we can override the mode-line height
 (setq column-number-mode t)
 
-(setq frame-title-format '("%e"
+(defvar window-mode-line-stuff '("%e"
                                         ;mode-line-front-space
                                         ;mode-line-mule-info
                                         ;mode-line-client
-                           mode-line-modified
+                                 mode-line-modified
                                         ;mode-line-remote
                                         ;mode-line-frame-identification
-                           mode-line-buffer-identification
-                           " "
+                                 mode-line-buffer-identification
+                                 " "
                                         ;"%p of %I "
-                           (:eval (format "L%d" (string-to-number (format-mode-line "%l"))))
+                                 (:eval (format "L%d" (string-to-number (format-mode-line "%l"))))
                                         ;mode-line-position
                                         ;(vc-mode vc-mode)
-                           " " mode-line-modes mode-line-misc-info mode-line-end-spaces))
+                                 " " mode-line-modes mode-line-misc-info mode-line-end-spaces))
+
+(setq frame-title-format window-mode-line-stuff)
+
+(defun disply-window-mode-line-in-echo ()
+  (interactive)
+  (message "%s" (format-mode-line window-mode-line-stuff)))
+
+(add-function :after (symbol-function #'recenter-top-bottom) #'disply-window-mode-line-in-echo)
 
 (defun invisible-mode-line (base02)
   (set-face-attribute 'mode-line nil
