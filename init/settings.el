@@ -18,6 +18,7 @@
  '(magit-save-repository-buffers (quote dontask))
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
+ '(org-M-RET-may-split-line (quote ((table))))
  '(org-agenda-files "~/.org.file.list")
  '(org-archive-location "%s_archive::* Archive")
  '(org-catch-invisible-edits (quote smart))
