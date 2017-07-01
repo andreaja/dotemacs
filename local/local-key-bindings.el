@@ -55,9 +55,10 @@
 
 (define-key flycheck-mode-map [(control meta n)] 'flycheck-next-error)
 (define-key flycheck-mode-map [(control meta p)] 'flycheck-previous-error)
-(define-key my-keys-minor-mode-map [(meta n)] 'smartscan-symbol-go-forward)
-(define-key my-keys-minor-mode-map [(meta p)] 'smartscan-symbol-go-backward)
-(define-key my-keys-minor-mode-map [(meta r)] 'smartscan-symbol-replace)
+
+(define-key prog-mode-map [(meta n)] 'smartscan-symbol-go-forward)
+(define-key prog-mode-map [(meta p)] 'smartscan-symbol-go-backward)
+(define-key prog-mode-map [(meta r)] 'smartscan-symbol-replace)
 
 (define-key my-keys-minor-mode-map [(control meta \ )] 'er/expand-region)
 
