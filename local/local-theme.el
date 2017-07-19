@@ -61,6 +61,8 @@
                                  " "
                                         ;"%p of %I "
                                  (:eval (format "L%d" (string-to-number (format-mode-line "%l"))))
+                                 " "
+                                 (:eval (format "C%d" (string-to-number (format-mode-line "%c"))))
                                         ;mode-line-position
                                         ;(vc-mode vc-mode)
                                  " " mode-line-modes mode-line-misc-info mode-line-end-spaces))
