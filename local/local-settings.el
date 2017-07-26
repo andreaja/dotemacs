@@ -110,8 +110,6 @@
 
 (add-hook 'org-load-hook
           (lambda ()
-            (add-to-list 'org-drawers
-                         (setq org-log-into-drawer "STATE"))
             (org-add-link-type
              "docx" 'follow-doc-link)
             (org-add-link-type
