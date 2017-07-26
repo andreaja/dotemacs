@@ -72,6 +72,10 @@
 (define-key my-keys-minor-mode-map [(control .) (control n)] 'org-capture)
 (define-key my-keys-minor-mode-map [(control .) (n)] 'org-capture)
 
+(define-key my-keys-minor-mode-map [(control x) (n)] 'narrow-or-widen-dwim)
+(define-key my-keys-minor-mode-map [(control x) (control n)] 'narrow-or-widen-dwim)
+
+
 
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]

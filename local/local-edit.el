@@ -24,7 +24,6 @@ already narrowed."
          (LaTeX-narrow-to-environment))
         (t (narrow-to-defun))))
 
-(define-key my-keys-minor-mode-map [(control x) (n)] 'narrow-or-widen-dwim)
 (add-hook 'LaTeX-mode-hook
           (lambda () (define-key LaTeX-mode-map "\C-xn" nil)))
 
