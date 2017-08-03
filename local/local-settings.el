@@ -47,6 +47,15 @@
   "Inverts bh/is-subproject-p"
   (not (bh/is-subproject-p)))
 
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)))
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+(flycheck-add-mode 'javascript-eslint 'js2-mode)
+
+
 ;; http://pages.sachachua.com/.emacs.d/Sacha.html
 (defun aja/org-agenda-skip-scheduled-and-non-tasks ()
   (org-agenda-skip-entry-if 'scheduled 'aja/is-not-subproject-p))
