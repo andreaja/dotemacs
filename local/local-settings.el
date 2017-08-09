@@ -68,7 +68,7 @@
           (org-agenda-sorting-strategy
            '(category-keep))))
         (" " "Daily agenda with TODO"
-         ((agenda "" ((org-agenda-ndays 1)
+         ((agenda "" ((org-agenda-span 1)
                       (org-agenda-show-log t)))
           (tags-todo "-CATEGORY=\"Inbox\"/!TODO"
                      ((org-agenda-overriding-header "Projects")
@@ -78,7 +78,7 @@
                        '(category-keep))))
           ))
         ("p" "Other daily agenda with TODO"
-         ((agenda "" ((org-agenda-ndays 1)
+         ((agenda "" ((org-agenda-span 1)
                       (org-agenda-show-log t)))
           (tags-todo "-CATEGORY=\"Inbox\"/!TODO"
                      ((org-agenda-overriding-header "Projects")
@@ -88,7 +88,7 @@
                        '(category-keep)))))
          ((org-agenda-files "~/.org.file.list.p")))
         ("f" "Fortnight schedule"
-         ((agenda "" ((org-agenda-ndays 14)
+         ((agenda "" ((org-agenda-span 14)
                       (org-agenda-start-day "-3d")
                       (org-agenda-start-on-weekday nil)))))
         ))
