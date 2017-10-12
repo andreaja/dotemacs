@@ -25,7 +25,7 @@
  '(org-log-into-drawer "STATE")
  '(package-selected-packages
    (quote
-    (haskell-mode cobol-mode elm-yasnippets flycheck-elm elm-mode gradle-mode smooth-scrolling diminish solarized-theme idomenu htmlize s web-mode smex super-save lua-mode elnode ace-window urlenc smartscan slime rust-mode ruby-refactor restclient rainbow-mode rainbow-delimiters puppet-mode projectile php-mode paredit midje-mode malabar-mode magit lorem-ipsum json-reformat js2-refactor jquery-doc insert-shebang inf-ruby hungry-delete groovy-mode gh ggtags flycheck f expand-region ess clojure-test-mode browse-kill-ring aggressive-indent)))
+    (pug-mode applescript-mode haskell-mode cobol-mode elm-yasnippets flycheck-elm elm-mode gradle-mode smooth-scrolling diminish solarized-theme idomenu htmlize s web-mode smex super-save lua-mode elnode ace-window urlenc smartscan slime rust-mode ruby-refactor restclient rainbow-mode rainbow-delimiters puppet-mode projectile php-mode paredit midje-mode malabar-mode magit lorem-ipsum json-reformat js2-refactor jquery-doc insert-shebang inf-ruby hungry-delete groovy-mode gh ggtags flycheck f expand-region ess clojure-test-mode browse-kill-ring aggressive-indent)))
  '(require-final-newline (quote visit-save))
  '(safe-local-variable-values (quote ((js2-basic-offset . 2) (js-indent-level . 2))))
  '(show-paren-delay 0)
