@@ -14,7 +14,6 @@
   "*Open a file as the root user.
    Prepends `find-file-root-prefix' to the selected file name so that it
    maybe accessed via the corresponding tramp method."
-
   (interactive)
   (require 'tramp)
   (let* ( ;; We bind the variable `file-name-history' locally so we can
@@ -80,12 +79,12 @@ end tell
 if (MyList contains \"Spotify\") is false then
   open location \"spotify:user:andreaja:playlist:1bLf5DCoItO8RfXD1pxaWi\"
 end if
-tell application \"Spotify\" 
+tell application \"Spotify\"
     playpause
     get player state as string
 end tell
 ")
-))
+           ))
 
 (defun spotify-next-track ()
   "Tells spotify to advance play to the next track"
@@ -137,8 +136,8 @@ end if
   (interactive)
   (let ((pos (spotify-current-position))
         (len (spotify-current-track-length)))
-    (message (format "Now playing: %s (%02d:%02d/%02d:%02d)" 
-                     (spotify-current-track) 
+    (message (format "Now playing: %s (%02d:%02d/%02d:%02d)"
+                     (spotify-current-track)
                      (/ pos 60)
                      (% pos 60)
                      (/ len 60)
@@ -166,6 +165,48 @@ by using nxml's indentation rules."
     (indent-region begin end))
   (message "Ah, much better!"))
 
+;;http://endlessparentheses.com/super-smart-capitalization.html
+
+(defun endless/convert-punctuation (rg rp)
+  "Look for regexp RG around point, and replace with RP.
+Only applies to text-mode."
+  (let ((f "\\(%s\\)\\(%s\\)")
+        (space "?:[[:blank:]\n\r]*"))
+    ;; We obviously don't want to do this in prog-mode.
+    (if (and (derived-mode-p 'text-mode)
+             (or (looking-at (format f space rg))
+                 (looking-back (format f rg space))))
+        (replace-match rp nil nil nil 1))))
+
+(defun endless/capitalize ()
+  "Capitalize region or word.
+Also converts commas to full stops, and kills
+extraneous space at beginning of line."
+  (interactive)
+  (endless/convert-punctuation "," ".")
+  (if (use-region-p)
+      (call-interactively 'capitalize-region)
+    ;; A single space at the start of a line:
+    (when (looking-at "^\\s-\\b")
+      ;; get rid of it!
+      (delete-char 1))
+    (call-interactively 'subword-capitalize)))
+
+(defun endless/downcase ()
+  "Downcase region or word.
+Also converts full stops to commas."
+  (interactive)
+  (endless/convert-punctuation "\\." ",")
+  (if (use-region-p)
+      (call-interactively 'downcase-region)
+    (call-interactively 'subword-downcase)))
+
+(defun endless/upcase ()
+  "Upcase region or word."
+  (interactive)
+  (if (use-region-p)
+      (call-interactively 'upcase-region)
+    (call-interactively 'subword-upcase)))
 
 ;; sensible version of this: http://stackoverflow.com/a/5340797/25328
 (defun reload-my-keys ()
@@ -221,4 +262,3 @@ point reaches the beginning or end of the buffer, stop there."
     (back-to-indentation)
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
-

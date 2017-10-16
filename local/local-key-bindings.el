@@ -34,6 +34,11 @@
 
 (define-key my-keys-minor-mode-map [(control z)] 'repeat)
 
+
+(define-key my-keys-minor-mode-map [(meta c)] 'endless/capitalize)
+(define-key my-keys-minor-mode-map [(meta l)] 'endless/downcase)
+(define-key my-keys-minor-mode-map [(meta u)] 'endless/upcase)
+
 ;; smex
 (define-key my-keys-minor-mode-map [(meta x)] 'smex)
 (define-key my-keys-minor-mode-map [(meta shift x) ()] 'smex-major-mode-commands)
