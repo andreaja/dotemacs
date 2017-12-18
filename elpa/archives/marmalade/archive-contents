@@ -937,7 +937,7 @@
 	   [(1 4)
 	    nil "pattern matching for elisp" single])
  (shackle .
-	  [(0 9 0)
+	  [(1 0 1)
 	   ((cl-lib
 	     (0 5)))
 	   "Enforce rules for popups" single])
@@ -1690,7 +1690,7 @@
 	       (6 1)))
 	     "basic support for magit links" single])
  (org-journal .
-	      [(1 12 1)
+	      [(1 12 3)
 	       nil "a simple org-mode based journaling mode" single])
  (org-gnome .
 	    [(0 1)
@@ -1890,8 +1890,8 @@
 	     [(0 8 8)
 	      nil "Managing multiple terminal buffers in Emacs." single])
  (multi-project .
-		[(0 0 24)
-		 nil "Easily work with multiple projects." single])
+		[(0 0 25)
+		 nil "Find files, compile, search, and switch between" single])
  (multi-eshell .
 	       [(0 0 1)
 		nil "makes it easier to use multiple shells within emacs" single])
@@ -2228,6 +2228,11 @@
 	  ((eieio
 	    (1 3)))
 	  "logging library for Emacs" single])
+ (log-mode .
+	   [(0 0 4)
+	    ((emacs
+	      (24 3)))
+	    "Navigate Log Error Messages" single])
  (load-theme-buffer-local .
 			  [(0 0 2)
 			   nil "Install emacs24 color themes by buffer." single])
@@ -3348,7 +3353,7 @@
 	      (1 4)))
 	    "finalizers for Emacs Lisp" tar])
  (fill-column-indicator .
-			[(1 87)
+			[(1 90)
 			 nil "Graphically indicate the fill column" single])
  (file-format .
 	      [(0 0 4)
@@ -3389,7 +3394,7 @@
        (2 2 0)))
      "Modern API for working with files and directories" single])
  (eyebrowse .
-	    [(0 7 4)
+	    [(0 7 7)
 	     ((dash
 	       (2 7 0))
 	      (emacs
@@ -3568,10 +3573,15 @@
 		(1 4)))
 	      "View xkcd from Emacs" single])
  (emacs-sounds .
-	       [(20161211 1530)
+	       [(20171017 1215)
 		((sound-wav
 		  (20160725 724)))
 		"Sound effects for Emacs" single])
+ (emacs-new-buffer .
+		   [(20171026 1922)
+		    ((emacs
+		      (24)))
+		    "Quickly create new buffers to take notes and more" single])
  (emacs-home .
 	     [(20170911 1835)
 	      ((emacs
@@ -3922,13 +3932,17 @@
        [(2 11 0)
 	nil "A modern list library for Emacs" single])
  (dart-mode .
-	    [(0 14)
-	     ((cl-lib
+	    [(1 0 2)
+	     ((emacs
+	       (24 5))
+	      (cl-lib
 	       (0 5))
 	      (dash
 	       (2 10 0))
 	      (flycheck
-	       (0 23)))
+	       (0 23))
+	      (s
+	       (1 11)))
 	     "Major mode for editing Dart files" single])
  (d-mode .
 	 [(2 0 4)
