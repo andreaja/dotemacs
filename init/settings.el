@@ -23,6 +23,7 @@
  '(org-archive-location "%s_archive::* Archive")
  '(org-catch-invisible-edits (quote smart))
  '(org-log-into-drawer "STATE")
+ '(org-reverse-note-order t)
  '(package-selected-packages
    (quote
     (iedit pug-mode applescript-mode haskell-mode cobol-mode elm-yasnippets flycheck-elm elm-mode gradle-mode smooth-scrolling diminish solarized-theme idomenu htmlize s web-mode smex super-save lua-mode elnode ace-window urlenc smartscan slime rust-mode ruby-refactor restclient rainbow-mode rainbow-delimiters puppet-mode projectile php-mode paredit midje-mode malabar-mode magit lorem-ipsum json-reformat js2-refactor jquery-doc insert-shebang inf-ruby hungry-delete groovy-mode gh ggtags flycheck f expand-region ess clojure-test-mode browse-kill-ring aggressive-indent)))
