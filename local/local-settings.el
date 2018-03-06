@@ -99,16 +99,16 @@
 
 (setq org-capture-templates
       '(("t" "New todo item" entry
-         (file+headline (expand-file-name (car (org-agenda-files))) "Incoming")
+         (file+headline (lambda () (expand-file-name (car (org-agenda-files)))) "Incoming")
          "** TODO %?\n   %U")
         ("l" "New link for slack" entry
-         (file+headline (expand-file-name (car (org-agenda-files))) "Share a link on Slack")
+         (file+headline (lambda () (expand-file-name (car (org-agenda-files)))) "Share a link on Slack")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)
         ("f" "New link for FYI" entry
-         (file+headline (expand-file-name (car (org-agenda-files))) "FYI")
+         (file+headline (lambda () (expand-file-name (car (org-agenda-files)))) "FYI")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)
         ("r" "Reading list" entry
-         (file+headline (expand-file-name (car (org-agenda-files))) "Read one article from list")
+         (file+headline (lambda () (expand-file-name (car (org-agenda-files)))) "Read one article from list")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)))
 
 ;; http://orgmode.org/manual/Deadlines-and-scheduling.html
