@@ -239,6 +239,18 @@ to next buffer otherwise."
     (ace-window 1)))
 
 
+
+(defun maximize-frame ()
+  (interactive)
+  (set-frame-height (selected-frame) (/ (display-pixel-height) (frame-char-height)))
+  (set-frame-width (selected-frame) (/ (display-pixel-width) (frame-char-width))))
+
+
+(defun half-frame ()
+  (interactive)
+  (set-frame-height (selected-frame) (/ (display-pixel-height) (frame-char-height)))
+  (set-frame-width (selected-frame) (/ (display-pixel-width) (* 2 (frame-char-width)))))
+
 ;; http://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
