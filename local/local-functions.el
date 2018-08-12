@@ -240,16 +240,25 @@ to next buffer otherwise."
 
 
 
+
+(defun selected-frame-display-height ()
+  ""
+  (elt (cdr (assq 'geometry (frame-monitor-attributes))) 3))
+(defun selected-frame-display-width ()
+  ""
+  (elt (cdr (assq 'geometry (frame-monitor-attributes))) 2))
+
+
 (defun maximize-frame ()
   (interactive)
-  (set-frame-height (selected-frame) (/ (display-pixel-height) (frame-char-height)))
-  (set-frame-width (selected-frame) (/ (display-pixel-width) (frame-char-width))))
+  (set-frame-height (selected-frame) (/ (selected-frame-display-height) (frame-char-height)))
+  (set-frame-width (selected-frame) (/ (selected-frame-display-width) (frame-char-width))))
 
 
 (defun half-frame ()
   (interactive)
-  (set-frame-height (selected-frame) (/ (display-pixel-height) (frame-char-height)))
-  (set-frame-width (selected-frame) (/ (display-pixel-width) (* 2 (frame-char-width)))))
+  (set-frame-height (selected-frame) (/ (selected-frame-display-height) (frame-char-height)))
+  (set-frame-width (selected-frame) (/ (selected-frame-display-width) (* 2 (frame-char-width)))))
 
 ;; http://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/
 (defun smarter-move-beginning-of-line (arg)
