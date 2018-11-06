@@ -100,7 +100,7 @@
 (setq org-capture-templates
       '(("t" "New todo item" entry
          (file+headline (lambda () (expand-file-name (car (org-agenda-files)))) "Incoming")
-         "** TODO %?\n   %U")
+         "** TODO %?\n   %U\n")
         ("l" "New link for slack" entry
          (file+headline (lambda () (expand-file-name (car (org-agenda-files)))) "Share a link on Slack")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)
