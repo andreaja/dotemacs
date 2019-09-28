@@ -9,6 +9,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/markdown-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/hl-tags-mode")
 
+(package-initialize)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
