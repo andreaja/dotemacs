@@ -22,9 +22,6 @@
 
 (add-hook 'js2-mode-hook 'jquery-doc-setup)
 
-;; Elm
-(add-to-list 'aggressive-indent-excluded-modes 'elm-mode)
-
 ;; Disable electric here docs in shell-script-mode
 ;; http://unix.stackexchange.com/questions/20121/how-to-disable-emacs-here-document-completion
 (add-hook 'sh-mode-hook
