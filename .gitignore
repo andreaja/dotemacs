@@ -1,6 +1,7 @@
 *~
 *.elc
 .latest-build
+transient
 
 \.#.*
 .DS_Store
