@@ -28,6 +28,7 @@
 (add-hook 'prog-mode-hook 'ggtags-mode)
 (add-hook 'prog-mode-hook 'subword-mode)
 (add-hook 'xml-mode-hook 'ggtags-mode)
+(add-hook 'python-mode-hook 'blacken-mode)
 
 (global-hl-line-mode t)
 (global-flycheck-mode t)

@@ -4,35 +4,32 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(create-lockfiles nil)
- '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc)))
+ '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
  '(flycheck-tidyrc "/Users/andreaja/.tidyrc")
  '(fringe-mode 0 nil (fringe))
  '(hippie-expand-try-functions-list
-   (quote
-    (try-expand-dabbrev try-expand-dabbrev-visible try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name try-complete-file-name-partially try-expand-list try-expand-all-abbrevs try-complete-lisp-symbol-partially try-complete-lisp-symbol)))
+   '(try-expand-dabbrev try-expand-dabbrev-visible try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name try-complete-file-name-partially try-expand-list try-expand-all-abbrevs try-complete-lisp-symbol-partially try-complete-lisp-symbol))
  '(indent-tabs-mode nil)
- '(insert-shebang-file-types (quote nil))
+ '(insert-shebang-file-types 'nil)
  '(js-indent-level 2)
  '(js2-skip-preprocessor-directives t)
  '(load-prefer-newer t)
- '(magit-save-repository-buffers (quote dontask))
+ '(magit-save-repository-buffers 'dontask)
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(ns-auto-hide-menu-bar nil)
- '(org-M-RET-may-split-line (quote ((table))))
+ '(org-M-RET-may-split-line '((table)))
  '(org-agenda-files "~/.org.file.list")
  '(org-archive-location "%s_archive::* Archive")
- '(org-catch-invisible-edits (quote smart))
+ '(org-catch-invisible-edits 'smart)
  '(org-log-into-drawer "STATE")
  '(org-reverse-note-order t)
  '(package-selected-packages
-   (quote
-    (go-mode iedit applescript-mode gradle-mode smooth-scrolling diminish solarized-theme idomenu htmlize s web-mode smex super-save lua-mode elnode ace-window urlenc smartscan slime rust-mode restclient rainbow-mode rainbow-delimiters projectile paredit magit lorem-ipsum json-reformat js2-refactor insert-shebang hungry-delete gh ggtags flycheck f expand-region browse-kill-ring aggressive-indent)))
- '(require-final-newline (quote visit-save))
- '(safe-local-variable-values (quote ((js2-basic-offset . 2) (js-indent-level . 2))))
+   '(blacken go-mode iedit applescript-mode gradle-mode smooth-scrolling diminish solarized-theme idomenu htmlize s web-mode smex super-save lua-mode elnode ace-window urlenc smartscan slime rust-mode restclient rainbow-mode rainbow-delimiters projectile paredit magit lorem-ipsum json-reformat js2-refactor insert-shebang hungry-delete gh ggtags flycheck f expand-region browse-kill-ring aggressive-indent))
+ '(require-final-newline 'visit-save)
+ '(safe-local-variable-values '((js2-basic-offset . 2) (js-indent-level . 2)))
  '(show-paren-delay 0)
  '(super-save-triggers
-   (quote
-    (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right ace-window)))
+   '(switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right ace-window))
  '(vc-follow-symlinks nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
