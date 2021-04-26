@@ -57,6 +57,7 @@
 (define-key my-keys-minor-mode-map [(control .) (control t)] 'org-todo)
 (define-key my-keys-minor-mode-map [(control .) (control a)] 'org-agenda)
 (define-key my-keys-minor-mode-map [(control .) (t)] 'org-todo)
+(define-key my-keys-minor-mode-map [(control .) (d)] 'org-time-stamp-inactive)
 
 (define-key flycheck-mode-map [(control meta n)] 'flycheck-next-error)
 (define-key flycheck-mode-map [(control meta p)] 'flycheck-previous-error)
