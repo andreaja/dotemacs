@@ -32,6 +32,8 @@
 (js2r-add-keybindings-with-prefix "C-c C-m")
 (setq-default js2-global-externs '("module" "require" "process" "console"))
 
+(add-hook 'go-mode-hook (lambda () (setq tab-width 4)))
+
 ;;; From http://doc.norang.ca/org-mode.html
 (defun bh/is-subproject-p ()
   "Any task which is a subtask of another project"
