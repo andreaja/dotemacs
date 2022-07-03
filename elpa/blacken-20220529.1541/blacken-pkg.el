@@ -1,0 +1,2 @@
+;;; Generated package description from blacken.el  -*- no-byte-compile: t -*-
+(define-package "blacken" "20220529.1541" "Reformat python buffers using the \"black\" formatter" '((emacs "25.2")) :commit "764912ada13c3bf57e770fcd978c81a1ce26666a" :authors '(("Artem Malyshev" . "proofit404@gmail.com")) :maintainer '("Artem Malyshev" . "proofit404@gmail.com") :url "https://github.com/proofit404/blacken")
