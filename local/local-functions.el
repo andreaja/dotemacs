@@ -257,7 +257,7 @@ to next buffer otherwise."
 
 (defun half-frame ()
   (interactive)
-  (set-frame-height (selected-frame) (/ (selected-frame-display-height) (frame-char-height)))
+  (set-frame-height (selected-frame) (- (/ (selected-frame-display-height) (frame-char-height)) 3))
   (set-frame-width (selected-frame) (/ (selected-frame-display-width) (* 2 (frame-char-width)))))
 
 ;; http://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/
