@@ -77,7 +77,7 @@
                       (org-agenda-skip-function 'aja/org-agenda-skip-scheduled-and-non-tasks)
                       (org-tags-match-list-sublevels 'indented)
                       (org-agenda-sorting-strategy
-                       '(category-keep))))
+                       '(priority-down category-keep))))
           ))
         ("p" "Other daily agenda with TODO"
          ((agenda "" ((org-agenda-span 1)
