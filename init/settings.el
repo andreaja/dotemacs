@@ -8,7 +8,14 @@
  '(flycheck-tidyrc "/Users/andreaja/.tidyrc")
  '(fringe-mode 0 nil (fringe))
  '(hippie-expand-try-functions-list
-   '(try-expand-dabbrev try-expand-dabbrev-visible try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name try-complete-file-name-partially try-expand-list try-expand-all-abbrevs try-complete-lisp-symbol-partially try-complete-lisp-symbol))
+   '(try-expand-dabbrev try-expand-dabbrev-visible
+                        try-expand-dabbrev-all-buffers
+                        try-expand-dabbrev-from-kill
+                        try-complete-file-name
+                        try-complete-file-name-partially
+                        try-expand-list try-expand-all-abbrevs
+                        try-complete-lisp-symbol-partially
+                        try-complete-lisp-symbol))
  '(indent-tabs-mode nil)
  '(insert-shebang-file-types 'nil)
  '(js-indent-level 2)
@@ -21,15 +28,26 @@
  '(org-agenda-files "~/.org.file.list")
  '(org-archive-location "%s_archive::* Archive")
  '(org-catch-invisible-edits 'smart)
+ '(org-fold-catch-invisible-edits 'smart)
  '(org-log-into-drawer "STATE")
  '(org-reverse-note-order t)
  '(package-selected-packages
-   '(terraform-mode prettier-js mustache-mode markdown-mode blacken go-mode iedit applescript-mode gradle-mode smooth-scrolling diminish solarized-theme idomenu htmlize s web-mode smex super-save lua-mode elnode ace-window urlenc smartscan slime rust-mode restclient rainbow-mode rainbow-delimiters projectile paredit magit lorem-ipsum json-reformat js2-refactor insert-shebang hungry-delete gh ggtags flycheck f expand-region browse-kill-ring aggressive-indent))
+   '(terraform-mode prettier-js mustache-mode markdown-mode blacken
+                    go-mode iedit applescript-mode gradle-mode
+                    smooth-scrolling diminish solarized-theme idomenu
+                    htmlize s web-mode smex super-save lua-mode elnode
+                    ace-window urlenc smartscan slime rust-mode
+                    restclient rainbow-mode rainbow-delimiters
+                    projectile paredit magit lorem-ipsum json-reformat
+                    js2-refactor insert-shebang hungry-delete gh
+                    ggtags flycheck f expand-region browse-kill-ring
+                    aggressive-indent))
  '(require-final-newline 'visit-save)
  '(safe-local-variable-values '((js2-basic-offset . 2) (js-indent-level . 2)))
  '(show-paren-delay 0)
  '(super-save-triggers
-   '(switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right ace-window))
+   '(switch-to-buffer other-window windmove-up windmove-down
+                      windmove-left windmove-right ace-window))
  '(vc-follow-symlinks nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
