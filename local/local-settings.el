@@ -95,6 +95,13 @@
          ((agenda "" ((org-agenda-span 14)
                       (org-agenda-start-day "-3d")
                       (org-agenda-start-on-weekday nil)))))
+        ("W" "Done last week"
+         agenda "" ((org-agenda-start-day "-14d")
+                    (org-agenda-span 14)
+                    (org-agenda-start-on-weekday 1)
+                    (org-agenda-start-with-log-mode '(closed))
+                    (org-agenda-overriding-header "Tasks completed last week:")
+                    ))
         ))
 
 (defun hacky-template-issue-workaround ()
@@ -114,6 +121,9 @@
         ("r" "Reading list" entry
          (file+headline (lambda () (expand-file-name (car (org-agenda-files)))) "Read one article from list")
          (function hacky-template-issue-workaround) :prepend t :immediate-finish 1)))
+
+;; log CLOSED: when tasks are marked as done
+(setq org-log-done 'time)
 
 ;; http://orgmode.org/manual/Deadlines-and-scheduling.html
 (setq org-agenda-skip-scheduled-if-done 1)
