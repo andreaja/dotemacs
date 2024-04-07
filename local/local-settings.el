@@ -98,7 +98,7 @@
         ("W" "Done last week"
          agenda "" ((org-agenda-start-day "-14d")
                     (org-agenda-span 14)
-                    (org-agenda-start-on-weekday 1)
+                    (org-agenda-start-on-weekday 0)
                     (org-agenda-start-with-log-mode '(closed))
                     (org-agenda-overriding-header "Tasks completed last week:")
                     ))
