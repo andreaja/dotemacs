@@ -1,7 +1,6 @@
 (setq inhibit-startup-message t)
 (tooltip-mode -1)
 (show-paren-mode t)
-(tool-bar-mode 0)
 
 ;; Prettify
 (setq prettify-symbols-unprettify-at-point 'right-edge)
