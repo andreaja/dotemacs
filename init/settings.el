@@ -32,16 +32,16 @@
  '(org-log-into-drawer "STATE")
  '(org-reverse-note-order t)
  '(package-selected-packages
-   '(terraform-mode prettier-js mustache-mode markdown-mode blacken
-                    go-mode iedit applescript-mode gradle-mode
-                    smooth-scrolling diminish solarized-theme idomenu
-                    htmlize s web-mode smex super-save lua-mode elnode
-                    ace-window urlenc smartscan slime rust-mode
-                    restclient rainbow-mode rainbow-delimiters
-                    projectile paredit magit lorem-ipsum json-reformat
-                    js2-refactor insert-shebang hungry-delete gh
-                    ggtags flycheck f expand-region browse-kill-ring
-                    aggressive-indent))
+   '(ace-window aggressive-indent applescript-mode blacken
+                browse-kill-ring diminish elnode expand-region f
+                flycheck ggtags gh go-mode gradle-mode htmlize
+                hungry-delete idomenu iedit insert-shebang
+                js2-refactor json-reformat lorem-ipsum lua-mode magit
+                markdown-mode mustache-mode paredit prettier-js
+                projectile rainbow-delimiters rainbow-mode restclient
+                rust-mode s slime smartscan smex smooth-scrolling
+                solarized-theme super-save terraform-mode urlenc
+                web-mode))
  '(require-final-newline 'visit-save)
  '(safe-local-variable-values '((js2-basic-offset . 2) (js-indent-level . 2)))
  '(show-paren-delay 0)
