@@ -92,16 +92,16 @@
 
 (defun theme-dark ()
   (interactive)
-  (load-theme 'solarized-dark t)
-  (invisible-mode-line "#073642") ;; dark base02
-  (set-face-background 'trailing-whitespace "#586e75") ;; base01 (emphasized content)
+  (load-theme 'solarized-dark-high-contrast t)
+  (invisible-mode-line "#01323d") ;; dark base02
+  (set-face-background 'trailing-whitespace "#62787f") ;; base01 (emphasized content)
   )
 
 (defun theme-light ()
   (interactive)
-  (load-theme 'solarized-light t)
-  (invisible-mode-line "#eee8d5") ;; light base02
-  (set-face-background 'trailing-whitespace "#93a1a1") ;; base01 (emphasized content)
+  (load-theme 'solarized-light-high-contrast t)
+  (invisible-mode-line "#002b37") ;; light base02
+  (set-face-background 'trailing-whitespace "#5d737a") ;; base01 (emphasized content)
   )
 
 ;; default theme
