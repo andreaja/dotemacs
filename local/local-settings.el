@@ -75,7 +75,7 @@
           (tags-todo "-CATEGORY=\"Inbox\"/!TODO"
                      ((org-agenda-overriding-header "Projects")
                       (org-agenda-prefix-format "%20c ")
-                                        ;(org-columns-default-format-for-agenda "%TODO %7EFFORT %PRIORITY     %100ITEM 100%TAGS")
+                      (org-columns-default-format-for-agenda "%TODO %7EFFORT %PRIORITY     %100ITEM 100%TAGS")
                       (org-agenda-skip-function 'aja/org-agenda-skip-scheduled-and-non-tasks)
                       (org-tags-match-list-sublevels 'indented)
                       (org-agenda-sorting-strategy
