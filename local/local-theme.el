@@ -149,3 +149,13 @@
                               my-narrow-display)) entry))
 	      mode-line-modes))
 
+(defun org-mode-prettify-symbols ()
+  (setq prettify-symbols-alist
+        '(("->" . ?→)
+          ("=>" . ?⇒)
+          ("lambda" . ?λ)
+          ("<=" . ?≤)
+          (">=" . ?≥)))
+  (prettify-symbols-mode 1))
+
+(add-hook 'org-mode-hook #'org-mode-prettify-symbols)
