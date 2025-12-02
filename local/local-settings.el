@@ -58,6 +58,15 @@
 (flycheck-add-mode 'javascript-eslint 'js2-mode)
 
 
+(defun my-org-agenda-format-item (orig-fun &rest args)
+  (let* ((txt (apply orig-fun args))
+         (loc (org-entry-get (point) "LOCATION")))
+    (if loc
+        (format "%s  [%s]" txt loc)
+      txt)))
+
+(advice-add 'org-agenda-format-item :around #'my-org-agenda-format-item)
+
 ;; http://pages.sachachua.com/.emacs.d/Sacha.html
 (defun aja/org-agenda-skip-scheduled-and-non-tasks ()
   (org-agenda-skip-entry-if 'scheduled 'aja/is-not-subproject-p))
