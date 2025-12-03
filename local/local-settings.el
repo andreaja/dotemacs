@@ -58,12 +58,20 @@
 (flycheck-add-mode 'javascript-eslint 'js2-mode)
 
 
+
 (defun my-org-agenda-format-item (orig-fun &rest args)
   (let* ((txt (apply orig-fun args))
-         (loc (org-entry-get (point) "LOCATION")))
-    (if loc
-        (format "%s  [%s]" txt loc)
-      txt)))
+         (loc (org-entry-get (point) "LOCATION"))
+         (oow (org-entry-get (point) "ONE_ON_ONE_WITH"))
+         (suffix (string-join
+                  (delq nil
+                        (list
+                         (when loc (format "[%s]" loc))
+                         (when oow (format "%s" oow))))
+                  " ")))
+    (if (string-empty-p suffix)
+        txt
+      (format "%s  %s" txt suffix))))
 
 (advice-add 'org-agenda-format-item :around #'my-org-agenda-format-item)
 
