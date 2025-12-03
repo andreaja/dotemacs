@@ -67,7 +67,7 @@
                   (delq nil
                         (list
                          (when loc (format "[%s]" loc))
-                         (when oow (format "%s" oow))))
+                         (when oow (format "*%s*" oow))))
                   " ")))
     (if (string-empty-p suffix)
         txt
