@@ -58,22 +58,29 @@
 (flycheck-add-mode 'javascript-eslint 'js2-mode)
 
 
+(defun aja/org-agenda-add-location-and-one-on-one ()
+  "Append [LOCATION] and *ONE_ON_ONE_WITH* to agenda lines."
+  (let ((inhibit-read-only t))
+    (save-excursion
+      (goto-char (point-min))
+      (while (< (point) (point-max))
+        (let* ((marker (or (org-get-at-bol 'org-hd-marker)
+                           (org-get-at-bol 'org-marker)))
+               (loc   (and marker (org-entry-get marker "LOCATION")))
+               (oow   (and marker (org-entry-get marker "ONE_ON_ONE_WITH")))
+               (suffix (when (or loc oow)
+                         (string-join
+                          (delq nil
+                                (list (when loc (format "[%s]" loc))
+                                      (when oow (format "*%s*" oow))))
+                          " "))))
+          (when suffix
+            (end-of-line)
+            (insert "  " suffix)))
+        (forward-line 1)))))
 
-(defun my-org-agenda-format-item (orig-fun &rest args)
-  (let* ((txt (apply orig-fun args))
-         (loc (org-entry-get (point) "LOCATION"))
-         (oow (org-entry-get (point) "ONE_ON_ONE_WITH"))
-         (suffix (string-join
-                  (delq nil
-                        (list
-                         (when loc (format "[%s]" loc))
-                         (when oow (format "*%s*" oow))))
-                  " ")))
-    (if (string-empty-p suffix)
-        txt
-      (format "%s  %s" txt suffix))))
+(add-hook 'org-agenda-finalize-hook #'aja/org-agenda-add-location-and-one-on-one)
 
-(advice-add 'org-agenda-format-item :around #'my-org-agenda-format-item)
 
 ;; http://pages.sachachua.com/.emacs.d/Sacha.html
 (defun aja/org-agenda-skip-scheduled-and-non-tasks ()
