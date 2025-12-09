@@ -6,8 +6,8 @@
 ;; Homepage: https://github.com/magit/transient
 ;; Keywords: extensions
 
-;; Package-Version: 20251130.1844
-;; Package-Revision: 3fdd8043e28c
+;; Package-Version: 20251203.1001
+;; Package-Revision: b1b15bed496e
 ;; Package-Requires: (
 ;;     (emacs   "28.1")
 ;;     (compat  "30.1")
@@ -1700,20 +1700,20 @@ See info node `(transient)Modifying Existing Transients'."
     (setq group (transient--get-layout group)))
   (when (vectorp loc)
     (setq loc (append loc nil)))
-  (if (listp loc)
-      (and-let* ((match (transient--nth (pop loc) (aref group 2))))
-        (if loc
-            (transient--locate-child
-             match (cond ((or (stringp (car loc))
-                              (symbolp (car loc)))
-                          (car loc))
-                         ((symbolp match)
-                          (vconcat (cons 0 loc)))
-                         ((vconcat loc))))
-          (list match group)))
-    (seq-some (lambda (child)
-                (transient--match-child group loc child))
-              (aref group 2))))
+  (cond-let
+    ((atom loc)
+     (seq-some (lambda (child)
+                 (transient--match-child group loc child))
+               (aref group 2)))
+    ([match (transient--nth (pop loc) (aref group 2))]
+     (cond (loc (transient--locate-child
+                 match (cond ((or (stringp (car loc))
+                                  (symbolp (car loc)))
+                              (car loc))
+                             ((symbolp match)
+                              (vconcat (cons 0 loc)))
+                             ((vconcat loc)))))
+           ((list match group))))))
 
 (defun transient--match-child (group loc child)
   (cl-etypecase child
@@ -3426,21 +3426,22 @@ transient is active."
 
 ;;;; Help
 
-(defun transient-help (&optional interactive)
+(defun transient-help (&optional interactivep)
   "Show help for the active transient or one of its suffixes.
 \n(fn)"
   (interactive (list t))
-  (if interactive
-      (setq transient--helpp t)
+  (cond
+   (interactivep
+    (setq transient--helpp t))
+   ((lookup-key transient--transient-map
+                (this-single-command-raw-keys))
+    (setq transient--helpp nil)
     (with-demoted-errors "transient-help: %S"
-      (when (lookup-key transient--transient-map
-                        (this-single-command-raw-keys))
-        (setq transient--helpp nil)
-        (transient--display-help #'transient-show-help
-                                 (if (eq this-original-command 'transient-help)
-                                     transient--prefix
-                                   (or (transient-suffix-object)
-                                       this-original-command)))))))
+      (transient--display-help #'transient-show-help
+                               (if (eq this-original-command 'transient-help)
+                                   transient--prefix
+                                 (or (transient-suffix-object)
+                                     this-original-command)))))))
 
 (transient-define-suffix transient-describe ()
   "From a transient menu, describe something in another buffer.
@@ -4206,17 +4207,18 @@ a string, using the empty string for the empty value, or nil if
 the option does not appear in ARGS.
 
 Append \"=\ to ARG to indicate that it is an option."
-  (if (string-suffix-p "=" arg)
-      (save-match-data
-        (and-let* ((match (let ((case-fold-search nil)
-                                (re (format "\\`%s\\(?:=\\(.+\\)\\)?\\'"
-                                            (substring arg 0 -1))))
-                            (cl-find-if (lambda (a)
-                                          (and (stringp a)
-                                               (string-match re a)))
-                                        args))))
-          (or (match-string 1 match) "")))
-    (and (member arg args) t)))
+  (save-match-data
+    (cond-let
+      ((member arg args) t)
+      ([_(string-suffix-p "=" arg)]
+       [match (let ((case-fold-search nil)
+                    (re (format "\\`%s\\(?:=\\(.+\\)\\)?\\'"
+                                (substring arg 0 -1))))
+                (cl-find-if (lambda (a)
+                              (and (stringp a)
+                                   (string-match re a)))
+                            args))]
+       (match-string 1 match)))))
 
 ;;; Return
 
@@ -4286,21 +4288,23 @@ be non-nil.  If either is non-nil, try the following in order:
   class definition or using its `transient-init-scope' method.
 
 If no prefix matches, return nil."
-  (if (or prefixes classes)
-      (let ((prefixes (ensure-list prefixes))
-            (type (if (symbolp classes) classes (cons 'or classes))))
-        (if-let ((obj (cl-flet ((match (obj)
-                                  (and obj
-                                       (or (memq (oref obj command) prefixes)
-                                           (cl-typep obj type))
-                                       obj)))
-                        (or (match transient-current-prefix)
-                            (match transient--prefix)))))
-            (oref obj scope)
-          (and (get (car prefixes) 'transient--prefix)
-               (oref (transient--init-prefix (car prefixes)) scope))))
-    (and-let* ((obj (transient-prefix-object)))
-      (oref obj scope))))
+  (cond-let
+    ((or prefixes classes)
+     (let* ((prefixes (ensure-list prefixes))
+            (type (if (symbolp classes) classes (cons 'or classes)))
+            (match (lambda (obj)
+                     (and obj
+                          (or (memq (oref obj command) prefixes)
+                              (cl-typep obj type))
+                          obj))))
+       (cond-let
+         ([obj (or (funcall match transient-current-prefix)
+                   (funcall match transient--prefix))]
+          (oref obj scope))
+         ((get (car prefixes) 'transient--prefix)
+          (oref (transient--init-prefix (car prefixes)) scope)))))
+    ([obj (transient-prefix-object)]
+     (oref obj scope))))
 
 ;;; History
 
@@ -4861,23 +4865,18 @@ apply the face `transient-unreachable' to the complete string."
               (propertize "|" 'face 'transient-delimiter))))))
 
 (cl-defmethod transient--get-description ((obj transient-child))
-  (and-let* ((desc (oref obj description)))
-    (if (functionp desc)
-        (if (= (car (transient--func-arity desc)) 1)
-            (funcall desc obj)
-          (funcall desc))
-      desc)))
+  (cond-let* [[desc (oref obj description)]]
+             ((functionp desc)
+              (transient--arity-funcall desc obj))
+             (desc)))
 
 (cl-defmethod transient--get-face ((obj transient-suffix) slot)
-  (and-let* ((_(slot-boundp obj slot))
-             (face (slot-value obj slot)))
-    (if (and (not (facep face))
-             (functionp face))
-        (let ((transient--pending-suffix obj))
-          (if (= (car (transient--func-arity face)) 1)
-              (funcall face obj)
-            (funcall face)))
-      face)))
+  (cond-let* ((not (slot-boundp obj slot)) nil)
+             [[face (slot-value obj slot)]]
+             ((facep face) face)
+             ((functionp face)
+              (let ((transient--pending-suffix obj))
+                (transient--arity-funcall face obj)))))
 
 (defun transient--add-face (string face &optional append beg end)
   (let ((str (copy-sequence string)))
@@ -5384,8 +5383,11 @@ we stop there."
   (face-remap-reset-base 'default)
   (face-remap-add-relative 'default 'fixed-pitch))
 
-(defun transient--func-arity (fn)
-  (func-arity (advice--cd*r (if (symbolp fn) (symbol-function fn) fn))))
+(defun transient--arity-funcall (fn &rest args)
+  (let ((max (cdr (func-arity (advice--cd*r (if (symbolp fn)
+                                                (symbol-function fn)
+                                              fn))))))
+    (apply fn (if (eq max 'many) args (seq-take args max)))))
 
 (defun transient--seq-reductions-from (function sequence initial-value)
   (let ((acc (list initial-value)))
