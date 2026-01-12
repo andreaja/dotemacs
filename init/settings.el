@@ -37,11 +37,11 @@
                 flycheck ggtags gh go-mode gradle-mode htmlize
                 hungry-delete idomenu iedit insert-shebang
                 js2-refactor json-reformat lorem-ipsum lua-mode magit
-                markdown-mode mustache-mode paredit prettier-js
-                projectile rainbow-delimiters rainbow-mode restclient
-                rust-mode s slime smartscan smex smooth-scrolling
-                solarized-theme super-save terraform-mode urlenc
-                web-mode))
+                markdown-mode mermaid-ts-mode mustache-mode paredit
+                prettier-js projectile rainbow-delimiters rainbow-mode
+                restclient rust-mode s slime smartscan smex
+                smooth-scrolling solarized-theme super-save
+                terraform-mode urlenc web-mode))
  '(require-final-newline 'visit-save)
  '(safe-local-variable-values '((js2-basic-offset . 2) (js-indent-level . 2)))
  '(show-paren-delay 0)
