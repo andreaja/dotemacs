@@ -86,20 +86,34 @@
                       :height 0.1)
   (setq-default mode-line-format ""))
 
-(defun apply-custom-org-heading-styles ()
-  "Apply custom font and height to org headings using Solarized palette colors.
-   Uses warm-to-cool color progression: Red (warmest) → Magenta (coolest)."
-  (require 'solarized-palettes)
-
+(defun apply-custom-org-heading-fonts ()
+  "Apply custom font family and heights to org headings."
   (let* ((variable-tuple
           (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
                 ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
                 ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
                 ((x-list-fonts "Verdana")         '(:font "Verdana"))
                 ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
-                (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
-         (base-font-color (face-foreground 'default nil 'default))
-         (headline        '(:inherit default :weight bold))
+                (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro.")))))
+
+    (custom-theme-set-faces
+     'user
+     `(org-level-8 ((t (,@variable-tuple :height 1.0))))
+     `(org-level-7 ((t (,@variable-tuple :height 1.0))))
+     `(org-level-6 ((t (,@variable-tuple :height 1.1))))
+     `(org-level-5 ((t (,@variable-tuple :height 1.1))))
+     `(org-level-4 ((t (,@variable-tuple :height 1.15))))
+     `(org-level-3 ((t (,@variable-tuple :height 1.2))))
+     `(org-level-2 ((t (,@variable-tuple :height 1.3))))
+     `(org-level-1 ((t (,@variable-tuple :height 1.4))))
+     `(org-document-title ((t (,@variable-tuple :height 2.0 :underline nil)))))))
+
+(defun apply-custom-org-heading-colors ()
+  "Apply custom color progression to org headings using Solarized palette colors.
+   Uses warm-to-cool color progression: Red (warmest) → Magenta (coolest)."
+  (require 'solarized-palettes)
+
+  (let* ((headline '(:inherit default :weight bold))
          ;; Detect current theme variant
          (current-theme (car custom-enabled-themes))
          (is-dark (or (eq current-theme 'solarized-dark)
@@ -121,15 +135,15 @@
     (custom-theme-set-faces
      'user
      ;; Warm to Cool: Red → Orange → Yellow → Green → Cyan → Blue → Violet → Magenta
-     `(org-level-8 ((t (,@headline ,@variable-tuple :foreground ,magenta-color))))
-     `(org-level-7 ((t (,@headline ,@variable-tuple :foreground ,violet-color))))
-     `(org-level-6 ((t (,@headline ,@variable-tuple :foreground ,blue-color))))
-     `(org-level-5 ((t (,@headline ,@variable-tuple :foreground ,cyan-color))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :foreground ,green-color))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :foreground ,yellow-color))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :foreground ,orange-color))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :foreground ,red-color))))
-     `(org-document-title ((t (,@headline ,@variable-tuple :foreground ,red-color :height 2.0 :underline nil)))))))
+     `(org-level-8 ((t (,@headline :foreground ,magenta-color))))
+     `(org-level-7 ((t (,@headline :foreground ,violet-color))))
+     `(org-level-6 ((t (,@headline :foreground ,blue-color))))
+     `(org-level-5 ((t (,@headline :foreground ,cyan-color))))
+     `(org-level-4 ((t (,@headline :foreground ,green-color))))
+     `(org-level-3 ((t (,@headline :foreground ,yellow-color))))
+     `(org-level-2 ((t (,@headline :foreground ,orange-color))))
+     `(org-level-1 ((t (,@headline :foreground ,red-color))))
+     `(org-document-title ((t (,@headline :foreground ,red-color)))))))
 
 
 ;; Solarized setting
@@ -141,14 +155,16 @@
   (load-theme 'solarized-dark-high-contrast t)
   (invisible-mode-line "#01323d") ;; dark base02
   (set-face-background 'trailing-whitespace "#62787f") ;; base01 (emphasized content)
-  (apply-custom-org-heading-styles))  ; Apply after theme loads
+  (apply-custom-org-heading-fonts)    ; Apply font configuration
+  (apply-custom-org-heading-colors))  ; Apply color configuration
 
 (defun theme-light ()
   (interactive)
   (load-theme 'solarized-light-high-contrast t)
   (invisible-mode-line "#002b37") ;; light base02
   (set-face-background 'trailing-whitespace "#5d737a") ;; base01 (emphasized content)
-  (apply-custom-org-heading-styles))  ; Apply after theme loads
+  (apply-custom-org-heading-fonts)    ; Apply font configuration
+  (apply-custom-org-heading-colors))  ; Apply color configuration
 
 ;; default theme
 (theme-dark)
