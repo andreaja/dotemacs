@@ -166,6 +166,9 @@
               (shell-command (format "open \"%s\"" tag)))))
 
 
+(use-package org-bullets
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (require 'netrc)
 (setq netrc-file "~/.netrc-emacs")
