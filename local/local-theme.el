@@ -87,7 +87,8 @@
   (setq-default mode-line-format ""))
 
 (defun apply-custom-org-heading-styles ()
-  "Apply custom font and height to org headings using Solarized palette colors."
+  "Apply custom font and height to org headings using Solarized palette colors.
+   Uses warm-to-cool color progression: Red (warmest) → Magenta (coolest)."
   (require 'solarized-palettes)
 
   (let* ((variable-tuple
@@ -107,24 +108,28 @@
          (palette (if is-dark
                       solarized-dark-high-contrast-palette-alist
                     solarized-light-high-contrast-palette-alist))
-         ;; Extract accent colors from palette
-         (orange-color (cdr (assoc 'orange palette)))
-         (yellow-color (cdr (assoc 'yellow palette)))
-         (green-color  (cdr (assoc 'green palette)))
-         (cyan-color   (cdr (assoc 'cyan palette)))
-         (blue-color   (cdr (assoc 'blue palette))))
+         ;; Extract all 8 accent colors from palette (warm to cool)
+         (red-color     (cdr (assoc 'red palette)))
+         (orange-color  (cdr (assoc 'orange palette)))
+         (yellow-color  (cdr (assoc 'yellow palette)))
+         (green-color   (cdr (assoc 'green palette)))
+         (cyan-color    (cdr (assoc 'cyan palette)))
+         (blue-color    (cdr (assoc 'blue palette)))
+         (violet-color  (cdr (assoc 'violet palette)))
+         (magenta-color (cdr (assoc 'magenta palette))))
 
     (custom-theme-set-faces
      'user
-     `(org-level-8 ((t (,@headline ,@variable-tuple :foreground ,base-font-color))))
-     `(org-level-7 ((t (,@headline ,@variable-tuple :foreground ,base-font-color))))
-     `(org-level-6 ((t (,@headline ,@variable-tuple :foreground ,base-font-color))))
-     `(org-level-5 ((t (,@headline ,@variable-tuple :foreground ,blue-color))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :foreground ,cyan-color :height 1.1))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :foreground ,green-color :height 1.25))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :foreground ,yellow-color :height 1.5))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :foreground ,orange-color :height 1.75))))
-     `(org-document-title ((t (,@headline ,@variable-tuple :foreground ,orange-color :height 2.0 :underline nil)))))))
+     ;; Warm to Cool: Red → Orange → Yellow → Green → Cyan → Blue → Violet → Magenta
+     `(org-level-8 ((t (,@headline ,@variable-tuple :foreground ,magenta-color))))
+     `(org-level-7 ((t (,@headline ,@variable-tuple :foreground ,violet-color))))
+     `(org-level-6 ((t (,@headline ,@variable-tuple :foreground ,blue-color))))
+     `(org-level-5 ((t (,@headline ,@variable-tuple :foreground ,cyan-color))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :foreground ,green-color :height 1.1))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :foreground ,yellow-color :height 1.25))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :foreground ,orange-color :height 1.5))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :foreground ,red-color :height 1.75))))
+     `(org-document-title ((t (,@headline ,@variable-tuple :foreground ,red-color :height 2.0 :underline nil)))))))
 
 
 ;; Solarized setting
