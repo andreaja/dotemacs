@@ -166,6 +166,8 @@
               (shell-command (format "open \"%s\"" tag)))))
 
 
+(setq org-hide-emphasis-markers t)
+
 (use-package org-bullets
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
