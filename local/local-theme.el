@@ -86,6 +86,47 @@
                       :height 0.1)
   (setq-default mode-line-format ""))
 
+(defun apply-custom-org-heading-styles ()
+  "Apply custom font and height to org headings using Solarized palette colors."
+  (require 'solarized-palettes)
+
+  (let* ((variable-tuple
+          (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
+                ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+                ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+                ((x-list-fonts "Verdana")         '(:font "Verdana"))
+                ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+                (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+         (base-font-color (face-foreground 'default nil 'default))
+         (headline        '(:inherit default :weight bold))
+         ;; Detect current theme variant
+         (current-theme (car custom-enabled-themes))
+         (is-dark (or (eq current-theme 'solarized-dark)
+                      (eq current-theme 'solarized-dark-high-contrast)))
+         ;; Get the appropriate palette
+         (palette (if is-dark
+                      solarized-dark-high-contrast-palette-alist
+                    solarized-light-high-contrast-palette-alist))
+         ;; Extract accent colors from palette
+         (orange-color (cdr (assoc 'orange palette)))
+         (yellow-color (cdr (assoc 'yellow palette)))
+         (green-color  (cdr (assoc 'green palette)))
+         (cyan-color   (cdr (assoc 'cyan palette)))
+         (blue-color   (cdr (assoc 'blue palette))))
+
+    (custom-theme-set-faces
+     'user
+     `(org-level-8 ((t (,@headline ,@variable-tuple :foreground ,base-font-color))))
+     `(org-level-7 ((t (,@headline ,@variable-tuple :foreground ,base-font-color))))
+     `(org-level-6 ((t (,@headline ,@variable-tuple :foreground ,base-font-color))))
+     `(org-level-5 ((t (,@headline ,@variable-tuple :foreground ,blue-color))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :foreground ,cyan-color :height 1.1))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :foreground ,green-color :height 1.25))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :foreground ,yellow-color :height 1.5))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :foreground ,orange-color :height 1.75))))
+     `(org-document-title ((t (,@headline ,@variable-tuple :foreground ,orange-color :height 2.0 :underline nil)))))))
+
+
 ;; Solarized setting
 ;; Don't change size of org-mode headlines (but keep other size-changes)
 (setq solarized-scale-org-headlines nil)
@@ -95,14 +136,14 @@
   (load-theme 'solarized-dark-high-contrast t)
   (invisible-mode-line "#01323d") ;; dark base02
   (set-face-background 'trailing-whitespace "#62787f") ;; base01 (emphasized content)
-  )
+  (apply-custom-org-heading-styles))  ; Apply after theme loads
 
 (defun theme-light ()
   (interactive)
   (load-theme 'solarized-light-high-contrast t)
   (invisible-mode-line "#002b37") ;; light base02
   (set-face-background 'trailing-whitespace "#5d737a") ;; base01 (emphasized content)
-  )
+  (apply-custom-org-heading-styles))  ; Apply after theme loads
 
 ;; default theme
 (theme-dark)
@@ -159,3 +200,4 @@
   (prettify-symbols-mode 1))
 
 (add-hook 'org-mode-hook #'org-mode-prettify-symbols)
+
