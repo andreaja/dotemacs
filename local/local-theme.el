@@ -124,11 +124,11 @@
      `(org-level-8 ((t (,@headline ,@variable-tuple :foreground ,magenta-color))))
      `(org-level-7 ((t (,@headline ,@variable-tuple :foreground ,violet-color))))
      `(org-level-6 ((t (,@headline ,@variable-tuple :foreground ,blue-color))))
-     `(org-level-5 ((t (,@headline ,@variable-tuple :foreground ,cyan-color))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :foreground ,green-color :height 1.1))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :foreground ,yellow-color :height 1.25))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :foreground ,orange-color :height 1.5))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :foreground ,red-color :height 1.75))))
+     `(org-level-5 ((t (,@headline ,@variable-tuple :foreground ,cyan-color :height 1.1))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :foreground ,green-color :height 1.2))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :foreground ,yellow-color :height 1.3))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :foreground ,orange-color :height 1.4))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :foreground ,red-color :height 1))))
      `(org-document-title ((t (,@headline ,@variable-tuple :foreground ,red-color :height 2.0 :underline nil)))))))
 
 
