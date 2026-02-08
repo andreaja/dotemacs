@@ -167,31 +167,34 @@
 
 (defun apply-org-mixed-pitch-faces ()
   "Configure org-mode faces to use fixed-pitch for technical elements."
+  ;; IMPORTANT: Do not include the face itself in the :inherit list!
+  ;; Example: org-code should inherit ONLY from fixed-pitch, not (fixed-pitch org-code)
+  ;; Including the face itself creates infinite recursion and stack overflow.
   (custom-theme-set-faces
    'user
    ;; Code and verbatim blocks
    '(org-block ((t (:inherit fixed-pitch))))
    '(org-block-begin-line ((t (:inherit fixed-pitch))))
    '(org-block-end-line ((t (:inherit fixed-pitch))))
-   '(org-code ((t (:inherit (fixed-pitch org-code)))))
-   '(org-verbatim ((t (:inherit (fixed-pitch org-verbatim)))))
+   '(org-code ((t (:inherit fixed-pitch))))
+   '(org-verbatim ((t (:inherit fixed-pitch))))
 
    ;; Tables and formulas (critical for alignment)
    '(org-table ((t (:inherit fixed-pitch))))
-   '(org-formula ((t (:inherit (fixed-pitch org-formula)))))
+   '(org-formula ((t (:inherit fixed-pitch))))
 
    ;; Metadata and keywords
-   '(org-meta-line ((t (:inherit (fixed-pitch org-meta-line)))))
-   '(org-document-info-keyword ((t (:inherit (fixed-pitch org-document-info-keyword)))))
-   '(org-special-keyword ((t (:inherit (fixed-pitch org-special-keyword)))))
+   '(org-meta-line ((t (:inherit fixed-pitch))))
+   '(org-document-info-keyword ((t (:inherit fixed-pitch))))
+   '(org-special-keyword ((t (:inherit fixed-pitch))))
    '(org-property-value ((t (:inherit fixed-pitch))))
 
    ;; Dates and tags
-   '(org-date ((t (:inherit (fixed-pitch org-date)))))
-   '(org-tag ((t (:inherit (fixed-pitch org-tag)))))
+   '(org-date ((t (:inherit fixed-pitch))))
+   '(org-tag ((t (:inherit fixed-pitch))))
 
    ;; Checkboxes and structural elements
-   '(org-checkbox ((t (:inherit (fixed-pitch org-checkbox)))))
+   '(org-checkbox ((t (:inherit fixed-pitch))))
    '(org-drawer ((t (:inherit fixed-pitch))))
    '(org-indent ((t (:inherit fixed-pitch))))))
 
