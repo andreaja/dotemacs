@@ -14,4 +14,8 @@
   :config
   (setq-default visual-fill-column-width 80)
   (setq-default visual-fill-column-center-text nil)
+  (setq-default visual-fill-column-adjust-for-text-scale nil)
+
+  (advice-add 'text-scale-adjust :after #'visual-fill-column-adjust)
+
   :hook (org-mode . visual-fill-column-mode))
