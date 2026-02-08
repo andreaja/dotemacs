@@ -88,7 +88,8 @@
 
 (defun get-variable-pitch-font ()
   "Return the appropriate variable-pitch font specification."
-  (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
+  (cond ((x-list-fonts "Iosevka Aile")    '(:font "Iosevka Aile"))
+        ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
         ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
         ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
         ((x-list-fonts "Verdana")         '(:font "Verdana"))
@@ -97,7 +98,8 @@
 
 (defun get-fixed-pitch-font ()
   "Return the appropriate fixed-pitch/monospace font specification."
-  (cond ((x-list-fonts "SF Mono")       '(:font "SF Mono"))
+  (cond ((x-family-fonts "Iosevka")     '(:font "Iosevka"))
+        ((x-list-fonts "SF Mono")       '(:font "SF Mono"))
         ((x-list-fonts "Menlo")         '(:font "Menlo"))
         ((x-list-fonts "Monaco")        '(:font "Monaco"))
         ((x-list-fonts "Courier New")   '(:font "Courier New"))
