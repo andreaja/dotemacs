@@ -249,11 +249,11 @@
       (:authors ("Artur Malabarba" . "emacs@endlessparentheses.com"))
       (:commit . "0cf8b60f62876f3e75653a5fb30d5d5cdd74c586"))])
  (beframe
-  . [(1 4 0) ((emacs (28 1))) "Isolate buffers per frame" tar
+  . [(1 5 0) ((emacs (28 1))) "Isolate buffers per frame" tar
      ((:url . "https://github.com/protesilaos/beframe")
       (:maintainer "Protesilaos Stavrou" . "info@protesilaos.com")
       (:authors ("Protesilaos Stavrou" . "info@protesilaos.com"))
-      (:commit . "2728f72174c1164e99bab4daaef64910e6b41c6c"))])
+      (:commit . "68260beb5d60600a75d6e5b54eb1e5e9cf8c6eac"))])
  (bicep-ts-mode
   . [(0 1 4) nil "tree-sitter support for Bicep" tar
      ((:url . "https://github.com/josteink/bicep-ts-mode")
@@ -657,11 +657,11 @@
       (:url . "https://elpa.gnu.org/packages/cycle-quotes.html")
       (:commit . "836b19b39651419876e65cdb1a91e3eef83cc4e7"))])
  (dape
-  . [(0 25 0) ((emacs (29 1)) (jsonrpc (1 0 25)))
+  . [(0 26 0) ((emacs (29 1)) (jsonrpc (1 0 25)))
      "Debug Adapter Protocol for Emacs" tar
      ((:url . "https://github.com/svaante/dape")
       (:maintainer "Daniel Pettersson" . "daniel@dpettersson.net")
-      (:commit . "41bfe422cc715f99b83b8a18b556de90005ccad1"))])
+      (:commit . "51493a00806fe43989b87cd34de2715d523aadb8"))])
  (darkroom
   . [(0 3) ((cl-lib (0 5)))
      "Remove visual distractions and focus on writing" tar
@@ -736,13 +736,13 @@
       (:authors ("Protesilaos Stavrou" . "info@protesilaos.com"))
       (:commit . "36f24f0f0f472e4cb50025ed62a1b32351d7d294"))])
  (denote-review
-  . [(1 0 4) ((emacs (28 1)) (denote (4 1 3)))
+  . [(1 0 5) ((emacs (28 1)) (denote (4 1 3)))
      "implements review process for denote notes" tar
      ((:url . "https://codeberg.org/mattof/denote-review")
       (:keywords "files")
       (:maintainer "Matto Fransen" . "matto@matto.nl")
       (:authors ("Matto Fransen" . "matto@matto.nl"))
-      (:commit . "9a4cf8a422e1bc915b2624a34ef39563709915fd"))])
+      (:commit . "1a93a32190e35731ba12e7ecde629e2971e870db"))])
  (denote-search
   . [(1 0 3) ((emacs (29 1)) (denote (3 0)))
      "Search the contents of your notes" tar
@@ -882,14 +882,13 @@
       (:url . "https://elpa.gnu.org/packages/djvu.html")
       (:commit . "071c8ab168588897475899c46eaa16e70141db8c"))])
  (do-at-point
-  . [(0 1 2) ((emacs (26 1)))
+  . [(0 2 0) ((emacs (26 1)))
      "Generic context-sensitive action dispatcher." tar
-     ((:url . "https://git.sr.ht/~pkal/do-at-point")
+     ((:url . "https://codeberg.org/pkal/do-at-point.el")
       (:keywords "convenience")
-      (:maintainer "Philip Kaludercic"
-		   . "~pkal/public-inbox@lists.sr.ht")
+      (:maintainer "Philip Kaludercic" . "philipk@posteo.net")
       (:authors ("Philip Kaludercic" . "philipk@posteo.net"))
-      (:commit . "da0742df74cbb36347aefd5dcb17d674ee4846d3"))])
+      (:commit . "abdc992088f552d4dbc649955b0911f15418aead"))])
  (doc-toc
   . [(1 2) ((emacs (26 1)))
      "Manage outlines/table of contents of pdf and djvu documents" tar
@@ -1061,7 +1060,7 @@
       (:url . "https://elpa.gnu.org/packages/elisp-benchmarks.html")
       (:commit . "1a3d97954957a95a179806e0d49ca6d178b097af"))])
  (ellama
-  . [(1 11 0)
+  . [(1 12 0)
      ((emacs (28 1)) (llm (0 24 0)) (plz (0 8)) (transient (0 7))
       (compat (29 1)) (yaml (1 2 3)))
      "Tool for interacting with LLMs" tar
@@ -1069,7 +1068,7 @@
       (:keywords "help" "local" "tools")
       (:maintainer "Sergey Kostyaev" . "sskostyaev@gmail.com")
       (:authors ("Sergey Kostyaev" . "sskostyaev@gmail.com"))
-      (:commit . "4868cf4333b03d720005370cf7602b24df88d9e6"))])
+      (:commit . "36be8cc6f0dae7c2b60273ed42da26d9744c291b"))])
  (emacs-gc-stats
   . [(1 4 2) ((emacs (25 1))) "Collect Emacs GC statistics" tar
      ((:url . "https://git.sr.ht/~yantar92/emacs-gc-stats")
@@ -1931,7 +1930,7 @@
       (:authors ("Ian Martins" . "ianxm@jhu.edu"))
       (:commit . "da128406fca3eeb66358d479082cd78f2fdeabb4"))])
  (matlab-mode
-  . [(8 0 1) ((emacs (27 2))) "Major mode for MATLAB(R) dot-m files"
+  . [(8 0 3) ((emacs (27 2))) "Major mode for MATLAB(R) dot-m files"
      tar
      ((:url . "https://github.com/mathworks/Emacs-MATLAB-Mode")
       (:keywords "matlab(r)")
@@ -1940,7 +1939,7 @@
 		   ("John Ciolfi" . "john.ciolfi.32@gmail.com"))
       (:authors ("Matt Wette" . "mwette@alumni.caltech.edu")
 		("Eric M. Ludlam" . "eludlam@mathworks.com"))
-      (:commit . "7144e1f4f2bffcda6cbe61bfca5e8c7cc5d2d76b"))])
+      (:commit . "eb664b938472b7d2369149ef66089eb8be4bfc0b"))])
  (mct
   . [(1 1 0) ((emacs (29 1))) "Minibuffer Confines Transcended" tar
      ((:url . "https://github.com/protesilaos/mct")
@@ -2438,6 +2437,11 @@
       (:maintainer "Augusto Stoffel" . "arstoffel@gmail.com")
       (:authors ("Augusto Stoffel" . "arstoffel@gmail.com"))
       (:commit . "c55e6aa2971caad582df1d449e0f57604250cae1"))])
+ (po-mode
+  . [(2 32) ((emacs (23))) "major mode for GNU gettext PO files" tar
+     ((:keywords "i18n" "gettext")
+      (:url . "https://elpa.gnu.org/packages/po-mode.html")
+      (:commit . "24d793df3cffd2fa7636be6f00c2f283577655d4"))])
  (poke
   . [(3 2) ((emacs (25))) "Emacs meets GNU poke!" tar
      ((:url . "https://www.jemarch.net/poke")
@@ -2482,13 +2486,13 @@
       (:authors ("Tom Gillespie" . "tgbugs@gmail.com"))
       (:commit . "4dad5fcdbbb362a0dc2dfa7b5a38dd5be1551c68"))])
  (preview-auto
-  . [(0 4 1) ((emacs (29 3)) (auctex (14 0 5)))
+  . [(0 4 2) ((emacs (29 3)) (auctex (14 0 5)))
      "Automatic previews in AUCTeX" tar
      ((:url . "https://github.com/ultronozm/preview-auto.el")
       (:keywords "tex" "convenience")
       (:maintainer "Paul D. Nelson" . "nelson.paul.david@gmail.com")
       (:authors ("Paul D. Nelson" . "nelson.paul.david@gmail.com"))
-      (:commit . "4002b7569416eac640072ec7fe04337e2747910d"))])
+      (:commit . "6da4a97bf51a3994525958cfa3736fb80003d4e7"))])
  (preview-tailor
   . [(0 2 1) ((emacs (29 1)) (auctex (0)))
      "Tailor AUCTeX preview scale to monitor/text scale" tar
@@ -3427,13 +3431,13 @@
       (:authors ("Daniel Mendler" . "mail@daniel-mendler.de"))
       (:commit . "c12c8f842fd184db44fb2b835b0f954bbc90c7a6"))])
  (vertico-posframe
-  . [(0 9 1) ((emacs (26 0)) (posframe (1 4 0)) (vertico (2 5)))
+  . [(0 9 2) ((emacs (26 0)) (posframe (1 4 0)) (vertico (2 6)))
      "Using posframe to show Vertico" tar
      ((:url . "https://github.com/tumashu/vertico-posframe")
       (:keywords "abbrev" "convenience" "matching" "vertico")
       (:maintainer "Feng Shu" . "tumashu@163.com")
       (:authors ("Feng Shu" . "tumashu@163.com"))
-      (:commit . "6ceeeff4c13663083bfaa4193879191a0c8c57de"))])
+      (:commit . "d6e06a4f1b34d24cc0ca6ec69d2d6c965191b23e"))])
  (vigenere
   . [(1 0) ((emacs (25 1)))
      "Run a vigenere cipher on a block of text ;" tar
@@ -3500,12 +3504,12 @@
       (:authors ("Pierre Neidhardt" . "mail@ambrevar.xyz"))
       (:commit . "6037848ee495a67510d8b43f1fbe319b76dbd859"))])
  (websocket
-  . [(1 15) ((cl-lib (0 5))) "Emacs WebSocket client and server" tar
+  . [(1 16) ((cl-lib (0 5))) "Emacs WebSocket client and server" tar
      ((:url . "https://github.com/ahyatt/emacs-websocket")
       (:keywords "communication" "websocket" "server")
       (:maintainer "Andrew Hyatt" . "ahyatt@gmail.com")
       (:authors ("Andrew Hyatt" . "ahyatt@gmail.com"))
-      (:commit . "40c208eaab99999d7c1e4bea883648da24c03be3"))])
+      (:commit . "03d1cca4bd910a8df73e4ec637836c6ac25213a2"))])
  (which-key
   . [(3 6 1) ((emacs (25 1))) "Display available keybindings in popup"
      tar

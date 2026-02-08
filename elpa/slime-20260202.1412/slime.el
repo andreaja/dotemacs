@@ -3,8 +3,8 @@
 ;; URL: https://github.com/slime/slime
 ;; Package-Requires: ((emacs "24.3") (macrostep "0.9"))
 ;; Keywords: languages, lisp, slime
-;; Package-Version: 20260119.505
-;; Package-Revision: 71707c2bb7d6
+;; Package-Version: 20260202.1412
+;; Package-Revision: 064716011575
 
 ;;;; License and Commentary
 

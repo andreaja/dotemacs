@@ -1,7 +1,7 @@
 ;;; rust-mode.el --- A major-mode for editing Rust source code -*-lexical-binding: t-*-
 
-;; Package-Version: 20260118.536
-;; Package-Revision: 4adb3a729653
+;; Package-Version: 20260207.424
+;; Package-Revision: f68ddca5c22b
 ;; Author: Mozilla <rust-mode@noreply.github.com>
 ;; Url: https://github.com/rust-lang/rust-mode
 ;; Keywords: languages
