@@ -86,16 +86,27 @@
                       :height 0.1)
   (setq-default mode-line-format ""))
 
+(defun get-variable-pitch-font ()
+  "Return the appropriate variable-pitch font specification."
+  (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
+        ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+        ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+        ((x-list-fonts "Verdana")         '(:font "Verdana"))
+        ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+        (t (warn "Cannot find a Sans Serif Font.") '(:family "Sans Serif"))))
+
+(defun get-fixed-pitch-font ()
+  "Return the appropriate fixed-pitch/monospace font specification."
+  (cond ((x-list-fonts "SF Mono")       '(:font "SF Mono"))
+        ((x-list-fonts "Menlo")         '(:font "Menlo"))
+        ((x-list-fonts "Monaco")        '(:font "Monaco"))
+        ((x-list-fonts "Courier New")   '(:font "Courier New"))
+        ((x-family-fonts "Monospace")   '(:family "Monospace"))
+        (t (warn "Cannot find a Monospace Font.") '(:family "Monospace"))))
+
 (defun apply-custom-org-heading-fonts ()
   "Apply custom font family and heights to org headings."
-  (let* ((variable-tuple
-          (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
-                ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
-                ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
-                ((x-list-fonts "Verdana")         '(:font "Verdana"))
-                ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
-                (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro.")))))
-
+  (let* ((variable-tuple (get-variable-pitch-font)))
     (custom-theme-set-faces
      'user
      `(org-level-8 ((t (,@variable-tuple :height 1.0))))
@@ -145,6 +156,42 @@
      `(org-level-1 ((t (,@headline :foreground ,red-color))))
      `(org-document-title ((t (,@headline :foreground ,red-color)))))))
 
+(defun apply-base-pitch-faces ()
+  "Configure the base fixed-pitch and variable-pitch faces."
+  (let ((mono-font (get-fixed-pitch-font))
+        (variable-font (get-variable-pitch-font)))
+    (set-face-attribute 'fixed-pitch nil :family (plist-get mono-font :font))
+    (set-face-attribute 'variable-pitch nil :family (plist-get variable-font :font))))
+
+(defun apply-org-mixed-pitch-faces ()
+  "Configure org-mode faces to use fixed-pitch for technical elements."
+  (custom-theme-set-faces
+   'user
+   ;; Code and verbatim blocks
+   '(org-block ((t (:inherit fixed-pitch))))
+   '(org-block-begin-line ((t (:inherit fixed-pitch))))
+   '(org-block-end-line ((t (:inherit fixed-pitch))))
+   '(org-code ((t (:inherit (fixed-pitch org-code)))))
+   '(org-verbatim ((t (:inherit (fixed-pitch org-verbatim)))))
+
+   ;; Tables and formulas (critical for alignment)
+   '(org-table ((t (:inherit fixed-pitch))))
+   '(org-formula ((t (:inherit (fixed-pitch org-formula)))))
+
+   ;; Metadata and keywords
+   '(org-meta-line ((t (:inherit (fixed-pitch org-meta-line)))))
+   '(org-document-info-keyword ((t (:inherit (fixed-pitch org-document-info-keyword)))))
+   '(org-special-keyword ((t (:inherit (fixed-pitch org-special-keyword)))))
+   '(org-property-value ((t (:inherit fixed-pitch))))
+
+   ;; Dates and tags
+   '(org-date ((t (:inherit (fixed-pitch org-date)))))
+   '(org-tag ((t (:inherit (fixed-pitch org-tag)))))
+
+   ;; Checkboxes and structural elements
+   '(org-checkbox ((t (:inherit (fixed-pitch org-checkbox)))))
+   '(org-drawer ((t (:inherit fixed-pitch))))
+   '(org-indent ((t (:inherit fixed-pitch))))))
 
 ;; Solarized setting
 ;; Don't change size of org-mode headlines (but keep other size-changes)
@@ -155,16 +202,20 @@
   (load-theme 'solarized-dark-high-contrast t)
   (invisible-mode-line "#01323d") ;; dark base02
   (set-face-background 'trailing-whitespace "#62787f") ;; base01 (emphasized content)
+  (apply-base-pitch-faces)            ; Set up base faces
   (apply-custom-org-heading-fonts)    ; Apply font configuration
-  (apply-custom-org-heading-colors))  ; Apply color configuration
+  (apply-custom-org-heading-colors)   ; Apply color configuration
+  (apply-org-mixed-pitch-faces))      ; Apply mixed-pitch faces
 
 (defun theme-light ()
   (interactive)
   (load-theme 'solarized-light-high-contrast t)
   (invisible-mode-line "#002b37") ;; light base02
   (set-face-background 'trailing-whitespace "#5d737a") ;; base01 (emphasized content)
+  (apply-base-pitch-faces)            ; Set up base faces
   (apply-custom-org-heading-fonts)    ; Apply font configuration
-  (apply-custom-org-heading-colors))  ; Apply color configuration
+  (apply-custom-org-heading-colors)   ; Apply color configuration
+  (apply-org-mixed-pitch-faces))      ; Apply mixed-pitch faces
 
 ;; default theme
 (theme-dark)

@@ -8,6 +8,7 @@
 (require 'hl-tags-mode)
 
 (add-hook 'org-mode-hook 'visual-line-mode)
+(add-hook 'org-mode-hook 'variable-pitch-mode)
 
 ;; Configure visual-fill-column for org-mode
 (use-package visual-fill-column
