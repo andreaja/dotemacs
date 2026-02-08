@@ -95,7 +95,10 @@
             (define-key org-mode-map [S-left]
               (lambda () (interactive) (message "Use org-todo instead")))
             (define-key org-mode-map [S-right]
-              (lambda () (interactive) (message "Use org-todo instead")))))
+              (lambda () (interactive) (message "Use org-todo instead")))
+            ;; Custom C-a and C-e for visual-line-mode
+            (define-key org-mode-map (kbd "C-a") 'org-visual-line-beginning-of-line-or-previous)
+            (define-key org-mode-map (kbd "C-e") 'org-visual-line-end-of-line-or-next)))
 
 (add-hook 'org-agenda-mode-hook
           (lambda ()
