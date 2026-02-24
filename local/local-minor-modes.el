@@ -33,7 +33,7 @@
 ;; Configure visual-fill-column for org-mode
 (use-package visual-fill-column
   :config
-  (setq-default visual-fill-column-width 80)
+  (setq-default visual-fill-column-width 100)
   (setq-default visual-fill-column-center-text nil)
   (setq-default visual-fill-column-adjust-for-text-scale nil)
 
