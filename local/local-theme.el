@@ -198,6 +198,13 @@
    '(org-drawer ((t (:inherit fixed-pitch))))
    '(org-indent ((t (:inherit fixed-pitch))))))
 
+
+(defun apply-org-agenda-faces ()
+  "Customize org-agenda faces using current theme's palette."
+  (set-face-attribute 'org-agenda-current-time nil
+                      :foreground (face-foreground 'warning)
+                      :weight 'bold))
+
 ;; Solarized setting
 ;; Don't change size of org-mode headlines (but keep other size-changes)
 (setq solarized-scale-org-headlines nil)
@@ -210,7 +217,8 @@
   (apply-base-pitch-faces)            ; Set up base faces
   (apply-custom-org-heading-fonts)    ; Apply font configuration
   (apply-custom-org-heading-colors)   ; Apply color configuration
-  (apply-org-mixed-pitch-faces))      ; Apply mixed-pitch faces
+  (apply-org-mixed-pitch-faces)       ; Apply mixed-pitch faces
+  (apply-org-agenda-faces))
 
 (defun theme-light ()
   (interactive)
@@ -220,7 +228,9 @@
   (apply-base-pitch-faces)            ; Set up base faces
   (apply-custom-org-heading-fonts)    ; Apply font configuration
   (apply-custom-org-heading-colors)   ; Apply color configuration
+  (apply-org-agenda-faces)
   (apply-org-mixed-pitch-faces))      ; Apply mixed-pitch faces
+
 
 ;; default theme
 (theme-dark)
