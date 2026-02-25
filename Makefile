@@ -1,12 +1,13 @@
 ELISP := $(HOME)/.emacs.d
 EMACS := emacs
 
-.PHONY: clean_byte compile all
+.PHONY: clean compile all
 
-clean_byte:
+all: compile
+
+clean:
 	find . -name "*.elc" -delete
 
 compile:
 	$(EMACS) -batch -f batch-byte-recompile-directory $(ELISP)
 
-all: compile
