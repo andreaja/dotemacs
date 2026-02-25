@@ -10,8 +10,8 @@
 ;;             Bozhidar Batsov <bozhidar@batsov.dev>
 ;; URL: https://github.com/flycheck/flycheck
 ;; Keywords: convenience, languages, tools
-;; Package-Version: 20260223.1754
-;; Package-Revision: 36741d8df56f
+;; Package-Version: 20260224.1923
+;; Package-Revision: b714e2770f6a
 ;; Package-Requires: ((emacs "27.1") (seq "2.24"))
 
 ;; This file is not part of GNU Emacs.
@@ -11173,7 +11173,15 @@ See URL `https://github.com/igorshubovych/markdownlint-cli'."
             "--"
             source)
   :error-patterns
-  ((error line-start
+  (;; markdownlint-cli v0.42+/cli2 v0.14+ include a severity word
+   (error line-start
+          (file-name) ":" line
+          (? ":" column) " "
+          (or "error" "warning") " "
+          (id (one-or-more (not (any space))))
+          " " (message) line-end)
+   ;; older versions without severity word
+   (error line-start
           (file-name) ":" line
           (? ":" column) " " (id (one-or-more (not (any space))))
           " " (message) line-end))
@@ -11196,7 +11204,15 @@ See URL `https://github.com/DavidAnson/markdownlint-cli2'."
             "--"
             source)
   :error-patterns
-  ((error line-start
+  (;; markdownlint-cli v0.42+/cli2 v0.14+ include a severity word
+   (error line-start
+          (file-name) ":" line
+          (? ":" column) " "
+          (or "error" "warning") " "
+          (id (one-or-more (not (any space))))
+          " " (message) line-end)
+   ;; older versions without severity word
+   (error line-start
           (file-name) ":" line
           (? ":" column) " " (id (one-or-more (not (any space))))
           " " (message) line-end))

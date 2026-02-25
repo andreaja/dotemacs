@@ -1,11 +1,11 @@
 ;; -*- no-byte-compile: t; lexical-binding: nil -*-
-(define-package "flycheck" "20260223.1754"
+(define-package "flycheck" "20260224.1923"
   "On-the-fly syntax checking."
   '((emacs "27.1")
     (seq   "2.24"))
   :url "https://github.com/flycheck/flycheck"
-  :commit "36741d8df56feb520c3228f45d156be143f9976c"
-  :revdesc "36741d8df56f"
+  :commit "b714e2770f6a2d1f441557f7c14182ae4e3defef"
+  :revdesc "b714e2770f6a"
   :keywords '("convenience" "languages" "tools")
   :authors '(("Sebastian Wiesner" . "swiesner@lunaryorn.com"))
   :maintainers '(("Clément Pit-Claudel" . "clement.pitclaudel@live.com")
