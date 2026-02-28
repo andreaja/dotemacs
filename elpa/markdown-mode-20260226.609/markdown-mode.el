@@ -6,8 +6,8 @@
 ;; Author: Jason R. Blevins <jblevins@xbeta.org>
 ;; Maintainer: Jason R. Blevins <jblevins@xbeta.org>
 ;; Created: May 24, 2007
-;; Package-Version: 20260209.459
-;; Package-Revision: 9de2df5a9f2f
+;; Package-Version: 20260226.609
+;; Package-Revision: 3933f282d0db
 ;; Package-Requires: ((emacs "28.1"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: https://jblevins.org/projects/markdown-mode/
@@ -10552,7 +10552,7 @@ rows and columns and the column alignment."
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
-             '("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'" . markdown-mode))
+             '("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\|mdx\\)\\'" . markdown-mode))
 
 
 ;;; GitHub Flavored Markdown Mode  ============================================

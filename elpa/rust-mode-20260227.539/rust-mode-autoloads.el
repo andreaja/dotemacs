@@ -51,6 +51,9 @@ Major mode for Rust code." t)
 
 (autoload 'rust-dbg-wrap-or-unwrap "rust-utils" "\
 Either remove or add the dbg! macro." t)
+(autoload 'rust-toggle-mutability "rust-utils" "\
+Toggle the mutability of the binding or reference near point.
+Handles `let' <-> `let mut' and `&' <-> `&mut' (including `&self')." t)
 (register-definition-prefixes "rust-utils" '("rust-"))
 
 ;;; End of scraped data

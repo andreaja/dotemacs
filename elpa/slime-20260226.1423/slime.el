@@ -3,8 +3,8 @@
 ;; URL: https://github.com/slime/slime
 ;; Package-Requires: ((emacs "24.3") (macrostep "0.9"))
 ;; Keywords: languages, lisp, slime
-;; Package-Version: 20260224.1834
-;; Package-Revision: 3a8c17e55d48
+;; Package-Version: 20260226.1423
+;; Package-Revision: 7d873ed05b18
 
 ;;;; License and Commentary
 
@@ -1495,9 +1495,11 @@ EVAL'd by Lisp."
                    (concat (slime-prin1-to-string sexp) "\n")
                    'utf-8-unix))
          (string (concat (slime-net-encode-length (length payload))
-                         payload)))
+                         payload))
+         (sender (or (process-get proc 'slime-net-send-function)
+                     #'process-send-string)))
     (slime-log-event sexp)
-    (process-send-string proc string)))
+    (funcall sender proc string)))
 
 (defun slime-safe-encoding-p (coding-system string)
   "Return true iff CODING-SYSTEM can safely encode STRING."

@@ -6,8 +6,8 @@
 ;; Homepage: https://github.com/magit/transient
 ;; Keywords: extensions
 
-;; Package-Version: 20260223.946
-;; Package-Revision: aa033dc68541
+;; Package-Version: 20260228.1928
+;; Package-Revision: 7637fd025d2f
 ;; Package-Requires: (
 ;;     (emacs   "28.1")
 ;;     (compat  "30.1")
@@ -36,6 +36,12 @@
 ;; Transient is the library used to implement the keyboard-driven menus
 ;; in Magit.  It is distributed as a separate package, so that it can be
 ;; used to implement similar menus in other packages.
+
+;; You can contact the maintainer of this package by sending an email to
+;; <emacs.transient@jonas.bernoulli.dev>, or you can use the public issue
+;; tracker at <https://github.com/magit/transient>.  The latter can also
+;; be accessed using the `forge' package, which lets you avoid the sadly
+;; non-free javascript on that website.
 
 ;;; Code:
 
@@ -4767,27 +4773,18 @@ as a button."
 %k is formatted using `transient-format-key'.
 %d is formatted using `transient-format-description'.
 %v is formatted using `transient-format-value'."
-  (static-if (>= emacs-major-version 29)
-      (format-spec (oref obj format)
-                   `((?k . ,(lambda () (transient-format-key obj)))
-                     (?d . ,(lambda () (transient-format-description obj)))
-                     (?v . ,(lambda () (transient-format-value obj)))))
-    (format-spec (oref obj format)
-                 `((?k . ,(transient-format-key obj))
-                   (?d . ,(transient-format-description obj))
-                   (?v . ,(transient-format-value obj))))))
+  (format-spec (oref obj format)
+               `((?k . ,(transient-format-key obj))
+                 (?d . ,(transient-format-description obj))
+                 (?v . ,(transient-format-value obj)))))
 
 (cl-defmethod transient-format ((obj transient-suffix))
   "Return a string generated using OBJ's `format'.
 %k is formatted using `transient-format-key'.
 %d is formatted using `transient-format-description'."
-  (static-if (>= emacs-major-version 29)
-      (format-spec (oref obj format)
-                   `((?k . ,(lambda () (transient-format-key obj)))
-                     (?d . ,(lambda () (transient-format-description obj)))))
-    (format-spec (oref obj format)
-                 `((?k . ,(transient-format-key obj))
-                   (?d . ,(transient-format-description obj))))))
+  (format-spec (oref obj format)
+               `((?k . ,(transient-format-key obj))
+                 (?d . ,(transient-format-description obj)))))
 
 (cl-defgeneric transient-format-key (obj)
   "Format OBJ's `key' for display and return the result.")

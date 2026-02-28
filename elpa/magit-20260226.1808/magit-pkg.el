@@ -1,5 +1,5 @@
 ;; -*- no-byte-compile: t; lexical-binding: nil -*-
-(define-package "magit" "20260221.1634"
+(define-package "magit" "20260226.1808"
   "A Git porcelain inside Emacs."
   '((emacs         "28.1")
     (compat        "30.1")
@@ -10,8 +10,8 @@
     (transient     "0.12")
     (with-editor   "3.4"))
   :url "https://github.com/magit/magit"
-  :commit "0376b01d7d2036666dc3e0bc318a235fd88a2686"
-  :revdesc "0376b01d7d20"
+  :commit "b9f19bae4d5e5c485d2d8d7bf52364eeb7d22a6b"
+  :revdesc "b9f19bae4d5e"
   :keywords '("git" "tools" "vc")
   :authors '(("Marius Vollmer" . "marius.vollmer@gmail.com")
              ("Jonas Bernoulli" . "emacs.magit@jonas.bernoulli.dev"))

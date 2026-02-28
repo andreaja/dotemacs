@@ -2939,18 +2939,17 @@ basis by passing ‘:display-action’ to ‘transient-define-prefix’.
 A.2 How can I copy text from the menu buffer?
 =============================================
 
-To be able to mark text in Transient’s menu buffer using the mouse, you
-have to add the below binding.  Note that for technical reasons, the
-region won’t be visualized, while doing so.  After you have quit the
-transient menu, you will be able to yank it in another buffer.
+You can select text in the menu buffer using the mouse, like in most
+other buffers, by clicking ‘mouse-1’ and keeping it pressed while
+dragging.
 
-     (keymap-set transient-predicate-map
-                 "<mouse-set-region>"
-                 #'transient--do-stay)
+   (Before v0.13.0, the above required additional configuration and the
+region was not visualized while dragging.  This isn’t the case anymore,
+but explains why the following was once deemed necessary.)
 
-   Copying the region while not seeing the region is a bit fiddly, so a
-dedicated command, ‘transient-copy-menu-text’, was added.  You have to
-add a binding for this command in ‘transient-map’.
+   Alternatively the command ‘transient-copy-menu-text’ can be used to
+copy the complete content of the menu buffer.  You have to add a binding
+for this command in ‘transient-map’.
 
      (keymap-set transient-map "C-c C-w" #'transient-copy-menu-text)
 
@@ -2958,9 +2957,9 @@ A.3 How can I autoload prefix and suffix commands?
 ==================================================
 
 If your package only supports Emacs 30, just prefix the definition with
-‘;;;###autoload’.  If your package supports released versions of Emacs,
-you unfortunately have to use a long form autoload comment as described
-in *note (elisp)Autoload::.
+‘;;;###autoload’.  If your package supports older Emacs releases, you
+unfortunately have to use a long-form autoload comment as described in
+*note (elisp)Autoload::.
 
      ;;;###autoload (autoload 'magit-dispatch "magit" nil t)
      (transient-define-prefix magit-dispatch ()
@@ -4020,15 +4019,15 @@ Node: Predicate Slots129616
 Node: FAQ131961
 Ref: Can I control how the menu buffer is displayed?132090
 Ref: How can I copy text from the menu buffer?132414
-Ref: How can I autoload prefix and suffix commands?133177
-Ref: How does Transient compare to prefix keys and universal arguments?133651
-Ref: How does Transient compare to Magit-Popup and Hydra?133894
-Ref: Why does q not quit popups anymore?134088
-Node: Keystroke Index135191
-Node: Command and Function Index137056
-Node: Variable Index144523
-Node: Concept Index147594
-Node: GNU General Public License150418
+Ref: How can I autoload prefix and suffix commands?133123
+Ref: How does Transient compare to prefix keys and universal arguments?133591
+Ref: How does Transient compare to Magit-Popup and Hydra?133834
+Ref: Why does q not quit popups anymore?134028
+Node: Keystroke Index135131
+Node: Command and Function Index136996
+Node: Variable Index144463
+Node: Concept Index147534
+Node: GNU General Public License150358
 
 End Tag Table
 
