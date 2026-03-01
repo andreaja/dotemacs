@@ -6,8 +6,8 @@
 ;; Author: Jason R. Blevins <jblevins@xbeta.org>
 ;; Maintainer: Jason R. Blevins <jblevins@xbeta.org>
 ;; Created: May 24, 2007
-;; Package-Version: 20260226.609
-;; Package-Revision: 3933f282d0db
+;; Package-Version: 20260301.139
+;; Package-Revision: e4be4c1ab8b9
 ;; Package-Requires: ((emacs "28.1"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: https://jblevins.org/projects/markdown-mode/
@@ -848,9 +848,9 @@ Groups 1 and 3 match the opening and closing tags.
 Group 2 matches the key sequence.")
 
 (defconst markdown-regex-gfm-code-block-open
-  "^[[:blank:]]*\\(?1:```\\)\\(?2:[[:blank:]]*{?[[:blank:]]*\\)\\(?3:[^`[:space:]]+?\\)?\\(?:[[:blank:]]+\\(?4:.+?\\)\\)?\\(?5:[[:blank:]]*}?[[:blank:]]*\\)$"
+  "^[[:blank:]]*\\(?1:`\\{3,\\}\\)\\(?2:[[:blank:]]*{?[[:blank:]]*\\)\\(?3:[^`[:space:]]+?\\)?\\(?:[[:blank:]]+\\(?4:.+?\\)\\)?\\(?5:[[:blank:]]*}?[[:blank:]]*\\)$"
   "Regular expression matching opening of GFM code blocks.
-Group 1 matches the opening three backquotes and any following whitespace.
+Group 1 matches the opening three or more backquotes.
 Group 2 matches the opening brace (optional) and surrounding whitespace.
 Group 3 matches the language identifier (optional).
 Group 4 matches the info string (optional).
@@ -858,9 +858,9 @@ Group 5 matches the closing brace (optional), whitespace, and newline.
 Groups need to agree with `markdown-regex-tilde-fence-begin'.")
 
 (defconst markdown-regex-gfm-code-block-close
-  "^[[:blank:]]*\\(?1:```\\)\\(?2:\\s *?\\)$"
+  "^[[:blank:]]*\\(?1:`\\{3,\\}\\)\\(?2:\\s *?\\)$"
   "Regular expression matching closing of GFM code blocks.
-Group 1 matches the closing three backquotes.
+Group 1 matches the closing three or more backquotes.
 Group 2 matches any whitespace and the final newline.")
 
 (defconst markdown-regex-pre
@@ -1008,6 +1008,13 @@ Groups 1 and 4 match the opening and closing markup.
 Group 3 matches the mathematical expression contained within.
 Group 2 matches the opening slashes, and is used internally to
 match the closing slashes.")
+
+(defsubst markdown-make-gfm-fence-regex (num-backticks &optional end-of-line)
+  "Return regexp matching a GFM code fence at least NUM-BACKTICKS long.
+END-OF-LINE is the regexp construct to indicate end of line; $ if
+missing."
+  (format "%s%d%s%s" "^[[:blank:]]*\\([`]\\{" num-backticks ",\\}\\)"
+          (or end-of-line "$")))
 
 (defsubst markdown-make-tilde-fence-regex (num-tildes &optional end-of-line)
   "Return regexp matching a tilde code fence at least NUM-TILDES long.
@@ -1422,7 +1429,7 @@ giving the bounds of the current and parent list items."
      (markdown-get-yaml-metadata-end-border markdown-yaml-metadata-end)
      markdown-yaml-metadata-section)
     ((,markdown-regex-gfm-code-block-open markdown-gfm-block-begin)
-     (,markdown-regex-gfm-code-block-close markdown-gfm-block-end)
+     (markdown-make-gfm-fence-regex markdown-gfm-block-end)
      markdown-gfm-code))
   "Mapping of regular expressions to \"fenced-block\" constructs.
 These constructs are distinguished by having a distinctive start
@@ -1688,12 +1695,12 @@ MIDDLE-BEGIN is the start of the \"middle\" section of the block."
       (put-text-property close-begin close-end
                          (cl-cadadr fence-spec) close-data))))
 
-(defun markdown--triple-quote-single-line-p (begin)
+(defun markdown--code-fence-single-line-p (begin)
   (save-excursion
     (goto-char begin)
     (save-match-data
-      (and (search-forward "```" nil t)
-           (search-forward "```" (line-end-position) t)))))
+      (and (re-search-forward "`\\{3,\\}" nil t)
+           (re-search-forward "`\\{3,\\}" (line-end-position) t)))))
 
 (defun markdown-syntax-propertize-fenced-block-constructs (start end)
   "Propertize according to `markdown-fenced-block-pairs' from START to END.
@@ -1750,7 +1757,7 @@ start which was previously propertized."
                    0)))
                (prop (cl-cadar correct-entry)))
           (when (or (not (eq prop 'markdown-gfm-block-begin))
-                    (not (markdown--triple-quote-single-line-p block-start)))
+                    (not (markdown--code-fence-single-line-p block-start)))
             ;; get correct match data
             (save-excursion
               (beginning-of-line)
