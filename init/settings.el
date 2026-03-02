@@ -4,7 +4,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(create-lockfiles nil)
- '(flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+ '(flycheck-disabled-checkers '(emacs-lisp-checkdoc
+                                javascript-jshint
+                                org-lint))
  '(flycheck-tidyrc "/Users/andreaja/.tidyrc")
  '(fringe-mode 0 nil (fringe))
  '(hippie-expand-try-functions-list
