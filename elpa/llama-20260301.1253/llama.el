@@ -6,8 +6,8 @@
 ;; Homepage: https://github.com/tarsius/llama
 ;; Keywords: extensions
 
-;; Package-Version: 20260217.2104
-;; Package-Revision: de61773fc378
+;; Package-Version: 20260301.1253
+;; Package-Revision: d430d48e0b5a
 ;; Package-Requires: (
 ;;     (emacs  "26.1")
 ;;     (compat "30.1"))

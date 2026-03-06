@@ -5,8 +5,8 @@
 ;; Author: Bozhidar Batsov <bozhidar@batsov.dev>
 ;; URL: https://github.com/bbatsov/projectile
 ;; Keywords: project, convenience
-;; Package-Version: 20260228.851
-;; Package-Revision: 1a116656aad0
+;; Package-Version: 20260305.628
+;; Package-Revision: 136a1e6918a4
 ;; Package-Requires: ((emacs "27.1") (compat "30"))
 
 ;; This file is NOT part of GNU Emacs.
@@ -1618,7 +1618,7 @@ Currently that's supported just for Git (sub-projects being Git
 sub-modules there)."
   (pcase vcs
     ('git projectile-git-submodule-command)
-    (_ "")))
+    (_ nil)))
 
 (defun projectile-get-ext-ignored-command (vcs)
   "Determine which external command to invoke based on the project's VCS."
@@ -1704,7 +1704,7 @@ If `command' is nil or an empty string, return nil.
 This allows commands to be disabled.
 
 Only text sent to standard output is taken into account."
-  (when (stringp command)
+  (when (and (stringp command) (not (string-empty-p command)))
     (let ((default-directory root))
       (with-temp-buffer
         (shell-command command t "*projectile-files-errors*")
@@ -2127,8 +2127,9 @@ Unignored files/directories are not included."
   (projectile-normalise-paths (caddr (projectile-parse-dirconfig-file))))
 
 (defun projectile-files-to-ensure ()
-  (flatten-tree (mapcar (lambda (pat) (file-expand-wildcards pat t))
-                              (projectile-patterns-to-ensure))))
+  (let ((default-directory (projectile-project-root)))
+    (flatten-tree (mapcar #'file-expand-wildcards
+                          (projectile-patterns-to-ensure)))))
 
 (defun projectile-patterns-to-ensure ()
   "Return a list of relative file patterns."
@@ -2481,13 +2482,14 @@ With FLEX-MATCHING, match any file that contains the base name of current file"
                                file-list)))
          (candidates
           (seq-filter (lambda (file) (not (backup-file-name-p file))) candidates))
-         (candidates
-          (seq-sort (lambda (file _)
-                      (let ((candidate-dirname (file-name-nondirectory (directory-file-name (if (file-name-directory file)
-                                                                                                (file-name-directory file) "./")))))
-                        (unless (equal fulldirname (file-name-directory file))
-                          (equal dirname candidate-dirname))))
-                    candidates)))
+         (sibling-dir-p (lambda (file)
+                          (let ((candidate-dirname (file-name-nondirectory
+                                                    (directory-file-name
+                                                     (or (file-name-directory file) "./")))))
+                            (and (not (equal fulldirname (file-name-directory file)))
+                                 (equal dirname candidate-dirname)))))
+         (candidates (append (seq-filter sibling-dir-p candidates)
+                             (seq-remove sibling-dir-p candidates))))
     candidates))
 
 (defun projectile-select-files (project-files &optional invalidate-cache)
@@ -2504,7 +2506,7 @@ With a prefix arg INVALIDATE-CACHE invalidates the cache first."
          (files (if file
                     (seq-filter
                      (lambda (project-file)
-                       (string-match file project-file))
+                       (string-search file project-file))
                      project-files)
                   nil)))
     files))
@@ -2670,9 +2672,10 @@ With a prefix arg INVALIDATE-CACHE invalidates the cache first."
   (let ((inhibit-read-only t)
         (val (not buffer-read-only))
         (default-directory (projectile-acquire-root)))
-    (add-dir-local-variable nil 'buffer-read-only val)
-    (save-buffer)
-    (kill-buffer)
+    (save-selected-window
+      (add-dir-local-variable nil 'buffer-read-only val)
+      (save-buffer)
+      (kill-buffer))
     (when buffer-file-name
       (read-only-mode (if val +1 -1))
       (message "[%s] read-only-mode is %s" (projectile-project-name) (if val "on" "off")))))
@@ -4622,12 +4625,18 @@ installed to work."
 (defun projectile-find-references (&optional symbol)
   "Find all references to SYMBOL in the current project.
 
-A thin wrapper around `xref-references-in-directory'."
+A thin wrapper around `xref-references-in-directory' scoped to the
+project root."
   (interactive)
-  (when (fboundp 'xref--show-xrefs)
-    (let ((project-root (projectile-acquire-root))
-          (symbol (or symbol (read-from-minibuffer "Lookup in project: " (projectile-symbol-at-point)))))
-      (xref--show-xrefs (xref-references-in-directory symbol project-root) nil))))
+  (let* ((project-root (projectile-acquire-root))
+         (symbol (or symbol (read-from-minibuffer "Lookup in project: " (projectile-symbol-at-point))))
+         (fetcher (lambda () (xref-references-in-directory symbol project-root))))
+    (cond
+     ((fboundp 'xref-show-xrefs)
+      (xref-show-xrefs fetcher nil))
+     ((fboundp 'xref--show-xrefs)
+      (xref--show-xrefs fetcher nil))
+     (t (error "No suitable xref display function available")))))
 
 (defun projectile-tags-exclude-patterns ()
   "Return a string with exclude patterns for ctags."
@@ -4692,7 +4701,7 @@ A thin wrapper around `xref-references-in-directory'."
     ((eq projectile-tags-backend 'etags-select)
      (when (fboundp 'etags-select-find-tag)
        'etags-select-find-tag)))
-   'find-tag))
+   'xref-find-definitions))
 
 ;;;###autoload
 (defun projectile-find-tag ()
@@ -5675,16 +5684,25 @@ We enhance its functionality by appending the current project's directories
 to its search path.  This way when filenames in compilation buffers can't be
 found by compilation's normal logic they are searched for in project
 directories."
-  ; If the file already exists, don't bother running the extra logic as the project directories might be massive (i.e. Unreal-sized).
+  ;; If the file already exists, don't bother running the extra logic as the
+  ;; project directories might be massive (i.e. Unreal-sized).
   (if (file-exists-p filename)
       (apply orig-fun `(,marker ,filename ,directory ,@formats))
 
     (let* ((root (projectile-project-root))
            (compilation-search-path
             (if (projectile-project-p)
-                (append compilation-search-path (list root)
-                        (mapcar (lambda (f) (expand-file-name f root))
-                                (projectile-current-project-dirs)))
+                (let ((dirs (append compilation-search-path (list root)
+                                    (mapcar (lambda (f) (expand-file-name f root))
+                                            (projectile-current-project-dirs)))))
+                  ;; If the file can be found relative to the project root,
+                  ;; add its parent directory to the search path.  This
+                  ;; handles directories that contain only subdirectories
+                  ;; and no files directly.
+                  (let ((candidate (expand-file-name filename root)))
+                    (when (file-exists-p candidate)
+                      (push (file-name-directory candidate) dirs)))
+                  dirs)
               compilation-search-path)))
       (apply orig-fun `(,marker ,filename ,directory ,@formats)))))
 
@@ -5930,9 +5948,10 @@ Return a list of projects removed."
 
 (defun projectile-ignored-project-p (project-root)
   "Return t if PROJECT-ROOT should not be added to `projectile-known-projects'."
-  (or (member project-root (projectile-ignored-projects))
-      (and (functionp projectile-ignored-project-function)
-           (funcall projectile-ignored-project-function project-root))))
+  (let ((project-root (file-truename project-root)))
+    (or (member project-root (projectile-ignored-projects))
+        (and (functionp projectile-ignored-project-function)
+             (funcall projectile-ignored-project-function project-root)))))
 
 ;;;###autoload
 (defun projectile-add-known-project (project-root)
@@ -6265,9 +6284,8 @@ If the current buffer does not belong to a project, call `previous-buffer'."
   (let ((file (expand-file-name ".dir-locals.el" (projectile-acquire-root))))
     (find-file file)
     (when (not (file-exists-p file))
-      (unwind-protect
-          (projectile-skel-dir-locals)
-        (save-buffer)))))
+      (projectile-skel-dir-locals)
+      (save-buffer))))
 
 
 ;;; Projectile Minor mode
