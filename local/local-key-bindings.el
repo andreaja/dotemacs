@@ -83,6 +83,9 @@
 (define-key my-keys-minor-mode-map [(control x) (control n)] 'narrow-or-widen-dwim)
 
 
+(define-key my-keys-minor-mode-map [(control x) (?2)] 'aja/split-window-below-2/3)
+
+
 
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]

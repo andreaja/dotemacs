@@ -239,7 +239,14 @@ to next buffer otherwise."
     (ace-window 1)))
 
 
-
+(defun aja/split-window-below-2/3 ()
+  "Split the selected window horizontally, with the lower window taking 2/3 of the height."
+  (interactive)
+  (let* ((win (selected-window))
+         (total-height (window-total-height win))
+         (upper-height (max window-min-height (/ total-height 3)))
+         (lower-win (split-window win upper-height 'below)))
+    (select-window lower-win)))
 
 (defun selected-frame-display-height ()
   ""
