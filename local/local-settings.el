@@ -202,3 +202,5 @@
 ;; No electric indent
 (setq electric-indent-mode nil)
 
+;; show magit word-diff
+(setq magit-diff-refine-hunk 'all)
