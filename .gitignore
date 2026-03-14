@@ -22,3 +22,4 @@ smex-items
 abbrev_defs
 org-persist
 eln-cache/
+.claude/settings.local.json
