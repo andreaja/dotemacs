@@ -1,4 +1,4 @@
-(projectile-global-mode)
+(projectile-mode 1)
 
 (require 'plsql)
 
