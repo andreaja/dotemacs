@@ -85,7 +85,7 @@
 (setq org-agenda-custom-commands
       `(("w" "Waiting for" tags-todo "/!WAIT"
          ((org-agenda-overriding-header "Waiting for response")
-          (org-agenda-skip-function 'bh/skip-non-projects)
+          (org-agenda-skip-function 'aja/org-agenda-skip-scheduled-and-non-tasks)
           (org-tags-match-list-sublevels 'indented)
           (org-agenda-sorting-strategy
            '(category-keep))))
