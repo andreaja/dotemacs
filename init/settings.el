@@ -4,9 +4,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(create-lockfiles nil)
- '(flycheck-disabled-checkers '(emacs-lisp-checkdoc
-                                javascript-jshint
-                                org-lint))
+ '(flycheck-disabled-checkers '(emacs-lisp-checkdoc javascript-jshint org-lint))
+ '(flycheck-tidy-config "/Users/andreaja/.tidyrc")
  '(flycheck-tidyrc "/Users/andreaja/.tidyrc")
  '(fringe-mode 0 nil (fringe))
  '(hippie-expand-try-functions-list
@@ -40,11 +39,11 @@
                 hungry-delete idomenu iedit insert-shebang
                 js2-refactor json-reformat lorem-ipsum lua-mode magit
                 markdown-mode mermaid-ts-mode mustache-mode
-                org-bullets paredit prettier-js projectile
-                rainbow-delimiters rainbow-mode restclient rust-mode s
-                slime smartscan smex smooth-scrolling solarized-theme
-                super-save terraform-mode urlenc visual-fill-column
-                web-mode))
+                no-littering org-bullets paredit prettier-js
+                projectile rainbow-delimiters rainbow-mode restclient
+                rust-mode s slime smartscan smex smooth-scrolling
+                solarized-theme super-save terraform-mode urlenc
+                visual-fill-column web-mode))
  '(require-final-newline 'visit-save)
  '(safe-local-variable-values '((js2-basic-offset . 2) (js-indent-level . 2)))
  '(show-paren-delay 0)
@@ -57,7 +56,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-block ((t (:inherit fixed-pitch))))
+ '(org-block-begin-line ((t (:inherit fixed-pitch))))
+ '(org-block-end-line ((t (:inherit fixed-pitch))))
+ '(org-checkbox ((t (:inherit fixed-pitch))))
+ '(org-code ((t (:inherit fixed-pitch))))
+ '(org-date ((t (:inherit fixed-pitch))))
+ '(org-document-info-keyword ((t (:inherit fixed-pitch))))
  '(org-document-title ((t (:inherit default :weight bold :font "Lucida Grande" :foreground "#ec423a" :height 2.0 :underline nil))))
+ '(org-drawer ((t (:inherit fixed-pitch))))
+ '(org-formula ((t (:inherit fixed-pitch))))
+ '(org-indent ((t (:inherit fixed-pitch))))
  '(org-level-1 ((t (:inherit default :weight bold :font "Lucida Grande" :foreground "#ec423a" :height 1.75))))
  '(org-level-2 ((t (:inherit default :weight bold :font "Lucida Grande" :foreground "#db5823" :height 1.5))))
  '(org-level-3 ((t (:inherit default :weight bold :font "Lucida Grande" :foreground "#c49619" :height 1.25))))
@@ -66,6 +75,12 @@
  '(org-level-6 ((t (:inherit default :weight bold :font "Lucida Grande" :foreground "#3c98e0"))))
  '(org-level-7 ((t (:inherit default :weight bold :font "Lucida Grande" :foreground "#7a7ed2"))))
  '(org-level-8 ((t (:inherit default :weight bold :font "Lucida Grande" :foreground "#e2468f"))))
+ '(org-meta-line ((t (:inherit fixed-pitch))))
+ '(org-property-value ((t (:inherit fixed-pitch))))
+ '(org-special-keyword ((t (:inherit fixed-pitch))))
+ '(org-table ((t (:inherit fixed-pitch))))
+ '(org-tag ((t (:inherit fixed-pitch))))
+ '(org-verbatim ((t (:inherit fixed-pitch))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "Purple"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "#8F0427"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "#C74E6C"))))

@@ -1,18 +1,0 @@
-;; Emacs-W3 HTTP cookies file
-;; Automatically generated file!!! DO NOT EDIT!!!
-
-(setq url-cookie-storage
- '((".getbootstrap.com"
-  [url-cookie "HttpOnly" nil "05 Dec 16 12:06:54 [GMT]" "/" ".getbootstrap.com" nil]
-  [url-cookie "__cfduid" "d004e1df9884bab62d6f1730fc53c565d1449403614" "05 Dec 16 12:06:54 [GMT]" "/" ".getbootstrap.com" nil]))
-)
-(setq url-cookie-secure-storage
- '((".github.com"
-  [url-cookie "logged_in" "no" "Thu, 06 Dec 2035 12:55:27 -0000" "/" ".github.com" t]
-  [url-cookie "HttpOnly" nil "Thu, 06 Dec 2035 12:55:27 -0000" "/" ".github.com" t]))
-)
-
-;; Local Variables:
-;; version-control: never
-;; no-byte-compile: t
-;; End:

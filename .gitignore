@@ -1,25 +1,14 @@
+# Package state, redirected here by no-littering (see init/loadenv.el). Anything
+# a package persists lands under var/, so new packages should not need new
+# entries. Its sibling etc/ holds config worth tracking and is deliberately absent.
+/var/
+
+# Editor and OS junk
 *~
 *.elc
-.latest-build
-transient
-
 \.#.*
 .DS_Store
-/tramp
-ido.last
-projectile-bookmarks.eld
-projectile.cache
-.mc-lists.el
-srecode-map.el
-semanticdb/
-org.file.list
-bookmarks
-.org-id-locations
+
+.latest-build
 /jslint-reporter/
-/recentf
-/url/cache/
-smex-items
-abbrev_defs
-org-persist
-eln-cache/
 .claude/settings.local.json

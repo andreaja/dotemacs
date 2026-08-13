@@ -14,6 +14,11 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
+;; Must stay ahead of every `load' below: no-littering works by setting path
+;; variables before the packages that own them are loaded, and local-modes
+;; starts projectile.
+(require 'no-littering)
+
 (load "local-modes")
 (load "local-settings")
 (load "local-auto-modes")
