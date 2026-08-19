@@ -614,7 +614,9 @@ This command will first prompt for the directory the file is in.
 
 (fn &optional DIRECTORY)" t)
 (autoload 'projectile-find-file-in-known-projects "projectile"
-"Jump to a file in any of the known projects." t)
+"Jump to a file in any of the known projects.
+This is `projectile-find-file-in-projects' over every project you have
+ever visited." t)
 (autoload 'projectile-cleanup-known-projects "projectile"
 "Remove known projects that don't exist anymore." t)
 (defalias 'projectile-forget-zombie-projects #'projectile-cleanup-known-projects
@@ -679,6 +681,62 @@ Invokes the command referenced by `projectile-switch-project-action' on
 switch.  With a prefix ARG invokes `projectile-dispatch' instead.
 
 (fn &optional ARG)" t)
+(autoload 'projectile-find-file-in-projects "projectile"
+"Jump to a file in any of PROJECTS.
+PROMPT overrides the completion prompt.
+
+(fn PROJECTS &optional PROMPT)")
+(autoload 'projectile-search-in-projects "projectile"
+"Search PROJECTS for a term and review the matches read-only.
+LITERAL non-nil searches for a literal string, otherwise the term is an
+Emacs regexp.  PROMPT overrides the label the term is read with.
+
+This is `projectile-search-review' widened to a group, and that command
+is the single-project case of it: matches from every project land in one
+`*projectile-search*' buffer, grouped by file and named relative to the
+innermost directory containing the group, so each one is labelled with
+the project it came from.  Everything that buffer does - filtering,
+re-search, the hand-off to the replace reviewer - then covers the whole
+group.
+
+Searching more than one project skips the ripgrep fast-path, which runs
+one `rg' over one directory tree.  Each member of the group is filtered
+by its own ignore rules, wherever you happen to be sitting.
+
+(fn PROJECTS &optional LITERAL PROMPT)")
+(autoload 'projectile-switch-to-buffer-in-projects "projectile"
+"Switch to a buffer belonging to any of PROJECTS.
+PROMPT overrides the completion prompt.  The current buffer is left out
+of the choices, as `projectile-switch-to-buffer' does.
+
+(fn PROJECTS &optional PROMPT)")
+(autoload 'projectile-find-file-in-sibling-projects "projectile"
+"Jump to a file in the current project or any related to it.
+Related is what `projectile-switch-sibling-project' means by it." t)
+(autoload 'projectile-search-in-sibling-projects "projectile"
+"Search the current project and the ones related to it, reviewing the matches.
+
+Related is what `projectile-switch-sibling-project' means by it.  With a
+prefix argument REGEXP the search term is an Emacs regexp rather than a
+literal string.
+
+(fn &optional REGEXP)" t)
+(autoload 'projectile-switch-to-buffer-in-sibling-projects "projectile"
+"Switch to a buffer of the current project or of one related to it.
+Related is what `projectile-switch-sibling-project' means by it." t)
+(autoload 'projectile-multi-occur-in-sibling-projects "projectile"
+"Do a `multi-occur' in the buffers of the current project and related ones.
+Related is what `projectile-switch-sibling-project' means by it.  With a
+prefix argument, show NLINES of context.
+
+Note this searches the buffers you have open, not the projects on disk -
+`projectile-search-in-sibling-projects' is the one that reads files.
+
+(fn &optional NLINES)" t)
+(autoload 'projectile-todos-in-sibling-projects "projectile"
+"Collect TODO-style annotations across the current project and related ones.
+Related is what `projectile-switch-sibling-project' means by it.  See
+`projectile-todos' for what counts as an annotation." t)
 (autoload 'projectile-bookmark-set "projectile"
 "Set a bookmark named NAME at point, scoped to the current project.
 

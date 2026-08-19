@@ -282,6 +282,7 @@ If it contains \"%s\" then the directory is substituted for that."
     (user-error "You need to customize `magit-repository-directories' %s"
                 "before you can list repositories"))
   (with-current-buffer (get-buffer-create "*Magit Repositories*")
+    (setq default-directory (expand-file-name "~"))
     (magit-repolist-mode)
     (setq-local magit-repolist-columns columns)
     (magit-repolist-setup-1)
@@ -316,17 +317,7 @@ If it contains \"%s\" then the directory is substituted for that."
 
 (defun magit-repolist-refresh ()
   (setq tabulated-list-entries
-        (mapcar (pcase-lambda (`(,id . ,path))
-                  (let ((default-directory path))
-                    (list path
-                          (vconcat
-                           (mapcar (pcase-lambda (`(,title ,width ,fn ,props))
-                                     (or (funcall fn `((:id ,id)
-                                                       (:title ,title)
-                                                       (:width ,width)
-                                                       ,@props))
-                                         ""))
-                                   magit-repolist-columns)))))
+        (mapcar #'magit-repolist--format-entry
                 (magit-list-repos-uniquify
                  (mapcar (##cons (file-name-nondirectory (directory-file-name %))
                                  %)
@@ -335,6 +326,18 @@ If it contains \"%s\" then the directory is substituted for that."
   (tabulated-list-init-header)
   (tabulated-list-print t)
   (message "Listing repositories...done"))
+
+(defun magit-repolist--format-entry (entry)
+  (pcase-let ((`(,id . ,default-directory) entry))
+    (list default-directory
+          (vconcat
+           (mapcar (pcase-lambda (`(,title ,width ,fn ,props))
+                     (or (funcall fn `((:id ,id)
+                                       (:title ,title)
+                                       (:width ,width)
+                                       ,@props))
+                         ""))
+                   magit-repolist-columns)))))
 
 (defun magit-repolist--imenu-prev-index-position ()
   (and (not (bobp))
@@ -499,7 +502,16 @@ instead."
   (if-let ((repos (and (not read-directory-name)
                        magit-repository-directories
                        (magit-repos-alist))))
-      (let ((reply (magit-completing-read "Git repository" repos nil 'any)))
+      (let ((reply (magit-completing-read
+                    "Git repository" repos nil 'any nil nil
+                    (and-let* ((_(derived-mode-p 'dired-mode))
+                               (path (and (fboundp 'dired-get-filename)
+                                          (dired-get-filename nil t)))
+                               (_(magit-git-repo-p path))
+                               (name (file-relative-name path)))
+                      (if (member (cdr (assoc name repos)) (list path nil))
+                          name
+                        path)))))
         (file-name-as-directory
          (or (cdr (assoc reply repos))
              (if (file-directory-p reply)

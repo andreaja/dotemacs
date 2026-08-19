@@ -5,8 +5,8 @@
 ;; Author: Bozhidar Batsov <bozhidar@batsov.dev>
 ;; URL: https://github.com/bbatsov/projectile
 ;; Keywords: project, convenience
-;; Package-Version: 20260811.743
-;; Package-Revision: fcd8f2b7d9e6
+;; Package-Version: 20260818.1310
+;; Package-Revision: a770b8383025
 ;; Package-Requires: ((emacs "28.1") (compat "30"))
 
 ;; This file is NOT part of GNU Emacs.
@@ -3175,7 +3175,7 @@ To enable, set `uniquify-dirname-transform' to this function:
   "Get the list of PROJECT-DIR directories that are of interest to the user.
 When the dirconfig file has no `+' keep entries, return a single-
 element list with PROJECT-DIR itself."
-  (let* ((cfg (projectile-parse-dirconfig-file))
+  (let* ((cfg (projectile-parse-dirconfig-file (expand-file-name project-dir)))
          (keep (and cfg (projectile-dirconfig-keep cfg))))
     (if keep
         (mapcar (lambda (subdir) (concat project-dir subdir)) keep)
@@ -3185,9 +3185,12 @@ element list with PROJECT-DIR itself."
   "Checks if DIRECTORY is a string designating a valid directory."
   (and (stringp directory) (file-directory-p directory)))
 
-(defun projectile-dir-files (directory)
+(defun projectile-dir-files (directory &optional root)
   "List the files in DIRECTORY and in its sub-directories.
-Files are returned as relative paths to DIRECTORY."
+Files are returned as relative paths to DIRECTORY.
+ROOT names the project whose ignore rules apply, defaulting to
+DIRECTORY itself - pass it when DIRECTORY is a subdirectory of the
+project being listed."
   (unless (projectile--directory-p directory)
     (user-error "Directory %S does not exist" directory))
   ;; check for a cache hit first if caching is enabled
@@ -3196,10 +3199,10 @@ Files are returned as relative paths to DIRECTORY."
     ;; cache disabled or cache miss
     (or files-list
         (pcase projectile-indexing-method
-          ('native (projectile-dir-files-native directory))
+          ('native (projectile-dir-files-native directory root))
           ;; use external tools to get the project files
           ('hybrid (let ((vcs (projectile-project-vcs directory)))
-                     (projectile-adjust-files directory vcs
+                     (projectile-adjust-files (or root directory) vcs
                                               (projectile-dir-files-alien directory vcs))))
           ('alien (projectile-dir-files-alien directory))
           (_ (user-error "Unsupported indexing method `%S'" projectile-indexing-method))))))
@@ -3207,8 +3210,10 @@ Files are returned as relative paths to DIRECTORY."
 ;;; Native Project Indexing
 ;;
 ;; This corresponds to `projectile-indexing-method' being set to native.
-(defun projectile-dir-files-native (directory)
-  "Get the files under DIRECTORY using just Emacs Lisp."
+(defun projectile-dir-files-native (directory &optional root)
+  "Get the files under DIRECTORY using just Emacs Lisp.
+ROOT names the project whose ignore rules apply, defaulting to
+DIRECTORY itself."
   (let ((progress-reporter
          (make-progress-reporter
           (format "Projectile is indexing %s"
@@ -3222,7 +3227,9 @@ Files are returned as relative paths to DIRECTORY."
         (prefix-len (length (file-name-as-directory (expand-file-name directory)))))
     ;; we need the files with paths relative to the project root
     (mapcar (lambda (file) (substring file prefix-len))
-            (projectile-index-directory directory (projectile-filtering-patterns)
+            (projectile-index-directory directory
+                                        (projectile-filtering-patterns
+                                         (expand-file-name (or root directory)))
                                         progress-reporter))))
 
 (defun projectile--global-ignore-regexp-p (path)
@@ -4298,19 +4305,25 @@ PROJECT-ROOT defaults to the current project."
 
 (defun projectile-adjust-files (project vcs files)
   "First remove ignored files from FILES, then add back unignored files."
-  (projectile-add-unignored project vcs (projectile-remove-ignored files)))
+  (projectile-add-unignored project vcs (projectile-remove-ignored files project)))
 
-(defun projectile-remove-ignored (files)
+(defun projectile-remove-ignored (files &optional root)
   "Remove ignored files and folders from FILES.
 
 FILES are paths relative to the project root.  They are matched against
 the project's ignore patterns (see `projectile--ignore-patterns'), the
 same gitignore-style rules the native indexer and the alien push-down
-apply; `!' ensure patterns rescue files from them."
+apply; `!' ensure patterns rescue files from them.
+
+ROOT names the project whose rules apply, defaulting to the current one.
+Pass it whenever the files being filtered belong to a project other than
+the one you are visiting - listing another project's files otherwise
+filters them by the rules of the project you happen to be in, and with
+caching on stores that wrong answer under the other project's key."
   (let* (;; Ignore matching is case-sensitive; `string-match-p' would
          ;; otherwise fold case, since `case-fold-search' defaults to t.
          (case-fold-search nil)
-         (filtering-patterns (projectile-filtering-patterns))
+         (filtering-patterns (projectile-filtering-patterns root))
          (ignore-re (projectile--compile-ignore-patterns
                      (car filtering-patterns)))
          (ensure-re (projectile--compile-ignore-patterns
@@ -4353,7 +4366,8 @@ this case unignored files will be absent from FILES."
                           (projectile-keep-ignored-directories
                            project
                            vcs
-                           (projectile-unignored-directories-rel)))))
+                           (projectile-unignored-directories-rel))
+                          project)))
     (append files unignored-files unignored-paths)))
 
 (defun projectile-buffers-with-file (buffers)
@@ -4683,14 +4697,14 @@ directory counts as ignored."
    projectile-globally-ignored-directories
    projectile-globally-unignored-directories))
 
-(defun projectile--dirconfig-ignore ()
-  "Return the IGNORE entries from the project's dirconfig, or nil."
-  (when-let* ((cfg (projectile-parse-dirconfig-file)))
+(defun projectile--dirconfig-ignore (&optional root)
+  "Return the IGNORE entries from ROOT's dirconfig, or nil."
+  (when-let* ((cfg (projectile-parse-dirconfig-file root)))
     (projectile-dirconfig-ignore cfg)))
 
-(defun projectile--dirconfig-ensure ()
-  "Return the ENSURE entries from the project's dirconfig, or nil."
-  (when-let* ((cfg (projectile-parse-dirconfig-file)))
+(defun projectile--dirconfig-ensure (&optional root)
+  "Return the ENSURE entries from ROOT's dirconfig, or nil."
+  (when-let* ((cfg (projectile-parse-dirconfig-file root)))
     (projectile-dirconfig-ensure cfg)))
 
 (defun projectile-unignored-files ()
@@ -4763,21 +4777,19 @@ ROOT defaults to the current project's root and only matters for the
 dirconfig entries; outside a project the global patterns are returned on
 their own.  See `projectile--ignore-pattern-to-regexp' for the matching
 rules."
-  (let ((default-directory (or root default-directory)))
-    (append
-     (mapcar (lambda (name) (concat (directory-file-name name) "/"))
-             (projectile-globally-ignored-directory-names))
-     (seq-difference projectile-globally-ignored-files
-                     projectile-globally-unignored-files)
-     (projectile--globally-ignored-file-suffixes-glob)
-     (projectile--dirconfig-ignore))))
+  (append
+   (mapcar (lambda (name) (concat (directory-file-name name) "/"))
+           (projectile-globally-ignored-directory-names))
+   (seq-difference projectile-globally-ignored-files
+                   projectile-globally-unignored-files)
+   (projectile--globally-ignored-file-suffixes-glob)
+   (projectile--dirconfig-ignore root)))
 
 (defun projectile--ensure-patterns (&optional root)
   "Return ROOT's ensure rules as a list of gitignore-style patterns.
 These are the `!' entries of the project's dirconfig; a path they match
 is kept even when `projectile--ignore-patterns' also matches it."
-  (let ((default-directory (or root default-directory)))
-    (projectile--dirconfig-ensure)))
+  (projectile--dirconfig-ensure root))
 
 (defun projectile-filtering-patterns (&optional root)
   "Return ROOT's ignore and ensure patterns as a cons cell."
@@ -4790,9 +4802,11 @@ is kept even when `projectile--ignore-patterns' also matches it."
                     (projectile-expand-paths (projectile-files-to-ensure)))))
 
 
-(defun projectile-dirconfig-file ()
-  "Return the absolute path to the project's dirconfig file."
-  (expand-file-name projectile-dirconfig-file (projectile-project-root)))
+(defun projectile-dirconfig-file (&optional root)
+  "Return the absolute path to ROOT's dirconfig file.
+ROOT defaults to the current project's root."
+  (expand-file-name projectile-dirconfig-file
+                    (or root (projectile-project-root))))
 
 (cl-defstruct projectile-dirconfig
   "Parsed contents of a project's dirconfig file.
@@ -4865,10 +4879,11 @@ compatibility but are tracked separately so callers can warn."
      :ensure            (nreverse ensure)
      :prefixless-ignore (nreverse prefixless))))
 
-(defun projectile--parse-dirconfig-file-uncached ()
-  "Parse the dirconfig file without caching.
-Return a `projectile-dirconfig' or nil if the file doesn't exist."
-  (let ((dirconfig (projectile-dirconfig-file)))
+(defun projectile--parse-dirconfig-file-uncached (&optional root)
+  "Parse ROOT's dirconfig file without caching.
+Return a `projectile-dirconfig' or nil if the file doesn't exist.
+ROOT defaults to the current project."
+  (let ((dirconfig (projectile-dirconfig-file root)))
     (when (projectile-file-exists-p dirconfig)
       (projectile--parse-dirconfig-string
        (with-temp-buffer
@@ -4897,8 +4912,11 @@ to nil to silence this warning."
                         ", "))
      :warning)))
 
-(defun projectile-parse-dirconfig-file ()
-  "Parse project ignore file and return its rules.
+(defun projectile-parse-dirconfig-file (&optional root)
+  "Parse ROOT's ignore file and return its rules.
+ROOT defaults to the current project; pass it to read the rules of a
+project you are not visiting, which is what listing the files of several
+projects at once needs.
 
 The return value is a `projectile-dirconfig' struct with three
 slots: KEEP (subdirectories to restrict the project to), IGNORE
@@ -4919,8 +4937,8 @@ are treated as comments.
 
 Results are cached per project root and invalidated when the
 dirconfig file's modification time changes."
-  (let* ((dirconfig (projectile-dirconfig-file))
-         (project-root (projectile-project-root))
+  (let* ((project-root (or root (projectile-project-root)))
+         (dirconfig (projectile-dirconfig-file project-root))
          (cached (gethash project-root projectile--dirconfig-cache))
          (attrs (file-attributes dirconfig))
          (mtime (when attrs (file-attribute-modification-time attrs)))
@@ -4929,7 +4947,7 @@ dirconfig file's modification time changes."
                             (equal cached-dirconfig dirconfig)
                             (equal cached-mtime mtime))
                        cached-result
-                     (let ((parsed (projectile--parse-dirconfig-file-uncached)))
+                     (let ((parsed (projectile--parse-dirconfig-file-uncached project-root)))
                        (when mtime
                          (puthash project-root
                                   (list dirconfig mtime parsed)
@@ -5057,7 +5075,7 @@ CALLER is accepted for backward compatibility but no longer used."
                   ;; equivalent to the batched call above.
                   (mapcan
                    (lambda (dir)
-                     (let ((files (projectile-dir-files dir)))
+                     (let ((files (projectile-dir-files dir project-root)))
                        ;; `projectile-dir-files' already returns paths
                        ;; relative to DIR, so when DIR is the project root
                        ;; itself (the single-directory case - native, or
@@ -9146,7 +9164,9 @@ files in the project."
                         ((executable-find "ack")
                          (projectile--ack-construct-command search-term file-ext))
                         ((and (executable-find "git")
-                              (eq (projectile-project-vcs) 'git))
+                              ;; DIRECTORY's VCS, not the current project's -
+                              ;; a group search asks about each member in turn
+                              (eq (projectile-project-vcs directory) 'git))
                          (projectile--git-grep-construct-command search-term file-ext))
                         (t
                          (projectile--grep-construct-command search-term file-ext)))))
@@ -9415,7 +9435,15 @@ often; smaller values keep Emacs more responsive."
 
 ;; Buffer-local state of a `*projectile-replace*' buffer.
 (defvar-local projectile-replace--root nil
-  "Project root the current results buffer was gathered from.")
+  "Directory the current results buffer's file names are shown relative to.
+For an ordinary search that is the project root; for a search over a
+group of projects it is the innermost directory containing all of them,
+so each match is labelled with the project it came from.")
+(defvar-local projectile-replace--projects nil
+  "Project roots the current results buffer was gathered from.
+Always a list - a one-element one for an ordinary single-project search.
+This, not `projectile-replace--root', is what a re-scan re-reads, so
+re-searching a group of projects covers the same group again.")
 (defvar-local projectile-replace--term nil
   "Raw search term the current results buffer was gathered with.")
 (defvar-local projectile-replace--search nil
@@ -9611,7 +9639,7 @@ and `:truncated' (non-nil when the cap was hit)."
 ;; batch runs and the tests drive.  The async driver below reuses the very same
 ;; per-file `projectile-replace--scan-file', so the structs it produces are
 ;; identical to what `--gather' would produce over the same candidate list and
-;; regexp -- only the DELIVERY changes: files are scanned in timer-yielded
+;; regexp - only the DELIVERY changes: files are scanned in timer-yielded
 ;; chunks, matches stream into the results buffer as they are found, and the
 ;; scan can be canceled.  The `case-fold-search' that `--scan-file' reads is
 ;; re-established from the buffer's `projectile-replace--case-fold' inside each
@@ -9733,8 +9761,14 @@ The write-back and export must never run against a partial match set."
   (when projectile-replace--scanning
     (user-error "Still searching; wait for the scan to finish")))
 
-(defun projectile-replace--candidates (term literal case-fold directory)
-  "Return the files under DIRECTORY worth scanning for TERM.
+(defun projectile-replace--candidates (term literal case-fold directories)
+  "Return the files under DIRECTORIES worth scanning for TERM.
+DIRECTORIES is a project root, or a list of them for a search spanning a
+group of projects, in which case each contributes its own file list and
+the result is de-duplicated - two members of a group can nest (a
+monorepo and a project inside it), and a file scanned twice would be
+replaced twice, corrupting it.
+
 For a case-sensitive LITERAL search this narrows to files that contain
 TERM, via `projectile-files-with-string' - which matches
 case-insensitively, so the narrowed set is a safe superset that the scan
@@ -9742,13 +9776,18 @@ then filters exactly - intersected with the project's ignore-aware file
 list.  For a regexp search, or a case-insensitive literal search, it
 returns the whole ignore-aware file list, since those can't be narrowed
 by an external grep this way."
-  (let ((project-files (mapcar (lambda (f) (expand-file-name f directory))
-                               (projectile-dir-files directory))))
-    (if (and literal (not case-fold))
-        (seq-filter (lambda (f) (member f project-files))
-                    (projectile-files-with-string term directory))
-      (seq-remove (lambda (f) (or (file-directory-p f) (not (file-exists-p f))))
-                  project-files))))
+  (delete-dups
+   (mapcan
+    (lambda (directory)
+      (let ((project-files (mapcar (lambda (f) (expand-file-name f directory))
+                                   (projectile-dir-files directory))))
+        (if (and literal (not case-fold))
+            (seq-filter (lambda (f) (member f project-files))
+                        (projectile-files-with-string term directory))
+          (seq-remove (lambda (f) (or (file-directory-p f) (not (file-exists-p f))))
+                      project-files))))
+    ;; a recorded group can name a directory that has since been moved away
+    (seq-filter #'projectile--directory-p (ensure-list directories)))))
 
 ;;; Results buffer rendering
 
@@ -10003,7 +10042,7 @@ state.  The re-render happens from the (streaming) scan, so callers need
 not render again."
   (let ((candidates (projectile-replace--candidates
                      projectile-replace--term projectile-replace--literal
-                     projectile-replace--case-fold projectile-replace--root)))
+                     projectile-replace--case-fold projectile-replace--projects)))
     (setq projectile-replace--filtered nil)
     (projectile-replace--start (current-buffer) candidates
                                projectile-replace--search nil)))
@@ -10550,14 +10589,16 @@ write back to the files.
 
 (defun projectile-replace--seed (buf mode root term regexp replacement
                                      literal case-fold &optional word
-                                     rg-pattern)
+                                     rg-pattern projects)
   "Put BUF in MODE and seed its results-buffer state, with no matches yet.
 ROOT, TERM, REGEXP, REPLACEMENT, LITERAL, CASE-FOLD, WORD and RG-PATTERN
 seed the search parameters; the match list starts empty, ready for a
-\(sync or async) scan to fill it."
+\(sync or async) scan to fill it.  PROJECTS is the list of project roots
+searched, defaulting to just ROOT."
   (with-current-buffer buf
     (funcall mode)
-    (setq projectile-replace--root root
+    (setq projectile-replace--projects (or projects (list root))
+          projectile-replace--root root
           projectile-replace--term term
           projectile-replace--search regexp
           projectile-replace--replacement replacement
@@ -10814,19 +10855,22 @@ otherwise returns REGEXP unchanged."
 Cancels any in-flight scan in BUFFER first, then scans with the async
 chunked driver when `projectile-replace--async-p' holds and otherwise
 synchronously (always in batch), so the final match list is identical
-either way -- only delivery differs.  BUFFER is re-rendered when done and
+either way - only delivery differs.  BUFFER is re-rendered when done and
 ON-DONE (or nil) is called in it.
 
 As an optional accelerator, a read-only search-reviewer BUFFER doing a
 literal search (or one carrying a `projectile-replace--rg-pattern') takes
 the ripgrep fast-path (`projectile-search--gather-rg') when
 `projectile-search--rg-fastpath-p' holds; the replace reviewer and the
-plain regexp search always take the elisp path below."
+plain regexp search always take the elisp path below.  So does a search
+spanning several projects: the fast-path runs one `rg' over one directory
+tree, and a group of projects is not one tree."
   (with-current-buffer buffer
     (projectile-replace--cancel-scan))
   (cond
    ((with-current-buffer buffer
       (and (derived-mode-p 'projectile-search-mode)
+           (null (cdr projectile-replace--projects))
            (projectile-search--rg-fastpath-p projectile-replace--literal
                                              projectile-replace--rg-pattern)))
     (projectile-search--gather-rg
@@ -10859,15 +10903,15 @@ plain regexp search always take the elisp path below."
 
 (defun projectile-replace--open (mode buf-name root term regexp replacement
                                       literal case-fold candidates no-match-msg
-                                      &optional word rg-pattern)
+                                      &optional word rg-pattern projects)
   "Open BUF-NAME in MODE and scan CANDIDATES for REGEXP into it.
 When scanning is asynchronous the buffer is shown immediately and matches
 stream in; when synchronous (always in batch) the scan completes first
 and, to preserve the pre-async behavior, no buffer is shown when nothing
-matched -- NO-MATCH-MSG is issued instead.  Returns the results buffer,
+matched - NO-MATCH-MSG is issued instead.  Returns the results buffer,
 or nil on the synchronous no-match path.  ROOT, TERM, REGEXP,
-REPLACEMENT, LITERAL, CASE-FOLD, WORD and RG-PATTERN seed the buffer
-state."
+REPLACEMENT, LITERAL, CASE-FOLD, WORD, RG-PATTERN and PROJECTS seed the
+buffer state."
   ;; re-running the command must not orphan a scan still filling an earlier
   ;; instance of the buffer (re-seeding resets its buffer-locals)
   (when-let* ((existing (get-buffer buf-name)))
@@ -10878,10 +10922,11 @@ state."
           ;; engine is off (`projectile-search-async' nil); `--start' then
           ;; dispatches it to ripgrep
           (and (eq mode #'projectile-search-mode)
+               (null (cdr projects))
                (projectile-search--rg-fastpath-p literal rg-pattern)))
       (let ((buf (get-buffer-create buf-name)))
         (projectile-replace--seed buf mode root term regexp replacement
-                                  literal case-fold word rg-pattern)
+                                  literal case-fold word rg-pattern projects)
         (with-current-buffer buf
           (setq projectile-replace--scanning t)
           (funcall projectile-replace--render-function))
@@ -10900,7 +10945,7 @@ state."
           (progn (when no-match-msg (message "%s" no-match-msg)) nil)
         (let ((buf (get-buffer-create buf-name)))
           (projectile-replace--seed buf mode root term regexp replacement
-                                    literal case-fold word rg-pattern)
+                                    literal case-fold word rg-pattern projects)
           (with-current-buffer buf
             (setq projectile-replace--matches matches
                   projectile-replace--truncated truncated)
@@ -11077,6 +11122,7 @@ any filtering is undone and every match comes back enabled), mirroring
 `projectile-replace-review'."
   (interactive)
   (let* ((root projectile-replace--root)
+         (projects projectile-replace--projects)
          (term projectile-replace--term)
          (literal projectile-replace--literal)
          (case-fold projectile-replace--case-fold)
@@ -11085,12 +11131,12 @@ any filtering is undone and every match comes back enabled), mirroring
          (replacement (read-string
                        (projectile-prepend-project-name
                         (format "Replace %s with: " term))))
-         (candidates (projectile-replace--candidates term literal case-fold root)))
+         (candidates (projectile-replace--candidates term literal case-fold projects)))
     (projectile-replace--open
      #'projectile-replace-mode projectile-replace-buffer-name
      root term regexp replacement literal case-fold candidates
      (projectile-prepend-project-name (format "No matches for %s" term))
-     word)))
+     word nil projects)))
 
 (defvar projectile-search-mode-map
   (let ((map (make-sparse-keymap)))
@@ -11141,27 +11187,18 @@ matches to a `grep-mode' buffer for wgrep or Emacs 31's `grep-edit-mode'.
 (defun projectile-search--review (literal)
   "Gather matches for a project-wide search and pop the read-only results buffer.
 LITERAL non-nil searches for a literal string; otherwise the term is an
-Emacs regexp.  There is no replacement prompt."
-  (let* ((root (projectile-acquire-root))
-         (term (projectile--read-search-string-with-default
-                (format "Search %s%s for"
-                        (projectile--search-tool-tag
-                         (if (and literal (projectile-search--rg-fastpath-p t))
-                             "ripgrep" "elisp"))
-                        (if literal "" " regexp"))))
-         (regexp (if literal (regexp-quote term) term))
-         (case-fold case-fold-search)
-         (word projectile-search-whole-word)
-         (candidates (projectile-replace--candidates term literal case-fold root)))
-    ;; SEAM: everything above computes the candidate file list; the shared
-    ;; opener below seeds the buffer and scans -- synchronously in batch,
-    ;; asynchronously (streaming) when interactive -- then renders whatever
-    ;; matches come back.
-    (projectile-replace--open
-     #'projectile-search-mode projectile-search-buffer-name
-     root term regexp nil literal case-fold candidates
-     (projectile-prepend-project-name (format "No matches for %s" term))
-     word)))
+Emacs regexp.  There is no replacement prompt.
+
+This is `projectile-search-in-projects' over the one project you are in;
+the prompt is built here because only the single-project case can name
+the tool that will do the scanning."
+  (projectile-search-in-projects
+   (list (projectile-acquire-root)) literal
+   (format "Search %s%s for"
+           (projectile--search-tool-tag
+            (if (and literal (projectile-search--rg-fastpath-p t))
+                "ripgrep" "elisp"))
+           (if literal "" " regexp"))))
 
 ;;;###autoload
 (defun projectile-search-review ()
@@ -11260,7 +11297,15 @@ in the results buffer.  The keyword does not have to sit in a comment.
 With a prefix argument ARG, prompt for which keywords to search for
 instead of using all of them."
   (interactive "P")
-  (let* ((root (projectile-acquire-root))
+  (projectile--todos (list (projectile-acquire-root)) arg))
+
+(defun projectile--todos (projects &optional arg)
+  "Collect the TODO-style annotations of PROJECTS into the search reviewer.
+With ARG non-nil, prompt for which keywords to search for.  PROJECTS is a
+list of project roots, so one project and a whole group take the same
+path; see `projectile-search-in-projects' for what changes when there is
+more than one."
+  (let* ((projects (projectile--project-group projects "projects"))
          (keywords (or (if arg
                            (projectile-todos--read-keywords)
                          projectile-todo-keywords)
@@ -11269,15 +11314,16 @@ instead of using all of them."
          (rg-pattern (projectile-todos--rg-pattern keywords))
          ;; the term IS the regexp, so the in-buffer toggles keep working
          (case-fold nil)
-         (candidates (projectile-replace--candidates regexp nil case-fold root)))
+         (candidates (projectile-replace--candidates regexp nil case-fold projects)))
     (projectile-replace--open
      #'projectile-search-mode projectile-search-buffer-name
-     root regexp regexp nil nil case-fold candidates
+     (or (projectile--common-parent projects) "/")
+     regexp regexp nil nil case-fold candidates
      (projectile-prepend-project-name
       (format "No %s annotations found" (string-join keywords "/")))
      ;; The pattern is already word-fenced and ends in a delimiter, so the
      ;; whole-word fence could never match; whole-word mode is not seeded here.
-     nil rg-pattern)))
+     nil rg-pattern projects)))
 
 (defun projectile--buffer-matches-conditions (buffer conditions)
   "Return non-nil if BUFFER satisfies any condition in CONDITIONS.
@@ -12449,26 +12495,28 @@ The command actually run is returned."
     command))
 
 (defcustom projectile-use-comint-mode nil
-  "Which lifecycle commands get an interactive output buffer.
+  "Which of the commands Projectile runs get an interactive output buffer.
 
-The lifecycle commands report through `compilation-mode', which is
-read-only.  For a command covered here Projectile uses `comint-mode'
-instead, so a build that asks a question, or a test runner that drops
-into a debugger, can be typed at.
+Projectile reports through `compilation-mode', which is read-only.  For a
+command covered here it uses `comint-mode' instead, so a build that asks a
+question, a test runner that drops into a debugger, or a task that wants a
+sudo password can be typed at.
 
-The value is nil (no command is interactive), t (all of them), or a
-list naming the ones that are - `configure', `compile', `test',
-`install', `package' and `run'."
+The value is nil (nothing is interactive), t (everything is), or a list
+naming what is - the lifecycle phases `configure', `compile', `test',
+`install', `package' and `run', and `task' for the named tasks run by
+`projectile-run-task'."
   :group 'projectile
-  :type '(choice (const :tag "No command" nil)
-                 (const :tag "Every command" t)
+  :type '(choice (const :tag "Nothing" nil)
+                 (const :tag "Everything" t)
                  (set :tag "Selected commands"
                       (const :tag "Configure" configure)
                       (const :tag "Compile" compile)
                       (const :tag "Test" test)
                       (const :tag "Install" install)
                       (const :tag "Package" package)
-                      (const :tag "Run" run)))
+                      (const :tag "Run" run)
+                      (const :tag "Tasks" task)))
   :package-version '(projectile . "3.4.0"))
 
 ;; Remove in 4.0, this block and the fallback in
@@ -12502,13 +12550,19 @@ list naming the ones that are - `configure', `compile', `test',
 
 (defun projectile-use-comint-mode-p (phase)
   "Return non-nil when PHASE's output buffer should be interactive.
-PHASE is a lifecycle phase symbol such as `compile'.  Reads
-`projectile-use-comint-mode', falling back to the obsolete per-phase
-option it replaced for a configuration that still sets one."
-  (or (eq projectile-use-comint-mode t)
-      (memq phase projectile-use-comint-mode)
-      (when-let* ((var (alist-get phase projectile--obsolete-comint-vars)))
-        (symbol-value var))))
+PHASE is a lifecycle phase symbol such as `compile', or `task' for the
+named tasks - which run through the same machinery and are covered by the
+same option (see issue #2156).  Reads `projectile-use-comint-mode',
+falling back to the obsolete per-phase option it replaced for a
+configuration that still sets one; the tasks never had one of those."
+  ;; Normalized to a boolean: `memq' would otherwise hand the caller the
+  ;; tail of the option's list, which then travels all the way into
+  ;; `compile' as its COMINT argument.
+  (and (or (eq projectile-use-comint-mode t)
+           (memq phase projectile-use-comint-mode)
+           (when-let* ((var (alist-get phase projectile--obsolete-comint-vars)))
+             (symbol-value var)))
+       t))
 
 (defun projectile--phase-command-dynamic-p (phase)
   "Non-nil when PHASE's command comes from a function for the current project.
@@ -13146,6 +13200,7 @@ the `%p' placeholder still intact."
                                  (concat "<" (projectile-project-name project-root) ">")))))
       (projectile--run-project-cmd command nil
                                    :save-buffers t
+                                   :use-comint-mode (projectile-use-comint-mode-p 'task)
                                    :buffer-name-function (lambda (_mode) buffer-name)))
     ;; `command-map' is nil above, so `projectile--run-project-cmd' records
     ;; nothing; record the command - before `%p' expansion, like the other
@@ -13509,20 +13564,16 @@ This command will first prompt for the directory the file is in."
 
 (defun projectile-all-project-files ()
   "Get a list of all files in all projects."
-  (mapcan
-   (lambda (project)
-     (when (file-exists-p project)
-       (mapcar (lambda (file)
-                 (expand-file-name file project))
-               (projectile-project-files project))))
-   projectile-known-projects))
+  (projectile-project-group-files projectile-known-projects))
 
 ;;;###autoload
 (defun projectile-find-file-in-known-projects ()
-  "Jump to a file in any of the known projects."
+  "Jump to a file in any of the known projects.
+This is `projectile-find-file-in-projects' over every project you have
+ever visited."
   (interactive)
-  (find-file (projectile-completing-read "Find file in projects: " (projectile-all-project-files)
-                                         :caller 'projectile-read-file)))
+  (projectile-find-file-in-projects projectile-known-projects
+                                    "Find file in projects: "))
 
 (defun projectile-keep-project-p (project)
   "Determine whether we should cleanup (remove) PROJECT or not.
@@ -14420,7 +14471,13 @@ Each is called with a project root and should return a list of project
 directories related to it.  They're consulted in order and their results
 concatenated, so the most trustworthy signal should come first; a project
 found by more than one is offered once, in the position the first
-function to report it put it."
+function to report it put it.
+
+Adding your own is the intended way to teach Projectile a grouping it
+can't infer - a workspace manifest, say.  Note that
+`projectile-sibling-max-group-share' is applied inside the two built-in
+inferred signals rather than to this list, so a function you add is never
+capped: it is trusted the way a configured group is."
   :group 'projectile
   :type '(repeat function)
   :package-version '(projectile . "3.4.0"))
@@ -14573,6 +14630,179 @@ switch.  With a prefix ARG invokes `projectile-dispatch' instead."
      :action (lambda (project)
                (projectile-switch-project-by-name project arg))
      :category 'projectile-project)))
+
+
+;;; Commands over a group of projects
+;;
+;; Everything above works on the project you're in.  These two work on a set
+;; of projects handed to them, because those are the two questions a group
+;; actually raises: which of them was that file in, and which of them mention
+;; this string.
+;;
+;; They're plain functions taking the list, so a command for a new kind of
+;; group is a two-line wrapper.  The known-projects and sibling commands are
+;; exactly that, and so is anything you write yourself.
+
+(defun projectile--common-parent (directories)
+  "Return the innermost directory containing every one of DIRECTORIES.
+
+Nil when they share no ancestor at all: a group mixing local and remote
+\(TRAMP) projects has none, and neither do two remote projects on
+different hosts.  Nil for an empty DIRECTORIES too."
+  (when directories
+    (let ((parent (file-name-as-directory (expand-file-name (car directories)))))
+      (dolist (dir (cdr directories) parent)
+        (let ((other (file-name-as-directory (expand-file-name dir))))
+          (while (and parent (not (string-prefix-p parent other)))
+            ;; climb until PARENT contains OTHER too, giving up at the root
+            (let ((up (file-name-directory (directory-file-name parent))))
+              (setq parent (unless (equal up parent) up)))))))))
+
+(defun projectile--project-group (projects what)
+  "Return the members of PROJECTS that are still on disk.
+WHAT names the kind of group in the error signalled when none are."
+  (or (seq-filter #'projectile--directory-p projects)
+      (user-error "No %s to search" what)))
+
+(defun projectile-project-group-files (projects)
+  "Return every file in PROJECTS, as absolute paths.
+
+Projects that no longer exist are skipped rather than erroring: a group
+can name a directory that has since been moved away.  The result is
+de-duplicated, since two members of a group can nest."
+  (delete-dups
+   (mapcan
+    (lambda (project)
+      (mapcar (lambda (file) (expand-file-name file project))
+              (projectile-project-files project)))
+    (seq-filter #'projectile--directory-p projects))))
+
+;;;###autoload
+(defun projectile-find-file-in-projects (projects &optional prompt)
+  "Jump to a file in any of PROJECTS.
+PROMPT overrides the completion prompt."
+  (find-file (projectile-completing-read
+              (or prompt "Find file in projects: ")
+              (projectile-project-group-files
+               (projectile--project-group projects "projects"))
+              :caller 'projectile-read-file)))
+
+;;;###autoload
+(defun projectile-search-in-projects (projects &optional literal prompt)
+  "Search PROJECTS for a term and review the matches read-only.
+LITERAL non-nil searches for a literal string, otherwise the term is an
+Emacs regexp.  PROMPT overrides the label the term is read with.
+
+This is `projectile-search-review' widened to a group, and that command
+is the single-project case of it: matches from every project land in one
+`*projectile-search*' buffer, grouped by file and named relative to the
+innermost directory containing the group, so each one is labelled with
+the project it came from.  Everything that buffer does - filtering,
+re-search, the hand-off to the replace reviewer - then covers the whole
+group.
+
+Searching more than one project skips the ripgrep fast-path, which runs
+one `rg' over one directory tree.  Each member of the group is filtered
+by its own ignore rules, wherever you happen to be sitting."
+  (let* ((projects (projectile--project-group projects "projects"))
+         (term (projectile--read-search-string-with-default
+                (or prompt (format "Search %d project%s%s for"
+                                   (length projects)
+                                   (if (cdr projects) "s" "")
+                                   (if literal "" " regexp")))))
+         (regexp (if literal (regexp-quote term) term))
+         (case-fold case-fold-search)
+         (candidates (projectile-replace--candidates
+                      term literal case-fold projects)))
+    (projectile-replace--open
+     #'projectile-search-mode projectile-search-buffer-name
+     (or (projectile--common-parent projects) "/")
+     term regexp nil literal case-fold candidates
+     (projectile-prepend-project-name (format "No matches for %s" term))
+     projectile-search-whole-word nil projects)))
+
+(defun projectile-project-group-buffers (projects)
+  "Return the live buffers belonging to any of PROJECTS.
+De-duplicated, since two members of a group can nest and a buffer under
+both would otherwise be offered twice."
+  (delete-dups (mapcan #'projectile-project-buffers projects)))
+
+;;;###autoload
+(defun projectile-switch-to-buffer-in-projects (projects &optional prompt)
+  "Switch to a buffer belonging to any of PROJECTS.
+PROMPT overrides the completion prompt.  The current buffer is left out
+of the choices, as `projectile-switch-to-buffer' does."
+  (switch-to-buffer
+   (projectile-completing-read
+    (or prompt "Switch to buffer: ")
+    (delete (buffer-name (current-buffer))
+            (mapcar #'buffer-name (projectile-project-group-buffers projects)))
+    :category 'buffer
+    :caller 'projectile-read-buffer)))
+
+(defun projectile--sibling-group ()
+  "Return the projects to treat as a group with the current one.
+
+That is `projectile-sibling-projects', which includes the project you are
+in - unlike switching, working across a family of projects is something
+you want the project at hand to be part of - minus any member that has
+been moved away, so a prompt never counts projects it cannot search."
+  (let ((root (projectile-acquire-root)))
+    (or (seq-filter #'projectile--directory-p (projectile-sibling-projects root))
+        (user-error "No projects related to %s found - see `projectile-project-groups'"
+                    (projectile-project-name root)))))
+
+;;;###autoload
+(defun projectile-find-file-in-sibling-projects ()
+  "Jump to a file in the current project or any related to it.
+Related is what `projectile-switch-sibling-project' means by it."
+  (interactive)
+  (projectile-find-file-in-projects (projectile--sibling-group)
+                                    "Find file in sibling projects: "))
+
+;;;###autoload
+(defun projectile-search-in-sibling-projects (&optional regexp)
+  "Search the current project and the ones related to it, reviewing the matches.
+
+Related is what `projectile-switch-sibling-project' means by it.  With a
+prefix argument REGEXP the search term is an Emacs regexp rather than a
+literal string."
+  (interactive "P")
+  (let ((siblings (projectile--sibling-group)))
+    (projectile-search-in-projects
+     siblings (not regexp)
+     (format "Search %d sibling project%s%s for"
+             (length siblings) (if (cdr siblings) "s" "")
+             (if regexp " regexp" "")))))
+
+;;;###autoload
+(defun projectile-switch-to-buffer-in-sibling-projects ()
+  "Switch to a buffer of the current project or of one related to it.
+Related is what `projectile-switch-sibling-project' means by it."
+  (interactive)
+  (projectile-switch-to-buffer-in-projects
+   (projectile--sibling-group) "Switch to sibling buffer: "))
+
+;;;###autoload
+(defun projectile-multi-occur-in-sibling-projects (&optional nlines)
+  "Do a `multi-occur' in the buffers of the current project and related ones.
+Related is what `projectile-switch-sibling-project' means by it.  With a
+prefix argument, show NLINES of context.
+
+Note this searches the buffers you have open, not the projects on disk -
+`projectile-search-in-sibling-projects' is the one that reads files."
+  (interactive "P")
+  (multi-occur (projectile-project-group-buffers (projectile--sibling-group))
+               (car (occur-read-primary-args))
+               nlines))
+
+;;;###autoload
+(defun projectile-todos-in-sibling-projects ()
+  "Collect TODO-style annotations across the current project and related ones.
+Related is what `projectile-switch-sibling-project' means by it.  See
+`projectile-todos' for what counts as an annotation."
+  (interactive)
+  (projectile--todos (projectile--sibling-group)))
 
 
 ;;; Project bookmarks
@@ -16228,14 +16458,35 @@ remote project, or under any other VCS, that section says so instead.
 
 ;;; Projectile Minor mode
 
+(defvar-local projectile--mode-line nil
+  "The mode-line lighter Projectile shows in this buffer.
+Seeded from `projectile-mode-line-prefix' and replaced by
+`projectile-update-mode-line' once the buffer's project is known.  A
+buffer that never gets that far keeps the prefix: that is every buffer
+when `projectile-dynamic-mode-line' is off, and remote ones always,
+since both update paths skip them to avoid a TRAMP round trip.")
+
 (defcustom projectile-mode-line-prefix
   " Projectile"
   "Mode line lighter prefix for Projectile.
 It's used by `projectile-default-mode-line'
 when using dynamic mode line lighter and is the only
-thing shown in the mode line otherwise."
+thing shown in the mode line otherwise.
+
+Change the value via Customize or `setopt' so it takes effect
+immediately; a plain `setq' only reaches buffers whose lighter is
+recomputed later, and none are when `projectile-dynamic-mode-line' is
+off."
   :group 'projectile
   :type 'string
+  :set (lambda (symbol value)
+         (set-default symbol value)
+         ;; The lighter is a variable, not a computation, so buffers that
+         ;; never recompute it - all of them with `projectile-dynamic-mode-line'
+         ;; off - would otherwise keep displaying whatever the prefix was
+         ;; when Projectile loaded.
+         (setq-default projectile--mode-line value)
+         (force-mode-line-update t))
   :package-version '(projectile . "0.12.0"))
 
 (defcustom projectile-show-menu t
@@ -16243,8 +16494,6 @@ thing shown in the mode line otherwise."
   :group 'projectile
   :type 'boolean
   :package-version '(projectile . "2.6.0"))
-
-(defvar-local projectile--mode-line projectile-mode-line-prefix)
 
 (defun projectile-default-mode-line ()
   "Report project name and type in the modeline."
@@ -16322,8 +16571,14 @@ Magit that don't trigger `find-file-hook'."
     (define-key map (kbd "k") #'projectile-kill-buffers)
     (define-key map (kbd "l") #'projectile-find-file-in-directory)
     (define-key map (kbd "m") #'projectile-dispatch)
-    ;; projects related to this one, in other repositories
-    (define-key map (kbd "n") #'projectile-switch-sibling-project)
+    ;; projects related to this one, in other repositories - the keys
+    ;; mirror the project-wide ones a level down, as `c m' does
+    (define-key map (kbd "n p") #'projectile-switch-sibling-project)
+    (define-key map (kbd "n f") #'projectile-find-file-in-sibling-projects)
+    (define-key map (kbd "n s") #'projectile-search-in-sibling-projects)
+    (define-key map (kbd "n b") #'projectile-switch-to-buffer-in-sibling-projects)
+    (define-key map (kbd "n o") #'projectile-multi-occur-in-sibling-projects)
+    (define-key map (kbd "n t") #'projectile-todos-in-sibling-projects)
     (define-key map (kbd "o") #'projectile-multi-occur)
     (define-key map (kbd "p") #'projectile-switch-project)
     (define-key map (kbd "q") #'projectile-switch-open-project)
@@ -16575,6 +16830,19 @@ buffer."
                               #'projectile-search-regexp-review
                             #'projectile-search-review)))))
 
+(defun projectile-dispatch-search-siblings ()
+  "Sibling-project search honouring the search switches.
+`--regexp' reads the term as an Emacs regexp, `--case-sensitive' seeds
+the search case-sensitive and `--word' matches whole words; all can still
+be flipped (`x'/`c'/`w') in the results buffer."
+  (interactive)
+  (let* ((switches (projectile-dispatch--args))
+         (case-fold-search (if (member "--case-sensitive" switches)
+                               nil case-fold-search))
+         (projectile-search-whole-word
+          (if (member "--word" switches) t projectile-search-whole-word)))
+    (projectile-search-in-sibling-projects (and (member "--regexp" switches) t))))
+
 (defun projectile-dispatch-replace-review ()
   "Reviewable replace honouring the `--regexp' and `--case-sensitive' switches.
 Like `projectile-dispatch-search-review', but for the replace reviewer."
@@ -16644,6 +16912,7 @@ search/replace case-sensitive, `--word' makes it match whole words,
       ("l" "file in dir" projectile-find-file-in-directory)
       ("C" "changed file" projectile-find-changed-file)
       ("F" "file in known projects" projectile-find-file-in-known-projects)
+      ("nf" "file in sibling projects" projectile-find-file-in-sibling-projects)
       ("d" "dir" projectile-dispatch-find-dir)
       ("D" "dired" projectile-dispatch-dired)
       ("e" "recentf" projectile-recentf)
@@ -16654,6 +16923,7 @@ search/replace case-sensitive, `--word' makes it match whole words,
       ("J" "toggle related" projectile-toggle-related-file)]
      ["Buffers"
       ("b" "switch buffer" projectile-dispatch-switch-to-buffer)
+      ("nb" "buffer in siblings" projectile-switch-to-buffer-in-sibling-projects)
       ("C-o" "display buffer" projectile-display-buffer)
       ("I" "ibuffer" projectile-ibuffer)
       ("k" "kill buffers" projectile-kill-buffers)
@@ -16669,6 +16939,9 @@ search/replace case-sensitive, `--word' makes it match whole words,
       ("sa" "ag" projectile-dispatch-ag)
       ("sx" "references" projectile-find-references)
       ("sR" "search (review)" projectile-dispatch-search-review)
+      ("ns" "search siblings" projectile-dispatch-search-siblings)
+      ("no" "multi-occur siblings" projectile-multi-occur-in-sibling-projects)
+      ("nt" "todos in siblings" projectile-todos-in-sibling-projects)
       ("st" "todos" projectile-todos)
       ("o" "multi-occur" projectile-multi-occur)
       ("r" "replace" projectile-replace)
@@ -16678,7 +16951,7 @@ search/replace case-sensitive, `--word' makes it match whole words,
       ("p" "switch project" projectile-dispatch-switch-project)
       ("q" "switch open project" projectile-switch-open-project)
       ("W" "switch worktree" projectile-switch-worktree)
-      ("n" "switch sibling project" projectile-switch-sibling-project)
+      ("np" "switch sibling project" projectile-switch-sibling-project)
       ("A" "add known project" projectile-add-known-project)
       ("v" "vc" projectile-vc)
       ("P" "dashboard" projectile-dashboard)
@@ -16758,6 +17031,7 @@ search/replace case-sensitive, `--word' makes it match whole words,
          ["Find file" projectile-find-file]
          ["Find file (all, ignoring rules)" projectile-find-file-all]
          ["Find file in known projects" projectile-find-file-in-known-projects]
+         ["Find file in sibling projects" projectile-find-file-in-sibling-projects]
          ["Find test file" projectile-find-test-file]
          ["Find directory" projectile-find-dir]
          ["Find file in directory" projectile-find-file-in-directory]
@@ -16769,6 +17043,7 @@ search/replace case-sensitive, `--word' makes it match whole words,
          ["Toggle between related files" projectile-toggle-related-file])
         ("Buffers"
          ["Switch to buffer" projectile-switch-to-buffer]
+         ["Switch to buffer in sibling projects" projectile-switch-to-buffer-in-sibling-projects]
          ["Kill project buffers" projectile-kill-buffers]
          ["Save project buffers" projectile-save-project-buffers]
          ["Recent files" projectile-recentf]
@@ -16784,6 +17059,8 @@ search/replace case-sensitive, `--word' makes it match whole words,
          "--"
          ["Switch to project" projectile-switch-project]
          ["Switch to open project" projectile-switch-open-project]
+         ["Switch to sibling project" projectile-switch-sibling-project]
+         ["Switch to worktree" projectile-switch-worktree]
          "--"
          ["Discover projects in directory" projectile-discover-projects-in-directory]
          ["Discover projects in search path" projectile-discover-projects-in-search-path]
@@ -16808,6 +17085,9 @@ search/replace case-sensitive, `--word' makes it match whole words,
          ["Search with grep" projectile-grep]
          ["Search with ripgrep" projectile-ripgrep]
          ["Search with ag" projectile-ag]
+         ["Search in sibling projects" projectile-search-in-sibling-projects]
+         ["TODOs in sibling projects" projectile-todos-in-sibling-projects]
+         ["Multi-occur in sibling projects" projectile-multi-occur-in-sibling-projects]
          ["Project TODOs (review)" projectile-todos]
          ["Replace in project" projectile-replace]
          ["Replace in project (review)" projectile-replace-review]

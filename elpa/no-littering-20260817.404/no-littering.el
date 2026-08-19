@@ -6,8 +6,8 @@
 ;; Homepage: https://github.com/emacscollective/no-littering
 ;; Keywords: convenience
 
-;; Package-Version: 20260731.2241
-;; Package-Revision: c949f327f417
+;; Package-Version: 20260817.404
+;; Package-Revision: 22235d2790d0
 ;; Package-Requires: (
 ;;     (emacs  "28.1")
 ;;     (compat "31.0"))
@@ -204,8 +204,18 @@ This variable has to be set before `no-littering' is loaded.")
     (eval-after-load 'newsticker  `(make-directory ,(var "newsticker/") t))
     (eval-after-load 'org         `(make-directory ,(var "org/") t))
     (eval-after-load 'shadowfile  `(make-directory ,(var "shadow/") t))
-    (eval-after-load 'treesit     `(when (treesit-available-p)
-                                     (push ,(var "treesit/") treesit-extra-load-path)))
+    (eval-after-load 'treesit
+      `(when (treesit-available-p)
+         (let ((dir ,(var "treesit/")))
+           (push dir treesit-extra-load-path)
+           ;; Ensure the above is respected when downloading new grammars.
+           ;; The directory must exist.  Keep a value of `always' -- only
+           ;; `ask' always installs in "user-emacs-directory/tree-sitter".
+           ;; See https://debbugs.gnu.org/cgi/bugreport.cgi?bug=79862.
+           (when (and (boundp 'treesit-auto-install-grammar)
+                      (eq treesit-auto-install-grammar 'ask))
+             (make-directory dir t)
+             (setq treesit-auto-install-grammar 'ask-dir)))))
 
 ;;; Third-party packages
 
@@ -325,6 +335,7 @@ This variable has to be set before `no-littering' is loaded.")
     ;; more information.
     (setq notmuch-init-file                (etc "notmuch-init"))
     (setq nov-save-place-file              (var "nov-save-place.el"))
+    (setq oauth2-auto-plstore              (var "oauth2-auto.plstore"))
     (setq omnisharp-cache-directory        (var "omnisharp/cache"))
     (setq org-caldav-backup-file           (var "org/caldav/backup.org"))
     (setq org-caldav-save-directory        (var "org/caldav/save"))

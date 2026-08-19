@@ -24,7 +24,7 @@
 		("Bas Alberts" . "bas@anti.computer"))
       (:commit . "e99165ef5274bc4512b8d77ba2ac208c59b5d456"))])
  (aidermacs
-  . [(1 11)
+  . [(1 12)
      ((emacs (26 1)) (transient (0 3 0)) (compat (30 0 2 0))
       (markdown-mode (2 7)))
      "AI pair programming with Aider" tar
@@ -33,7 +33,7 @@
 		 "tools")
       (:maintainer "Mingde Zeng" . "matthewzmd@posteo.net")
       (:authors ("Mingde Zeng" . "matthewzmd@posteo.net"))
-      (:commit . "04c31616481fe55b4362859af01241041b755a6a"))])
+      (:commit . "2d8c28d3fbd64260cbfd5a1477aea3bff55ba54f"))])
  (alect-themes
   . [(0 11) ((emacs (24 0)))
      "Configurable light, dark and black themes for Emacs 24 or later"
@@ -192,13 +192,13 @@
 		("Damien Doligez" . "damien.doligez@inria.fr"))
       (:commit . "2905a436e956c5bba16c4633a6e4c4fceefa6535"))])
  (casual
-  . [(2 17 1) ((emacs (30 1)) (transient (0 9 0)) (csv-mode (1 27)))
+  . [(3 0 1) ((emacs (30 1)) (transient (0 9 0)) (csv-mode (1 27)))
      "Transient user interfaces for various modes" tar
      ((:url . "https://github.com/kickingvegas/casual")
       (:keywords "tools" "wp")
       (:maintainer "Charles Choi" . "kickingvegas@gmail.com")
       (:authors ("Charles Choi" . "kickingvegas@gmail.com"))
-      (:commit . "cadbeab2ec45804e63a328202c9a82fbed2413c5"))])
+      (:commit . "4360a3f8bd8dc775bd1c41a0fb26f2397785ad7f"))])
  (cdlatex
   . [(4 18 5) nil "Fast input methods for LaTeX environments and math"
      tar
@@ -235,6 +235,15 @@
       (:keywords "languages" "clojure" "clojurescript" "lisp")
       (:maintainer "Bozhidar Batsov" . "bozhidar@batsov.dev")
       (:commit . "96fdffcbe9e1b8ebf9ad14e23b06f62cc3422e22"))])
+ (codex-ide
+  . [(0 1 1)
+     ((emacs (29 1)) (compat (29 1 4 2)) (keymap-popup (0 4 0))
+      (eat (0 9 4)))
+     "Run Codex CLI in a terminal" tar
+     ((:url . "https://git.thanosapollo.org/emacs-codex-ide")
+      (:keywords "ai" "codex" "tools" "terminal")
+      (:maintainer "Thanos Apollo" . "public@thanosapollo.org")
+      (:commit . "d11a143ac52894eb25bbb43d877c8761f2f01244"))])
  (coffee-mode
   . [(0 6 3) ((emacs (24 1)) (cl-lib (0 5)))
      "Major mode for CoffeeScript code" tar
@@ -373,6 +382,13 @@
      ((:url . "https://github.com/spotify/dockerfile-mode")
       (:keywords "docker" "languages" "processes" "tools")
       (:commit . "7ce17e054eca4d56ca8bc1e4a6a0dbf58efd8d52"))])
+ (doom-game
+  . [(0 3) ((emacs (31 0))) "DOOM on Emacs" tar
+     ((:url . "https://github.com/minad/doom-on-emacs")
+      (:keywords "games")
+      (:maintainer "Daniel Mendler" . "mail@daniel-mendler.de")
+      (:authors ("Daniel Mendler" . "mail@daniel-mendler.de"))
+      (:commit . "0c429c5d25d7d51c6c02243b81f38c45166783f6"))])
  (dracula-theme
   . [(1 8 3) ((emacs (24 3))) "Dracula Theme" tar
      ((:url . "https://github.com/dracula/emacs")
@@ -989,6 +1005,16 @@
       (:maintainer "Thierry Volpiatto" . "thievol@posteo.net")
       (:authors ("Thierry Volpiatto" . "thievol@posteo.net"))
       (:commit . "3cd5097285dc10ac0898cf6f30c9699c3399e421"))])
+ (hermes
+  . [(0 3 2)
+     ((emacs (29 1)) (keymap-popup (0 3 1)) (websocket (1 15))
+      (markdown-mode (2 6)))
+     "Emacs frontend for Hermes Agent" tar
+     ((:url . "https://git.thanosapollo.org/emacs-hermes")
+      (:keywords "tools" "convenience")
+      (:maintainer "Thanos Apollo" . "public@thanosapollo.org")
+      (:authors ("Thanos Apollo" . "public@thanosapollo.org"))
+      (:commit . "46e5d042b0b3e637415126bc488234dc4d6b6a0c"))])
  (hideshowvis
   . [(0 9) ((emacs (27 1)))
      "Fringe markers for regions foldable by hideshow.el" tar
@@ -1402,6 +1428,14 @@
       (:maintainer "Phillip Lord" . "phillip.lord@russet.org.uk")
       (:authors ("Paul Sexton" . "eeeickythump@gmail.com"))
       (:commit . "4c114489e682e514e79701045d541ab6f3dc3fb4"))])
+ (org-history
+  . [(0 5 2) ((emacs (29 1)))
+     "Show Dates for Org headers from vcs + auto-commit" tar
+     ((:url . "https://codeberg.org/Anoncheg/emacs-org-history")
+      (:keywords "org" "outline" "vc")
+      (:maintainer nil . "github.com/Anoncheg1,codeberg.org/Anoncheg")
+      (:authors (nil . "github.com/Anoncheg1,codeberg.org/Anoncheg"))
+      (:commit . "3049ba97830e8dd19a56add34ad2538cf11a0ac8"))])
  (org-journal
   . [(2 2 0) ((emacs (25 1)) (org (9 1)))
      "a simple org-mode based journaling mode" tar
@@ -1570,6 +1604,13 @@
       (:maintainer "Frédéric Perrin" . "fredericperrinreselfr")
       (:authors ("Frédéric Perrin" . "fredericperrinreselfr"))
       (:commit . "176f9fb0c29ac60898e1e938458f26205511cc23"))])
+ (project-store
+  . [(0 9 0) ((emacs (29 1))) "Project backend for Nix store" tar
+     ((:url . "https://github.com/jian-lin/project-store")
+      (:keywords "nix" "store" "project" "tools")
+      (:maintainer "Lin Jian" . "me@linj.tech")
+      (:authors ("Lin Jian" . "me@linj.tech"))
+      (:commit . "b64ecaa4b0fb448604f9557425188c6b0b52151e"))])
  (projectile
   . [(3 4 0) ((emacs (28 1)) (compat (30)))
      "Manage and navigate projects in Emacs easily" tar
