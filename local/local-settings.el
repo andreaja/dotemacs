@@ -82,6 +82,27 @@
 (defun aja/org-agenda-skip-scheduled-and-non-tasks ()
   (org-agenda-skip-entry-if 'scheduled 'aja/is-not-subproject-p))
 
+(defun aja/org-agenda-revert-stale-file-buffers (files)
+  "Revert unmodified agenda buffers whose files changed on disk.
+
+Org uses an existing visiting buffer when it builds an agenda, even when that
+buffer is older than the file on disk.  Keep unsaved buffers untouched."
+  (dolist (file files)
+    (let ((buffer (if (bufferp file)
+                      file
+                    (org-find-base-buffer-visiting file))))
+      (when (and (buffer-live-p buffer)
+                 (buffer-file-name buffer)
+                 (not (buffer-modified-p buffer))
+                 (file-readable-p (buffer-file-name buffer))
+                 (not (verify-visited-file-modtime buffer)))
+        (with-current-buffer buffer
+          (revert-buffer :ignore-auto :noconfirm :preserve-modes))))))
+
+(with-eval-after-load 'org
+  (advice-add 'org-agenda-prepare-buffers
+              :before #'aja/org-agenda-revert-stale-file-buffers))
+
 (setq org-agenda-custom-commands
       `(("w" "Waiting for" tags-todo "/!WAIT"
          ((org-agenda-overriding-header "Waiting for response")
