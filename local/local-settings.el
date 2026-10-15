@@ -3,6 +3,9 @@
 
 (setq org-return-follows-link t)
 
+(setq org-hide-drawer-startup t
+      org-startup-folded 'showall)
+
 (setq use-dialog-box nil)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
